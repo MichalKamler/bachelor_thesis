@@ -16,5 +16,105 @@
   {}
 \endgroup
 
-\datalist[entry]{ydnt/global//global/global}\enddatalist
+\datalist[entry]{ydnt/global//global/global}
+  \entry{rbl_paper}{article}{}
+    \name{author}{6}{}{%
+      {{hash=BM}{%
+         family={Boldrer},
+         familyi={B\bibinitperiod},
+         given={Manuel},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SGA}{%
+         family={Serra-Gomez},
+         familyi={S\bibinithyphendelim G\bibinitperiod},
+         given={Alvaro},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LL}{%
+         family={Lyons},
+         familyi={L\bibinitperiod},
+         given={Lorenzo},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Kratky},
+         familyi={K\bibinitperiod},
+         given={Vit},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=AMJ}{%
+         family={Alonso-Mora},
+         familyi={A\bibinithyphendelim M\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=FL}{%
+         family={Ferranti},
+         familyi={F\bibinitperiod},
+         given={Laura},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BMSGALL+1}
+    \strng{fullhash}{BMSGALLKVAMJFL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Rule-Based Lloyd Algorithm for Multi-Robot Motion Planning
+  and Control with Safety and Convergence Guarantees}
+    \verb{url}
+    \verb https://arxiv.org/abs/2310.19511
+    \endverb
+    \field{journaltitle}{arxiv}
+    \field{year}{2024}
+  \endentry
+
+  \entry{Voronoi2d}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=EB}{%
+         family={Ertl},
+         familyi={E\bibinitperiod},
+         given={Balu},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{EB1}
+    \strng{fullhash}{EB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
+    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
+  points}
+    \verb{url}
+    \verb https://commons.wikimedia.org/w/index.php?curid=38534275
+    \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{Voronoi3d}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={WalkingRadiance},
+         familyi={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
+    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
+  points}
+    \verb{url}
+    \verb https://commons.wikimedia.org/w/index.php?curid=127768757
+    \endverb
+    \field{year}{2023}
+  \endentry
+\enddatalist
 \endinput
