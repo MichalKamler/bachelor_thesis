@@ -116,5 +116,158 @@
     \endverb
     \field{year}{2023}
   \endentry
+
+  \entry{vision_navigation}{article}{}
+    \name{author}{6}{}{%
+      {{hash=JR}{%
+         family={Jin},
+         familyi={J\bibinitperiod},
+         given={Ronghe},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WY}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Yan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GZ}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Zhi},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=NX}{%
+         family={Niu},
+         familyi={N\bibinitperiod},
+         given={Xiaoji},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=HLT}{%
+         family={Hsu},
+         familyi={H\bibinitperiod},
+         given={Li-Ta},
+         giveni={L\bibinithyphendelim T\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Jingnan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JRWYGZ+1}
+    \strng{fullhash}{JRWYGZNXHLTLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2211.14478
+    \endverb
+    \field{title}{DynaVIG: Monocular Vision/INS/GNSS Integrated Navigation and
+  Object Tracking for AGV in Dynamic Scenes}
+    \verb{url}
+    \verb https://arxiv.org/abs/2211.14478
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2022}
+  \endentry
+
+  \entry{lidar_navigation}{article}{}
+    \name{author}{6}{}{%
+      {{hash=LZ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Zhijian},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Amini},
+         familyi={A\bibinitperiod},
+         given={Alexander},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ZS}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Sibo},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KS}{%
+         family={Karaman},
+         familyi={K\bibinitperiod},
+         given={Sertac},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=HS}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Song},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=RD}{%
+         family={Rus},
+         familyi={R\bibinitperiod},
+         given={Daniela},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LZAAZS+1}
+    \strng{fullhash}{LZAAZSKSHSRD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2105.09932
+    \endverb
+    \field{title}{Efficient and Robust LiDAR-Based End-to-End Navigation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2105.09932
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2021}
+  \endentry
+
+  \entry{magnetic_navigation}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TT}{%
+         family={Takebayashi},
+         familyi={T\bibinitperiod},
+         given={Takumi},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Miyagusuku},
+         familyi={M\bibinitperiod},
+         given={Renato},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=OK}{%
+         family={Ozaki},
+         familyi={O\bibinitperiod},
+         given={Koichi},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TTMROK1}
+    \strng{fullhash}{TTMROK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{number}{12}
+    \field{title}{Development of Magnetic-Based Navigation by Constructing Maps
+  Using Machine Learning for Autonomous Mobile Robots in Real Environments}
+    \verb{url}
+    \verb https://www.mdpi.com/1424-8220/21/12/3972
+    \endverb
+    \field{volume}{21}
+    \field{journaltitle}{Sensors}
+    \field{year}{2021}
+  \endentry
 \enddatalist
 \endinput

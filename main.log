@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  27 FEB 2025 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  6 MAR 2025 15:26
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1480,7 +1480,7 @@ LaTeX Font Info:    Trying to load font information for U+lasy on input line 29.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) (/home/michal/dev/bachelor_thesis/src/title.tex
-<fig/ctu_lion.pdf, id=135, 561.09625pt x 440.64626pt>
+<fig/ctu_lion.pdf, id=131, 561.09625pt x 440.64626pt>
 File: fig/ctu_lion.pdf Graphic file (type pdf)
 <use fig/ctu_lion.pdf>
 Package pdftex.def Info: fig/ctu_lion.pdf  used on input line 11.
@@ -1496,36 +1496,36 @@ LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </home/michal/dev/bachelor_thesis/fig/ctu_lion.pdf>]) (/home/michal/dev/bachelor_thesis/src/acknowledgments.tex) [2
 
 ]
-<src/assignment.pdf, id=151, 597.6729pt x 845.07718pt>
+<src/assignment.pdf, id=147, 597.50829pt x 845.0471pt>
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf>
 Package pdftex.def Info: src/assignment.pdf  used on input line 60.
-(pdftex.def)             Requested size: 597.67143pt x 845.07512pt.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf>
 Package pdftex.def Info: src/assignment.pdf  used on input line 60.
-(pdftex.def)             Requested size: 597.67143pt x 845.07512pt.
-<src/assignment.pdf, id=154, page=1, 597.6729pt x 845.07718pt>
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
+<src/assignment.pdf, id=150, page=1, 597.50829pt x 845.0471pt>
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf, page 1>
 Package pdftex.def Info: src/assignment.pdf , page1 used on input line 60.
-(pdftex.def)             Requested size: 597.67143pt x 845.07512pt.
+(pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf, page 1>
 Package pdftex.def Info: src/assignment.pdf , page1 used on input line 60.
-(pdftex.def)             Requested size: 597.69879pt x 845.1138pt.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf, page 1>
 Package pdftex.def Info: src/assignment.pdf , page1 used on input line 60.
-(pdftex.def)             Requested size: 597.69879pt x 845.1138pt.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf, page 1>
 Package pdftex.def Info: src/assignment.pdf , page1 used on input line 60.
-(pdftex.def)             Requested size: 597.69879pt x 845.1138pt.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
 File: src/assignment.pdf Graphic file (type pdf)
 <use src/assignment.pdf, page 1>
 Package pdftex.def Info: src/assignment.pdf , page1 used on input line 60.
-(pdftex.def)             Requested size: 597.69879pt x 845.1138pt.
+(pdftex.def)             Requested size: 597.53416pt x 845.08372pt.
  [3
 
  </home/michal/dev/bachelor_thesis/src/assignment.pdf>] (/home/michal/dev/bachelor_thesis/src/declaration.tex
@@ -1555,29 +1555,20 @@ Chapter 1.
 
 ]
 Chapter 2.
-<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=271, 2195.20125pt x 2195.20125pt>
-File: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg Graphic file (type jpg)
-<use ./fig/diagrams/Euclidean_Voronoi_diagram.jpg>
-Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 51.
-(pdftex.def)             Requested size: 213.03474pt x 213.03474pt.
-<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=272, 2350.7825pt x 2625.81pt>
-File: ./fig/diagrams/Euclidian Voronoi diagram 3d.png Graphic file (type png)
-<use ./fig/diagrams/Euclidian Voronoi diagram 3d.png>
-Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 55.
-(pdftex.def)             Requested size: 213.03197pt x 213.03401pt.
 [2
 
-] [3pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.119 \section{Mathematical Describtion in 3D}
-                                              pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1.4}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.119 \section{Mathematical Describtion in 3D}
-                                               <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>]) (/home/michal/dev/bachelor_thesis/src/lidar.tex [4]
+]
+<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=276, 2195.20125pt x 2195.20125pt>
+File: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg Graphic file (type jpg)
+<use ./fig/diagrams/Euclidean_Voronoi_diagram.jpg>
+Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 66.
+(pdftex.def)             Requested size: 213.03474pt x 213.03474pt.
+<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=277, 2350.7825pt x 2625.81pt>
+File: ./fig/diagrams/Euclidian Voronoi diagram 3d.png Graphic file (type png)
+<use ./fig/diagrams/Euclidian Voronoi diagram 3d.png>
+Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 70.
+(pdftex.def)             Requested size: 213.03197pt x 213.03401pt.
+ [3 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>]) (/home/michal/dev/bachelor_thesis/src/lidar.tex [4]
 Chapter 3.
 ) (/home/michal/dev/bachelor_thesis/src/enhancements.tex [5
 
@@ -1612,7 +1603,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 149.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 149.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 149.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B63220C8A899454588FBD25E8BD5BB26;1802.
+(rerunfilecheck)             Checksum: AF8582634A558CEF1E712996B7F37EF3;1747.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1622,18 +1613,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50833 strings out of 482295
- 1149433 string characters out of 5940336
- 2012181 words of memory out of 5000000
- 64875 multiletter control sequences out of 15000+600000
+ 50847 strings out of 482295
+ 1150105 string characters out of 5940336
+ 2012417 words of memory out of 5000000
+ 64886 multiletter control sequences out of 15000+600000
  552592 words of font info for 102 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  67i,18n,113p,916b,1899s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/michal/dev/bachelor_thesis/main.pdf (16 pages, 2263579 bytes).
+Output written on /home/michal/dev/bachelor_thesis/main.pdf (16 pages, 1767202 bytes).
 PDF statistics:
- 440 PDF objects out of 1000 (max. 8388607)
- 363 compressed objects within 4 object streams
- 59 named destinations out of 1000 (max. 500000)
- 352 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 365 compressed objects within 4 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 344 words of extra memory for PDF output out of 10000 (max. 10000000)
 
