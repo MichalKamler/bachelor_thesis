@@ -666,6 +666,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /home/michal/dev/bachelor_thesis/main.aux
 INPUT /home/michal/dev/bachelor_thesis/main.out
 INPUT /home/michal/dev/bachelor_thesis/main.out

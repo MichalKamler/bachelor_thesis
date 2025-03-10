@@ -57,7 +57,7 @@
         \begin{equation}
             \mathcal{S}_i = \{\mathbf{q} \in \mathcal{Q} | \| \mathbf{q} - \mathbf{p}_i \| \leq r_{s,i}\}
         \end{equation}
-        we get cell $\mathcal{A}_i = \tilde{V}_i \cap \mathcal{S}_i$ .
+        the cell $\mathcal{A}_i$ is obtained as $\mathcal{A}_i = \tilde{V}_i \cap \mathcal{S}_i$.
         \begin{figure}[H]
             \centering
             \subfloat[Euclidean Voronoi Diagram in 2D] {
@@ -129,6 +129,50 @@
     \section{Simulation and Results Analysis}
 
     Describtion of simulation enviroment, used tools, Describtion of few simulation scenarios and result analysis.
+        \subsection{Simulation Enviroment}
+            The term 'agent' refers to the UAVs used in the simulation.
+            For this simulation, I relied on the framework provided by \cite{mrs_uav_system}
+            Each UAV obtains its global position from the ROS simulator, RViz.
+            The positions of other UAVs were estimated using blinking LEDs mounted on each UAV, based on the method outlined in \cite{uvdd1}.
+            Below, I list some relevant constraints for each UAV:
+            \begin{table}[h]
+                \centering
+                \renewcommand{\arraystretch}{1.1}
+                \begin{tabular}{|l|c|}
+                    \hline
+                    \textbf{Parameter} & \textbf{Value} \\ \hline
+                        Maximal horizontal speed [\SI{}{\meter\per\second}] & 4.0 \\ \hline
+                        Horizontal acceleration [\SI{}{\meter\per\second\squared}] & 2.0 \\ \hline
+                        Maximal ascending speed [\SI{}{\meter\per\second}] & 2.0 \\ \hline
+                        Vertical ascending acceleration [\SI{}{\meter\per\second\squared}] & 1.0 \\ \hline
+                        Maximal descending speed [\SI{}{\meter\per\second}] & 2.0 \\ \hline
+                        Vertical descending acceleration [\SI{}{\meter\per\second\squared}] & 1.0 \\ \hline
+                    \end{tabular}
+                    \caption{Motion constraints of the UAV.}
+                \label{tab:uav_constraints}
+            \end{table}
+        \subsection{Simulation Scenarios}
+            Several experiments were conducted to evaluate and ensure the safe behavior of the UAVs during interactions. 
+            Different sets of UAVs were used in these experiments, with N = 5, 10, and 15, and data was collected from them for analysis. 
+            Each UAV was first flown from ground to its initial position, and once all UAVs were in their starting positions, the RBL algorithm was initiated.
+
+            For most agent interactions, experiments were conducted in both circular and spherical formations, with the circular formation being initially conducted in \cite{rbl_paper}. 
+            The circular formation was chosen as it promotes more predictable and consistent interactions between agents, as opposed to random initial positions and goal locations, which could lead to less structured or less frequent interactions. 
+            Similarly, the spherical formation was introduced to extend the experiment into 3D, providing a more comprehensive test scenario. 
+            Both structured formations help to better evaluate the performance of the RBL algorithm in environments where agents are more likely to encounter each other.
+            The UAVs were evenly distributed along the perimeter of the circle or the surface of the sphere. 
+            The goal position was placed on the opposite side of the circle or sphere. 
+            The radius of both the circle and the sphere was set to 5 meters.
+            
+            TODO table of parameters used for this experiment.
+            do table here with the constants relevant for the RBL algo
+            Sensing radius $r_s$ = 4.5m
+
+            \subsection{Results for simulation on circle}
+            \subsection{Results for simulation on sphere}
+
+        \subsection{Practical Experiment Setup}
+        \subsection{Comparisons}
 
     \section{Summary and Key Insights}
 

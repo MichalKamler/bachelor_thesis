@@ -10,16 +10,22 @@
 \BOOKMARK [1][-]{section.2.2}{Motivation for 3D Extension}{chapter.2}% 10
 \BOOKMARK [1][-]{section.2.3}{Mathematical Describtion in 3D}{chapter.2}% 11
 \BOOKMARK [1][-]{section.2.4}{Simulation and Results Analysis}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.5}{Summary and Key Insights}{chapter.2}% 13
-\BOOKMARK [0][-]{chapter.3}{Environment Perception Using 3D LiDAR}{}% 14
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.2}{3D LiDAR Sensor Model and Simulation Setup}{chapter.3}% 16
-\BOOKMARK [1][-]{section.3.3}{Object Detection and Approximation}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.4}{Integration with RBL Algorithm}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.5}{Simulation Results}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.6}{Discussion}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.7}{Summary}{chapter.3}% 21
-\BOOKMARK [0][-]{chapter.4}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{}% 22
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 23
-\BOOKMARK [0][-]{chapter.6}{References}{}% 24
-\BOOKMARK [0][-]{appendix.A}{Appendix A}{}% 25
+\BOOKMARK [2][-]{subsection.2.4.1}{Simulation Enviroment}{section.2.4}% 13
+\BOOKMARK [2][-]{subsection.2.4.2}{Simulation Scenarios}{section.2.4}% 14
+\BOOKMARK [2][-]{subsection.2.4.3}{Results for simulation on circle}{section.2.4}% 15
+\BOOKMARK [2][-]{subsection.2.4.4}{Results for simulation on sphere}{section.2.4}% 16
+\BOOKMARK [2][-]{subsection.2.4.5}{Practical Experiment Setup}{section.2.4}% 17
+\BOOKMARK [2][-]{subsection.2.4.6}{Comparisons}{section.2.4}% 18
+\BOOKMARK [1][-]{section.2.5}{Summary and Key Insights}{chapter.2}% 19
+\BOOKMARK [0][-]{chapter.3}{Environment Perception Using 3D LiDAR}{}% 20
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{3D LiDAR Sensor Model and Simulation Setup}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.3}{Object Detection and Approximation}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.4}{Integration with RBL Algorithm}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.5}{Simulation Results}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.6}{Discussion}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.7}{Summary}{chapter.3}% 27
+\BOOKMARK [0][-]{chapter.4}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{}% 28
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 29
+\BOOKMARK [0][-]{chapter.6}{References}{}% 30
+\BOOKMARK [0][-]{appendix.A}{Appendix A}{}% 31

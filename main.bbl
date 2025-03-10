@@ -71,6 +71,31 @@
     \field{year}{2024}
   \endentry
 
+  \entry{mrs_uav_system}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MRSGCiP}{%
+         family={Multi-Robot Systems\bibnamedelima Group},
+         familyi={M\bibinithyphendelim R\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim G\bibinitperiod},
+         given={CTU in\bibnamedelima Prague},
+         giveni={C\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim
+  P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MRSGCiP1}
+    \strng{fullhash}{MRSGCiP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{note}{Accessed: 2025-03-10}
+    \field{title}{MRS UAV System}
+    \verb{url}
+    \verb https://github.com/ctu-mrs/mrs_uav_system
+    \endverb
+    \field{year}{2024}
+  \endentry
+
   \entry{Voronoi2d}{misc}{}
     \name{author}{1}{}{%
       {{hash=EB}{%
@@ -268,6 +293,44 @@
     \field{volume}{21}
     \field{journaltitle}{Sensors}
     \field{year}{2021}
+  \endentry
+
+  \entry{uvdd1}{article}{}
+    \name{author}{3}{}{%
+      {{hash=WV}{%
+         family={Walter},
+         familyi={W\bibinitperiod},
+         given={V.},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Saska},
+         familyi={S\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=FA}{%
+         family={Franchi},
+         familyi={F\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WVSMFA1}
+    \strng{fullhash}{WVSMFA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Fast mutual relative localization of uavs using ultraviolet
+  led markers}
+    \verb{url}
+    \verb https://dronument.cz/sites/default/files/uploaded/mutual_localization
+    \verb s_leds_naki.pdf
+    \endverb
+    \field{journaltitle}{2018 International Conference on Unmanned Aircraft
+  System (ICUAS 2018)}
+    \field{year}{2018}
   \endentry
 \enddatalist
 \endinput
