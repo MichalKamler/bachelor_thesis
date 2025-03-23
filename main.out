@@ -7,25 +7,29 @@
 \BOOKMARK [2][-]{subsection.2.1.1}{Overview}{section.2.1}% 7
 \BOOKMARK [2][-]{subsection.2.1.2}{Applications and Limitations in 2D}{section.2.1}% 8
 \BOOKMARK [2][-]{subsection.2.1.3}{Key principles}{section.2.1}% 9
-\BOOKMARK [1][-]{section.2.2}{Motivation for 3D Extension}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.3}{Mathematical Describtion in 3D}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.4}{Simulation and Results Analysis}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.4.1}{Simulation Enviroment}{section.2.4}% 13
-\BOOKMARK [2][-]{subsection.2.4.2}{Simulation Scenarios}{section.2.4}% 14
-\BOOKMARK [2][-]{subsection.2.4.3}{Results for simulation on circle}{section.2.4}% 15
-\BOOKMARK [2][-]{subsection.2.4.4}{Results for simulation on sphere}{section.2.4}% 16
-\BOOKMARK [2][-]{subsection.2.4.5}{Practical Experiment Setup}{section.2.4}% 17
-\BOOKMARK [2][-]{subsection.2.4.6}{Comparisons}{section.2.4}% 18
-\BOOKMARK [1][-]{section.2.5}{Summary and Key Insights}{chapter.2}% 19
-\BOOKMARK [0][-]{chapter.3}{Environment Perception Using 3D LiDAR}{}% 20
-\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.2}{3D LiDAR Sensor Model and Simulation Setup}{chapter.3}% 22
-\BOOKMARK [1][-]{section.3.3}{Object Detection and Approximation}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.4}{Integration with RBL Algorithm}{chapter.3}% 24
-\BOOKMARK [1][-]{section.3.5}{Simulation Results}{chapter.3}% 25
-\BOOKMARK [1][-]{section.3.6}{Discussion}{chapter.3}% 26
-\BOOKMARK [1][-]{section.3.7}{Summary}{chapter.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{}% 28
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 29
-\BOOKMARK [0][-]{chapter.6}{References}{}% 30
-\BOOKMARK [0][-]{appendix.A}{Appendix A}{}% 31
+\BOOKMARK [1][-]{section.2.2}{Extension of the RBL algorithm to 3D}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.1}{Motivation for 3D Extension}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.2}{Differences between 2D and 3D}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.3}{Additional Constraints and Modifications}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Simulation and Results Analysis}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{Simulation Enviroment}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{Simulation Scenarios}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.3}{N = 5 circular}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.4}{N = 10 circular}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.5}{N = 15 circular}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.6}{N = 10 sphere}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.7}{Practical Experiment Setup}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.8}{Comparisons}{section.2.3}% 22
+\BOOKMARK [1][-]{section.2.4}{Summary and Key Insights}{chapter.2}% 23
+\BOOKMARK [0][-]{chapter.3}{Environment Perception Using 3D LiDAR}{}% 24
+\BOOKMARK [1][-]{section.3.1}{Introduction}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.2}{3D LiDAR Sensor Model and Simulation Setup}{chapter.3}% 26
+\BOOKMARK [1][-]{section.3.3}{Object Detection and Approximation}{chapter.3}% 27
+\BOOKMARK [1][-]{section.3.4}{Integration with RBL Algorithm}{chapter.3}% 28
+\BOOKMARK [1][-]{section.3.5}{Simulation Results}{chapter.3}% 29
+\BOOKMARK [1][-]{section.3.6}{Discussion}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.7}{Summary}{chapter.3}% 31
+\BOOKMARK [0][-]{chapter.4}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{}% 32
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 33
+\BOOKMARK [0][-]{chapter.6}{References}{}% 34
+\BOOKMARK [0][-]{appendix.A}{Appendix A}{}% 35
