@@ -1,4 +1,83 @@
-\chapter{Environment Perception Using 3D LiDAR\label{chap:lidar}}
+\chapter{UAV Navigation Using the RBL Algorithm and LiDAR Sensing\label{chap:lidar}}
+
+    \section{Introduction}
+        TODO
+        \subsection{Motivation}
+            The importance of UAV navigation in environments with obstacles
+        \subsection{Problem Statement}
+            Challenges of UAV movement using LiDAR-based sensing
+        \subsection{Objectives}
+            Implementing RBL with LiDAR for obstacle avoidance and path planning
+        \subsection{Chapter Overview}
+            Summary of what this chapter covers
+
+    \section{LiDAR-Based Perception and Point Cloud Processing}
+        TODO
+        \subsection{Overview of Lidar for UAV Navigation}
+            role of lidar in uav perception and obstacel Detection
+            advantages and challnges using lidar for realtime navigate
+        \subsection{Point Cloud Data Acquisition}
+            capturing spatial data from Lidar sensor - describe how the lidar works
+            describe - ros topic that is being published and stuff
+        \subsection{Preprocessing Techniques}
+            Downsampling
+            UAV Component filtering - removing points corresponding to uav structure - rods and blades
+            Noise filtering
+        \subsection{Surface Reconstruction and Triangulation}
+            Greedy Projection Triangulation (GP3), pcl lib and parametres
+            Generating triangular mesh - How GP3 constructs a surface from point cloud data
+    
+    \section{Using the found triangles for cell A partition}
+        \subsection{Overview}
+        the next step is to utilize these triangles to partition the navigation space, specifically modifying cell 
+        A for the RBL algorithm. This process ensures that the UAV has a structured representation of obstacles and free space.
+        \subsection{Finding the Closest Point on a Triangle}
+        \subsection{Plane Calculation for Slicing Cell A}
+        \subsection{Integration with the RBL Algorithm}
+
+    \section{Implementation and Integration on UAV}
+        \subsection{Software and Hardware setup}
+            lidar sensor config, uav platform specifications
+        \subsection{Software architecture}
+            ros-based system designed
+        \subsection{Challanges in Integration}
+            livox - 360 * 60 deg - account for centroid calculation
+    
+    \section{Simulation and Experimental Results}
+        \subsection{Simulation Setup}
+            virtual environment modeling, tools used
+        \subsection{Performance in Simulated Environments}
+            Success rates, obstacle avoidance, efficiency metrics - same as in the rbl
+        \subsection{Real-World Experiments in a Forest Environment}
+        \subsection{Comparative Analysis}
+            Simulation vs. real-world performance
+    
+    \section{Conclusion}
+        Summary of contributions and some directions for future research
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+REDO after this
 
 \section{Introduction}
 

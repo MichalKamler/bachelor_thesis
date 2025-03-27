@@ -91,13 +91,13 @@
             R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i & \text{otherwise.}
             \end{cases}
         \]
-            
-
-        
-        The position of the centroid \( \mathbf{c}_{V_i} \) of a region \( V_i \), weighted by the function \( \varphi_i(\mathbf{q}) \), is used to guide the control. It is defined as:
+        , where \(\beta_i^D\), \(d_1\), \(d_2\), \(d_3\), \(d_4\) are positive scalar values, \(R_{\theta}^{\mathbf{p}_i}(\theta)\) is azimuthal rotation centered at \(\mathbf{p}_i\),
+        \(\epsilon\) is small number, \(\mathbf{e}_i\) is position of end goal.
+        The position of the centroid \( \mathbf{c}_{\mathcal{A}_i} \) of a region \( \mathcal{A}_i \), weighted by the function \( \varphi_i(\mathbf{q}) \), is used to guide the control. 
+        It is defined as:
 
         \begin{equation}
-            \mathbf{c}_{V_i} = \frac{\int_{V_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{V_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}},
+            \mathbf{c}_{\mathcal{A}_i} = \frac{\int_{\mathcal{A}_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{\mathcal{A}_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}},
         \end{equation}
 
         where \( \mathbf{q} \) represents the position vector, and \( \varphi_i(\mathbf{q}) \) is a weighting function. 
