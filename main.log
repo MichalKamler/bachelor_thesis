@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.2.25)  27 MAR 2025 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.2.25)  30 MAR 2025 19:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1562,12 +1562,13 @@ Chapter 2.
 [2
 
 ] [3]
-<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=471, 2195.20125pt x 2195.20125pt>
+Package acronym Info: Label `acro:UAV' overridden on input line 118.
+<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=485, 2195.20125pt x 2195.20125pt>
 File: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg Graphic file (type jpg)
 <use ./fig/diagrams/Euclidean_Voronoi_diagram.jpg>
 Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 126.
 (pdftex.def)             Requested size: 213.03474pt x 213.03474pt.
-<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=472, 2350.7825pt x 2625.81pt>
+<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=486, 2350.7825pt x 2625.81pt>
 File: ./fig/diagrams/Euclidian Voronoi diagram 3d.png Graphic file (type png)
 <use ./fig/diagrams/Euclidian Voronoi diagram 3d.png>
 Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 130.
@@ -1577,9 +1578,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>] [5] [6]) (./src/lidar.tex [7]
 Chapter 3.
+Package acronym Info: Label `acro:LiDAR' newly defined as it shall be overridden
+although it is yet undefined on input line 16.
 [8
 
-] [9]) (./src/enhancements.tex [10]
+]
+Package acronym Info: Label `acro:ToF' newly defined as it shall be overridden
+although it is yet undefined on input line 47.
+Package acronym Info: Label `acro:PCL' newly defined as it shall be overridden
+although it is yet undefined on input line 64.
+ [9] [10] [11]) (./src/enhancements.tex [12]
 Chapter 4.
 ) (./src/conclusion.tex
 
@@ -1589,11 +1597,11 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-7.16252pt}.
 
-[11
+[13
 
 ]
 Chapter 5.
-) [12
+) [14
 
 ]
 Chapter 6.
@@ -1607,37 +1615,37 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 7.0pt on input line 135.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 5.0pt on input line 135.
- [13
+ [15
 
 ]
 Appendix A.
 
 AED: lastpage setting LastPage
-[14
+[16
 
 ] (./main.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 84931ED42379F7876B6717435E4C81B0;11635.
+(rerunfilecheck)             Checksum: 40626D47FAC7D410C93698D809C5FB03;11635.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57337 strings out of 479342
- 1306257 string characters out of 5869178
- 2170565 words of memory out of 5000000
- 74250 multiletter control sequences out of 15000+600000
- 487103 words of font info for 96 fonts, out of 8000000 for 9000
+ 57401 strings out of 479342
+ 1308106 string characters out of 5869178
+ 2171343 words of memory out of 5000000
+ 74300 multiletter control sequences out of 15000+600000
+ 487404 words of font info for 97 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  99i,17n,95p,1882b,2659s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (22 pages, 1818504 bytes).
+Output written on main.pdf (24 pages, 1833457 bytes).
 PDF statistics:
- 704 PDF objects out of 1000 (max. 8388607)
- 596 compressed objects within 6 object streams
- 116 named destinations out of 1000 (max. 500000)
+ 793 PDF objects out of 1000 (max. 8388607)
+ 681 compressed objects within 7 object streams
+ 130 named destinations out of 1000 (max. 500000)
  624 words of extra memory for PDF output out of 10000 (max. 10000000)
 

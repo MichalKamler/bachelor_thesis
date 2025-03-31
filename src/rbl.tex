@@ -115,7 +115,7 @@
 
     \subsection{Differences between 2D and 3D}
         The primary distinction in the 3D extension is that each goal region is now represented as a sphere rather than a circle.  
-        Similarly, the sensing cell $\mathcal{S}_i$ is also modeled as a sphere instead of a circle, allowing for a more accurate representation of the UAV's perception in three-dimensional space.  
+        Similarly, the sensing cell $\mathcal{S}_i$ is also modeled as a sphere instead of a circle, allowing for a more accurate representation of the \ac{UAV}'s perception in three-dimensional space.  
         This change introduces a key modification when defining $\tilde{V}_i$: in the 2D case, a line was sufficient to slice the sensing region, whereas in 3D, a plane must be computed to properly segment the spherical sensing cell. 
         
         \begin{figure}[H]
@@ -143,10 +143,10 @@
         \end{equation}
 
         where $\text{min}_z$ and $\text{max}_z$ define the vertical bounds within which the sensing region $\mathcal{S}_i$ is restricted. 
-        This ensures that the UAV cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
-        By constraining the sensing radius, the UAV remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
+        This ensures that the \ac{UAV} cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
+        By constraining the sensing radius, the \ac{UAV} remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
 
-        Secondly, $Z_{rule}$ is intorduced to enhance UAV avoidance. Rule rotates computed centroid by $\phi$
+        Secondly, $Z_{rule}$ is intorduced to enhance \ac{UAV} avoidance. Rule rotates computed centroid by $\phi$
 
         \begin{equation}
             \dot{\phi}_i(A_i) =
@@ -196,11 +196,11 @@
 
 Describtion of simulation enviroment, used tools, Describtion of few simulation scenarios and result analysis.
     \subsection{Simulation Enviroment}
-        The term 'agent' refers to the UAVs used in the simulation.
+        The term 'agent' refers to the \ac{UAV}s used in the simulation.
         For this simulation, I relied on the framework provided by \cite{mrs_uav_system}
-        Each UAV obtains its global position from the ROS simulator, RViz.
-        The positions of other UAVs were estimated using blinking LEDs mounted on each UAV, based on the method outlined in \cite{uvdd1}.
-        Below, I list some relevant constraints for each UAV:
+        Each \ac{UAV} obtains its global position from the ROS simulator, RViz.
+        The positions of other \ac{UAV}s were estimated using blinking LEDs mounted on each \ac{UAV}, based on the method outlined in \cite{uvdd1}.
+        Below, I list some relevant constraints for each \ac{UAV}:
         \begin{table}[h]
             \centering
             \renewcommand{\arraystretch}{1.1}
@@ -214,19 +214,19 @@ Describtion of simulation enviroment, used tools, Describtion of few simulation 
                     Maximal descending velocity [\SI{}{\meter\per\second}] & 2.0 \\ \hline
                     Vertical descending acceleration [\SI{}{\meter\per\second\squared}] & 1.0 \\ \hline
                 \end{tabular}
-                \caption{Motion constraints of the UAV.}
+                \caption{Motion constraints of the \ac{UAV}.}
             \label{tab:uav_constraints}
         \end{table}
     \subsection{Simulation Scenarios}
-        Several experiments were conducted to evaluate and ensure the safe behavior of the UAVs during interactions. 
-        Different sets of UAVs were used in these experiments, with N = 5, 10, and 15, and data was collected from them for analysis. 
-        Each UAV was first flown from ground to its initial position, and once all UAVs were in their starting positions, the RBL algorithm was initiated.
+        Several experiments were conducted to evaluate and ensure the safe behavior of the \ac{UAV}s during interactions. 
+        Different sets of \ac{UAV}s were used in these experiments, with N = 5, 10, and 15, and data was collected from them for analysis. 
+        Each \ac{UAV} was first flown from ground to its initial position, and once all \ac{UAV}s were in their starting positions, the RBL algorithm was initiated.
 
         For most agent interactions, experiments were conducted in both circular and spherical formations, with the circular formation being initially conducted in \cite{rbl_paper}. 
         The circular formation was chosen as it promotes more predictable and consistent interactions between agents, as opposed to random initial positions and goal locations, which could lead to less structured or less frequent interactions. 
         Similarly, the spherical formation was introduced to extend the experiment into 3D, providing a more comprehensive test scenario. 
         Both structured formations help to better evaluate the performance of the RBL algorithm in environments where agents are more likely to encounter each other.
-        The UAVs were evenly distributed along the perimeter of the circle or the surface of the sphere. 
+        The \ac{UAV}s were evenly distributed along the perimeter of the circle or the surface of the sphere. 
         The goal position was placed on the opposite side of the circle or sphere. 
         The radius of both the circle and the sphere was set to 5 meters.
         
@@ -258,10 +258,10 @@ Describtion of simulation enviroment, used tools, Describtion of few simulation 
                 \begin{tabular}{|l|c|c|c|c|c|}
                 \hline
                                             & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                RBL 2D                      & 100.00          & 23.52 $\pm$ 2.10                  & 24.52 $\pm$ 1.91                  & 27.23 $\pm$ 0.94                               & 0.96 $\pm$ 0.11                         \\ \hline
-                RBL 3D                      & 100.00          & 23.32 $\pm$ 1.94                  & 25.21 $\pm$ 2.74                  & 27.40 $\pm$ 1.92                               & 0.87 $\pm$ 0.14                         \\ \hline
-                RBL 3D\(_{\text{clipped}}\) & 100.00          & 23.00 $\pm$ 1.43                  & 24.94 $\pm$ 2.42                  & 27.54 $\pm$ 1.03                               & 0.88 $\pm$ 0.13                         \\ \hline
-                RBL 3D\(_z\)                & 100.00          & 22.79 $\pm$ 1.06                  & 23.23 $\pm$ 2.51                  & 26.99 $\pm$ 1.24                               & 0.96 $\pm$ 0.10                         \\ \hline
+                RBL 2D                      & 100.00          & 22.95 $\pm$ 1.64                  & 30.79 $\pm$ 2.28                  & 34.73 $\pm$ 0.77                               & 0.74 $\pm$ 0.07                         \\ \hline
+                RBL 3D                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
+                RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
+                RBL 3D\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
                 \end{tabular}
             \end{table}
         
@@ -272,10 +272,10 @@ Describtion of simulation enviroment, used tools, Describtion of few simulation 
             \begin{tabular}{|l|c|c|c|c|c|}
             \hline
                                         & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-            RBL 2D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-            RBL 3D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-            RBL 3D\(_{\text{clipped}}\) & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-            RBL 3D\(_z\)                & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+            RBL 2D                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
+            RBL 3D                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
+            RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
+            RBL 3D\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
             \end{tabular}
         \end{table}
     

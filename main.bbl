@@ -96,6 +96,68 @@
     \field{year}{2024}
   \endentry
 
+  \entry{Lidar_agriculture}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DS}{%
+         family={Debnath},
+         familyi={D\bibinitperiod},
+         given={Sourabhi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Paul},
+         familyi={P\bibinitperiod},
+         given={Manoranjan},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Debnath},
+         familyi={D\bibinitperiod},
+         given={Tanmoy},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DSPMDT1}
+    \strng{fullhash}{DSPMDT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{abstract}{%
+    Light detection and ranging (LiDAR) sensors have accrued an ever-increasing
+  presence in the agricultural sector due to their non-destructive mode of
+  capturing data. LiDAR sensors emit pulsed light waves that return to the
+  sensor upon bouncing off surrounding objects. The distances that the pulses
+  travel are calculated by measuring the time for all pulses to return to the
+  source. There are many reported applications of the data obtained from LiDAR
+  in agricultural sectors. LiDAR sensors are widely used to measure
+  agricultural landscaping and topography and the structural characteristics of
+  trees such as leaf area index and canopy volume; they are also used for crop
+  biomass estimation, phenotype characterisation, crop growth, etc. A
+  LiDAR-based system and LiDAR data can also be used to measure spray drift and
+  detect soil properties. It has also been proposed in the literature that crop
+  damage detection and yield prediction can also be obtained with LiDAR data.
+  This review focuses on different LiDAR-based system applications and data
+  obtained from LiDAR in agricultural sectors. Comparisons of aspects of LiDAR
+  data in different agricultural applications are also provided. Furthermore,
+  future research directions based on this emerging technology are also
+  presented in this review.%
+    }
+    \verb{doi}
+    \verb 10.3390/jimaging9030057
+    \endverb
+    \field{issn}{2313-433X}
+    \field{number}{3}
+    \field{title}{Applications of LiDAR in Agriculture and Future Research
+  Directions}
+    \verb{url}
+    \verb https://www.mdpi.com/2313-433X/9/3/57
+    \endverb
+    \field{volume}{9}
+    \field{journaltitle}{Journal of Imaging}
+    \field{year}{2023}
+  \endentry
+
   \entry{Voronoi2d}{misc}{}
     \name{author}{1}{}{%
       {{hash=EB}{%
@@ -200,6 +262,75 @@
     \field{year}{2022}
   \endentry
 
+  \entry{lidar_how_works}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LN}{%
+         family={Lopac},
+         familyi={L\bibinitperiod},
+         given={Nikola},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=JI}{%
+         family={Jurdana},
+         familyi={J\bibinitperiod},
+         given={Irena},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Brnelić},
+         familyi={B\bibinitperiod},
+         given={Adrian},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Krljan},
+         familyi={K\bibinitperiod},
+         given={Tomislav},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LNJIBA+1}
+    \strng{fullhash}{LNJIBAKT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{abstract}{%
+    The development of light detection and ranging (lidar) technology began in
+  the 1960s, following the invention of the laser, which represents the central
+  component of this system, integrating laser scanning with an inertial
+  measurement unit (IMU) and Global Positioning System (GPS). Lidar technology
+  is spreading to many different areas of application, from those in autonomous
+  vehicles for road detection and object recognition, to those in the maritime
+  sector, including object detection for autonomous navigation, monitoring
+  ocean ecosystems, mapping coastal areas, and other diverse applications. This
+  paper presents lidar system technology and reviews its application in the
+  modern road transportation and maritime sector. Some of the better-known
+  lidar systems for practical applications, on which current commercial models
+  are based, are presented, and their advantages and disadvantages are
+  described and analyzed. Moreover, current challenges and future trends of
+  application are discussed. This paper also provides a systematic review of
+  recent scientific research on the application of lidar system technology and
+  the corresponding computational algorithms for data analysis, mainly focusing
+  on deep learning algorithms, in the modern road transportation and maritime
+  sector, based on an extensive analysis of the available scientific
+  literature.%
+    }
+    \verb{doi}
+    \verb 10.3390/s22165946
+    \endverb
+    \field{issn}{1424-8220}
+    \field{number}{16}
+    \field{title}{Application of Laser Systems for Detection and Ranging in the
+  Modern Road Transportation and Maritime Sector}
+    \verb{url}
+    \verb https://www.mdpi.com/1424-8220/22/16/5946
+    \endverb
+    \field{volume}{22}
+    \field{journaltitle}{Sensors}
+    \field{year}{2022}
+  \endentry
+
   \entry{lidar_navigation}{article}{}
     \name{author}{6}{}{%
       {{hash=LZ}{%
@@ -295,6 +426,48 @@
     \field{year}{2021}
   \endentry
 
+  \entry{Lidar_autonomous_vehicles}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={You},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=IGJ}{%
+         family={Ibanez-Guzman},
+         familyi={I\bibinithyphendelim G\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronics Engineers (IEEE)}%
+    }
+    \strng{namehash}{LYIGJ1}
+    \strng{fullhash}{LYIGJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{doi}
+    \verb 10.1109/msp.2020.2973615
+    \endverb
+    \field{issn}{1558-0792}
+    \field{number}{4}
+    \field{pages}{50–61}
+    \field{title}{Lidar for Autonomous Driving: The Principles, Challenges, and
+  Trends for Automotive Lidar and Perception Systems}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/MSP.2020.2973615
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{IEEE Signal Processing Magazine}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
   \entry{uvdd1}{article}{}
     \name{author}{3}{}{%
       {{hash=WV}{%
@@ -331,6 +504,50 @@
     \field{journaltitle}{2018 International Conference on Unmanned Aircraft
   System (ICUAS 2018)}
     \field{year}{2018}
+  \endentry
+
+  \entry{pcl_voxelgrid}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=RBRBS}{%
+         family={Radu B.\bibnamedelima Rusu},
+         familyi={R\bibinitperiod\bibinitdelim B\bibinitperiod\bibinitdelim
+  R\bibinitperiod},
+         given={Bastian\bibnamedelima Steder},
+         giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RBRBS1}
+    \strng{fullhash}{RBRBS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{note}{Accessed: 2025-03-28}
+    \field{title}{The VoxelGrid class, Point Cloud Library}
+    \verb{url}
+    \verb https://pointclouds.org/documentation/classpcl_1_1_voxel_grid.html
+    \endverb
+  \endentry
+
+  \entry{pointlio_mrs}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=TA}{%
+         family={TODO},
+         familyi={T\bibinitperiod},
+         given={AUTHOR},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TA1}
+    \strng{fullhash}{TA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{title}{Point-LIO MRS}
+    \verb{url}
+    \verb https://github.com/ctu-mrs/Point-LIO
+    \endverb
   \endentry
 \enddatalist
 \endinput
