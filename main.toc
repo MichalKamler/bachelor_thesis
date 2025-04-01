@@ -1,63 +1,69 @@
-\babel@toc {english}{}\relax 
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related works}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Contributions}{1}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Mathematical notation}{1}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Extension of the Rule-Based Lloyd Algorithm to 3D}{2}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Introduction to the RBL}{2}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Overview}{2}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Applications and Limitations in 2D}{2}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Key principles}{2}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Extension of the RBL algorithm to 3D}{4}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Motivation for 3D Extension}{4}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Differences between 2D and 3D}{4}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Additional Constraints and Modifications}{5}{subsection.2.2.3}%
-\contentsline {paragraph}{Convergence Back to Zero}{5}{equation.2.2.12}%
-\contentsline {paragraph}{Constraint on \(\phi \)}{5}{equation.2.2.13}%
-\contentsline {section}{\numberline {2.3}Simulation and Results Analysis}{6}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Simulation Enviroment}{6}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Simulation Scenarios}{6}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}N = 5 circular}{7}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}N = 10 circular}{7}{subsection.2.3.4}%
-\contentsline {subsection}{\numberline {2.3.5}N = 15 circular}{7}{subsection.2.3.5}%
-\contentsline {subsection}{\numberline {2.3.6}N = 10 sphere}{7}{subsection.2.3.6}%
-\contentsline {subsection}{\numberline {2.3.7}Practical Experiment Setup}{7}{subsection.2.3.7}%
-\contentsline {subsection}{\numberline {2.3.8}Comparisons}{7}{subsection.2.3.8}%
-\contentsline {section}{\numberline {2.4}Summary and Key Insights}{7}{section.2.4}%
-\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{8}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{8}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Motivation}{8}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{8}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Objectives}{8}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{8}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{8}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{8}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{9}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{9}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Surface Reconstruction and Triangulation}{10}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}Using the found triangles for cell A partition}{10}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Overview}{10}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Finding the Closest Point on a Triangle}{11}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Plane Calculation for Slicing Cell A}{11}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Integration with the RBL Algorithm}{11}{subsection.3.3.4}%
-\contentsline {section}{\numberline {3.4}Implementation and Integration on UAV}{11}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Software and Hardware setup}{11}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Software architecture}{11}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Challanges in Integration}{11}{subsection.3.4.3}%
-\contentsline {section}{\numberline {3.5}Simulation and Experimental Results}{11}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Simulation Setup}{11}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{11}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{11}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{11}{subsection.3.5.4}%
-\contentsline {section}{\numberline {3.6}Conclusion}{11}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Introduction}{11}{section.3.7}%
-\contentsline {section}{\numberline {3.8}3D LiDAR Sensor Model and Simulation Setup}{12}{section.3.8}%
-\contentsline {section}{\numberline {3.9}Object Detection and Approximation}{12}{section.3.9}%
-\contentsline {section}{\numberline {3.10}Integration with RBL Algorithm}{12}{section.3.10}%
-\contentsline {section}{\numberline {3.11}Simulation Results}{12}{section.3.11}%
-\contentsline {section}{\numberline {3.12}Discussion}{12}{section.3.12}%
-\contentsline {section}{\numberline {3.13}Summary}{12}{section.3.13}%
-\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{13}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{14}{chapter.5}%
-\contentsline {chapter}{\numberline {6}References}{15}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Appendix A}{16}{appendix.A}%
+\contentsline {section}{\numberline {2.1}Introduction}{2}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Motivation}{2}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Problem Statement}{2}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Objectives}{2}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Chapter Overview}{2}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}Overview of RBL - TODO rename}{2}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Overview}{2}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Applications and Limitations in 2D}{2}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Key principles}{3}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Extension of the RBL algorithm to 3D}{4}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Motivation for 3D Extension}{4}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Differences between 2D and 3D}{4}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Additional Constraints and Modifications}{5}{subsection.2.3.3}%
+\contentsline {paragraph}{Convergence Back to Zero}{6}{equation.2.3.12}%
+\contentsline {paragraph}{Constraint on \(\phi \)}{6}{equation.2.3.13}%
+\contentsline {section}{\numberline {2.4}Simulation and Results Analysis}{6}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Simulation Enviroment}{6}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Simulation Scenarios}{6}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}N = 5 circular}{7}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}N = 10 circular}{7}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}N = 15 circular}{7}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}N = 10 sphere}{8}{subsection.2.4.6}%
+\contentsline {subsection}{\numberline {2.4.7}Practical Experiment Setup}{8}{subsection.2.4.7}%
+\contentsline {subsection}{\numberline {2.4.8}Comparisons}{8}{subsection.2.4.8}%
+\contentsline {section}{\numberline {2.5}Summary and Key Insights}{8}{section.2.5}%
+\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{9}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{9}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Motivation}{9}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{9}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Objectives}{9}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{9}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{10}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{10}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Surface Reconstruction and Triangulation}{11}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}Using the found triangles for cell A partition}{11}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Overview}{11}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Finding the Closest Point on a Triangle}{12}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Plane Calculation for Slicing Cell A}{12}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Integration with the RBL Algorithm}{12}{subsection.3.3.4}%
+\contentsline {section}{\numberline {3.4}Implementation and Integration on UAV}{12}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Software and Hardware setup}{12}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Software architecture}{12}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Challanges in Integration}{12}{subsection.3.4.3}%
+\contentsline {section}{\numberline {3.5}Simulation and Experimental Results}{12}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Simulation Setup}{12}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{12}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{12}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{12}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Conclusion}{12}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Introduction}{12}{section.3.7}%
+\contentsline {section}{\numberline {3.8}3D LiDAR Sensor Model and Simulation Setup}{13}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Object Detection and Approximation}{13}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Integration with RBL Algorithm}{13}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Simulation Results}{13}{section.3.11}%
+\contentsline {section}{\numberline {3.12}Discussion}{13}{section.3.12}%
+\contentsline {section}{\numberline {3.13}Summary}{13}{section.3.13}%
+\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{14}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}%
+\contentsline {chapter}{\numberline {6}References}{16}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Appendix A}{17}{appendix.A}%

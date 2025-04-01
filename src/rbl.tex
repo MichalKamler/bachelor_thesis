@@ -1,10 +1,18 @@
 \chapter{Extension of the Rule-Based Lloyd Algorithm to 3D\label{chap:rbl}}
+\section{Introduction}
+    TODO
+    \subsection{Motivation}
+        Motivation in using RBL algo instead of some other algorithm
+    \subsection{Problem Statement}
+        Problems in the transition from 2d to 3d - algo needs to be fast 
+    \subsection{Objectives}
+        Extend the algorithm to 3D, do some experiments that are succesfull - show that algo works also for 3d taks
+    \subsection{Chapter Overview}
+        Summary of what this chapter covers
 
-\section{Introduction to the RBL}
+\section{Overview of RBL - TODO rename}
 
-    TODO icnlude motivation of why extending rbl in 3d is good idea and simulation+experiment compare the time.
-
-    \subsection{Overview}
+    \subsection{Overview}        
         The algorithm is a communication-less approach designed to navigate agents from point A to point B. 
         It relies on global positioning data, such as GPS or alternative methods for obtaining global coordinates, combined with sensor inputs that provide information about the agent's environment. 
         These sensors can include LiDAR, depth cameras, or standard cameras with estimation techniques, allowing the agent to detect and avoid obstacles or other agents. 
@@ -12,8 +20,8 @@
 
     \subsection{Applications and Limitations in 2D}
         Modern robotics relies on the capability to navigate from point A to point B.
-        Navigation plays a crucial role in various robotic applications, such as Automated Guided Vehicles (AGVs), which are commonly used in manufacturing and logistics. 
-        AGVs typically follow predefined 2D trajectories guided by visual \cite{vision_navigation}, magnetic \cite{magnetic_navigation}, or LiDAR-based navigation \cite{lidar_navigation}. 
+        Navigation plays a crucial role in various robotic applications, such as \ac{UGV}s, which are commonly used in manufacturing and logistics. 
+        \ac{UGV}s typically follow predefined 2D trajectories guided by visual \cite{vision_navigation}, magnetic \cite{magnetic_navigation}, or LiDAR-based navigation \cite{lidar_navigation}. 
         Additionally, 2D navigation is widely employed in robotic vacuum cleaners, enabling them to systematically cover an area while avoiding obstacles.
 
         An obvious limitation for algorithms in 2D is scalability. 
@@ -24,7 +32,7 @@
     \subsection{Key principles}
         RBL, as presented in the original paper \cite{rbl_paper}, ensures convergence to the goal and provides sufficient conditions for achieving it. 
         The problem involves individual control of $N$ agents from their initial position $\mathbf{p}_i(0)$ toward a goal region, represented as circle.
-        This goal region is denoted as $B(\mathbf{e}_i, \epsilon)$, where $\mathbf{e}_i$ is center and $\epsilon$ is radius of goal region.
+        This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. %TODO rename goal to something like G(g_i, r_g)
         Each agent is knows of its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines safe space around agent.
         Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq 2r_{s,i}$, where $r_{s,i}$ is denoted as half of the sensing radius of the i-th agent.
         For simplicity $r_{s,i}$ is considered to be same for all agents, therefore $r_{s,i} = r_s$. 
@@ -61,7 +69,7 @@
         \end{equation}
         the cell $\mathcal{A}_i$ is obtained as $\mathcal{A}_i = \tilde{V}_i \cap \mathcal{S}_i$.
 
-        Convergence to goal region $B(\mathbf{e}_i, \epsilon)$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
+        Convergence to goal region $B(\mathbf{g}_i, r_g )$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
         The weighting function $\varphi_i(\mathbf{q})$ is defined as follows: 
         \begin{equation}
             \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{\bar{p}}_i\|}{\beta_i}\right),
@@ -295,6 +303,7 @@ Describtion of simulation enviroment, used tools, Describtion of few simulation 
 
 
     \subsection{Practical Experiment Setup}
+            
     \subsection{Comparisons}
 
 \section{Summary and Key Insights}
