@@ -72,17 +72,43 @@
         Convergence to goal region $B(\mathbf{g}_i, r_g )$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
         The weighting function $\varphi_i(\mathbf{q})$ is defined as follows: 
         \begin{equation}
-            \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{\bar{p}}_i\|}{\beta_i}\right),
+            \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{d}_i\|}{\beta_i}\right),
         \end{equation}
-        where 
+        where $\beta_i$ is weighting variable for points $\mathbf{q}$ and $\mathbf{d}_i$ is current agent's destination.
+
+        Rules: 
+        \begin{itemize}
+            \item \textbf{Weighting rule}
+                \begin{equation}
+                    \dot{\beta}_i(A_i) = 
+                    \begin{cases}
+                        -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2 \\
+                        0  & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2 \\
+                        -(\beta_i - \beta_i^D) & \text{otherwise}
+                    \end{cases}
+                \end{equation}
+            \item \textbf{Azimuth rule}
+                \begin{equation}
+                    \dot{\theta}_i = 
+                    \begin{cases}
+                        k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
+                        -k & \text{if } \theta > \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
+                        0  & \text{otherwise}
+                    \end{cases}
+                \end{equation}
+            \item \textbf{Azimuth reset rule}
+        \end{itemize}
         
-        \begin{equation}
-            \dot{\beta}_i(A_i) = 
-            \begin{cases}
-                -\beta_i & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_2, \\
-                -(\beta_i - \beta_i^D) & \text{otherwise.}
-            \end{cases}
-        \end{equation}
+
+
+        
+        % \begin{equation}
+        %     \dot{\beta}_i(A_i) = 
+        %     \begin{cases}
+        %         -\beta_i & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_2, \\
+        %         -(\beta_i - \beta_i^D) & \text{otherwise.}
+        %     \end{cases}
+        % \end{equation}
         
         \begin{equation}
             \mathbf{\dot{\bar{p}}}_i = 
