@@ -32,7 +32,8 @@
     \subsection{Key principles}
         RBL, as presented in the original paper \cite{rbl_paper}, ensures convergence to the goal and provides sufficient conditions for achieving it. 
         The problem involves individual control of $N$ agents from their initial position $\mathbf{p}_i(0)$ toward a goal region, represented as circle.
-        This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. %TODO rename goal to something like G(g_i, r_g)
+        This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. 
+        The agent is progressing towards its designated destination, $\mathbf{d}_i$.
         Each agent is knows of its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines safe space around agent.
         Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq 2r_{s,i}$, where $r_{s,i}$ is denoted as half of the sensing radius of the i-th agent.
         For simplicity $r_{s,i}$ is considered to be same for all agents, therefore $r_{s,i} = r_s$. 
@@ -74,29 +75,39 @@
         \begin{equation}
             \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{d}_i\|}{\beta_i}\right),
         \end{equation}
-        where $\beta_i$ is weighting variable for points $\mathbf{q}$ and $\mathbf{d}_i$ is current agent's destination.
-
+        where $\beta_i$ is the weighting factor for points $\mathbf{q}$, and $\mathbf{d}_i$ represents the current destination of the agent. 
+        The destination is computed as follows:
+        \begin{equation}
+            \mathbf{d}_i = \mathbf{p}_i + R(\theta)(\mathbf{g}_i - \mathbf{p}_i)
+        \end{equation}
+        where $R$ is the azimuthal rotation.
         Rules: 
         \begin{itemize}
             \item \textbf{Weighting rule}
                 \begin{equation}
                     \dot{\beta}_i(A_i) = 
                     \begin{cases}
-                        -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2 \\
-                        0  & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2 \\
+                        -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
+                        0  & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
                         -(\beta_i - \beta_i^D) & \text{otherwise}
                     \end{cases}
                 \end{equation}
+                where the first case decreases $\beta_i$ over time, the second case ensures that $\beta_i$ does not decrease below its minimum threshold $\beta_{min}$ (saturation) and the third case provides a general update rule when the previous conditions are not met.
             \item \textbf{Azimuth rule}
                 \begin{equation}
                     \dot{\theta}_i = 
                     \begin{cases}
                         k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
-                        -k & \text{if } \theta > \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
+                        -k & \text{if } \theta > 0 \land \neg (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3) \\
                         0  & \text{otherwise}
                     \end{cases}
                 \end{equation}
+                where the first case increases $\theta_i$ over time, the second case ensures that $\theta_i$ converges back when the distance constraints are not satisfied, and the third case keeps $\theta_i$ unchanged.
             \item \textbf{Azimuth reset rule}
+                \begin{equation}
+                    \theta = 0 \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|    
+                \end{equation}
+                where $\mathbf{\overline{c}}_{\mathcal{A}_i}$ represents the centroid computed from the cell $\mathcal{A}_i$, which is weighted using the unrotated destination, meaning $\mathbf{d}_i = \mathbf{g}_i$.
         \end{itemize}
         
 
@@ -110,21 +121,21 @@
         %     \end{cases}
         % \end{equation}
         
-        \begin{equation}
-            \mathbf{\dot{\bar{p}}}_i = 
-            \begin{cases}
-                -(\mathbf{\bar{p}}_i - R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i) & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_3 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_4, \\
-                -(\mathbf{\bar{p}}_i - \mathbf{e}_i) & \text{otherwise,}
-            \end{cases}
-        \end{equation}
+        % \begin{equation}
+        %     \mathbf{\dot{\bar{p}}}_i = 
+        %     \begin{cases}
+        %         -(\mathbf{\bar{p}}_i - R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i) & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_3 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_4, \\
+        %         -(\mathbf{\bar{p}}_i - \mathbf{e}_i) & \text{otherwise,}
+        %     \end{cases}
+        % \end{equation}
         
-        \[
-            \mathbf{\bar{p}}_i = 
-            \begin{cases}
-            \mathbf{e}_i & \text{if } \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|, \\
-            R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i & \text{otherwise.}
-            \end{cases}
-        \]
+        % \[
+        %     \mathbf{\bar{p}}_i = 
+        %     \begin{cases}
+        %     \mathbf{e}_i & \text{if } \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|, \\
+        %     R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i & \text{otherwise.}
+        %     \end{cases}
+        % \]
         , where \(\beta_i^D\), \(d_1\), \(d_2\), \(d_3\), \(d_4\) are positive scalar values, \(R_{\theta}^{\mathbf{p}_i}(\theta)\) is azimuthal rotation centered at \(\mathbf{p}_i\),
         \(\epsilon\) is small number, \(\mathbf{e}_i\) is position of end goal.
         The position of the centroid \( \mathbf{c}_{\mathcal{A}_i} \) of a region \( \mathcal{A}_i \), weighted by the function \( \varphi_i(\mathbf{q}) \), is used to guide the control. 
