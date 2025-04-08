@@ -70,7 +70,7 @@
         \end{equation}
         the cell $\mathcal{A}_i$ is obtained as $\mathcal{A}_i = \tilde{V}_i \cap \mathcal{S}_i$.
 
-        Convergence to goal region $B(\mathbf{g}_i, r_g )$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
+        Convergence to goal region $G(\mathbf{g}_i, r_g )$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
         The weighting function $\varphi_i(\mathbf{q})$ is defined as follows: 
         \begin{equation}
             \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{d}_i\|}{\beta_i}\right),
@@ -109,45 +109,18 @@
                 \end{equation}
                 where $\mathbf{\overline{c}}_{\mathcal{A}_i}$ represents the centroid computed from the cell $\mathcal{A}_i$, which is weighted using the unrotated destination, meaning $\mathbf{d}_i = \mathbf{g}_i$.
         \end{itemize}
-        
-
-
-        
-        % \begin{equation}
-        %     \dot{\beta}_i(A_i) = 
-        %     \begin{cases}
-        %         -\beta_i & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_2, \\
-        %         -(\beta_i - \beta_i^D) & \text{otherwise.}
-        %     \end{cases}
-        % \end{equation}
-        
-        % \begin{equation}
-        %     \mathbf{\dot{\bar{p}}}_i = 
-        %     \begin{cases}
-        %         -(\mathbf{\bar{p}}_i - R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i) & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_3 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{S_i}\| > d_4, \\
-        %         -(\mathbf{\bar{p}}_i - \mathbf{e}_i) & \text{otherwise,}
-        %     \end{cases}
-        % \end{equation}
-        
-        % \[
-        %     \mathbf{\bar{p}}_i = 
-        %     \begin{cases}
-        %     \mathbf{e}_i & \text{if } \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|, \\
-        %     R^{\mathbf{p}_i} (\frac{\pi}{2} - \epsilon) \mathbf{e}_i & \text{otherwise.}
-        %     \end{cases}
-        % \]
-        , where \(\beta_i^D\), \(d_1\), \(d_2\), \(d_3\), \(d_4\) are positive scalar values, \(R_{\theta}^{\mathbf{p}_i}(\theta)\) is azimuthal rotation centered at \(\mathbf{p}_i\),
-        \(\epsilon\) is small number, \(\mathbf{e}_i\) is position of end goal.
-        The position of the centroid \( \mathbf{c}_{\mathcal{A}_i} \) of a region \( \mathcal{A}_i \), weighted by the function \( \varphi_i(\mathbf{q}) \), is used to guide the control. 
-        It is defined as:
-
+        Weighted centroid is computed as follows:        
         \begin{equation}
             \mathbf{c}_{\mathcal{A}_i} = \frac{\int_{\mathcal{A}_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{\mathcal{A}_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}},
         \end{equation}
+        where \( \mathbf{q} \) represents the point in mission space, and \( \varphi_i(\mathbf{q}) \) is a weighting function. 
 
-        where \( \mathbf{q} \) represents the position vector, and \( \varphi_i(\mathbf{q}) \) is a weighting function. 
-        The centroid \( \mathbf{c}_{V_i} \) serves as the target for the control system, directing the system toward the weighted center of the region.
-    
+        By applying the previously defined rules and computations, the RBL algorithm successfully guides agents movement toward the goal.
+        However, these rules focus solely on rotating the centroid $\mathcal{A}_i$ in the azimuthal plane. 
+        To enhance performance in a fully three-dimensional space, additional rules are required to account for elevation adjustments. 
+    \subsection{Agressivity of RBL alog TODO rename}
+        modification of cell A so it can move closer to objects - cwvd parameters
+
 \section{Extension of the RBL algorithm to 3D}
     \subsection{Motivation for 3D Extension}
         In many practical applications, agents must operate in three-dimensional spaces, considering not only horizontal movement but also vertical positioning.
@@ -180,7 +153,7 @@
         \end{figure}
     
     \subsection{Additional Constraints and Modifications}
-        For the 3D case, several modifications are introduced.  
+        For the 3D case, several modifications are introduced. 
         Firstly, $Z_{clipping}$ is applied to each sensing cell $\mathcal{S}_i$, constraining it within the vertical limits defined by $\text{min}_z$ and $\text{max}_z$:
 
         \begin{equation}

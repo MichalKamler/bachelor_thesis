@@ -102,12 +102,37 @@
 
     \section{Implementation and Integration on UAV}
         TODO
+        \subsection{Challanges in Integration}
+            \begin{figure}[htbp]
+                \centering
+                \subfloat[A UAV, the T650 model.] {
+                \includegraphics[width=0.48\textwidth]{./fig/photos/uav1.jpg}
+                \label{fig:uavs_1}
+                }
+                \caption{
+                    TODO just place holder, put livox mounted on the drone
+                }
+                \label{fig:uavs}
+          \end{figure}
+
+            For modification of cell A 2 planes are defined using real knowledge of how LiDAR is mounted on the uav and livox vertical fov
+            Let $\mathbf{e}_z = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ be the unit vector along the z-axis,  
+            $R_{\text{off}} \in SO(3)$ the offset rotation, and  
+            $R_{\text{rpy}} \in SO(3)$ the roll-pitch-yaw rotation. 
+            $\alpha_1$, $\alpha_2$, $\alpha_3$
+
+            Then the resulting vector is given by:  
+            \[
+            \mathbf{n} = R_{\text{rpy}} \cdot R_{\text{off}} \cdot \mathbf{e}_z
+            \]
+
+            Modified cell S:
+            \begin{equation}
+                \mathcal{S}_i = {} 
+            \end{equation}
+            livox - 360 * 60 deg - account for centroid calculation
         \subsection{Software and Hardware setup}
             LiDAR sensor config, uav platform specifications
-        \subsection{Software architecture}
-            ros-based system designed
-        \subsection{Challanges in Integration}
-            livox - 360 * 60 deg - account for centroid calculation
     
     \section{Simulation and Experimental Results}
         TODO

@@ -1,5 +1,4 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {english}{}
+\babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related works}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Contributions}{1}{section.1.2}%
@@ -14,6 +13,7 @@
 \contentsline {subsection}{\numberline {2.2.1}Overview}{2}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Applications and Limitations in 2D}{2}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Key principles}{3}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Agressivity of RBL alog TODO rename}{4}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Extension of the RBL algorithm to 3D}{4}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Motivation for 3D Extension}{4}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Differences between 2D and 3D}{5}{subsection.2.3.2}%
@@ -47,16 +47,15 @@
 \contentsline {subsection}{\numberline {3.3.3}Plane Calculation for Slicing Cell A}{12}{subsection.3.3.3}%
 \contentsline {subsection}{\numberline {3.3.4}Integration with the RBL Algorithm}{12}{subsection.3.3.4}%
 \contentsline {section}{\numberline {3.4}Implementation and Integration on UAV}{12}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Software and Hardware setup}{12}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Software architecture}{12}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Challanges in Integration}{12}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.1}Challanges in Integration}{12}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Software and Hardware setup}{12}{subsection.3.4.2}%
 \contentsline {section}{\numberline {3.5}Simulation and Experimental Results}{12}{section.3.5}%
 \contentsline {subsection}{\numberline {3.5.1}Simulation Setup}{12}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{12}{subsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{12}{subsection.3.5.3}%
-\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{12}{subsection.3.5.4}%
-\contentsline {section}{\numberline {3.6}Conclusion}{12}{section.3.6}%
-\contentsline {section}{\numberline {3.7}Introduction}{12}{section.3.7}%
+\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{13}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{13}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{13}{subsection.3.5.4}%
+\contentsline {section}{\numberline {3.6}Conclusion}{13}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Introduction}{13}{section.3.7}%
 \contentsline {section}{\numberline {3.8}3D LiDAR Sensor Model and Simulation Setup}{13}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Object Detection and Approximation}{13}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Integration with RBL Algorithm}{13}{section.3.10}%
