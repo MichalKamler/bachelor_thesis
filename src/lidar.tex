@@ -105,15 +105,21 @@
         \subsection{Challanges in Integration}
             \begin{figure}[htbp]
                 \centering
-                \subfloat[A UAV, the T650 model.] {
-                \includegraphics[width=0.48\textwidth]{./fig/photos/uav1.jpg}
-                \label{fig:uavs_1}
+                \subfloat[UAV model with visualized LiDAR mounting parameters.] {
+                \includegraphics[width=0.48\textwidth]{./fig/photos/uav_side_view.png}
+                \label{fig:model_uav}
+                }
+                \subfloat[UAV used in the experiment with mounted LiDAR] {
+                \includegraphics[width=0.48\textwidth]{./fig/photos/uav_photo.jpg}
+                \label{fig:uav_1}
                 }
                 \caption{
-                    TODO just place holder, put livox mounted on the drone
+                    UAV and LiDAR mounting scheme.
+                    Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha$ and tilt angle $\gamma$. 
+                    Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration.                                                
                 }
                 \label{fig:uavs}
-          \end{figure}
+            \end{figure}
 
             For modification of cell A 2 planes are defined using real knowledge of how LiDAR is mounted on the uav and livox vertical fov
             Let $\mathbf{e}_z = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ be the unit vector along the z-axis,  

@@ -85,6 +85,7 @@
         \begin{itemize}
             \item \textbf{Weighting rule}
                 \begin{equation}
+                    \label{eqn:beta_weighting}
                     \dot{\beta}_i(A_i) = 
                     \begin{cases}
                         -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
@@ -93,8 +94,9 @@
                     \end{cases}
                 \end{equation}
                 where the first case decreases $\beta_i$ over time, the second case ensures that $\beta_i$ does not decrease below its minimum threshold $\beta_{min}$ (saturation) and the third case provides a general update rule when the previous conditions are not met.
-            \item \textbf{Azimuth rule}
+            \item \textbf{Azimuth update rule}
                 \begin{equation}
+                    \label{eqn:azimuth_2d}
                     \dot{\theta}_i = 
                     \begin{cases}
                         k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
@@ -105,7 +107,8 @@
                 where the first case increases $\theta_i$ over time, the second case ensures that $\theta_i$ converges back when the distance constraints are not satisfied, and the third case keeps $\theta_i$ unchanged.
             \item \textbf{Azimuth reset rule}
                 \begin{equation}
-                    \theta = 0 \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|    
+                    \label{eqn:azimuth_reset_2d}
+                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|    
                 \end{equation}
                 where $\mathbf{\overline{c}}_{\mathcal{A}_i}$ represents the centroid computed from the cell $\mathcal{A}_i$, which is weighted using the unrotated destination, meaning $\mathbf{d}_i = \mathbf{g}_i$.
         \end{itemize}
@@ -153,8 +156,36 @@
         \end{figure}
     
     \subsection{Additional Constraints and Modifications}
-        For the 3D case, several modifications are introduced. 
-        Firstly, $Z_{clipping}$ is applied to each sensing cell $\mathcal{S}_i$, constraining it within the vertical limits defined by $\text{min}_z$ and $\text{max}_z$:
+        To extend the approach to the 3D case, several adjustments are made.
+        The weighting rule (\ref{eqn:beta_weighting}) remains unchanged. 
+        However, in both the azimuth update rule (\ref{eqn:azimuth_2d}) and the azimuth reset rule (\ref{eqn:azimuth_reset_2d}), only the displacement of centroids projected onto the $xy$-plane is taken into account.
+        The modified formulations for the 3D case are as follow:
+        \begin{itemize}
+            \item \textbf{Azimuth update rule 3D}
+                \begin{equation}
+                    \label{eqn:azimuth_3d}
+                    \dot{\theta}_i = 
+                    \begin{cases}
+                        k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_{xy} > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} > d_3 \\
+                        -k & \text{if } \theta > 0 \land \neg (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_{xy} > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} > d_3) \\
+                        0  & \text{otherwise}
+                    \end{cases}
+                \end{equation}
+            \item \textbf{Azimuth reset rule 3D}
+                \begin{equation}
+                    \label{eqn:azimuth_reset_3d}
+                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|_{xy}    
+                \end{equation}
+        \end{itemize}
+
+        The notation $\| \cdot \|_{xy}$ denotes the Euclidean norm computed in the $xy$-plane only, defined as:
+        \begin{equation}
+            \| \mathbf{p}_i - \mathbf{p}_j \|_{xy} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}
+        \end{equation}
+
+
+
+        Additionally, $Z_{clipping}$ is applied to each sensing cell $\mathcal{S}_i$, constraining it within the vertical limits defined by $\text{min}_z$ and $\text{max}_z$:
 
         \begin{equation}
             \mathcal{S}_i = \left\{\mathbf{q} \in \mathcal{Q} \mid \|\mathbf{q} - \mathbf{p}_i\| \leq r_{s,i}, \quad \text{min}_z \leq q_z \leq \text{max}_z \right\}
@@ -164,7 +195,7 @@
         This ensures that the \ac{UAV} cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
         By constraining the sensing radius, the \ac{UAV} remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
 
-        Secondly, $Z_{rule}$ is intorduced to enhance \ac{UAV} avoidance. Rule rotates computed centroid by $\phi$
+        The centroid rotation rule $Z_{rule}$ is introduced to enhance \ac{UAV} avoidance by rotating the computed destination $\mathbf{d}_i$ by an angle $\phi$.
 
         \begin{equation}
             \dot{\phi}_i(A_i) =

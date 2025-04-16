@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.2.25)  7 APR 2025 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.2.25)  10 APR 2025 14:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1578,51 +1578,55 @@ although it is yet undefined on input line 23.
 [2
 
 ] [3] [4]
-Package acronym Info: Label `acro:UAV' overridden on input line 136.
+Package acronym Info: Label `acro:UAV' overridden on input line 139.
 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=352, 2195.20125pt x 2195.20125pt>
 File: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg Graphic file (type jpg)
 <use ./fig/diagrams/Euclidean_Voronoi_diagram.jpg>
-Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 144.
+Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 147.
 (pdftex.def)             Requested size: 213.03474pt x 213.03474pt.
 <./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=353, 2350.7825pt x 2625.81pt>
 File: ./fig/diagrams/Euclidian Voronoi diagram 3d.png Graphic file (type png)
 <use ./fig/diagrams/Euclidian Voronoi diagram 3d.png>
-Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 148.
+Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 151.
 (pdftex.def)             Requested size: 213.03197pt x 213.03401pt.
- [5 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Underfull \vbox (badness 2057) has occurred while \output is active []
 
-[6]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+ [5 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>] [6] [7]) (./src/lidar.tex
+Underfull \vbox (badness 1259) has occurred while \output is active []
 
- [7]) (./src/lidar.tex [8]
+ [8] [9]
 Chapter 3.
 Package acronym Info: Label `acro:LiDAR' newly defined as it shall be overridden
 although it is yet undefined on input line 16.
-[9
+[10
 
 ]
 Package acronym Info: Label `acro:ToF' newly defined as it shall be overridden
 although it is yet undefined on input line 46.
 Package acronym Info: Label `acro:PCL' newly defined as it shall be overridden
 although it is yet undefined on input line 63.
- [10]
+ [11]
 Underfull \vbox (badness 2142) has occurred while \output is active []
 
- [11]
-<./fig/photos/uav1.jpg, id=490, 385.44pt x 192.72pt>
-File: ./fig/photos/uav1.jpg Graphic file (type jpg)
-<use ./fig/photos/uav1.jpg>
-Package pdftex.def Info: ./fig/photos/uav1.jpg  used on input line 111.
-(pdftex.def)             Requested size: 213.05243pt x 106.52563pt.
- [12 <./fig/photos/uav1.jpg>]) (./src/enhancements.tex [13]
+ [12]
+<./fig/photos/uav_side_view.png, id=501, 699.61375pt x 699.61375pt>
+File: ./fig/photos/uav_side_view.png Graphic file (type png)
+<use ./fig/photos/uav_side_view.png>
+Package pdftex.def Info: ./fig/photos/uav_side_view.png  used on input line 111.
+(pdftex.def)             Requested size: 213.05243pt x 213.04561pt.
+<./fig/photos/uav_photo.jpg, id=502, 2523.4275pt x 2524.43124pt>
+File: ./fig/photos/uav_photo.jpg Graphic file (type jpg)
+<use ./fig/photos/uav_photo.jpg>
+Package pdftex.def Info: ./fig/photos/uav_photo.jpg  used on input line 115.
+(pdftex.def)             Requested size: 213.05243pt x 213.12933pt.
+ [13 <./fig/photos/uav_side_view.png> <./fig/photos/uav_photo.jpg>] [14]) (./src/enhancements.tex [15]
 Chapter 4.
-) (./src/conclusion.tex [14
+) (./src/conclusion.tex [16
 
 ]
 Chapter 5.
-) [15
+) [17
 
 ]
 Chapter 6.
@@ -1636,13 +1640,13 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 7.0pt on input line 136.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 5.0pt on input line 136.
- [16
+ [18
 
 ]
 Appendix A.
 
 AED: lastpage setting LastPage
-[17
+[19
 
 ] (./main.aux)
 
@@ -1655,18 +1659,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 57400 strings out of 479342
- 1308070 string characters out of 5869178
- 2166569 words of memory out of 5000000
- 74284 multiletter control sequences out of 15000+600000
+ 57420 strings out of 479342
+ 1308535 string characters out of 5869178
+ 2172184 words of memory out of 5000000
+ 74297 multiletter control sequences out of 15000+600000
  487404 words of font info for 97 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  99i,17n,95p,1882b,1921s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (25 pages, 2014133 bytes).
+Output written on main.pdf (27 pages, 3006638 bytes).
 PDF statistics:
- 694 PDF objects out of 1000 (max. 8388607)
- 579 compressed objects within 6 object streams
- 143 named destinations out of 1000 (max. 500000)
- 378 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 715 PDF objects out of 1000 (max. 8388607)
+ 596 compressed objects within 6 object streams
+ 149 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 

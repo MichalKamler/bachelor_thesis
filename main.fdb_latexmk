@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1744038511 "main.aux" "main.bbl" "main" 1744038513
+["bibtex main"] 1744287774 "main.aux" "main.bbl" "main" 1744287776
   "/usr/share/texlive/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1643926307 65483 fc69f364ef63c07bf68a2ab4b323f197 ""
-  "main-blx.bib" 1744038513 342 8f23567d9fb93df0287c80303cdf267e "pdflatex"
-  "main.aux" 1744038513 20242 a4f1997b68e2d0e8ee6ffea78955ccb1 "pdflatex"
+  "main-blx.bib" 1744287776 342 8f23567d9fb93df0287c80303cdf267e "pdflatex"
+  "main.aux" 1744287776 21531 429414a9cf930ef5f318cb51f1b02f36 "pdflatex"
   "main.bib" 1743343825 7034 80f94f13e280ff816dbd08992c01e8c4 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1744038511 "/home/michal/dev/bachelor_thesis/main.tex" "main.pdf" "main" 1744038513
+["pdflatex"] 1744287775 "/home/michal/dev/bachelor_thesis/main.tex" "main.pdf" "main" 1744287776
   "/etc/texmf/web2c/texmf.cnf" 1740491539 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/michal/dev/bachelor_thesis/main.tex" 1743573785 4623 22491274a85fd55ac0d659c5ca2e4606 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc" 1561323594 2496 4d35740f3a177992ff7b134746c0a1db ""
@@ -381,13 +381,14 @@
   "fig/ctu_lion.pdf" 1740491150 3183 ce67762c81357139719016e294b4abab ""
   "fig/diagrams/Euclidean_Voronoi_diagram.jpg" 1740953195 190301 44ba147f6c5c377bf751b0f4486a90d4 ""
   "fig/diagrams/Euclidian Voronoi diagram 3d.png" 1740953195 1466004 534faa43bbff86078c6c221a9dc78418 ""
-  "fig/photos/uav1.jpg" 1740491150 173992 4cc527aadfd9857aeacdeb3e3cfc1b8d ""
-  "main.aux" 1744038513 20242 a4f1997b68e2d0e8ee6ffea78955ccb1 "pdflatex"
-  "main.bbl" 1744038511 16757 211f0426affffbfc8e8d98fe28d1db84 "bibtex main"
-  "main.out" 1744038513 5627 5d46e9cccd8893756aae5247986cb5d1 "pdflatex"
-  "main.run.xml" 1744038513 2613 bfb160be0e17855936d2c997c372cec8 "pdflatex"
+  "fig/photos/uav_photo.jpg" 1744192812 1050979 4a2223da46081a5951468902bbca1e8d ""
+  "fig/photos/uav_side_view.png" 1744192661 126562 f8f2288c62e3c6cb2999163c2482b92b ""
+  "main.aux" 1744287776 21531 429414a9cf930ef5f318cb51f1b02f36 "pdflatex"
+  "main.bbl" 1744287775 16757 211f0426affffbfc8e8d98fe28d1db84 "bibtex main"
+  "main.out" 1744287776 5627 5d46e9cccd8893756aae5247986cb5d1 "pdflatex"
+  "main.run.xml" 1744287776 2613 bfb160be0e17855936d2c997c372cec8 "pdflatex"
   "main.tex" 1743573785 4623 22491274a85fd55ac0d659c5ca2e4606 ""
-  "main.toc" 1744038513 6083 44d42cdd05518aec6d159c86784ae26b "pdflatex"
+  "main.toc" 1744287776 6091 3dad3ddf756b4a9dc0349f4a6d9a8a0f "pdflatex"
   "src/abbreviations.tex" 1743343895 1021 e981ce8cf1e1423a4e75d8affc1806a3 ""
   "src/abstract_en.tex" 1740491150 266 4a585b5ed9cfe8d3ffecf7bd3da8daf5 ""
   "src/acknowledgments.tex" 1740491150 134 ec0dbae76ab4ac56906989f9dabaae71 ""
@@ -397,8 +398,8 @@
   "src/document_setup.tex" 1740953195 9450 67e0b21da6728bd741b21d7b696a068b ""
   "src/enhancements.tex" 1740953195 1394 1fd305a10f2c526da8af5851eff3c4de ""
   "src/introduction.tex" 1740953195 1931 c41ea88e9e1d24506628c34366660a1a ""
-  "src/lidar.tex" 1744038509 13024 b7a41d646dda0ceec9ca05325f779e50 ""
-  "src/rbl.tex" 1744037958 24881 75495de7a420052f4520773eb430ea69 ""
+  "src/lidar.tex" 1744193820 13617 7ab950be5fc45497e52149febf377d09 ""
+  "src/rbl.tex" 1744287772 26775 3b84e91cdeb58b919117c3a444dbca0e ""
   "src/title.tex" 1740953195 618 87b11b1cde1e00deda7c9af679b6667e ""
   (generated)
   "main-blx.bib"
