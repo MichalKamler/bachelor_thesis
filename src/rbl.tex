@@ -1,16 +1,30 @@
 \chapter{Extension of the Rule-Based Lloyd Algorithm to 3D\label{chap:rbl}}
 \section{Introduction}
-    TODO
     \subsection{Motivation}
-        Motivation in using RBL algo instead of some other algorithm
-    \subsection{Problem Statement}
-        Problems in the transition from 2d to 3d - algo needs to be fast 
-    \subsection{Objectives}
-        Extend the algorithm to 3D, do some experiments that are succesfull - show that algo works also for 3d taks
-    \subsection{Chapter Overview}
-        Summary of what this chapter covers
+        Motivation in using \ac{RBL} algorithm offers communication-less approach for guiding multiple agents from point A to point B.
+        It relies on global positioning data together with onboard sensors that provide information about the surrounding environment.
+        So far, the algorithm has mainly been tested in 2D scenarios with a fixed altitude, and the results have looked promising. 
+        This were the main motivation factors to try and extend it to full 3D navigation, where altitude and sensor orientation also play a role.
 
-\section{Overview of RBL - TODO rename}
+    \subsection{Problem Statement}
+        The primary challenge that was addressed involved the extension of an existing 2D algorithm into a 3D space. 
+        To achieve improved results in this higher dimension, new rules controling vertical exploration were introduced. 
+        The subsequent sections of this chapter detail the fundamental principles of the \ac{RBL} algorithm, with specific attention devoted to its application in both 2D and 3D environments. 
+        The distinct rules governing the algorithm's behavior in these two dimensions are described separately to provide clarity. 
+        Finally, the chapter concludes in the presentation and evaluation of simulation experiments designed to assess the efficiency of the proposed 3D extension and the impact of the introduced vertical exploration rules.
+
+    \subsection{Objectives}
+        \begin{itemize}
+            \item   Enhance the convergence speed of agents towards their goals by promoting exploration, with  focus on the vertical exploration.
+            \item   Demonstrate the algorithm's enhanced applicability, achieved by extending goal placement to the z-axis.
+        \end{itemize}
+
+    \subsection{Chapter Overview}
+        The principles of the \ac{RBL} algorithm, presented in \cite{rbl_paper}, form the basis of the work in this chapter. 
+        These principles are clarified and modified to address the challenges of 3D extension.  
+        The chapter details the fundamental principles of RBL in 2D and 3D spaces, describes the specific rules applied to enhance convergence, and concludes with a series of simulation scenarios designed to demonstrate the performance of the proposed solution.
+
+\section{Basic principles of Rule-Based Lloyd Algorithm}
 
     \subsection{Overview}        
         The algorithm is a communication-less approach designed to navigate agents from point A to point B. 
@@ -30,7 +44,7 @@
         In 3D, agents can change their altitude in addition to their horizontal trajectory, giving them more freedom to maneuver around obstacles.
 
     \subsection{Key principles}
-        RBL, as presented in the original paper \cite{rbl_paper}, ensures convergence to the goal and provides sufficient conditions for achieving it. 
+        RBL ensures convergence to the goal and provides sufficient conditions for achieving it. 
         The problem involves individual control of $N$ agents from their initial position $\mathbf{p}_i(0)$ toward a goal region, represented as circle.
         This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. 
         The agent is progressing towards its designated destination, $\mathbf{d}_i$.
@@ -52,15 +66,18 @@
             \mathcal{V}_i = \{q \in \mathcal{Q} \lvert \lVert \mathbf{q} - \mathbf{p}_i \rVert \leq \lVert q - \mathbf{p}_j \rVert, \forall j \neq i\}
         \end{equation}
         For visual representation see \reffig{fig:voronoi_2d}. 
+
         However, this standard definition of Voronoi cells does not take into account the physical space occupied by the agents, or their encumbrances. 
         To address this, a Modified Voronoi cell is introduced, which takes into account the encumbrances of agents.
         This modified version adjusts the boundaries of each Voronoi cell to account for the encumbrances of neighboring agents.
+        Also to enhance the algorithm performance, the Voronoi cell are scaled using a scaling parameter $\eta \in [0, 1]$.
         The modified Voronoi cell definition is as follows:
         \begin{equation}
+            \label{eq:voronoi_cell_account_encum}
             \tilde{V}_i = 
             \begin{cases}
-            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \| \mathbf{q} - \mathbf{p}_j \| \}, & \text{if } \Delta_{ij} \leq \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2} \\
-            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \| \mathbf{q} - \tilde{\mathbf{p}}_j \| \}, & \text{otherwise},
+            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \eta \| \mathbf{q} - \mathbf{p}_j \| \}, & \text{if } \Delta_{ij} \leq \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2} \\
+            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \eta \| \mathbf{q} - \tilde{\mathbf{p}}_j \| \}, & \text{otherwise},
             \end{cases}
         \end{equation}
         $\forall j \in \mathcal{N}_i$, where $\Delta_{ij} = \delta_i + \delta_j$ and $\tilde{\mathbf{p}}_j = \mathbf{p}_j + 2(\Delta_{ij} - \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2})\frac{ \mathbf{p}_i - \mathbf{p}_j }{\| \mathbf{p}_i - \mathbf{p}_j \|}$.
@@ -89,7 +106,7 @@
                     \dot{\beta}_i(A_i) = 
                     \begin{cases}
                         -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
-                        0  & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
+                        0  & \text{if } \beta_i \leq \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
                         -(\beta_i - \beta_i^D) & \text{otherwise}
                     \end{cases}
                 \end{equation}
@@ -117,12 +134,11 @@
             \mathbf{c}_{\mathcal{A}_i} = \frac{\int_{\mathcal{A}_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{\mathcal{A}_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}},
         \end{equation}
         where \( \mathbf{q} \) represents the point in mission space, and \( \varphi_i(\mathbf{q}) \) is a weighting function. 
+        The centroids for other relevant cells are computed using a similar approach, but over different sets.
 
         By applying the previously defined rules and computations, the RBL algorithm successfully guides agents movement toward the goal.
         However, these rules focus solely on rotating the centroid $\mathcal{A}_i$ in the azimuthal plane. 
         To enhance performance in a fully three-dimensional space, additional rules are required to account for elevation adjustments. 
-    \subsection{Agressivity of RBL alog TODO rename}
-        modification of cell A so it can move closer to objects - cwvd parameters
 
 \section{Extension of the RBL algorithm to 3D}
     \subsection{Motivation for 3D Extension}
@@ -192,64 +208,128 @@
         \end{equation}
 
         where $\text{min}_z$ and $\text{max}_z$ define the vertical bounds within which the sensing region $\mathcal{S}_i$ is restricted. 
-        This ensures that the \ac{UAV} cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
-        By constraining the sensing radius, the \ac{UAV} remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
+        This ensures that the agent cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
+        By constraining the sensing radius, the agent remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
 
-        The centroid rotation rule $Z_{rule}$ is introduced to enhance \ac{UAV} avoidance by rotating the computed destination $\mathbf{d}_i$ by an angle $\phi$.
+        The destination rotation rule $Z_{rule}$ is introduced to enhance agents avoidance by rotating the computed destination $\mathbf{d}_i$ by an angle $\phi$.
+        For vertical rotation angle $\phi$, the following condition is intorduced
+        \begin{equation}
+            \label{eqn:phi_condition}
+            \Omega = \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_z < d_6 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_z \lor 
+            | \|\mathbf{p}_i - \mathbf{c}_{\mathcal{S}_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} | > d_7
+        \end{equation}
+        This condition has two main parts, combined by a logical or. The first part evaluates the vertical displacement of the centroid of the partitioned cell $\mathbf{c}_{\mathcal{A}_i}$ from the centroid of the sensing cell $\mathbf{c}_{\mathcal{S}_i}$ and the
+        displacement of the agents position $\mathbf{p}_i$ from  $\mathbf{c}_{\mathcal{A}_i}$.
+        The second part considers the difference in the horizontal plane between the agent's position and the centroids $\mathbf{c}_{\mathcal{A}_i}$, $\mathbf{c}_{\mathcal{S}_i}$.
 
+        To improve agent distriution in the vertical dimension, a directional influence on vertical exploration is introduced. 
+        Given that each agent's position $\mathbf{p}_i$ and final goal $\mathbf{g}_i$, are known, this direc influence can be included into the update rule for $\phi_i$.
+
+        First, the global heading angle, $\theta_{goal}$, towards the goal is calculated: 
         \begin{equation}
-            \dot{\phi}_i(A_i) =
-            \begin{cases}
-                \text{sgn}(\omega_i) \cdot dt, & \text{if } \|\mathbf{c}_{A_i} - \mathbf{p}_i\|_z < d_6 \land \|\mathbf{c}_{S_i} - \mathbf{c}_{A_i}\|_z > d_5 \\ 
-                                               & \lor (\|\mathbf{p}_i - \mathbf{c}_{S_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{A_i}\|_{xy}) > d_7, \\
-                -\text{sgn}(\phi_i) \cdot dt,  & \text{otherwise.}
-            \end{cases}
+            \theta_{goal} = \text{atan2}(g_{i,y} - p_{i,y}, g_{i,x} - p_{i,x})
         \end{equation}
-        
-        where the directional influence \(\omega_i\) is given by a weighted combination:
-        
+        where $\mathbf{g}_{i, x}$, $\mathbf{g}_{i, y}$ represent the x and y coordinates of the goal, and $\mathbf{p}_{i, x}$, $\mathbf{p}_{i, y}$ represent the x and y coordinates of the agent.
+        The resulting angle is in the range $[-\pi, \pi]$.
+        Next, the heading angle is linearly mapped to a direction influence $D_{influence}$ value in the range [-1, 1]:
         \begin{equation}
-            \omega_i = \frac{w_1 \cdot \|\mathbf{c}_{S_i} - \mathbf{p}_i\|_z + w_2 \cdot \left(\frac{\theta_i}{\pi} - 1\right)}{w_1 + w_2},
+            D_{influence} = \frac{\theta_{goal}}{\pi}
         \end{equation}
-        
-        with 
-        
+        This mapping ensures that agents traveling directly northward (from South to North) have a directional influence close to one, that will promote upward vertical exploration. 
+        Similarly, agents traveling southward have a direction influence close to -1, promoting downward exploration. 
+        Agents moving primarily eastward or westward have a directional influence close to 0, resulting in minimal vertical exploration.
+        This strategy encourages a more uniform distribution of agents throughout the 3D space. 
+
+        To determine the adjustment to the agent's vertical orientation, the directional influence $D_{influence}$ is combined with the relative vertical displacement of the agent and $\mathbf{c}_{\mathcal{S}_i}$
+        Weighted average is used to combine them: 
         \begin{equation}
-            \theta_i = \text{atan2}(g_x - p_{ix}, g_y - p_{iy}),
-        \end{equation}
-        
-        ensuring it remains in \([0, 2\pi]\). The weights \(w_1\) and \(w_2\) balance the contribution of vertical distance and directional influence.
-        
-        \paragraph{Convergence Back to Zero}  
-        If no condition for modification is met, \(\phi\) converges back to zero:
-        
+            \label{eqn:combined_influace}
+            C_{influence} = \frac{w_1 \cdot (\mathbf{c}_{\mathcal{S}_i,z} - \mathbf{p}_{i,z}) + w_2 \cdot D_{influence}}{w_1 + w_2}
+        \end{equation} 
+        where $w_1$ $w_2$ are weighting factors. The resulting combined influence $C_{influence}$ is then used to update the agent's rotation of it's destination $\mathbf{d}_i$ by $\phi_i$.
+
+        Based on condition \eqref{eqn:phi_condition} and \eqref{eqn:combined_influace} update rule for $phi_i$ can be constructed as follows:
         \begin{equation}
+            \label{eqn:phi_update}
             \dot{\phi}_i = 
             \begin{cases}
-                -dt, & \phi_i > 0, \\
-                dt, & \phi_i < 0, \\
-                0, & \phi_i = 0.
+                k  & \text{if } \phi_i < \frac{\pi}{4} > \land C_{influence} > 0 \land \Omega \\
+                0  & \text{if } \phi_i > \frac{\pi}{4} > \land C_{influence} > 0 \land \Omega \\
+                -k & \text{if } \phi_i > -\frac{\pi}{4} > \land C_{influence} \leq 0 \land \Omega \\
+                0  & \text{if } \phi_i < -\frac{\pi}{4} > \land C_{influence} \leq 0 \land \Omega \\
+                -k & \text{if } \phi_i > 0 \land \neg \Omega \\
+                k  & \text{if } \phi_i < 0 \land \neg \Omega \\
+                0  & \text{otherwise}
             \end{cases}
         \end{equation}
-        
-        \paragraph{Constraint on \(\phi\)}  
-        A constraint ensures that vertical avoidance does not increase separation:
-        
+        where the first four cases control the rotation of the agent's destination $\mathbf{d}_i$ and the final three cases handle the smooth convergence of $\phi_i$ back to 0, when the condition $\Omega$ is not met. 
+
+        After the application of the rules for $\theta_i$ and $\phi_i$, the agent's destination is updated as:
         \begin{equation}
-            \phi_i = 0, \quad \text{if } |\phi_i| = \frac{\pi}{4} \land \|\mathbf{p}_i - \mathbf{c}_{S_i}\|_z > \|\mathbf{p}_i - \mathbf{c}_{A_i}\|_z.
+            \label{eqn:destination_update}
+            \mathbf{d}_i =
+            \begin{pmatrix}
+                p_{i,x} +  \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \sin(\phi_{\mathbf{g}_i} + \phi_i) \cdot \cos(\theta_{\mathbf{g}_i} - \theta_i) \\
+                p_{i,y} + \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \sin(\phi_{\mathbf{g}_i} + \phi_i) \cdot \sin(\theta_{\mathbf{g}_i} - \theta_i) \\
+                p_{i,z} + \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \cos(\phi_{\mathbf{g}_i} + \phi_i)
+            \end{pmatrix}
         \end{equation}
+
+        where $\phi_{\mathbf{g}_i} = \arccos(\frac{\mathbf{g}_{i,z} - \mathbf{p}_{i,z}}{\|\mathbf{p}_i - \mathbf{g}_i\|})$ is the polar angle from z-axis to the goal, 
+        $\theta_{\mathbf{g}_i} = atan2( \mathbf{g}_{i,y} - \mathbf{p}_{i,y}, \mathbf{g}_{i,x} - \mathbf{p}_{i,x})$ is the azimuthal angle in the xy-plane to the goal.
+    
+    \subsection{Algorithm Walkthrough}
+        At each iteration, the proposed algorithm performs a sequence of actions to control agent movement. 
+        These actions can be summarized as follows:
+        \begin{enumerate}
+            \item \textbf{Cell Generation:} \\
+                For each agent, two cells are generated: a partitioned cell, denoted as '$\mathcal{A}$' and a sensing cell, denoted as '$\mathcal{S}$'.
+            \item \textbf{Centroid Computation:}
+                \begin{itemize}
+                    \item The centroid of cell $\mathcal{A}$, $c_{\mathcal{A}}$ is computed using a weighted function that considers both the agent's goal position, $\mathbf{g}_i$, and its current destination, $\mathbf{d}_i$.
+                    \item The centroid of cell $\mathcal{S}$, $c_{\mathcal{S}}$ is computed using a weighted function that considers only the agent's current destination, $\mathbf{d}_i$.
+                \end{itemize}
+            \item \textbf{Rule Application and Destination Update:} \\
+                A set of rules is applied to: 
+                \begin{itemize}
+                    \item Adjust weighting function usied in the centroid computations \eqref{eqn:beta_weighting}.
+                    \item Rules to update $\theta_i$ \eqref{eqn:azimuth_3d} and $\phi_i$ \eqref{eqn:phi_update} are applied.
+                    \item Update the agent's destination $\mathbf{d}_i$ \eqref{eqn:destination_update}.
+                \end{itemize}
+            \item \textbf{Agent movement} \\
+                Finally, the agent is directed towards a centroid location $c_{\mathcal{A}}$.
+        \end{enumerate}
+        This process is repeated until all agents reach their goals.
+
         
-        This ensures that if vertical modification makes the drone farther from the reference, it is reset.
 
 \section{Simulation and Results Analysis}
 
-Describtion of simulation enviroment, used tools, Describtion of few simulation scenarios and result analysis.
+    \subsection{Computational Implementation Details}
+        The continuous algorithm presented in the previous section can be easily discretized for implementation in a computational enviroment.
+        Instead of continuous sets, the cells $\mathcal{A}$ and $\mathcal{S}$ are aproximated using a set of discrete points.   
+        Discrete points are partitioned out when definition \eqref{eq:voronoi_cell_account_encum} is not met.
+        \begin{figure}[H]
+            \centering
+            \subfloat[Example of discretized cells ($\mathcal{A} = \mathcal{S}$)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/rviz/cs_equal_ca.png}
+            \label{fig:rviz_cs_eq_ca}
+            }
+            \subfloat[Example of a partitioned cell $\mathcal{A}$] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/rviz/ca_partitioned.png}
+            \label{fig:rviz_ca_partitioned}
+            }
+            \caption{
+                Discrete approximation of Voronoi cells, with centroid $c_{\mathcal{A}}$ shown as a red dot.(a) Example where the partitioned cell $\mathcal{A}$ and the sensing cell $\mathcal{S}$ are the same. (b) Example where the partitioned cell $\mathcal{A}$ is partitioned by other \ac{UAV}s.
+            }
+            \label{fig:rviz_cells}
+        \end{figure}
+        
     \subsection{Simulation Enviroment}
-        The term 'agent' refers to the \ac{UAV}s used in the simulation.
-        For this simulation, I relied on the framework provided by \cite{mrs_uav_system}
-        Each \ac{UAV} obtains its global position from the ROS simulator, RViz.
-        The positions of other \ac{UAV}s were estimated using blinking LEDs mounted on each \ac{UAV}, based on the method outlined in \cite{uvdd1}.
-        Below, I list some relevant constraints for each \ac{UAV}:
+        In this simulation, the term 'agent' refers to the \ac{UAV}, which were simulated using the framework provided by \cite{mrs_uav_system}.
+        Each \ac{UAV} obtains its global ground truth position from the ROS simulator.
+        The positions of neighboring \ac{UAV}s were estimated using simulated blinking ultraviolet markers, following the method described in \cite{uvdd1} and \cite{uvdar_package}.
+        The following constraints are relevant for each \ac{UAV}:
         \begin{table}[h]
             \centering
             \renewcommand{\arraystretch}{1.1}
@@ -266,87 +346,102 @@ Describtion of simulation enviroment, used tools, Describtion of few simulation 
                 \caption{Motion constraints of the \ac{UAV}.}
             \label{tab:uav_constraints}
         \end{table}
+        
     \subsection{Simulation Scenarios}
-        Several experiments were conducted to evaluate and ensure the safe behavior of the \ac{UAV}s during interactions. 
-        Different sets of \ac{UAV}s were used in these experiments, with N = 5, 10, and 15, and data was collected from them for analysis. 
-        Each \ac{UAV} was first flown from ground to its initial position, and once all \ac{UAV}s were in their starting positions, the RBL algorithm was initiated.
+        To evaluate the safety and performance of the \ac{UAV}s during interactions, a series of experiments was conducted. 
+        Experiments were performed primarily using circular formations, with \ac{UAV} counts of N = 5, 10, and 15. 
+        Each of these circular formation experiments was repeated 10 times.
+        Additionally, to extend the analysis to 3D and assess the algorithm's performance, a set of spherical formation experiments eas conducted with N = 10, also repeated 10 times.
+        After each \ac{UAV} was flown from the ground to its designated starting position, the \ac{RBL} algorithm was initiated.    
 
-        For most agent interactions, experiments were conducted in both circular and spherical formations, with the circular formation being initially conducted in \cite{rbl_paper}. 
-        The circular formation was chosen as it promotes more predictable and consistent interactions between agents, as opposed to random initial positions and goal locations, which could lead to less structured or less frequent interactions. 
-        Similarly, the spherical formation was introduced to extend the experiment into 3D, providing a more comprehensive test scenario. 
-        Both structured formations help to better evaluate the performance of the RBL algorithm in environments where agents are more likely to encounter each other.
-        The \ac{UAV}s were evenly distributed along the perimeter of the circle or the surface of the sphere. 
-        The goal position was placed on the opposite side of the circle or sphere. 
-        The radius of both the circle and the sphere was set to 5 meters.
+        These formations provide a controlled enviroment compared to random initial position and goal locations. 
+        In both circular and spherical formations, the \ac{UAV}s were evenly distributed along the circle or the surface of the sphere, with the goal position located on the opposite side.
+        The radius of both circle and the sphere was set to 5 meters.
         
-        TODO table of parameters used for this experiment.
-        Sensing radius $r_s$ = 4.5m, update rate 10 Hz, encumbrance 0.5 m, d1 = d3 = d5 = 0.5, d2 = d4 = d6 = 1.0.
-        For $z_{clipping}$ - $min_z$ = 1.0 m, $max_z$ = 10.0
+        The following metrics were measured across the 10 repetitions of each experiment, along with their standard deviations: success rate \( SR \ [\%] \), average trajectory length \( \overline{L} \ [\mathrm{m}] \), 
+        average time to reach the goal \( \overline{t} \ [\mathrm{s}] \), average of the maximal time for \ac{UAV} to reach the goal \( \overline{t}_{\text{max}} \ [\mathrm{s}] \), and average velocity \( \overline{v} \ [\mathrm{m/s}] \).
 
-
-        In the next tables 
-        
-        \subsection{N = 5 circular}
-            \begin{table}[H]
-                \centering
-                \renewcommand{\arraystretch}{1.2}
-                \begin{tabular}{|l|c|c|c|c|c|}
-                \hline
-                                            & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                RBL 2D                      & 100.00          & 21.06 $\pm$ 0.10                  & 25.15 $\pm$ 0.21                  & 25.15 $\pm$ 0.19                               & 0.83 $\pm$ 0.01                         \\ \hline
-                RBL 3D                      & 100.00          & 20.77 $\pm$ 0.29                  & 26.04 $\pm$ 0.51                  & 26.79 $\pm$ 0.27                               & 0.79 $\pm$ 0.02                         \\ \hline
-                RBL 3D\(_{\text{clipped}}\) & 100.00          & 20.60 $\pm$ 0.24                  & 26.73 $\pm$ 0.47                  & 27.39 $\pm$ 0.28                               & 0.77 $\pm$ 0.02                         \\ \hline
-                RBL 3D\(_z\)                & 100.00          & 20.97 $\pm$ 0.52                  & 25.54 $\pm$ 0.97                  & 26.72 $\pm$ 0.60                               & 0.81 $\pm$ 0.03                         \\ \hline
-                \end{tabular}
-            \end{table}
-
-        \subsection{N = 10 circular}
-            \begin{table}[H]
-                \centering
-                \renewcommand{\arraystretch}{1.2}
-                \begin{tabular}{|l|c|c|c|c|c|}
-                \hline
-                                            & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                RBL 2D                      & 100.00          & 22.95 $\pm$ 1.64                  & 30.79 $\pm$ 2.28                  & 34.73 $\pm$ 0.77                               & 0.74 $\pm$ 0.07                         \\ \hline
-                RBL 3D                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
-                RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
-                RBL 3D\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
-                \end{tabular}
-            \end{table}
-        
-        \subsection{N = 15 circular}
+        The specific values of the parameters used in the experiments are summarized in following table \ref{tab:experiment_parameters}:
         \begin{table}[H]
             \centering
-            \renewcommand{\arraystretch}{1.2}
-            \begin{tabular}{|l|c|c|c|c|c|}
-            \hline
-                                        & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-            RBL 2D                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
-            RBL 3D                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
-            RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
-            RBL 3D\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
-            \end{tabular}
-        \end{table}
-    
-        \subsection{N = 10 sphere}
-            \begin{table}[H]
-                \centering
-                \renewcommand{\arraystretch}{1.2}
-                \begin{tabular}{|l|c|c|c|c|c|}
+            \caption{Parameters Used in Experiments}
+            \begin{tabular}{|l|l|}
                 \hline
-                                            & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                RBL 2D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                RBL 3D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                RBL 3D\(_{\text{clipped}}\) & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                RBL 3D\(_z\)                & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                \end{tabular}
-            \end{table}
+                Parameter & Value \\
+                \hline
+                \hline
+                Sensing radius ($r_s$) & 3.5 m \\ \hline
+                Update rate & 10 Hz \\ \hline
+                Encumbrance & 0.5 m \\ \hline
+                $d_1 = d_3 = d_5$ & 0.5 m \\ \hline
+                $d_2 = d_4 = d_6$ & 1.0 m \\ \hline
+                $d_7$ & 0.2  \\ \hline
+                $\beta_i^D$ & 1.5  \\ \hline
+                $\eta$ & 0.9  \\ \hline
+                $min_z$ & 1.0 m \\ \hline
+                $max_z$ & 10.0 m \\ \hline
 
+            \end{tabular}
+            \label{tab:experiment_parameters}
+        \end{table}
 
-    \subsection{Practical Experiment Setup}
+    \subsection{Experimental Results}
+        \begin{itemize}
+            \item \textbf{$N = 5$ Circular Formation:}
+                \begin{table}[H]
+                    \centering
+                    \renewcommand{\arraystretch}{1.2}
+                    \begin{tabular}{|l|c|c|c|c|c|}
+                    \hline
+                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                    RBL 2D                      & 100.00          & 21.06 $\pm$ 0.10                  & 25.15 $\pm$ 0.21                  & 25.15 $\pm$ 0.19                               & 0.83 $\pm$ 0.01                         \\ \hline
+                    RBL 3D                      & 100.00          & 20.77 $\pm$ 0.29                  & 26.04 $\pm$ 0.51                  & 26.79 $\pm$ 0.27                               & 0.79 $\pm$ 0.02                         \\ \hline
+                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 20.60 $\pm$ 0.24                  & 26.73 $\pm$ 0.47                  & 27.39 $\pm$ 0.28                               & 0.77 $\pm$ 0.02                         \\ \hline
+                    RBL 3D\(_z\)                & 100.00          & 20.97 $\pm$ 0.52                  & 25.54 $\pm$ 0.97                  & 26.72 $\pm$ 0.60                               & 0.81 $\pm$ 0.03                         \\ \hline
+                    \end{tabular}
+                \end{table}
+            \item \textbf{$N = 10$ Circular Formation:}
+                \begin{table}[H]
+                    \centering
+                    \renewcommand{\arraystretch}{1.2}
+                    \begin{tabular}{|l|c|c|c|c|c|}
+                    \hline
+                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                    RBL 2D                      & 100.00          & 22.95 $\pm$ 1.64                  & 30.79 $\pm$ 2.28                  & 34.73 $\pm$ 0.77                               & 0.74 $\pm$ 0.07                         \\ \hline
+                    RBL 3D                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
+                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
+                    RBL 3D\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
+                    \end{tabular}
+                \end{table}
+            \item \textbf{$N = 15$ Circular Formation:}
+                \begin{table}[H]
+                    \centering
+                    \renewcommand{\arraystretch}{1.2}
+                    \begin{tabular}{|l|c|c|c|c|c|}
+                    \hline
+                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                    RBL 2D                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
+                    RBL 3D                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
+                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
+                    RBL 3D\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
+                    \end{tabular}
+                \end{table}
+            \item \textbf{$N = 10$ Spherical Formation:}
+                \begin{table}[H]
+                    \centering
+                    \renewcommand{\arraystretch}{1.2}
+                    \begin{tabular}{|l|c|c|c|c|c|}
+                    \hline
+                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                    RBL 2D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+                    RBL 3D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+                    RBL 3D\(_z\)                & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+                    \end{tabular}
+                \end{table}
+
+        \end{itemize}
             
-    \subsection{Comparisons}
-
 \section{Summary and Key Insights}
 
     Recap of modifications. Faced challenges and solutions applied
