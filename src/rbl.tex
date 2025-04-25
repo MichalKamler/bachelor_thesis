@@ -433,15 +433,49 @@
                     \begin{tabular}{|l|c|c|c|c|c|}
                     \hline
                                                 & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL 2D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                    RBL 3D                      & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
-                    RBL 3D\(_z\)                & 100.00          & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                  & 00.00 $\pm$ 0.00                               & 0.00 $\pm$ 0.00                         \\ \hline
+                    RBL 3D                      & 100.00          & 14.32 $\pm$ 1.52                  & 27.76 $\pm$ 3.06                  & 32.48 $\pm$ 2.26                               & 0.51 $\pm$ 0.05                         \\ \hline
+                    RBL 3D\(_z\)                & 100.00          & 14.06 $\pm$ 0.97                  & 27.17 $\pm$ 2.66                  & 31.86 $\pm$ 1.24                               & 0.55 $\pm$ 0.06                         \\ \hline
                     \end{tabular}
                 \end{table}
-
         \end{itemize}
+
+        The figure below visualizes the  \ac{UAV}  trajectories, showing the effect of the applied simulation rules.
+        \begin{figure}[H]
+            \centering
+            \subfloat[Trajectories of \ac{UAV}s using 2D \ac{RBL}, $N=10$] {
+                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_2d.png}
+                \label{fig:n_10_circle_2d}
+            }
+            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL}, $N=10$] {
+                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_3d.png}
+                \label{fig:n_10_circle_3d}
+            }
+            \par\medskip
+            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} and $Z_{clipping}$, $N=10$] {
+                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_clipp.png}
+                \label{fig:n_10_circle_z_clipp}
+            }
+            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} and using $Z_{rule}$, $N=10$] {
+                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_rule.png}
+                \label{fig:n_10_circle_z_rule}
+            }
+            \par\medskip
+            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} on sphere, $N=10$] {
+                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_sphere.png}
+                \label{fig:n_10_sphere}
+            }
+            \caption{
+                Visualization of UAV formations and algorithm behavior for $N=10$ (shown with top-down and side views). 
+                (a) Trajectories in a 2D circular crossing. 
+                (b) Trajectories in a 3D circular crossing. 
+                (c) Effect of Z-axis clipping on the circular crossing. 
+                (d) Effect of the Z-axis rule on the circular crossing. 
+                (e) Trajectories in a 3D spherical crossing.
+            }
+            \label{fig:trajectories}
+        \end{figure}
+
+
             
 \section{Summary and Key Insights}
-
     Recap of modifications. Faced challenges and solutions applied
