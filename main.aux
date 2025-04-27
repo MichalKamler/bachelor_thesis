@@ -53,6 +53,7 @@
 \newacro{RBL}[\AC@hyperlink{RBL}{RBL}]{Rule-based Lloyd Algorithm}
 \newacro{ToF}[\AC@hyperlink{ToF}{ToF}]{Time-of-Flight}
 \newacro{PCL}[\AC@hyperlink{PCL}{PCL}]{Point Cloud Library}
+\newacro{GNSS}[\AC@hyperlink{GNSS}{GNSS}]{Global Navigation Satellite System}
 \@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -203,7 +204,14 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {Trajectories of \ac {UAV}s using 3D \ac {RBL} and $Z_{clipping}$, $N=10$}}}{12}{subfigure.3.3}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {Trajectories of \ac {UAV}s using 3D \ac {RBL} and using $Z_{rule}$, $N=10$}}}{12}{subfigure.3.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {Trajectories of \ac {UAV}s using 3D \ac {RBL} on sphere, $N=10$}}}{12}{subfigure.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {2.5}Summary and Key Insights}{12}{section.2.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Comparison with State-of-the-Art Method}{12}{section.2.5}\protected@file@percent }
+\acronymused{RBL}
+\acronymused{RBL}
+\acronymused{UGV}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Summary and Key Insights}{13}{section.2.6}\protected@file@percent }
+\acronymused{RBL}
+\acronymused{UAV}
+\acronymused{UAV}
 \citation{pointlio_mrs}
 \abx@aux@cite{pointlio_mrs}
 \abx@aux@segm{0}{0}{pointlio_mrs}
@@ -213,19 +221,19 @@
 \citation{Lidar_agriculture}
 \abx@aux@cite{Lidar_agriculture}
 \abx@aux@segm{0}{0}{Lidar_agriculture}
-\@writefile{toc}{\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{13}{chapter.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{15}{chapter.3}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:lidar}{{3}{13}{UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Introduction}{13}{section.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Motivation}{13}{subsection.3.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{13}{subsection.3.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Objectives}{13}{subsection.3.1.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{13}{subsection.3.1.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{13}{section.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{13}{subsection.3.2.1}\protected@file@percent }
+\newlabel{chap:lidar}{{3}{15}{UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{chapter.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Introduction}{15}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Motivation}{15}{subsection.3.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{15}{subsection.3.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Objectives}{15}{subsection.3.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{15}{subsection.3.1.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{15}{section.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{15}{subsection.3.2.1}\protected@file@percent }
 \AC@undonewlabel{acro:LiDAR}
-\newlabel{acro:LiDAR}{{3.2.1}{13}{Overview of LiDAR for UAV Navigation}{section*.15}{}}
+\newlabel{acro:LiDAR}{{3.2.1}{15}{Overview of LiDAR for UAV Navigation}{section*.15}{}}
 \acronymused{LiDAR}
 \acronymused{LiDAR}
 \acronymused{UAV}
@@ -247,70 +255,70 @@
 \acronymused{LiDAR}
 \acronymused{UAV}
 \acronymused{LiDAR}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{14}{subsection.3.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{16}{subsection.3.2.2}\protected@file@percent }
 \acronymused{LiDAR}
 \AC@undonewlabel{acro:ToF}
-\newlabel{acro:ToF}{{3.2.2}{14}{Point Cloud Data Acquisition}{section*.16}{}}
+\newlabel{acro:ToF}{{3.2.2}{16}{Point Cloud Data Acquisition}{section*.16}{}}
 \acronymused{ToF}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{14}{subsection.3.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{16}{subsection.3.2.3}\protected@file@percent }
 \acronymused{LiDAR}
 \acronymused{UAV}
 \acronymused{LiDAR}
 \AC@undonewlabel{acro:PCL}
-\newlabel{acro:PCL}{{3.2.3}{14}{Preprocessing Techniques}{section*.17}{}}
+\newlabel{acro:PCL}{{3.2.3}{16}{Preprocessing Techniques}{section*.17}{}}
 \acronymused{PCL}
 \acronymused{LiDAR}
 \acronymused{UAV}
 \acronymused{UAV}
 \acronymused{UAV}
 \acronymused{UAV}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Surface Reconstruction and Triangulation}{15}{subsection.3.2.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Using the found triangles for cell A partition}{15}{section.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Overview}{15}{subsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Finding the Closest Point on a Triangle}{16}{subsection.3.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Plane Calculation for Slicing Cell A}{16}{subsection.3.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Integration with the RBL Algorithm}{16}{subsection.3.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Implementation and Integration on UAV}{16}{section.3.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Challanges in Integration}{16}{subsection.3.4.1}\protected@file@percent }
-\newlabel{fig:model_uav}{{3.1a}{16}{Subfigure 3 3.1a}{subfigure.3.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Surface Reconstruction and Triangulation}{17}{subsection.3.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Using the found triangles for cell A partition}{17}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Overview}{17}{subsection.3.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Finding the Closest Point on a Triangle}{18}{subsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.3}Plane Calculation for Slicing Cell A}{18}{subsection.3.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.4}Integration with the RBL Algorithm}{18}{subsection.3.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Implementation and Integration on UAV}{18}{section.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.1}Challanges in Integration}{18}{subsection.3.4.1}\protected@file@percent }
+\newlabel{fig:model_uav}{{3.1a}{18}{Subfigure 3 3.1a}{subfigure.3.1.1}{}}
 \newlabel{sub@fig:model_uav}{{(a)}{a}{Subfigure 3 3.1a\relax }{subfigure.3.1.1}{}}
-\newlabel{fig:uav_1}{{3.1b}{16}{Subfigure 3 3.1b}{subfigure.3.1.2}{}}
+\newlabel{fig:uav_1}{{3.1b}{18}{Subfigure 3 3.1b}{subfigure.3.1.2}{}}
 \newlabel{sub@fig:uav_1}{{(b)}{b}{Subfigure 3 3.1b\relax }{subfigure.3.1.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  UAV and LiDAR mounting scheme. Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha $ and tilt angle $\gamma $. Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration. \relax }}{16}{figure.caption.18}\protected@file@percent }
-\newlabel{fig:uavs}{{3.1}{16}{UAV and LiDAR mounting scheme. Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha $ and tilt angle $\gamma $. Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration. \relax }{figure.caption.18}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {UAV model with visualized LiDAR mounting parameters.}}}{16}{subfigure.1.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {UAV used in the experiment with mounted LiDAR}}}{16}{subfigure.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Software and Hardware setup}{17}{subsection.3.4.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Simulation and Experimental Results}{17}{section.3.5}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Simulation Setup}{17}{subsection.3.5.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{17}{subsection.3.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{17}{subsection.3.5.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{17}{subsection.3.5.4}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Conclusion}{17}{section.3.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.7}Introduction}{17}{section.3.7}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.8}3D LiDAR Sensor Model and Simulation Setup}{17}{section.3.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.9}Object Detection and Approximation}{17}{section.3.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.10}Integration with RBL Algorithm}{17}{section.3.10}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.11}Simulation Results}{18}{section.3.11}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.12}Discussion}{18}{section.3.12}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {3.13}Summary}{18}{section.3.13}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{19}{chapter.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  UAV and LiDAR mounting scheme. Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha $ and tilt angle $\gamma $. Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration. \relax }}{18}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:uavs}{{3.1}{18}{UAV and LiDAR mounting scheme. Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha $ and tilt angle $\gamma $. Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration. \relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {UAV model with visualized LiDAR mounting parameters.}}}{18}{subfigure.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {UAV used in the experiment with mounted LiDAR}}}{18}{subfigure.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4.2}Software and Hardware setup}{19}{subsection.3.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Simulation and Experimental Results}{19}{section.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.1}Simulation Setup}{19}{subsection.3.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.2}Performance in Simulated Environments}{19}{subsection.3.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.3}Real-World Experiments in a Forest Environment}{19}{subsection.3.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5.4}Comparative Analysis}{19}{subsection.3.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Conclusion}{19}{section.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Introduction}{19}{section.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}3D LiDAR Sensor Model and Simulation Setup}{19}{section.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}Object Detection and Approximation}{19}{section.3.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.10}Integration with RBL Algorithm}{19}{section.3.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.11}Simulation Results}{20}{section.3.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.12}Discussion}{20}{section.3.12}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3.13}Summary}{20}{section.3.13}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{21}{chapter.4}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:enhancements}{{4}{19}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques}{chapter.4}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{20}{chapter.5}\protected@file@percent }
+\newlabel{chap:enhancements}{{4}{21}{Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques}{chapter.4}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Conclusion}{22}{chapter.5}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{chap:conclusion}{{5}{20}{Conclusion}{chapter.5}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}References}{21}{chapter.6}\protected@file@percent }
+\newlabel{chap:conclusion}{{5}{22}{Conclusion}{chapter.5}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}References}{23}{chapter.6}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix A}{22}{appendix.A}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}Appendix A}{24}{appendix.A}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{LastPage}{{}{22}{}{page.22}{}}
-\xdef\lastpage@lastpage{22}
-\xdef\lastpage@lastpageHy{22}
+\newlabel{LastPage}{{}{24}{}{page.24}{}}
+\xdef\lastpage@lastpage{24}
+\xdef\lastpage@lastpageHy{24}
 \abx@aux@number{16}{rbl_paper}{0}{ydnt/global//global/global}{1}
 \abx@aux@number{17}{mrs_uav_system}{0}{ydnt/global//global/global}{2}
 \abx@aux@number{18}{uvdar_package}{0}{ydnt/global//global/global}{3}
