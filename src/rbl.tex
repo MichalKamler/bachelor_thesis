@@ -2,16 +2,22 @@
 \section{Introduction}
     \subsection{Motivation}
         Motivation in using \ac{RBL} algorithm offers communication-less approach for guiding multiple agents from point A to point B.
-        It relies on global positioning data together with onboard sensors that provide information about the surrounding environment.
-        So far, the algorithm has mainly been tested in 2D scenarios with a fixed altitude, and the results have looked promising. 
-        This were the main motivation factors to try and extend it to full 3D navigation, where altitude and sensor orientation also play a role.
+        It requires an estimate of its position—whether through \ac{GPS}, \ac{RTK} or methods like \ac{SLAM}—along with onboard sensors that provide information about the surrounding environment, enabling it to avoid obstacles and move toward the goal.
+        So far, the algorithm has mainly been tested in \ac{2D} scenarios with a fixed altitude, and the results have looked promising. 
+        This were the main motivation factors to try and extend it to full \ac{3D} navigation, where altitude and sensor orientation also play a role.
 
     \subsection{Problem Statement}
-        The primary challenge that was addressed involved the extension of an existing 2D algorithm into a 3D space. 
+        Many real-world robotic applications, particularly involving \ac{UAV}s, require navigation within \ac{3D} environments containing obstacles. 
+        While algorithms like the \ac{RBL} \cite{rbl_paper} have proven effective in \ac{2D} goal convergence, they are inherently limited when applied directly to \ac{3D} space. 
+        The core problem arises because the existing \ac{RBL} algorithm is fundamentally designed for \ac{2D} planar navigation, making it unsuitable for applications like UAV operations that require navigating in \ac{3D} space.
+        Specifically, there is a need to extend existing \ac{2D} algorithms to \ac{3D} while intelligently incorporating vertical exploration to ensure safe, efficient, and effective navigation through obstacle-rich 3D environments without significantly compromising performance or requiring excessive computational resources. 
+        This work addresses the challenge of adapting the \ac{RBL} algorithm for \ac{3D} space by developing and evaluating specific rules to govern vertical movement, aiming to achieve robust 3D navigation capabilities.
+
+        The primary challenge involved the extension of an existing \ac{2D} algorithm into a \ac{3D} space. 
         To achieve improved results in this higher dimension, new rules controling vertical exploration were introduced. 
-        The subsequent sections of this chapter detail the fundamental principles of the \ac{RBL} algorithm, with specific attention devoted to its application in both 2D and 3D environments. 
+        The subsequent sections of this chapter detail the fundamental principles of the \ac{RBL} algorithm, with specific attention devoted to its application in both 2D and \ac{3D} environments. 
         The distinct rules governing the algorithm's behavior in these two dimensions are described separately to provide clarity. 
-        Finally, the chapter concludes in the presentation and evaluation of simulation experiments designed to assess the efficiency of the proposed 3D extension and the impact of the introduced vertical exploration rules.
+        Finally, the chapter concludes in the presentation and evaluation of simulation experiments designed to assess the efficiency of the proposed \ac{3D} extension and the impact of the introduced vertical exploration rules.
 
     \subsection{Objectives}
         \begin{itemize}
@@ -21,8 +27,8 @@
 
     \subsection{Chapter Overview}
         The principles of the \ac{RBL} algorithm, presented in \cite{rbl_paper}, form the basis of the work in this chapter. 
-        These principles are clarified and modified to address the challenges of 3D extension.  
-        The chapter details the fundamental principles of RBL in 2D and 3D spaces, describes the specific rules applied to enhance convergence, and concludes with a series of simulation scenarios designed to demonstrate the performance of the proposed solution.
+        These principles are clarified and modified to address the challenges of \ac{3D} extension.  
+        The chapter details the fundamental principles of RBL in \ac{2D} and \ac{3D} spaces, describes the specific rules applied to enhance convergence, and concludes with a series of simulation scenarios designed to demonstrate the performance of the proposed solution.
 
 \section{Basic principles of Rule-Based Lloyd Algorithm}
 
@@ -36,13 +42,13 @@
     \subsection{Applications and Limitations in 2D}
         Modern robotics relies on the capability to navigate from point A to point B.
         Navigation plays a crucial role in various robotic applications, such as \ac{UGV}s, which are commonly used in manufacturing and logistics. 
-        \ac{UGV}s typically follow predefined 2D trajectories guided by visual \cite{vision_navigation}, magnetic \cite{magnetic_navigation}, or LiDAR-based navigation \cite{lidar_navigation}. 
-        Additionally, 2D navigation is widely employed in robotic vacuum cleaners, enabling them to systematically cover an area while avoiding obstacles.
+        \ac{UGV}s typically follow predefined \ac{2D} trajectories guided by visual \cite{vision_navigation}, magnetic \cite{magnetic_navigation}, or LiDAR-based navigation \cite{lidar_navigation}. 
+        Additionally, \ac{2D} navigation is widely employed in robotic vacuum cleaners, enabling them to systematically cover an area while avoiding obstacles.
 
-        An obvious limitation for algorithms in 2D is scalability. 
+        An obvious limitation for algorithms in \ac{2D} is scalability. 
         As the number of agents in a system increases, the complexity of managing their movements and coordination also grows significantly.
-        Obstacle avoidance in 2D can also be less efficient compared to 3D environments, as agents have fewer options for evading obstacles. 
-        In 3D, agents can change their altitude in addition to their horizontal trajectory, giving them more freedom to maneuver around obstacles.
+        Obstacle avoidance in \ac{2D} can also be less efficient compared to \ac{3D} environments, as agents have fewer options for evading obstacles. 
+        In \ac{3D}, agents can change their altitude in addition to their horizontal trajectory, giving them more freedom to maneuver around obstacles.
 
     \subsection{Key principles}
         RBL ensures convergence to the goal and provides sufficient conditions for achieving it. 
@@ -142,43 +148,43 @@
         To enhance performance in a fully three-dimensional space, additional rules are required to account for elevation adjustments. 
 
 \section{Extension of the RBL algorithm to 3D}
-    \subsection{Motivation for 3D Extension}
+    \subsection{Motivation for \ac{3D} Extension}
         In many practical applications, agents must operate in three-dimensional spaces, considering not only horizontal movement but also vertical positioning.
-        A 3D extension is necessary to navigate complex environments that feature obstacles in all directions.
-        In 2D, agents are restricted to a flat plane, which simplifies navigation but limits the ability to interact with objects and environments that exist in the third dimension.
+        A \ac{3D} extension is necessary to navigate complex environments that feature obstacles in all directions.
+        In \ac{2D}, agents are restricted to a flat plane, which simplifies navigation but limits the ability to interact with objects and environments that exist in the third dimension.
         The ability to utilize vertical space can enhance energy efficiency, as agents can optimize their paths by ascending or descending to avoid obstacles or to find more favorable environmental conditions, such as discovering more open space.
-        The transition from 2D to 3D also opens up possibilities for more advanced movement strategies, such as navigating through multi-level environments or optimizing trajectories by utilizing vertical space.  
-        Moreover, the use of 3D models allows for more accurate representations of real-world scenarios, where elevation plays a crucial role in decision-making and task execution.
+        The transition from \ac{2D} to \ac{3D} also opens up possibilities for more advanced movement strategies, such as navigating through multi-level environments or optimizing trajectories by utilizing vertical space.  
+        Moreover, the use of \ac{3D} models allows for more accurate representations of real-world scenarios, where elevation plays a crucial role in decision-making and task execution.
 
 
     \subsection{Differences between 2D and 3D}
-        The primary distinction in the 3D extension is that each goal region is now represented as a sphere rather than a circle.  
+        The primary distinction in the \ac{3D} extension is that each goal region is now represented as a sphere rather than a circle.  
         Similarly, the sensing cell $\mathcal{S}_i$ is also modeled as a sphere instead of a circle, allowing for a more accurate representation of the \ac{UAV}'s perception in three-dimensional space.  
-        This change introduces a key modification when defining $\tilde{V}_i$: in the 2D case, a line was sufficient to slice the sensing region, whereas in 3D, a plane must be computed to properly segment the spherical sensing cell. 
+        This change introduces a key modification when defining $\tilde{V}_i$: in the \ac{2D} case, a line was sufficient to slice the sensing region, whereas in \ac{3D}, a plane must be computed to properly segment the spherical sensing cell. 
         
         \begin{figure}[H]
             \centering
-            \subfloat[Euclidean Voronoi Diagram in 2D] {
+            \subfloat[Euclidean Voronoi Diagram in \ac{2D}] {
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/diagrams/Euclidean_Voronoi_diagram.jpg}
             \label{fig:voronoi_2d}
             }
-            \subfloat[Euclidean Voronoi Diagram in 3D] {
+            \subfloat[Euclidean Voronoi Diagram in \ac{3D}] {
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/diagrams/Euclidian Voronoi diagram 3d.png}
             \label{fig:voronoi_3d}
             }
             \caption{
-                (a) an example of 20 Voronoi cells in 2D \cite{Voronoi2d} (b) 25 Voronoi cells in 3D \cite{Voronoi3d}
+                (a) an example of 20 Voronoi cells in \ac{2D} \cite{Voronoi2d} (b) 25 Voronoi cells in \ac{3D} \cite{Voronoi3d}
             }
             \label{fig:voronoi_diagrams}
         \end{figure}
     
     \subsection{Additional Constraints and Modifications}
-        To extend the approach to the 3D case, several adjustments are made.
+        To extend the approach to the \ac{3D} case, several adjustments are made.
         The weighting rule (\ref{eqn:beta_weighting}) remains unchanged. 
         However, in both the azimuth update rule (\ref{eqn:azimuth_2d}) and the azimuth reset rule (\ref{eqn:azimuth_reset_2d}), only the displacement of centroids projected onto the $xy$-plane is taken into account.
-        The modified formulations for the 3D case are as follow:
+        The modified formulations for the \ac{3D} case are as follow:
         \begin{itemize}
-            \item \textbf{Azimuth update rule 3D}
+            \item \textbf{Azimuth update rule \ac{3D}}
                 \begin{equation}
                     \label{eqn:azimuth_3d}
                     \dot{\theta}_i = 
@@ -188,7 +194,7 @@
                         0  & \text{otherwise}
                     \end{cases}
                 \end{equation}
-            \item \textbf{Azimuth reset rule 3D}
+            \item \textbf{Azimuth reset rule \ac{3D}}
                 \begin{equation}
                     \label{eqn:azimuth_reset_3d}
                     \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|_{xy}    
@@ -239,7 +245,7 @@
         This mapping ensures that agents traveling directly northward (from South to North) have a directional influence close to one, that will promote upward vertical exploration. 
         Similarly, agents traveling southward have a direction influence close to -1, promoting downward exploration. 
         Agents moving primarily eastward or westward have a directional influence close to 0, resulting in minimal vertical exploration.
-        This strategy encourages a more uniform distribution of agents throughout the 3D space. 
+        This strategy encourages a more uniform distribution of agents throughout the \ac{3D} space. 
 
         To determine the adjustment to the agent's vertical orientation, the directional influence $D_{influence}$ is combined with the relative vertical displacement of the agent and $\mathbf{c}_{\mathcal{S}_i}$
         Weighted average is used to combine them: 
@@ -352,7 +358,7 @@
         To evaluate the safety and performance of the \ac{UAV}s during interactions, a series of experiments was conducted. 
         Experiments were performed primarily using circular formations, with \ac{UAV} counts of N = 5, 10, and 15. 
         Each of these circular formation experiments was repeated 10 times.
-        Additionally, to extend the analysis to 3D and assess the algorithm's performance, a set of spherical formation experiments eas conducted with N = 10, also repeated 10 times.
+        Additionally, to extend the analysis to \ac{3D} and assess the algorithm's performance, a set of spherical formation experiments eas conducted with N = 10, also repeated 10 times.
         After each \ac{UAV} was flown from the ground to its designated starting position, the \ac{RBL} algorithm was initiated.    
 
         These formations provide a controlled enviroment compared to random initial position and goal locations. 
@@ -395,10 +401,10 @@
                     \begin{tabular}{|l|c|c|c|c|c|}
                     \hline
                                                 & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL 2D                      & 100.00          & 21.06 $\pm$ 0.10                  & 25.15 $\pm$ 0.21                  & 25.15 $\pm$ 0.19                               & 0.83 $\pm$ 0.01                         \\ \hline
-                    RBL 3D                      & 100.00          & 20.77 $\pm$ 0.29                  & 26.04 $\pm$ 0.51                  & 26.79 $\pm$ 0.27                               & 0.79 $\pm$ 0.02                         \\ \hline
-                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 20.60 $\pm$ 0.24                  & 26.73 $\pm$ 0.47                  & 27.39 $\pm$ 0.28                               & 0.77 $\pm$ 0.02                         \\ \hline
-                    RBL 3D\(_z\)                & 100.00          & 20.97 $\pm$ 0.52                  & 25.54 $\pm$ 0.97                  & 26.72 $\pm$ 0.60                               & 0.81 $\pm$ 0.03                         \\ \hline
+                    RBL \ac{2D}                      & 100.00          & 21.06 $\pm$ 0.10                  & 25.15 $\pm$ 0.21                  & 25.15 $\pm$ 0.19                               & 0.83 $\pm$ 0.01                         \\ \hline
+                    RBL \ac{3D}                      & 100.00          & 20.77 $\pm$ 0.29                  & 26.04 $\pm$ 0.51                  & 26.79 $\pm$ 0.27                               & 0.79 $\pm$ 0.02                         \\ \hline
+                    RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 20.60 $\pm$ 0.24                  & 26.73 $\pm$ 0.47                  & 27.39 $\pm$ 0.28                               & 0.77 $\pm$ 0.02                         \\ \hline
+                    RBL \ac{3D}\(_z\)                & 100.00          & 20.97 $\pm$ 0.52                  & 25.54 $\pm$ 0.97                  & 26.72 $\pm$ 0.60                               & 0.81 $\pm$ 0.03                         \\ \hline
                     \end{tabular}
                 \end{table}
             \item \textbf{$N = 10$ Circular Formation:}
@@ -408,10 +414,10 @@
                     \begin{tabular}{|l|c|c|c|c|c|}
                     \hline
                                                 & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL 2D                      & 100.00          & 22.95 $\pm$ 1.64                  & 30.79 $\pm$ 2.28                  & 34.73 $\pm$ 0.77                               & 0.74 $\pm$ 0.07                         \\ \hline
-                    RBL 3D                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
-                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
-                    RBL 3D\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
+                    RBL \ac{2D}                      & 100.00          & 22.95 $\pm$ 1.64                  & 30.79 $\pm$ 2.28                  & 34.73 $\pm$ 0.77                               & 0.74 $\pm$ 0.07                         \\ \hline
+                    RBL \ac{3D}                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
+                    RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
+                    RBL \ac{3D}\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
                     \end{tabular}
                 \end{table}
             \item \textbf{$N = 15$ Circular Formation:}
@@ -421,10 +427,10 @@
                     \begin{tabular}{|l|c|c|c|c|c|}
                     \hline
                                                 & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL 2D                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
-                    RBL 3D                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
-                    RBL 3D\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
-                    RBL 3D\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
+                    RBL \ac{2D}                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
+                    RBL \ac{3D}                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
+                    RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
+                    RBL \ac{3D}\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
                     \end{tabular}
                 \end{table}
             \item \textbf{$N = 10$ Spherical Formation:}
@@ -434,8 +440,8 @@
                     \begin{tabular}{|l|c|c|c|c|c|}
                     \hline
                                                 & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL 3D                      & 100.00          & 14.32 $\pm$ 1.52                  & 27.76 $\pm$ 3.06                  & 32.48 $\pm$ 2.26                               & 0.51 $\pm$ 0.05                         \\ \hline
-                    RBL 3D\(_z\)                & 100.00          & 14.06 $\pm$ 0.97                  & 27.17 $\pm$ 2.66                  & 31.86 $\pm$ 1.24                               & 0.55 $\pm$ 0.06                         \\ \hline
+                    RBL \ac{3D}                      & 100.00          & 14.32 $\pm$ 1.52                  & 27.76 $\pm$ 3.06                  & 32.48 $\pm$ 2.26                               & 0.51 $\pm$ 0.05                         \\ \hline
+                    RBL \ac{3D}\(_z\)                & 100.00          & 14.06 $\pm$ 0.97                  & 27.17 $\pm$ 2.66                  & 31.86 $\pm$ 1.24                               & 0.55 $\pm$ 0.06                         \\ \hline
                     \end{tabular}
                 \end{table}
         \end{itemize}
@@ -447,37 +453,37 @@
                 \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_2d.png}
                 \label{fig:n_10_circle_2d}
             }
-            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL}, $N=10$] {
+            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL}, $N=10$] {
                 \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_3d.png}
                 \label{fig:n_10_circle_3d}
             }
             \par\medskip
-            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} and $Z_{clipping}$, $N=10$] {
+            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and $Z_{clipping}$, $N=10$] {
                 \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_clipp.png}
                 \label{fig:n_10_circle_z_clipp}
             }
-            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} and using $Z_{rule}$, $N=10$] {
+            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and using $Z_{rule}$, $N=10$] {
                 \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_rule.png}
                 \label{fig:n_10_circle_z_rule}
             }
             \par\medskip
-            \subfloat[Trajectories of \ac{UAV}s using 3D \ac{RBL} on sphere, $N=10$] {
+            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} on sphere, $N=10$] {
                 \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_sphere.png}
                 \label{fig:n_10_sphere}
             }
             \caption{
                 Visualization of UAV formations and algorithm behavior for $N=10$ (shown with top-down and side views). 
-                (a) Trajectories in a 2D circular crossing. 
-                (b) Trajectories in a 3D circular crossing. 
+                (a) Trajectories in a \ac{2D} circular crossing. 
+                (b) Trajectories in a \ac{3D} circular crossing. 
                 (c) Effect of Z-axis clipping on the circular crossing. 
                 (d) Effect of the Z-axis rule on the circular crossing. 
-                (e) Trajectories in a 3D spherical crossing.
+                (e) Trajectories in a \ac{3D} spherical crossing.
             }
             \label{fig:trajectories}
         \end{figure}
 
     \section{Comparison with State-of-the-Art Method}
-        As an alternative approach developed within the MRS framework, the 3D \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav. todo cite
+        As an alternative approach developed within the MRS framework, the \ac{3D} \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav. todo cite
         Both algorithms target communication-less UAV coordination, a feature desirable for scalability. 
         Furthermore, implementations described for both approaches have utilized UVDAR to determine the positions of neighbouring UAVs.
 
@@ -491,38 +497,38 @@
         Coordination emerges as each agent calculates its path based on its local modified Voronoi cell, moving towards its computed centroid while implicitly accounting for neighbours.
 
         Regarding validation, PACNav has demonstrated performance through real-world experiments, including navigation in a forest environment. 
-        Validation of the multi-agent 3D RBL algorithm was conducted through simulation.
-        The integration and experimental validation of 3D LiDAR for environmental perception and single-agent navigation within the RBL framework are addressed in the subsequent chapter.
+        Validation of the multi-agent \ac{3D} RBL algorithm was conducted through simulation.
+        The integration and experimental validation of \ac{3D} LiDAR for environmental perception and single-agent navigation within the RBL framework are addressed in the subsequent chapter.
 
         Another distinct approach in decentralized, communication-less coordination is the purely vision-based model presented by Mezey et al.. TODO cite
         Unlike RBL, which relies on explicit position information, the Mezey et al. model derives control actions solely from a 1D visual projection field generated by detecting neighbours via onboard camera. 
         It requires no localization data. Coordination emerges from low-level visual attraction-repulsion forces, resulting in patterns like flocking or swarming rather than directed motion towards individual goals. 
-        While effectively demonstrated in 2D with \ac{UGV}s, extending this purely vision-based model to complex 3D environments presents challenges regarding goal achievement. 
-        Furthermore, the use of toroidal simulation environments, which mitigate group fragmentation and can facilitate specific emergent patterns like leader-follower dynamics, potentially limits the direct applicability of some observed behaviors to real-world 3D scenarios.
-        The 3D RBL, by utilizing explicit position information, aims for more predictable goal-oriented navigation in 3D, although with different sensing requirements compared to the purely reactive, vision-only model of Mezey et al. 
+        While effectively demonstrated in \ac{2D} with \ac{UGV}s, extending this purely vision-based model to complex \ac{3D} environments presents challenges regarding goal achievement. 
+        Furthermore, the use of toroidal simulation environments, which mitigate group fragmentation and can facilitate specific emergent patterns like leader-follower dynamics, potentially limits the direct applicability of some observed behaviors to real-world \ac{3D} scenarios.
+        The \ac{3D} RBL, by utilizing explicit position information, aims for more predictable goal-oriented navigation in \ac{3D}, although with different sensing requirements compared to the purely reactive, vision-only model of Mezey et al. 
                 
     \section{Summary and Key Insights}
-        This chpater detailed teh extension of \ac{RBL} algorithm, originally tested for 2D coordination, to operate in a full three-dimensional space.
-        Key modification included adapting The Voronoi cell partitioning for 3D, utilizing projections for already existing azimuth update rules, and introducing a new elevation rotation angle.
+        This chpater detailed teh extension of \ac{RBL} algorithm, originally tested for \ac{2D} coordination, to operate in a full three-dimensional space.
+        Key modification included adapting The Voronoi cell partitioning for \ac{3D}, utilizing projections for already existing azimuth update rules, and introducing a new elevation rotation angle.
         This new rule dynamically adjusts the agent's vertical destination based on relative centroid positions and directional influence towards the goal, aiming to imporve distribution.
         Note that for the directional influence to work the UAVs need to have some sort of information about frame of reference between each other at the start of the algorithm. TODO rephrase
         Vertical movement has also been constrained within defined interval ($min_z$, $max_z$).
 
-        The proposed 3D RBL extensions were evaluated through simulations within the MRS framework, comparing performance uavs corssing circle and sphere. 
+        The proposed \ac{3D} RBL extensions were evaluated through simulations within the MRS framework, comparing performance uavs corssing circle and sphere. 
         The results indicate that the extension variants successfully enabled multi-agent coordination in three dimensions.
-        Specifically, analysis of the simulation results reveals a trend where the performance of the 3D approach with applied rules compared to the basic 2D appears to increase with scaling number of agents. 
-        For instance, based on the average completion times, the 3D variatn was calculated to be aproximately 1.99\% faster than the 2D variant for N=5 agents.
+        Specifically, analysis of the simulation results reveals a trend where the performance of the \ac{3D} approach with applied rules compared to the basic \ac{2D} appears to increase with scaling number of agents. 
+        For instance, based on the average completion times, the \ac{3D} variatn was calculated to be aproximately 1.99\% faster than the \ac{2D} variant for N=5 agents.
         This performance is scales for larger swarms.
-        For N=15 the 3D approach was calculated to be 4.22\% faster than the 2D.
+        For N=15 the \ac{3D} approach was calculated to be 4.22\% faster than the \ac{2D}.
         This suggests that the extension becomes increasingly beneficial in more crowded scenarios.
 
         While the magnitude of this observed improvement was perhaps less than initially anticipated, it is important to consider the conservative motion constraints for \ac{UAV}s on the Z-axis (velocity/acceleration), reflecting realistic \ac{UAV} dynamics but limiting certical exploration.
         Furthermore, the parameters used for testing simulation were also conservative, suggesting that finer tuning - particularly of vertical exploration weights and weighting function agressiveness - could potentially yield better performance.
-        Nonetheless, the trend indicated by these results supports the conclusion that the 3D extension effectiveness crowdeness rises.
-        Furthermore, simulations in the spherical formation scenario confirmed the algorithm's capability to manage 3D navigation and coordination, with the Z-rule again showing performance benefits.
+        Nonetheless, the trend indicated by these results supports the conclusion that the \ac{3D} extension effectiveness crowdeness rises.
+        Furthermore, simulations in the spherical formation scenario confirmed the algorithm's capability to manage \ac{3D} navigation and coordination, with the Z-rule again showing performance benefits.
 
-        In conclusion, the simulations presented in this chapter demonstrate the feasibility of extending the RBL algorithm to 3D. 
-        The introduced elevation control rule appears particularly beneficial, enhancing the efficiency and convergence speed of the agents towards their goals in simulated 3D environments. 
-        This provides a promising foundation for applying the 3D RBL algorithm to real-world UAV navigation tasks, explored further in subsequent chapters.
+        In conclusion, the simulations presented in this chapter demonstrate the feasibility of extending the RBL algorithm to \ac{3D}. 
+        The introduced elevation control rule appears particularly beneficial, enhancing the efficiency and convergence speed of the agents towards their goals in simulated \ac{3D} environments. 
+        This provides a promising foundation for applying the \ac{3D} RBL algorithm to real-world UAV navigation tasks, explored further in subsequent chapters.
 
 

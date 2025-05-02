@@ -1,15 +1,49 @@
 \chapter{UAV Navigation Using the RBL Algorithm and LiDAR Sensing\label{chap:lidar}}
 
     \section{Introduction}
-        TODO
         \subsection{Motivation}
-            The importance of UAV navigation in environments with obstacles
+        \ac{UAV}s are increasingly being deployed in challenging, unstructured environments like dense forests, moving beyond their traditional use in open areas.
+        This shift is driven by a growing demand for autonomous solutions in sectors like environmental monitoring, forestry management (health assessment \cite{kurovec_fel_clanek}), and search and rescue, where ground-based access is difficult. 
+        Furthermore, this work aligns with the broader trend of deploying \ac{UAV}s for increasingly complex tasks, such as detailed infrastructure inspection (e.g., power lines, where autonomous navigation in cluttered, potentially high \ac{EMI} environments is essential (Fly4Future \cite{f4f_powerline_inspection})). 
+        Enabling UAVs to reliably navigate point-to-point within these challenging settings is a foundational step towards realizing these advanced applications safely and efficiently.
+
+        While the primary objective of this work is to enable successful point-to-point navigation within a forest using the \ac{RBL} algorithm, a significant secondary benefit emerges from this process. 
+        By successfully navigating from point A to point B while simultaneously building a map of the traversed environment, the UAV generates valuable spatial data about the forest structure. 
+        This autonomously generated map can then serve a vital purpose: enabling enhanced planning for future missions within the same area. 
+        Once a map exists, subsequent UAV operations could potentially transition from purely reactive navigation strategies to more efficient, globally informed path planning algorithms such as TODO find some. 
+        Leveraging prior knowledge of obstacle locations could significantly improve the safety and efficiency of future routine tasks.
+        
         \subsection{Problem Statement}
-            Challenges of UAV movement using LiDAR-based sensing
+            Operating UAVs effectively within complex, three-dimensional environments like forests presents significant navigational challenges that hinder widespread autonomous deployment. 
+            The primary problems addressed in this work stem from:
+            \begin{enumerate}
+                \item \textbf{\ac{GNSS}-Denied Conditions: } \\
+                Within forests, the dense canopy and other obstructions frequently block or scatter \ac{GNSS} signals, leading to unreliable or completely absent reception.
+                This necessitates reliance on onboard sensors and algorithms (like \ac{SLAM} based on \ac{LiDAR} and \ac{IMU} data) for accurate localization and state estimation.
+                \item \textbf{Cluttered and Unpredictable Environments: } \\
+                Forests are inherently cluttered with numerous static obstacles (trees, trunks, branches) and potentially dynamic ones (animals, leafs, falling branches). 
+                The navigation system must be capable of perceiving these obstacles in real-time and planning safe paths around them without prior knowledge of their exact layout.
+            \end{enumerate}
+            Therefore, the core problem is to develop and validate a robust autonomous navigation system that allows a UAV to reliably traverse between specified points in a cluttered, GNSS-denied forest environment using only onboard sensing and computation.
+
         \subsection{Objectives}
-            Implementing RBL with LiDAR for obstacle avoidance and path planning
+            The primary objectives within this chapter are: 
+            \begin{itemize}
+                \item \textbf{Integrate the \ac{RBL} with Onboard Sensing: } \\
+                    Adapt the core of the \ac{RBL} to utilize real-time sensor data. 
+                    This includes modification of sensing cell $\mathcal{S}$, because used \ac{LiDAR} doesnt see in all directions. 
+                    Sensing cell needs to remain convex so the centroid computed from partitioned cell $\mathcal{A}$ is never computed outside of the set - for safety convergence towards the goal.
+                \item \textbf{Process Point Cloud Data: } \\
+                    Implement neccessary filtration to refine the raw point cloud data acquired from the \ac{LiDAR}.
+                \item \textbf{Integrate external packages on the \ac{UAV}: } \\
+                    Integrate and configure external software packages for simultaneous environmental mapping and robust state estimation, suitable for operation within the \ac{GNSS}-denied forest environment.
+                \item \textbf{Experimental and Simulation Validation: } \\
+                    Conduct experiments to evaluate the performance, robustness, and effectiveness of the complete navigation solution. 
+                    This validation will be performed first within a simulated forest environment and subsequently through real-world flight tests in an actual forest.
+            \end{itemize}
+
         \subsection{Chapter Overview}
-            Summary of what this chapter covers
+            TODO Summary of what this chapter covers
 
     \section{LiDAR-Based Perception and Point Cloud Processing}
         \subsection{Overview of LiDAR for UAV Navigation}
@@ -65,40 +99,31 @@
                 The filtering process reduces the number of points while preserving the overall structure of the environment.
                 \item \textbf{Filtering Points Corresponding to the UAV Structure} -- \ac{LiDAR} sensors mounted on \ac{UAV}s can capture unwanted points originating from the \ac{UAV} itself, such as reflections from its frame or rotor rods. 
                 To prevent these points from interfering with navigation, additional filtering step has been applied.
-                Each point in the downsampled cloud is converted to an Eigen 3D vector for easy mathematical operations. 
-                The Euclidean distance between each point in pointcloud and the \ac{UAV}'s position \(\mathbf{p}_i\) is computed. 
-                Points within a predefined encumbrance radius around the \ac{UAV} are discarded to remove self-detected points. 
+                Points falling outside a specified distance range (closer than a minimum threshold or farther than a maximum threshold) are filtered out.
             \end{itemize}
-            TODO add images of not downsampled and downsampled and close up on the uav
+            The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency for future processes.
+            The point cloud is than fed into Point lio state estimator and bonxai mapping. TODO get access to repo.
 
-            The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency in decision-making processes.
+        \subsection{Bonxai Mapping}
+            As will be shown later in this chapter, prior terrain knowledge is beneficial for navigation. 
+            For this purpose, environmental mapping was accomplished using a simple package developed by the MRS group, implementing the Bonxai mapping approach.
+            The resulting map is represented as a voxel grid, which is then used by the \ac{RBL} algorithm for navigation planning.
 
-        \subsection{Surface Reconstruction and Triangulation}
-            To obtain a continuous surface representation from the point cloud, normal estimation and triangulation are performed. 
-            This process involves estimating surface normals, combining them with point positions, and applying a triangulation algorithm to generate a polygonal mesh.
-            \begin{itemize}
-                \item \textbf{Normal Estimation} -- Surface normals are estimated using the Point Cloud Library (PCL) TODOcite. 
-                A k-d tree is employed to efficiently find neighboring points, and the normal at each point is computed based on its local neighborhood. 
-                This provides information about the surface curvature and orientation.
-                \item \textbf{Point Cloud and Normal Merging} -- Once the normals are estimated, they are combined with the original point cloud to create a representation that includes both spatial position and surface orientation.
-                \item \textbf{Triangulation Using Greedy Projection} --The point cloud is converted into a polygonal mesh using the **Greedy Projection Triangulation (GP3)** method. 
-                This algorithm forms triangles between neighboring points while enforcing constraints on edge length, surface angles, and normal consistency. 
-                A k-d tree is used to accelerate the search for nearest neighbors, ensuring efficient mesh generation.
-                \item \textbf{Results} -- The output is a polygonal mesh that approximates the underlying surface of the point cloud. 
-                This mesh can be used for visualization, collision detection, or further geometric processing.
-            \end{itemize}
+            Initially, an approach involving surface reconstruction from this voxel data was investigated. 
+            This involved estimating surface normals from the point cloud combined with Greedy Projection Triangulation (GP3) method from the PCL library to generate polygonal mesh approximating the environment's surface.
+            While this method could produce relatively accurate surface representation, it turned out to be computationally expensive and too slow for real-time execution on the \ac{UAV}'s onboard computer.
+
+            Due to these limitations, the surface reconstruction approach was abandoned. Instead a simpler and more efficient method was adopted, which involves directly using the information about the environment stored in voxel grid map.
+            This direct voxel usage approach is detailed in the subsequent section. 
+            Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
+
+        \subsection{Directly using voxels to modify cell A}
             
-            Greedy Projection Triangulation (GP3), pcl lib and parametres
-            Generating triangular mesh - How GP3 constructs a surface from point cloud data
     
-    \section{Using the found triangles for cell A partition}
-        TODO
-        \subsection{Overview}
-        the next step is to utilize these triangles to partition the navigation space, specifically modifying cell 
-        A for the RBL algorithm. This process ensures that the UAV has a structured representation of obstacles and free space.
-        \subsection{Finding the Closest Point on a Triangle}
-        \subsection{Plane Calculation for Slicing Cell A}
-        \subsection{Integration with the RBL Algorithm}
+        \subsection{Using the found closest points for cell A partition}
+            \subsection{Finding the Closest Point on a Triangle}
+            \subsection{Plane Calculation for Slicing Cell A}
+            \subsection{Integration with the RBL Algorithm}
 
     \section{Implementation and Integration on UAV}
         TODO
@@ -162,54 +187,29 @@
 
 
 
+        % \subsection{Surface Reconstruction and Triangulation}
+        %     The map has been used for surface reconstruction:
+        %     To obtain a continuous surface representation from the point cloud, normal estimation and triangulation are performed. 
+        %     This process involves estimating surface normals, combining them with point positions, and applying a triangulation algorithm to generate a polygonal mesh.
+        %     \begin{itemize}
+        %         \item \textbf{Normal Estimation: } \\ 
+        %         Surface normals are estimated using the Point Cloud Library (PCL) TODOcite. 
+        %         A k-d tree is employed to efficiently find neighboring points, and the normal at each point is computed based on its local neighborhood. 
+        %         This provides information about the surface curvature and orientation.
+        %         \item \textbf{Point Cloud and Normal Merging: } \\ 
+        %         Once the normals are estimated, they are combined with the original point cloud to create a representation that includes both spatial position and surface orientation.
+        %         \item \textbf{Triangulation Using Greedy Projection: } \\
+        %         The point cloud is converted into a polygonal mesh using the Greedy Projection Triangulation (GP3) method. 
+        %         This algorithm forms triangles between neighboring points while enforcing constraints on edge length, surface angles, and normal consistency. 
+        %         A k-d tree is used to accelerate the search for nearest neighbors, ensuring efficient mesh generation.
+        %         \item \textbf{Results: } \\ 
+        %         The output is a polygonal mesh that approximates the underlying surface of the point cloud. 
+        %         This mesh can be used for visualization and obstacle avoidance.
+        %     \end{itemize}
+        %     This has been tried, but turned out to be unnecessary computationally expensive and on the UAV onboard computer slow. 
+        %     It was able to approximate surface of its surrounding semi-well. 
+        %     But due for it being slow a simplier method have been used - (Directly using voxels to modify cell A) instead of aporximating surface.
+        %     So I just wanted to quiky say that this was tested, unsuccesflully so no future development of this methos is recomended or something like that. 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-REDO after this
-
-\section{Introduction}
-
-Motivation for using 3d lidar and challenges
-
-\section{3D LiDAR Sensor Model and Simulation Setup}
-
-Overview of LiDAR used. Simulation configuration
-
-\section{Object Detection and Approximation}
-
-Methods for extracting objects from LiDAR point clouds. Approximating detected objects with simple shapes. Handling noisy or incomplete data
-
-% \href{https://people.cs.umass.edu/~smaji/papers/pcagan.pdf}{Shape Generation using Spatially Partitioned Point Clouds by Gadelha et al.}
-
-\href{https://groups.inf.ed.ac.uk/advr/papers/3D_Surface_Approximation_from_Point_Clouds.pdf}{3D Surface Approximation from Point Clouds} $\leftarrow$ This one seems promising. I would like to try this.
-
-% \href{https://par.nsf.gov/servlets/purl/10347732}{Label-Efficient Learning on Point Clouds using Approximate Convex Decompositions by Gadelha et al.}
-
-\href{https://en.wikipedia.org/wiki/Alpha_shape}{Alpha Shape: A Generalization of the Convex Hull}
-
-
-
-\section{Integration with RBL Algorithm}
-
-Modifications to ensure safe navigation and how approximated objects influence Voronoi cells
-
-\section{Simulation Results}
-
-Example scenarios - in rviz with drone and also in real life - me holding a branch with leafs or something like that
-
-\section{Discussion}
-
-Limitations and possible improvements
-
-\section{Summary}
+        %     There will be picture from rviz how it approximated surface.

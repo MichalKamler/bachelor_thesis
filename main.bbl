@@ -209,6 +209,32 @@
     \field{year}{2023}
   \endentry
 
+  \entry{kurovec_fel_clanek}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=�vutvPFe}{%
+         prefix={České vysoké učení technické\bibnamedelima v},
+         prefixi={�\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim
+  u\bibinitperiod\bibinitdelim t\bibinitperiod\bibinitdelim v\bibinitperiod},
+         family={Praze},
+         familyi={P\bibinitperiod},
+         given={Fakulta\bibnamedelima elektrotechnická},
+         giveni={F\bibinitperiod\bibinitdelim e\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PFe�vutv1}
+    \strng{fullhash}{PFe�vutv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Detekce kůrovce, obrana proti nepřátelskému převzetí
+  dronů a roje úzce spolupracujících vzdušných robotů.}
+    \verb{url}
+    \verb https://fel.cvut.cz/import/tz/2023-0426-tz_fel_cvut_mrs_temesvar.pdf
+    \endverb
+    \field{year}{2023}
+  \endentry
+
   \entry{Voronoi3d}{misc}{}
     \name{author}{1}{}{%
       {{hash=W}{%
@@ -531,6 +557,26 @@
     \field{journaltitle}{2018 International Conference on Unmanned Aircraft
   System (ICUAS 2018)}
     \field{year}{2018}
+  \endentry
+
+  \entry{f4f_powerline_inspection}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=F}{%
+         family={Fly4Future},
+         familyi={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{F1}
+    \strng{fullhash}{F1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{title}{Drones for Inspection of Power Lines}
+    \verb{url}
+    \verb https://fly4future.com/custom-drones/drones-for-inspection-of-power-l
+    \verb ines/
+    \endverb
   \endentry
 
   \entry{pcl_voxelgrid}{misc}{}
