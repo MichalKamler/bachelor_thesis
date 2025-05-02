@@ -1,5 +1,4 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {english}{}
+\babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Works}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
@@ -39,10 +38,6 @@
 \contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{17}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Bonxai Mapping}{18}{subsection.3.2.4}%
 \contentsline {subsection}{\numberline {3.2.5}Directly using voxels to modify cell A}{18}{subsection.3.2.5}%
-\contentsline {subsection}{\numberline {3.2.6}Using the found closest points for cell A partition}{18}{subsection.3.2.6}%
-\contentsline {subsection}{\numberline {3.2.7}Finding the Closest Point on a Triangle}{18}{subsection.3.2.7}%
-\contentsline {subsection}{\numberline {3.2.8}Plane Calculation for Slicing Cell A}{18}{subsection.3.2.8}%
-\contentsline {subsection}{\numberline {3.2.9}Integration with the RBL Algorithm}{18}{subsection.3.2.9}%
 \contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{18}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{18}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Software and Hardware setup}{19}{subsection.3.3.2}%

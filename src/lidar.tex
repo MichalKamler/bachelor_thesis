@@ -113,17 +113,18 @@
             This involved estimating surface normals from the point cloud combined with Greedy Projection Triangulation (GP3) method from the PCL library to generate polygonal mesh approximating the environment's surface.
             While this method could produce relatively accurate surface representation, it turned out to be computationally expensive and too slow for real-time execution on the \ac{UAV}'s onboard computer.
 
-            Due to these limitations, the surface reconstruction approach was abandoned. Instead a simpler and more efficient method was adopted, which involves directly using the information about the environment stored in voxel grid map.
+            Due to these limitations, the surface reconstruction approach was abandoned. 
+            Instead a simpler and more efficient method was adopted, which involves directly using the information about the environment stored in voxel grid map.
             This direct voxel usage approach is detailed in the subsequent section. 
             Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
 
         \subsection{Directly using voxels to modify cell A}
-            
-    
-        \subsection{Using the found closest points for cell A partition}
-            \subsection{Finding the Closest Point on a Triangle}
-            \subsection{Plane Calculation for Slicing Cell A}
-            \subsection{Integration with the RBL Algorithm}
+            Since the scale of the voxels is known, this information can be utilized to partition cell S cell A by thinking of voxels as obstacles.
+            Firstly, we need to determine which voxels are affecting the RBL algorithm.
+            We can determine that by considering the agreesiveness of the algorithm $\eta$ from this parameter we can calculate radius of sphere in which if the voxel is than we need to use him.
+            \begin{equation}
+                r_{\mathcal{S}} = 
+            \end{equation}
 
     \section{Implementation and Integration on UAV}
         TODO
