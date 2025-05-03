@@ -37,9 +37,9 @@
                     Implement neccessary filtration to refine the raw point cloud data acquired from the \ac{LiDAR}.
                 \item \textbf{Integrate external packages on the \ac{UAV}: } \\
                     Integrate and configure external software packages for simultaneous environmental mapping and robust state estimation, suitable for operation within the \ac{GNSS}-denied forest environment.
-                \item \textbf{Experimental and Simulation Validation: } \\
+                \item \textbf{Experimental Validation: } \\
                     Conduct experiments to evaluate the performance, robustness, and effectiveness of the complete navigation solution. 
-                    This validation will be performed first within a simulated forest environment and subsequently through real-world flight tests in an actual forest.
+                    This validation will be performed through real-world flight tests in an actual forest.
             \end{itemize}
 
         \subsection{Chapter Overview}
@@ -118,55 +118,134 @@
             This direct voxel usage approach is detailed in the subsequent section. 
             Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
 
-        \subsection{Directly using voxels to modify cell A}
-            Since the scale of the voxels is known, this information can be utilized to partition cell S cell A by thinking of voxels as obstacles.
-            Firstly, we need to determine which voxels are affecting the RBL algorithm.
-            We can determine that by considering the agreesiveness of the algorithm $\eta$ from this parameter we can calculate radius of sphere in which if the voxel is than we need to use him.
+        \subsection{Voxel-Based Modification of Cell $\mathcal{A}$}
+            Given that the size of the voxels is known, this infromation can be used to refine the partitioning of cell $\mathcal{A}$ by treating voxels as obstacles.
+            First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
+            This can be achieved by considering the scaling parameter $\eta$.
+            A voxel is considered relevant if it lies within radius of $\frac{r_s}{\eta}$ of the agent.
+            For each discrete point in  in the set composing cell $\mathcal{S}$, the nearest voxel is identified using k-d tree algorithm from the PCL library.
+            Because the found point is the voxel's center, the closest pint within that voxel's boundaries is calculated to accurate partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
+
+            Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p_{closest}}$, is computed as: 
             \begin{equation}
-                r_{\mathcal{S}} = 
+                \mathbf{p}_{closest} =
+                \begin{pmatrix}
+                    \text{clamp}(p{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
+                    \text{clamp}(p_{\mathcal{S},y}, v_{c,y} - \frac{\mathbf{e}}{2}, v_{c,y} + \frac{\mathbf{e}}{2}) \\
+                    \text{clamp}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
+                \end{pmatrix}
             \end{equation}
+            where function clamp(x, a, b) constrains the value x to the range [a, b].
+            This constrains $\mathbf{p_{\mathcal{S}}}$ to the voxel boundaries.
+
+            A point is excluded from the set if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
+            
 
     \section{Implementation and Integration on UAV}
-        TODO
         \subsection{Challanges in Integration}
+            The algorithm's performance is influenced by the limitations of the \ac{LiDAR} sensor used for environmental sensing. 
+            While the algorithm functions optimally with a full 360° horizontal and 180° vertical \ac{FOV}, which would require multiple sensors, the experiments used a single Livox Mid 360 \ac{LiDAR} \cite{livox_mid360}. 
+            This \ac{LiDAR} provides a 360° horizontal \ac{FOV} and only a 59° vertical \ac{FOV}, resulting in a sensing blind spot.
+
+            To solve this limitation, several modification were implemented. 
+            The \ac{LiDAR} was mounted at an angle $\gamma$, as shown in Figure \reffig{fig:uavs}, to enhance ground sensing and increase forward visibility.
+
             \begin{figure}[htbp]
                 \centering
-                \subfloat[UAV model with visualized LiDAR mounting parameters.] {
+                \subfloat[UAV model with visualized \ac{LiDAR} mounting parameters.] {
                 \includegraphics[width=0.48\textwidth]{./fig/photos/uav_side_view.png}
                 \label{fig:model_uav}
                 }
-                \subfloat[UAV used in the experiment with mounted LiDAR] {
+                \subfloat[UAV used in the experiment with mounted \ac{LiDAR}] {
                 \includegraphics[width=0.48\textwidth]{./fig/photos/uav_photo.jpg}
                 \label{fig:uav_1}
                 }
                 \caption{
-                    UAV and LiDAR mounting scheme.
-                    Subfigure (a) shows a modeled UAV with visualized LiDAR mounting parameters, including the LiDAR elevation field of view $\alpha$ and tilt angle $\gamma$. 
-                    Subfigure (b) displays the real UAV used in the experiment with the LiDAR mounted according to the same configuration.                                                
+                    UAV and \ac{LiDAR} mounting scheme.
+                    Subfigure (a) shows a modeled UAV with visualized \ac{LiDAR} mounting parameters, including the \ac{LiDAR} elevation field of view $\alpha$ and tilt angle $\gamma$. 
+                    Subfigure (b) displays the real UAV used in the experiment with the \ac{LiDAR} mounted according to the same configuration.                                                
                 }
                 \label{fig:uavs}
             \end{figure}
 
-            For modification of cell A 2 planes are defined using real knowledge of how LiDAR is mounted on the uav and livox vertical fov
-            Let $\mathbf{e}_z = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ be the unit vector along the z-axis,  
-            $R_{\text{off}} \in SO(3)$ the offset rotation, and  
-            $R_{\text{rpy}} \in SO(3)$ the roll-pitch-yaw rotation. 
-            $\alpha_1$, $\alpha_2$, $\alpha_3$
 
-            Then the resulting vector is given by:  
-            \[
-            \mathbf{n} = R_{\text{rpy}} \cdot R_{\text{off}} \cdot \mathbf{e}_z
-            \]
+            In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account fo the \ac{LiDAR}'s limited \ac{FOV}.
+            The algorithm uses map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
+            To ensure safety, \ac{UAV} should only move only within their visible \ac{FOV}. 
+            However, map information from areas outside the current \ac{FOV} can still be valuable. 
 
-            Modified cell S:
+            Therefore, a constraint is intorduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathbf{A}}$ and moves towards it only if the centroid lies within a defined angular range in fron of the \ac{UAV}.
+
+            To incorporate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
+            Let $\mathbf{e}_z$ be unit vector alog the z-axis, $R_{off} \in SO(3)$ the offset rotation, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
+            The normal vectors, $\mathbf{n}_1$ and $\mathbf{n}_2$ defining two planes are given by:
             \begin{equation}
-                \mathcal{S}_i = {} 
+                \mathbf{n}_1 = R_{rpy} \cdot R_{y}(\gamma) \cdot \mathbf{e}_z    
             \end{equation}
-            livox - 360 * 60 deg - account for centroid calculation
-        \subsection{Software and Hardware setup}
-            LiDAR sensor config, uav platform specifications
+            \begin{equation}
+                \mathbf{n}_2 = R_{rpy} \cdot R_{y}(\gamma - \alpha) \cdot \mathbf{e}_z    
+            \end{equation}
+            where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the the mounting angle of the \ac{LiDAR}.
+
+            Cell $\mathcal{S}$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
+
+            \begin{equation}
+                \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}1 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \geq 0 \land \mathbf{n}2 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \leq 0 \}
+            \end{equation}
+            where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}$ and $\mathbf{p}_{LiDAR}$ is the exact position of the LiDAR sensor.
+
+            This modification effectively restricts the points considered in the calculation of the centroid to only those within the \ac{LiDAR}'s \ac{FOV}.
+
+            To incorporate map information from the surrounding area outside of the \ac{LiDAR}'s current \ac{FOV}, the following procedure is used.
+            Firstly, both cells $\mathcal{S}_i$ and $\mathcal{S}_i'$ are created. These cells are partitioned into cells $\mathcal{A}_i$ and $\mathcal{A}_i'$ using voxels. 
+            Cell $\mathcal{A}_i'$ is partitioned using voxels taht are actively sensed, while cell $\mathcal{A}_i$ is partitioned using the voxels from the whole surrounding.
+
+            If the centroid computed from cell $\mathcal{A}_i$, $\mathbf{c}_{\mathcal{A}_i}$, is within the cell $\mathcal{A}_i'$, the \ac{UAV} is commanded to move towards $\mathbf{c}_{\mathcal{A}_i}$ while simu rotating its yaw towards it.
+            However, if $\mathbf{c}_{\mathcal{A}_i}$ lies outside cell $\mathcal{A}_i'$, it is projected onto the closest point on the boundary of cell $\mathcal{A}_i'$.
+            As the \ac{UAV} only moves if the centroid is within a certain angle in front of it, this projection onto the boundary of $\mathcal{A}_i'$ ensures that the \ac{UAV} primarily rotates towards the centroid until the centorid is within an angle in front of the \ac{UAV}.
+
+            This procedure effectively utilizes the information fro mthe map while ensuring that the \ac{UAV} moves only within its actively sensed \ac{FOV}.
+
+            \begin{figure}[H]
+                \centering
+                \subfloat[Visualization of planes defining cell $\mathcal{S}_i'$] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/cell_a_sliced_with_planes.png}
+                \label{fig:cell_a_sliced_with_planes}
+                }
+                \caption{
+                    RViz visualization of LiDAR field-of-view (FOV) planes. The UAV is represented by the XYZ coordinate axes. 
+                    The green squares represent the two planes, defined by normal vectors $\mathbf{n}_1$ and $\mathbf{n}_2$, used to slice cell $\mathcal{S}_i$ and determine the modified cell $\mathcal{S}_i'$.
+                    The red sphere represents the centroid $\mathbf{c}_{\mathcal{A}_i}$.
+                }
+                \label{fig:cell_a_sliced}
+            \end{figure}
+
+            % Apart from the mounting \ac{LiDAR} at an angle also software modificaiton is implemented. 
+            % Right now a map is being used to partition cell S to cell A from that is computed centorid a there the uav progressees. 
+            % For safety the UAV needs to move only where it sees, but the information from the map, where the uav does not see now, but this information can still be used. 
+            % There fore this is introduced: UAV always sets it yaw rotation towards the current centroid $c_{\mathcal{A}}$ and moves towards it only if if the centroid is in front of the uav - there is an angle defined where the uav will move and where it will just keep rotating. 
+            % So to utilize the map to have sense of what is behind the uav the 
+
+
+            % For modification of cell S 2 planes are defined using real knowledge of how \ac{LiDAR} is mounted on the uav and livox vertical fov
+            % Let $\mathbf{e}_z = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ be the unit vector along the z-axis,  
+            % $R_{\text{off}} \in SO(3)$ the offset rotation, and  
+            % $R_{\text{rpy}} \in SO(3)$ the roll-pitch-yaw rotation. 
+            % $\alpha_1$, $\alpha_2$, $\alpha_3$
+
+            % Then the resulting vector is given by:  
+            % \[
+            % \mathbf{n} = R_{\text{rpy}} \cdot R_{\text{off}} \cdot \mathbf{e}_z
+            % \]
+
+            % Modified cell S by slicing the cell S with this funciton:
+            
+            % \begin{equation}
+            %     \mathcal{S}_i = {} 
+            % \end{equation}
+            % livox - 360 * 60 deg - account for centroid calculation
     
-    \section{Simulation and Experimental Results}
+    \section{Experimental Results}
         TODO
         \subsection{Simulation Setup}
             virtual environment modeling, tools used

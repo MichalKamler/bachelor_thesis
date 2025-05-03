@@ -56,7 +56,7 @@
         This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. 
         The agent is progressing towards its designated destination, $\mathbf{d}_i$.
         Each agent is knows of its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines safe space around agent.
-        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq 2r_{s,i}$, where $r_{s,i}$ is denoted as half of the sensing radius of the i-th agent.
+        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq \frac{r_{s,i}}{\eta}$, where $r_{s,i}$ is sensing radius of the i-th agent and $\eta$ is a scaling parameter.
         For simplicity $r_{s,i}$ is considered to be same for all agents, therefore $r_{s,i} = r_s$. 
 
         The core objective of the algorithm is to minimize the coverage cost function, which accounts for the distribution of agents and obstacles over the environment. 
@@ -88,6 +88,10 @@
             \end{cases}
         \end{equation}
         $\forall j \in \mathcal{N}_i$, where $\Delta_{ij} = \delta_i + \delta_j$ and $\tilde{\mathbf{p}}_j = \mathbf{p}_j + 2(\Delta_{ij} - \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2})\frac{ \mathbf{p}_i - \mathbf{p}_j }{\| \mathbf{p}_i - \mathbf{p}_j \|}$.
+        The parameter $\eta$ controls the degree of ovelap or empty space between cells.
+        Specifically, for the classical Voronoi cell definition ($\eta$ = 0.5), each agent needs to detect its neighbors within a distance of $2r_{s}$.
+        In general each agent needs to know its neighbors within distance of $\frac{r_s}{\eta}$.
+
         Together with cell $\mathcal{S}_i$ defined as: 
         \begin{equation}
             \mathcal{S}_i = \{\mathbf{q} \in \mathcal{Q} | \| \mathbf{q} - \mathbf{p}_i \| \leq r_{s,i}\}

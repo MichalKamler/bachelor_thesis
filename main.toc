@@ -1,4 +1,5 @@
-\babel@toc {english}{}\relax 
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Works}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
@@ -37,17 +38,16 @@
 \contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{17}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{17}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Bonxai Mapping}{18}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Directly using voxels to modify cell A}{18}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{18}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{18}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Software and Hardware setup}{19}{subsection.3.3.2}%
-\contentsline {section}{\numberline {3.4}Simulation and Experimental Results}{19}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{19}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{19}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{20}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Comparative Analysis}{20}{subsection.3.4.4}%
-\contentsline {section}{\numberline {3.5}Conclusion}{20}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{21}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusion}{22}{chapter.5}%
-\contentsline {chapter}{\numberline {6}References}{23}{chapter.6}%
-\contentsline {chapter}{\numberline {A}Appendix A}{24}{appendix.A}%
+\contentsline {subsection}{\numberline {3.2.5}Voxel-Based Modification of Cell $\mathcal {A}$}{18}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{19}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{19}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Experimental Results}{21}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{21}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{21}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{21}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Comparative Analysis}{21}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Conclusion}{21}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Researching on possible enhancements of the algorithm for example using neural networks or learning-based techniques.}{22}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{23}{chapter.5}%
+\contentsline {chapter}{\numberline {6}References}{24}{chapter.6}%
+\contentsline {chapter}{\numberline {A}Appendix A}{26}{appendix.A}%
