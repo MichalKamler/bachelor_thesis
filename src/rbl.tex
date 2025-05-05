@@ -7,18 +7,12 @@
         This were the main motivation factors to try and extend it to full \ac{3D} navigation, where altitude and sensor orientation also play a role.
 
     \subsection{Problem Statement}
-        Many real-world robotic applications, particularly involving \ac{UAV}s, require navigation within \ac{3D} environments containing obstacles. 
+        Many real-world robotic applications, particularly involving \ac{UAV}, require navigation within \ac{3D} environments containing obstacles. 
         While algorithms like the \ac{RBL} \cite{rbl_paper} have proven effective in \ac{2D} goal convergence, they are inherently limited when applied directly to \ac{3D} space. 
         The core problem arises because the existing \ac{RBL} algorithm is fundamentally designed for \ac{2D} planar navigation, making it unsuitable for applications like UAV operations that require navigating in \ac{3D} space.
-        Specifically, there is a need to extend existing \ac{2D} algorithms to \ac{3D} while intelligently incorporating vertical exploration to ensure safe, efficient, and effective navigation through obstacle-rich 3D environments without significantly compromising performance or requiring excessive computational resources. 
-        This work addresses the challenge of adapting the \ac{RBL} algorithm for \ac{3D} space by developing and evaluating specific rules to govern vertical movement, aiming to achieve robust 3D navigation capabilities.
-
-        The primary challenge involved the extension of an existing \ac{2D} algorithm into a \ac{3D} space. 
-        To achieve improved results in this higher dimension, new rules controling vertical exploration were introduced. 
-        The subsequent sections of this chapter detail the fundamental principles of the \ac{RBL} algorithm, with specific attention devoted to its application in both 2D and \ac{3D} environments. 
-        The distinct rules governing the algorithm's behavior in these two dimensions are described separately to provide clarity. 
-        Finally, the chapter concludes in the presentation and evaluation of simulation experiments designed to assess the efficiency of the proposed \ac{3D} extension and the impact of the introduced vertical exploration rules.
-
+        Specifically, there is a need to extend existing \ac{2D} algorithms to \ac{3D} while smartly incorporating vertical exploration to ensure safe, efficient, and effective navigation through crowded 3D environments without significantly compromising performance or requiring excessive computational resources. 
+        This work addresses the challenge of adapting the \ac{RBL} algorithm for \ac{3D} space by developing and evaluating specific rules to control vertical movement, aiming to achieve robust 3D navigation capabilities.
+        
     \subsection{Objectives}
         \begin{itemize}
             \item   Enhance the convergence speed of agents towards their goals by promoting exploration, with  focus on the vertical exploration.
@@ -29,6 +23,7 @@
         The principles of the \ac{RBL} algorithm, presented in \cite{rbl_paper}, form the basis of the work in this chapter. 
         These principles are clarified and modified to address the challenges of \ac{3D} extension.  
         The chapter details the fundamental principles of RBL in \ac{2D} and \ac{3D} spaces, describes the specific rules applied to enhance convergence, and concludes with a series of simulation scenarios designed to demonstrate the performance of the proposed solution.
+        Finally, the chapter concludes in the presentation and evaluation of simulation experiments designed to assess the efficiency of the proposed \ac{3D} extension and the impact of the introduced vertical exploration rules.
 
 \section{Basic principles of Rule-Based Lloyd Algorithm}
 
@@ -43,23 +38,24 @@
         Modern robotics relies on the capability to navigate from point A to point B.
         Navigation plays a crucial role in various robotic applications, such as \ac{UGV}s, which are commonly used in manufacturing and logistics. 
         \ac{UGV}s typically follow predefined \ac{2D} trajectories guided by visual \cite{vision_navigation}, magnetic \cite{magnetic_navigation}, or LiDAR-based navigation \cite{lidar_navigation}. 
-        Additionally, \ac{2D} navigation is widely employed in robotic vacuum cleaners, enabling them to systematically cover an area while avoiding obstacles.
+        Additionally, \ac{2D} navigation is widely used in robotic vacuum cleaners, enabling them to systematically cover an area while avoiding obstacles.
 
         An obvious limitation for algorithms in \ac{2D} is scalability. 
         As the number of agents in a system increases, the complexity of managing their movements and coordination also grows significantly.
         Obstacle avoidance in \ac{2D} can also be less efficient compared to \ac{3D} environments, as agents have fewer options for evading obstacles. 
         In \ac{3D}, agents can change their altitude in addition to their horizontal trajectory, giving them more freedom to maneuver around obstacles.
 
-    \subsection{Key principles}
+    \subsection{Key Principles in 2D}
+        It should be noted that most of the infromation presented here is adapted from the work detailed in \cite{rbl_paper}.
         RBL ensures convergence to the goal and provides sufficient conditions for achieving it. 
         The problem involves individual control of $N$ agents from their initial position $\mathbf{p}_i(0)$ toward a goal region, represented as circle.
         This goal region is denoted as $G(\mathbf{g}_i, r_g)$, where $\mathbf{g}_i$ is center and $r_g$ is radius of goal region. 
         The agent is progressing towards its designated destination, $\mathbf{d}_i$.
-        Each agent is knows of its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines safe space around agent.
-        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq \frac{r_{s,i}}{\eta}$, where $r_{s,i}$ is sensing radius of the i-th agent and $\eta$ is a scaling parameter.
+        Each agent knows its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines safe space around agent.
+        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq \frac{r_{s,i}}{\eta}$, where $r_{s,i}$ is sensing radius of the i-th agent and $\eta$ is a scaling parameter of cells.
         For simplicity $r_{s,i}$ is considered to be same for all agents, therefore $r_{s,i} = r_s$. 
 
-        The core objective of the algorithm is to minimize the coverage cost function, which accounts for the distribution of agents and obstacles over the environment. 
+        The core objective of the algorithm is to maximize the coverage cost function, which accounts for the distribution of agents and obstacles over the environment. 
         This function is expressed as:
         \begin{equation}
             J_{cov}(\mathbf{p}) = \sum_{i=1}^{N} \int_{\mathcal{V}_i} \lVert\mathbf{q}-\mathbf{p}_i\rVert^2 \varphi_i (\mathbf{q})d\mathbf{q},
@@ -74,7 +70,7 @@
         \end{equation}
         For visual representation see \reffig{fig:voronoi_2d}. 
 
-        However, this standard definition of Voronoi cells does not take into account the physical space occupied by the agents, or their encumbrances. 
+        However, this standard definition of Voronoi cells does not take into account the physical space occupied by the agents, their encumbrances. 
         To address this, a Modified Voronoi cell is introduced, which takes into account the encumbrances of agents.
         This modified version adjusts the boundaries of each Voronoi cell to account for the encumbrances of neighboring agents.
         Also to enhance the algorithm performance, the Voronoi cell are scaled using a scaling parameter $\eta \in [0, 1]$.
@@ -109,7 +105,7 @@
             \mathbf{d}_i = \mathbf{p}_i + R(\theta)(\mathbf{g}_i - \mathbf{p}_i)
         \end{equation}
         where $R$ is the azimuthal rotation.
-        Rules: 
+        Rules for changing weighting function and rotation of destination: 
         \begin{itemize}
             \item \textbf{Weighting rule}
                 \begin{equation}
@@ -148,12 +144,12 @@
         The centroids for other relevant cells are computed using a similar approach, but over different sets.
 
         By applying the previously defined rules and computations, the RBL algorithm successfully guides agents movement toward the goal.
-        However, these rules focus solely on rotating the centroid $\mathcal{A}_i$ in the azimuthal plane. 
+        However, these rules focus on rotating the centroid $\mathcal{A}_i$ in the azimuthal plane. 
         To enhance performance in a fully three-dimensional space, additional rules are required to account for elevation adjustments. 
 
 \section{Extension of the RBL algorithm to 3D}
     \subsection{Motivation for \ac{3D} Extension}
-        In many practical applications, agents must operate in three-dimensional spaces, considering not only horizontal movement but also vertical positioning.
+        In many practical applications, agents must operate in three-dimensional spaces, considering not only horizontal movement but also vertical.
         A \ac{3D} extension is necessary to navigate complex environments that feature obstacles in all directions.
         In \ac{2D}, agents are restricted to a flat plane, which simplifies navigation but limits the ability to interact with objects and environments that exist in the third dimension.
         The ability to utilize vertical space can enhance energy efficiency, as agents can optimize their paths by ascending or descending to avoid obstacles or to find more favorable environmental conditions, such as discovering more open space.
@@ -234,7 +230,7 @@
         The second part considers the difference in the horizontal plane between the agent's position and the centroids $\mathbf{c}_{\mathcal{A}_i}$, $\mathbf{c}_{\mathcal{S}_i}$.
 
         To improve agent distriution in the vertical dimension, a directional influence on vertical exploration is introduced. 
-        Given that each agent's position $\mathbf{p}_i$ and final goal $\mathbf{g}_i$, are known, this direc influence can be included into the update rule for $\phi_i$.
+        Given that each agent's position $\mathbf{p}_i$ and final goal $\mathbf{g}_i$, are known, this directional influence can be included into the update rule for $\phi_i$.
 
         First, the global heading angle, $\theta_{goal}$, towards the goal is calculated: 
         \begin{equation}
@@ -259,7 +255,7 @@
         \end{equation} 
         where $w_1$ $w_2$ are weighting factors. The resulting combined influence $C_{influence}$ is then used to update the agent's rotation of it's destination $\mathbf{d}_i$ by $\phi_i$.
 
-        Based on condition \eqref{eqn:phi_condition} and \eqref{eqn:combined_influace} update rule for $phi_i$ can be constructed as follows:
+        Based on condition \eqref{eqn:phi_condition} and \eqref{eqn:combined_influace} update rule for $\phi_i$ can be constructed as follows:
         \begin{equation}
             \label{eqn:phi_update}
             \dot{\phi}_i = 
@@ -294,7 +290,7 @@
         These actions can be summarized as follows:
         \begin{enumerate}
             \item \textbf{Cell Generation:} \\
-                For each agent, two cells are generated: a partitioned cell, denoted as '$\mathcal{A}$' and a sensing cell, denoted as '$\mathcal{S}$'.
+                For each agent, two cells are generated: a partitioned cell, denoted as $\mathcal{A}$ and a sensing cell, denoted as $\mathcal{S}$.
             \item \textbf{Centroid Computation:}
                 \begin{itemize}
                     \item The centroid of cell $\mathcal{A}$, $c_{\mathcal{A}}$ is computed using a weighted function that considers both the agent's goal position, $\mathbf{g}_i$, and its current destination, $\mathbf{d}_i$.
@@ -337,7 +333,7 @@
         \end{figure}
         
     \subsection{Simulation Enviroment}
-        In this simulation, the term 'agent' refers to the \ac{UAV}, which were simulated using the framework provided by \cite{mrs_uav_system}.
+        In this simulation, the term 'agent' refers to the \ac{UAV}, which were simulated using the framework provided by \ac{MRS} \cite{mrs_uav_system}.
         Each \ac{UAV} obtains its global ground truth position from the ROS simulator.
         The positions of neighboring \ac{UAV}s were estimated using simulated blinking ultraviolet markers, following the method described in \cite{uvdd1} and \cite{uvdar_package}.
         The following constraints are relevant for each \ac{UAV}:
@@ -362,8 +358,8 @@
         To evaluate the safety and performance of the \ac{UAV}s during interactions, a series of experiments was conducted. 
         Experiments were performed primarily using circular formations, with \ac{UAV} counts of N = 5, 10, and 15. 
         Each of these circular formation experiments was repeated 10 times.
-        Additionally, to extend the analysis to \ac{3D} and assess the algorithm's performance, a set of spherical formation experiments eas conducted with N = 10, also repeated 10 times.
-        After each \ac{UAV} was flown from the ground to its designated starting position, the \ac{RBL} algorithm was initiated.    
+        Additionally, to extend the analysis to \ac{3D} and assess the algorithm's performance, a set of spherical formation experiments was conducted with N = 10, also repeated 10 times.
+        After each \ac{UAV} was flown from the ground to its starting position, the \ac{RBL} algorithm was activated.    
 
         These formations provide a controlled enviroment compared to random initial position and goal locations. 
         In both circular and spherical formations, the \ac{UAV}s were evenly distributed along the circle or the surface of the sphere, with the goal position located on the opposite side.
@@ -391,6 +387,8 @@
                 $\eta$ & 0.9  \\ \hline
                 $min_z$ & 1.0 m \\ \hline
                 $max_z$ & 10.0 m \\ \hline
+                $w_1$ & 0.7 \\ \hline
+                $w_2$ & 0.3 \\ \hline
 
             \end{tabular}
             \label{tab:experiment_parameters}
@@ -487,7 +485,7 @@
         \end{figure}
 
     \section{Comparison with State-of-the-Art Method}
-        As an alternative approach developed within the MRS framework, the \ac{3D} \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav. todo cite
+        As an alternative approach developed within the MRS framework, the \ac{3D} \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav \cite{PACNav}.
         Both algorithms target communication-less UAV coordination, a feature desirable for scalability. 
         Furthermore, implementations described for both approaches have utilized UVDAR to determine the positions of neighbouring UAVs.
 
@@ -504,8 +502,8 @@
         Validation of the multi-agent \ac{3D} RBL algorithm was conducted through simulation.
         The integration and experimental validation of \ac{3D} LiDAR for environmental perception and single-agent navigation within the RBL framework are addressed in the subsequent chapter.
 
-        Another distinct approach in decentralized, communication-less coordination is the purely vision-based model presented by Mezey et al.. TODO cite
-        Unlike RBL, which relies on explicit position information, the Mezey et al. model derives control actions solely from a 1D visual projection field generated by detecting neighbours via onboard camera. 
+        Another distinct approach in decentralized, communication-less coordination is the purely vision-based model presented by Mezey \cite{mezey_pure_vision}
+        Unlike RBL, which relies on explicit position information, the Mezey et al. model derives control actions from a 1D visual projection field generated by detecting neighbours via onboard camera. 
         It requires no localization data. Coordination emerges from low-level visual attraction-repulsion forces, resulting in patterns like flocking or swarming rather than directed motion towards individual goals. 
         While effectively demonstrated in \ac{2D} with \ac{UGV}s, extending this purely vision-based model to complex \ac{3D} environments presents challenges regarding goal achievement. 
         Furthermore, the use of toroidal simulation environments, which mitigate group fragmentation and can facilitate specific emergent patterns like leader-follower dynamics, potentially limits the direct applicability of some observed behaviors to real-world \ac{3D} scenarios.
@@ -515,24 +513,24 @@
         This chpater detailed teh extension of \ac{RBL} algorithm, originally tested for \ac{2D} coordination, to operate in a full three-dimensional space.
         Key modification included adapting The Voronoi cell partitioning for \ac{3D}, utilizing projections for already existing azimuth update rules, and introducing a new elevation rotation angle.
         This new rule dynamically adjusts the agent's vertical destination based on relative centroid positions and directional influence towards the goal, aiming to imporve distribution.
-        Note that for the directional influence to work the UAVs need to have some sort of information about frame of reference between each other at the start of the algorithm. TODO rephrase
+        Note that for the directional influence to work the \ac{UAV}s need to have some sort of information about frame of reference between each other at the start of the algorithm, such as Earth's magnetic field.
         Vertical movement has also been constrained within defined interval ($min_z$, $max_z$).
 
-        The proposed \ac{3D} RBL extensions were evaluated through simulations within the MRS framework, comparing performance uavs corssing circle and sphere. 
+        The proposed \ac{3D} RBL extensions were evaluated through simulations within the MRS framework, comparing performance \ac{UAV}s crossing circle and sphere. 
         The results indicate that the extension variants successfully enabled multi-agent coordination in three dimensions.
         Specifically, analysis of the simulation results reveals a trend where the performance of the \ac{3D} approach with applied rules compared to the basic \ac{2D} appears to increase with scaling number of agents. 
-        For instance, based on the average completion times, the \ac{3D} variatn was calculated to be aproximately 1.99\% faster than the \ac{2D} variant for N=5 agents.
+        For instance, based on the average completion times, the \ac{3D} variant was calculated to be aproximately 1.99\% faster than the \ac{2D} variant for N=5 agents.
         This performance is scales for larger swarms.
         For N=15 the \ac{3D} approach was calculated to be 4.22\% faster than the \ac{2D}.
         This suggests that the extension becomes increasingly beneficial in more crowded scenarios.
 
-        While the magnitude of this observed improvement was perhaps less than initially anticipated, it is important to consider the conservative motion constraints for \ac{UAV}s on the Z-axis (velocity/acceleration), reflecting realistic \ac{UAV} dynamics but limiting certical exploration.
+        While the magnitude of this observed improvement was perhaps less than initially anticipated, it is important to consider the conservative motion constraints for \ac{UAV}s on the Z-axis (velocity/acceleration), reflecting realistic \ac{UAV} dynamics but limiting vertical exploration.
         Furthermore, the parameters used for testing simulation were also conservative, suggesting that finer tuning - particularly of vertical exploration weights and weighting function agressiveness - could potentially yield better performance.
         Nonetheless, the trend indicated by these results supports the conclusion that the \ac{3D} extension effectiveness crowdeness rises.
-        Furthermore, simulations in the spherical formation scenario confirmed the algorithm's capability to manage \ac{3D} navigation and coordination, with the Z-rule again showing performance benefits.
+        Furthermore, simulations in the spherical formation scenario confirmed the algorithm's capability to manage \ac{3D} navigation and coordination.
 
         In conclusion, the simulations presented in this chapter demonstrate the feasibility of extending the RBL algorithm to \ac{3D}. 
         The introduced elevation control rule appears particularly beneficial, enhancing the efficiency and convergence speed of the agents towards their goals in simulated \ac{3D} environments. 
-        This provides a promising foundation for applying the \ac{3D} RBL algorithm to real-world UAV navigation tasks, explored further in subsequent chapters.
+        This provides a promising foundation for applying the \ac{3D} RBL algorithm to real-world UAV navigation tasks, explored further in subsequent chapter.
 
 

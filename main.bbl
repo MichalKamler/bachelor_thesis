@@ -71,6 +71,68 @@
     \field{year}{2024}
   \endentry
 
+  \entry{mezey_pure_vision}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=MD}{%
+         family={Mezey},
+         familyi={M\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Bastien},
+         familyi={B\bibinitperiod},
+         given={Renaud},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Yating},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MN}{%
+         family={McKee},
+         familyi={M\bibinitperiod},
+         given={Neal},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Stoll},
+         familyi={S\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hamann},
+         familyi={H\bibinitperiod},
+         given={Heiko},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=RP}{%
+         family={Romanczuk},
+         familyi={R\bibinitperiod},
+         given={Pawel},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MDBRZY+1}
+    \strng{fullhash}{MDBRZYMNSDHHRP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2406.17106
+    \endverb
+    \field{title}{Purely vision-based collective movement of robots}
+    \verb{url}
+    \verb https://arxiv.org/abs/2406.17106
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{year}{2024}
+  \endentry
+
   \entry{mrs_uav_system}{misc}{}
     \name{author}{1}{}{%
       {{hash=MRSGCiP}{%
@@ -276,6 +338,61 @@
     \verb https://commons.wikimedia.org/w/index.php?curid=127768757
     \endverb
     \field{year}{2023}
+  \endentry
+
+  \entry{PACNav}{article}{}
+    \name{author}{5}{}{%
+      {{hash=AA}{%
+         family={Ahmad},
+         familyi={A\bibinitperiod},
+         given={Afzal},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BLD}{%
+         family={Bonilla\bibnamedelima Licea},
+         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Silano},
+         familyi={S\bibinitperiod},
+         given={Giuseppe},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Báča},
+         familyi={B\bibinitperiod},
+         given={Tomáš},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Saska},
+         familyi={S\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IOP Publishing}%
+    }
+    \strng{namehash}{AABLDSG+1}
+    \strng{fullhash}{AABLDSGBTSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{doi}
+    \verb 10.1088/1748-3190/ac98e6
+    \endverb
+    \field{number}{6}
+    \field{title}{PACNav: a collective navigation approach for UAV swarms
+  deprived of communication and external localization}
+    \verb{url}
+    \verb http://dx.doi.org/10.1088/1748-3190/ac98e6
+    \endverb
+    \field{journaltitle}{Bioinspiration \&amp; Biomimetics}
+    \field{year}{2022}
   \endentry
 
   \entry{vision_navigation}{article}{}

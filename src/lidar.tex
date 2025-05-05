@@ -118,6 +118,18 @@
             This direct voxel usage approach is detailed in the subsequent section. 
             Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
 
+            \begin{figure}[H]
+                \centering
+                \subfloat[Surface approximation using Greedy Projection Triangulation] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/triangulation_surface_aprox.png}
+                \label{fig:triangulation_fig}
+                }
+                \caption{
+                    Surface approximation using Greedy Projection Triangulation.
+                }
+                \label{fig:triangulation}
+            \end{figure}
+
         \subsection{Voxel-Based Modification of Cell $\mathcal{A}$}
             Given that the size of the voxels is known, this infromation can be used to refine the partitioning of cell $\mathcal{A}$ by treating voxels as obstacles.
             First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
@@ -246,14 +258,138 @@
             % livox - 360 * 60 deg - account for centroid calculation
     
     \section{Experimental Results}
-        TODO
+        This section presents the findings from both simulated and real-world experiments conducted to evaluate the proposed approach.
         \subsection{Simulation Setup}
-            virtual environment modeling, tools used
+            In the simulations, a virtual forest environment was created. 
+            Initially, a raycasting approach from the UAV to the simulated trees was considered for obstacle detection. 
+            However, due to its computational cost, a static point cloud representation of the entire forest was generated and published instead. 
+            The forest was modeled as a collection of trees, with trunks represented by cylinders and crowns by spheres.
+
+            The forest was contained within a rectangular area defined by the following boundaries:
+            \begin{itemize}
+                \item $x_{min}$ = -20.0 m
+                \item $x_{max}$ =  20.0 m
+                \item $y_{min}$ = -32.0 m
+                \item $y_{max}$ =  32.0 m
+            \end{itemize}
+            A total of 100 trees were randomly generated within this area, with a minimum separation distance of 3 meters between them. 
+            The trees were generated with the following parameter variances:
+            \begin{itemize}
+                \item Trunk radius: 0.5 $\pm$ 0.2 m
+                \item Tree height: 7.5 $\pm$ 2.0 m
+                \item Crown radius: 2.5 $\pm$ 0.5 m
+            \end{itemize}
+            The UAV's starting position was set at one corner of the rectangular area (-22.0, -33.0, 2.0), and the goal position was set at the opposite corner (22.0, 33.0, 5.0), resulting in an approximate distance of 80 meters between them.
+
+            It is important to note that the right-hand rule and z rule, described in the previous chapter, are not required for effective coordination in this static forest environment.
+            Also, the point-lio estimator and Bonxai mapping were not simulated.
+
+            The specific values of the parameters used in the experiments are summarized in following table \ref{tab:rbl_forest_simulation_parameters}:
+            \begin{table}[H]
+                \centering
+                \caption{Parameters Used in Experiments}
+                \begin{tabular}{|l|l|}
+                    \hline
+                    Parameter & Value \\
+                    \hline
+                    \hline
+                    Sensing radius ($r_s$) & 3.5 m \\ \hline
+                    Update rate & 10 Hz \\ \hline
+                    Encumbrance & 0.5 m \\ \hline
+                    $d_1 = d_3 = d_5$ & 0.5 m \\ \hline
+                    $d_2 = d_4 = d_6$ & 1.0 m \\ \hline
+                    $\beta_i^D$ & 0.5  \\ \hline
+                    $\eta$ & 0.9  \\ \hline
+                \end{tabular}
+                \label{tab:rbl_forest_simulation_parameters}
+            \end{table}
+            
+            The UAV dynamics are the same as described in the previous chapter and detailed in Table \ref{tab:uav_constraints}. 
+            Each simulation was run 10 times.            
+
         \subsection{Performance in Simulated Environments}
-            Success rates, obstacle avoidance, efficiency metrics - same as in the rbl
+            The simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
+            The UAV demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining efficient trajectory without unnecessary detours.
+            Convergence towards the designated goal waypoint was consistently achieved in a stable manner.
+
+            \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.2}
+                \begin{tabular}{|l|c|c|c|c|}
+                \hline
+                                                  & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) &  \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                Simulation through forest 10 time & 100.00          & 91.99 $\pm$ 0.96                  & 150.89 $\pm$ 0.88                  &  0.85 $\pm$ 0.00                         \\ \hline
+                \end{tabular}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \subfloat[] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/simulation_forest.png}
+                \label{fig:simulated_forest}
+                }
+                \caption{
+                    visualization of simulated forest and path the uav took (red line)
+                }
+                \label{fig:simulated_forest_path}
+            \end{figure}
+
         \subsection{Real-World Experiments in a Forest Environment}
+            Following the successful simulation validation, the \ac{RBL} algorithm was tested through real-world experiments conducted in a forest environment.
+            \begin{itemize}
+                \item \textbf{Location: } \\
+                    The chosen forest site presented a relatively clear environment, considered 'friendly' for initial UAV flight tests. 
+                    To increase the navigational challenge and better test the obstacle avoidance capabilities, additional branches were placed near trees within the flight area after a few successfull flights. 
+                    The point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
+                \item \textbf{UAV Platform: } \\
+                    A custom-built multirotor UAV from the MRS group was used for this experiment (TODO ask for specifications). 
+                    It was equipped with a primaryly with LiDAR mounted on top for environmental perception and state estimation.
+                    While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and a barometer were present on the platform, they were not directly used by the \ac{UAV}.
+                \item \textbf{Experimental Procedure: } \\
+                    Each experimental run followed a defined procedure. 
+                    First, the necessary software components were launched within a tmux session on the ground. 
+                    A safety pilot then armed the UAV and performed a manual takeoff to a safe altitude. 
+                    Once airborne and stable, the \ac{RBL} algorithm was initiated, commanding the UAV towards a predefined goal. 
+                    The flight was continuously monitored via visualization in Rviz and observing the \ac{UAV}. 
+                    If the UAV approached an obstacle too closely or exhibited unsafe behavior, the safety pilot immediately terminated the autonomous mode, took manual control, and landed the UAV. 
+                    Between runs, key algorithm parameters, such as those controlling navigation 'aggressivity' (e.g., the scale of cells in the RBL and the weighting function used for path planning), were adjusted based on observations from the previous flight, and the experiment was repeated.
+                \item \textbf{Safety Measures: } \\
+                    Safety was paramount throughout the experiments. 
+                    A trained safety pilot maintained visual line-of-sight with the UAV at all times and was prepared to immediately take manual control via the remote controller should any unsafe condition arise.
+                \item \textbf{Data Collected: } \\
+                    For safety reasons, data logging was initiated only after the manual takeoff was complete. 
+                    During the autonomous flight part and subsequent landing, all relevant ROS topics (including sensor data, estimated state, \ac{RBL} cells, centroid) were recorded into rosbag files for detailed post-flight analysis.
+                \item \textbf{Challenges Encountered: } \\
+                    Several challenges emerged during real-world deployment. 
+                    A significant set-back involved correctly managing coordinate frame transformations, particularly due to the slight tilt of the top-mounted LiDAR sensor. 
+                    Ensuring accurate alignment between the LiDAR's point cloud data, the Point-LIO state estimator, and the navigation algorithm's reference frame required careful configuration. 
+                    Another challenge, which warrants further investigation (discussed in Future Work), related to the Bonxai mapping part. 
+                    Occasionally, the mapper would map dynamic objects, such as leaves disturbed by propellers, into the static map. 
+                    Due to the mapping algorithm's configuration, which was set to be conservative about removing potentially static obstacles to ensure safety, these incorrectly mapped 'ghost' obstacles were sometimes not removed even when subsequent scans showed they were no longer present. 
+                    In some instances, this led to the UAV perceiving itself as surrounded by obstacles (effectively 'locking' itself), requiring the safety pilot to intervene and land.
+            \end{itemize}
+
+            \begin{figure}[H]
+                \centering
+                \subfloat[] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/deadlock_moment_mapping.png}
+                \label{fig:map_fail_rviz}
+                }
+                \caption{
+                    Visualization of a moment where the UAV incorrectly mapped leaves as obstacles directly in its path.
+                }
+                \label{fig:map_fail}
+            \end{figure}
+
+        
+        \subsection{Performance in Real-World Experiment}
+        * Metrics: Report the same metrics as in the simulation experiments where possible.
+
         \subsection{Comparative Analysis}
-            Simulation vs. real-world performance
+            * Simulation vs. Real-World Performance: Compare the results obtained in simulation with those from the real-world experiments.  Discuss any discrepancies and their possible causes.
+            * Algorithm Performance: Compare your algorithm's performance with any existing algorithms or baseline methods.
+            * Discussion of Limitations: Acknowledge any limitations of your algorithm or the experimental setup.
+            * Future Work: Suggest potential areas for future research or improvements to the algorithm.
     
     \section{Conclusion}
         TODO
