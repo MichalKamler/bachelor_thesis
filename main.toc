@@ -46,7 +46,7 @@
 \contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{22}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{23}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{24}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{24}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{25}{subsection.3.4.5}%
 \contentsline {section}{\numberline {3.5}Conclusion}{25}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Conclusion}{26}{chapter.4}%
 \contentsline {chapter}{\numberline {5}References}{27}{chapter.5}%

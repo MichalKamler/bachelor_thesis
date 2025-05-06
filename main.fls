@@ -699,6 +699,12 @@ INPUT ./fig/rviz/simulation_forest.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/deadlock_moment_mapping.png
 INPUT ./fig/rviz/deadlock_moment_mapping.png
 INPUT ./fig/rviz/deadlock_moment_mapping.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/flight_484.png
+INPUT ./fig/rviz/flight_484.png
+INPUT ./fig/rviz/flight_484.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/flight_486.png
+INPUT ./fig/rviz/flight_486.png
+INPUT ./fig/rviz/flight_486.png
 INPUT /home/michal/dev/bachelor_thesis/src/conclusion.tex
 INPUT /home/michal/dev/bachelor_thesis/src/conclusion.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti10.tfm

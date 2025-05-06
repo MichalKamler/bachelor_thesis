@@ -383,13 +383,58 @@
 
         
         \subsection{Performance in Real-World Experiment}
-        * Metrics: Report the same metrics as in the simulation experiments where possible.
+            For the real world experiment I have chosen 2 flights to describe and one fail flight. For each of the flight I uploaded a video One conservative:
+            \begin{table}[H]
+                \centering
+                \caption{Parameters Used in Experiments}
+                \begin{tabular}{|l|c|c|}
+                    \hline
+                    Parameter & Value conservative & Value aggressive \\
+                    \hline
+                    \hline
+                    Sensing radius ($r_s$) & 3.5 m & 3.5 m \\ \hline
+                    Update rate & 10 Hz & 10 Hz \\ \hline
+                    Encumbrance & 0.5 m & 0.5 m \\ \hline
+                    $d_1 = d_3 = d_5$ & 0.5 m & 0.5 m \\ \hline
+                    $d_2 = d_4 = d_6$ & 1.0 m & 1.0 m\\ \hline
+                    $\beta_i^D$ & 0.5 & 0.5 \\ \hline
+                    $\eta$ & 0.9 & 0.9 \\ \hline
+                \end{tabular}
+                \label{tab:rbl_forest_conservative_flight}
+            \end{table}
+
+            \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.2}
+                \begin{tabular}{|l|c|c|c|c|}
+                \hline
+                                    & \( L \ [\mathrm{m}] \) & \( t \ [\mathrm{s}] \) &  \( v \ [\mathrm{m/s}] \)     \\ \hline
+                Conservative flight & 53.84                   & 116.40                  &  0.46                          \\ \hline
+                Agressive flight    & 35.56                   &  51.64                  &  0.69                          \\ \hline
+                \end{tabular}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \subfloat[] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_484.png}
+                }
+                \subfloat[] {
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_486.png}
+                }
+                \caption{
+                    Visualization of the path the uav took during the .
+                }
+                \label{fig:rbl_forest_conservative_flight_path}
+            \end{figure}
+
+
 
         \subsection{Comparative Analysis}
-            * Simulation vs. Real-World Performance: Compare the results obtained in simulation with those from the real-world experiments.  Discuss any discrepancies and their possible causes.
-            * Algorithm Performance: Compare your algorithm's performance with any existing algorithms or baseline methods.
-            * Discussion of Limitations: Acknowledge any limitations of your algorithm or the experimental setup.
-            * Future Work: Suggest potential areas for future research or improvements to the algorithm.
+            % * Simulation vs. Real-World Performance: Compare the results obtained in simulation with those from the real-world experiments.  Discuss any discrepancies and their possible causes.
+            % * Algorithm Performance: Compare your algorithm's performance with any existing algorithms or baseline methods.
+            % * Discussion of Limitations: Acknowledge any limitations of your algorithm or the experimental setup.
+            % * Future Work: Suggest potential areas for future research or improvements to the algorithm.
     
     \section{Conclusion}
         TODO
