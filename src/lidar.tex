@@ -120,10 +120,7 @@
 
             \begin{figure}[H]
                 \centering
-                \subfloat[Surface approximation using Greedy Projection Triangulation] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/triangulation_surface_aprox.png}
-                \label{fig:triangulation_fig}
-                }
                 \caption{
                     Surface approximation using Greedy Projection Triangulation.
                 }
@@ -145,7 +142,7 @@
                     \text{clamp}(p{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
                     \text{clamp}(p_{\mathcal{S},y}, v_{c,y} - \frac{\mathbf{e}}{2}, v_{c,y} + \frac{\mathbf{e}}{2}) \\
                     \text{clamp}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
-                \end{pmatrix}
+                \end{pmatrix}\text{,}
             \end{equation}
             where function clamp(x, a, b) constrains the value x to the range [a, b].
             This constrains $\mathbf{p_{\mathcal{S}}}$ to the voxel boundaries.
@@ -195,14 +192,14 @@
                 \mathbf{n}_1 = R_{rpy} \cdot R_{y}(\gamma) \cdot \mathbf{e}_z    
             \end{equation}
             \begin{equation}
-                \mathbf{n}_2 = R_{rpy} \cdot R_{y}(\gamma - \alpha) \cdot \mathbf{e}_z    
+                \mathbf{n}_2 = R_{rpy} \cdot R_{y}(\gamma - \alpha) \cdot \mathbf{e}_z  \text{,}
             \end{equation}
             where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the the mounting angle of the \ac{LiDAR}.
 
             Cell $\mathcal{S}$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
 
             \begin{equation}
-                \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}1 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \geq 0 \land \mathbf{n}2 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \leq 0 \}
+                \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}1 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \geq 0 \land \mathbf{n}2 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \leq 0 \}\text{,}
             \end{equation}
             where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}$ and $\mathbf{p}_{LiDAR}$ is the exact position of the LiDAR sensor.
 
@@ -220,10 +217,7 @@
 
             \begin{figure}[H]
                 \centering
-                \subfloat[Visualization of planes defining cell $\mathcal{S}_i'$] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/cell_a_sliced_with_planes.png}
-                \label{fig:cell_a_sliced_with_planes}
-                }
                 \caption{
                     RViz visualization of LiDAR field-of-view (FOV) planes. The UAV is represented by the XYZ coordinate axes. 
                     The green squares represent the two planes, defined by normal vectors $\mathbf{n}_1$ and $\mathbf{n}_2$, used to slice cell $\mathcal{S}_i$ and determine the modified cell $\mathcal{S}_i'$.
@@ -267,10 +261,10 @@
 
             The forest was contained within a rectangular area defined by the following boundaries:
             \begin{itemize}
-                \item $x_{min}$ = -20.0 m
-                \item $x_{max}$ =  20.0 m
-                \item $y_{min}$ = -32.0 m
-                \item $y_{max}$ =  32.0 m
+                \item $x_{\min}$ = -20.0 m
+                \item $x_{\max}$ =  20.0 m
+                \item $y_{\min}$ = -32.0 m
+                \item $y_{\max}$ =  32.0 m
             \end{itemize}
             A total of 100 trees were randomly generated within this area, with a minimum separation distance of 3 meters between them. 
             The trees were generated with the following parameter variances:
@@ -285,21 +279,36 @@
             Also, the point-lio estimator and Bonxai mapping were not simulated.
 
             The specific values of the parameters used in the experiments are summarized in following table \ref{tab:rbl_forest_simulation_parameters}:
+
+            % \begin{table}[H]
+            %     \centering
+            %     \caption{Parameters Used in Experiments}
+            %     \begin{tabular}{|l|l|l|l|l|l|l|l|}
+            %         \hline
+            %         % Row 1: Parameter names act as column headers here
+            %         Parameter & $r_s$ [m]                  & Update rate [Hz] & $\delta_i$ [m]  & $d_1 = d_3 = d_5$  [m] & $d_2 = d_4 = d_6$ [m] & $\beta_i^D$ [] & $\eta$ []\\
+            %         \hline \hline 
+            %         Value     & 3.5                        & 10               & 0.5             & 0.5                    & 1.0                   & 0.5            & 0.9  \\
+            %         \hline
+            %     \end{tabular}
+            %     \label{tab:rbl_forest_simulation_parameters_transposed} % Adjusted label
+            % \end{table}
+
             \begin{table}[H]
                 \centering
                 \caption{Parameters Used in Experiments}
-                \begin{tabular}{|l|l|}
+                \begin{tabular}{|l|c|}
                     \hline
                     Parameter & Value \\
                     \hline
                     \hline
-                    Sensing radius ($r_s$) & 3.5 m \\ \hline
-                    Update rate & 10 Hz \\ \hline
-                    Encumbrance & 0.5 m \\ \hline
-                    $d_1 = d_3 = d_5$ & 0.5 m \\ \hline
-                    $d_2 = d_4 = d_6$ & 1.0 m \\ \hline
-                    $\beta_i^D$ & 0.5  \\ \hline
-                    $\eta$ & 0.9  \\ \hline
+                    Sensing radius $r_s$ [m] & 3.5 \\ \hline
+                    Update rate [Hz] & 10  \\ \hline
+                    Encumbrance $\delta_i$ [m] & 0.5  \\ \hline
+                    $d_1 = d_3 = d_5$ [m] & 0.5  \\ \hline
+                    $d_2 = d_4 = d_6$ [m] & 1.0  \\ \hline
+                    $\beta_i^D$ [ ] & 0.5  \\ \hline
+                    $\eta$ [ ] & 0.9  \\ \hline
                 \end{tabular}
                 \label{tab:rbl_forest_simulation_parameters}
             \end{table}
@@ -318,18 +327,15 @@
                 \begin{tabular}{|l|c|c|c|c|}
                 \hline
                                                   & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) &  \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                Simulation through forest 10 time & 100.00          & 91.99 $\pm$ 0.96                  & 150.89 $\pm$ 0.88                  &  0.85 $\pm$ 0.00                         \\ \hline
+                Results                           & 100.00          & 91.99 $\pm$ 0.96                  & 150.89 $\pm$ 0.88                  &  0.85 $\pm$ 0.00                         \\ \hline
                 \end{tabular}
             \end{table}
 
             \begin{figure}[H]
                 \centering
-                \subfloat[] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/simulation_forest.png}
-                \label{fig:simulated_forest}
-                }
                 \caption{
-                    visualization of simulated forest and path the uav took (red line)
+                    Visualization of simulated forest and the corresponding path of the UAV, indicated by a red line.
                 }
                 \label{fig:simulated_forest_path}
             \end{figure}
@@ -371,10 +377,7 @@
 
             \begin{figure}[H]
                 \centering
-                \subfloat[] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/deadlock_moment_mapping.png}
-                \label{fig:map_fail_rviz}
-                }
                 \caption{
                     Visualization of a moment where the UAV incorrectly mapped leaves as obstacles directly in its path.
                 }
@@ -392,13 +395,13 @@
                     Parameter & Value conservative & Value aggressive \\
                     \hline
                     \hline
-                    Sensing radius ($r_s$) & 3.5 m & 3.5 m \\ \hline
+                    Sensing radius ($r_s$) & 2.0 m & 2.0 m \\ \hline
                     Update rate & 10 Hz & 10 Hz \\ \hline
                     Encumbrance & 0.5 m & 0.5 m \\ \hline
                     $d_1 = d_3 = d_5$ & 0.5 m & 0.5 m \\ \hline
                     $d_2 = d_4 = d_6$ & 1.0 m & 1.0 m\\ \hline
-                    $\beta_i^D$ & 0.5 & 0.5 \\ \hline
-                    $\eta$ & 0.9 & 0.9 \\ \hline
+                    $\beta_i^D$ & 0.5 & 0.1 \\ \hline
+                    $\eta$ & 0.8 & 0.8 \\ \hline
                 \end{tabular}
                 \label{tab:rbl_forest_conservative_flight}
             \end{table}

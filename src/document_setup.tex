@@ -298,21 +298,42 @@
 %% | -------------- define the 'full' page style -------------- |
 
 \fancypagestyle{full}{%
+  % \fancyhf{} % This is a more concise way to clear everything
+  % \renewcommand{\headrulewidth}{0.4pt} % Or your preferred value for the header rule
+  % \renewcommand{\footrulewidth}{0pt}   % No rule for the footer, or set as desired
 
-  % clear the default layout
-  \fancyhead{}
-  \fancyfoot{}
-
-  % page header
   \fancyhead[LO]{\leftmark}
   \fancyhead[RE]{\rightmark}
-  \fancyhead[LE,RO]{\thepage/\pageref{LastPage}}
 
-  % page footer
-  \fancyfoot[L]{CTU in Prague}
-  \fancyfoot[R]{\Department}
-  \fancyfoot[C]{}
+
+  \fancyfoot[LO]{\thepage/\pageref{LastPage}} % Page number on the Left
+  \fancyfoot[RO]{CTU in Prague}             % "CTU in Prague" on the Right
+
+  \fancyfoot[LE]{CTU in Prague}             % "CTU in Prague" on the Left
+  \fancyfoot[RE]{\thepage/\pageref{LastPage}} % Page number on the Right
+
+  % \fancyfoot[C]{} % You can add this for explicitness if you wish
 }
+
+
+
+
+% \fancypagestyle{full}{%
+
+%   % clear the default layout
+%   \fancyhead{}
+%   \fancyfoot{}
+
+%   % page header
+%   \fancyhead[LO]{\leftmark}
+%   \fancyhead[RE]{\rightmark}
+%   \fancyhead[LE,RO]{\thepage/\pageref{LastPage}}
+
+%   % page footer
+%   \fancyfoot[L]{CTU in Prague}
+%   \fancyfoot[R]{\Department}
+%   \fancyfoot[C]{}
+% }
 
 %% | -------------- define the 'plain' page style ------------- |
 
@@ -323,7 +344,7 @@
   \fancyfoot{}
 
   % page header
-  \fancyhead[LE,RO]{\thepage}
+  % \fancyhead[LE,RO]{\thepage}
 }
 
 %% | -------------- Adjust style of chapter names ------------- |

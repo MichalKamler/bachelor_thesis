@@ -58,7 +58,7 @@
         The core objective of the algorithm is to maximize the coverage cost function, which accounts for the distribution of agents and obstacles over the environment. 
         This function is expressed as:
         \begin{equation}
-            J_{cov}(\mathbf{p}) = \sum_{i=1}^{N} \int_{\mathcal{V}_i} \lVert\mathbf{q}-\mathbf{p}_i\rVert^2 \varphi_i (\mathbf{q})d\mathbf{q},
+            J_{\text{cov}}(\mathbf{p}) = \sum_{i=1}^{N} \int_{\mathcal{V}_i} \lVert\mathbf{q}-\mathbf{p}_i\rVert^2 \varphi_i (\mathbf{q})d\mathbf{q}\text{,}
             \label{coverage_cost_function}
         \end{equation}
         where $\mathbf{p}_i$ is the position of agent $i$, $\mathcal{V}_i$ is the Voronoi cell of the i-th robot, $\lVert\mathbf{q}-\mathbf{p_i}\rVert^2$ is squared Euclidian distance between point in the mission space $\mathbf{q} \in \mathcal{Q}$ and agent's position $p_i$, 
@@ -66,7 +66,7 @@
 
         Voronoi cell is defined as: 
         \begin{equation}
-            \mathcal{V}_i = \{q \in \mathcal{Q} \lvert \lVert \mathbf{q} - \mathbf{p}_i \rVert \leq \lVert q - \mathbf{p}_j \rVert, \forall j \neq i\}
+            \mathcal{V}_i = \{q \in \mathcal{Q} \lvert \lVert \mathbf{q} - \mathbf{p}_i \rVert \leq \lVert q - \mathbf{p}_j \rVert, \forall j \neq i\}\text{.}
         \end{equation}
         For visual representation see \reffig{fig:voronoi_2d}. 
 
@@ -80,7 +80,7 @@
             \tilde{V}_i = 
             \begin{cases}
             \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \eta \| \mathbf{q} - \mathbf{p}_j \| \}, & \text{if } \Delta_{ij} \leq \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2} \\
-            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \eta \| \mathbf{q} - \tilde{\mathbf{p}}_j \| \}, & \text{otherwise},
+            \{ \mathbf{q} \in Q \mid \| \mathbf{q} - \mathbf{p}_i \| \leq \eta \| \mathbf{q} - \tilde{\mathbf{p}}_j \| \}, & \text{otherwise}\text{.}
             \end{cases}
         \end{equation}
         $\forall j \in \mathcal{N}_i$, where $\Delta_{ij} = \delta_i + \delta_j$ and $\tilde{\mathbf{p}}_j = \mathbf{p}_j + 2(\Delta_{ij} - \frac{\| \mathbf{p}_i - \mathbf{p}_j \|}{2})\frac{ \mathbf{p}_i - \mathbf{p}_j }{\| \mathbf{p}_i - \mathbf{p}_j \|}$.
@@ -90,19 +90,19 @@
 
         Together with cell $\mathcal{S}_i$ defined as: 
         \begin{equation}
-            \mathcal{S}_i = \{\mathbf{q} \in \mathcal{Q} | \| \mathbf{q} - \mathbf{p}_i \| \leq r_{s,i}\}
+            \mathcal{S}_i = \{\mathbf{q} \in \mathcal{Q} | \| \mathbf{q} - \mathbf{p}_i \| \leq r_{s,i}\}\text{,}
         \end{equation}
         the cell $\mathcal{A}_i$ is obtained as $\mathcal{A}_i = \tilde{V}_i \cap \mathcal{S}_i$.
 
         Convergence to goal region $G(\mathbf{g}_i, r_g )$ depends on the choice of weighting function that assigns weights to points $\mathbf{q}$ in the mission space $\mathcal{Q}$.
         The weighting function $\varphi_i(\mathbf{q})$ is defined as follows: 
         \begin{equation}
-            \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{d}_i\|}{\beta_i}\right),
+            \varphi_i(\mathbf{q}) = \exp\left(-\frac{\|\mathbf{q} - \mathbf{d}_i\|}{\beta_i}\right)\text{,}
         \end{equation}
         where $\beta_i$ is the weighting factor for points $\mathbf{q}$, and $\mathbf{d}_i$ represents the current destination of the agent. 
         The destination is computed as follows:
         \begin{equation}
-            \mathbf{d}_i = \mathbf{p}_i + R(\theta)(\mathbf{g}_i - \mathbf{p}_i)
+            \mathbf{d}_i = \mathbf{p}_i + R(\theta)(\mathbf{g}_i - \mathbf{p}_i)\text{,}
         \end{equation}
         where $R$ is the azimuthal rotation.
         Rules for changing weighting function and rotation of destination: 
@@ -112,12 +112,12 @@
                     \label{eqn:beta_weighting}
                     \dot{\beta}_i(A_i) = 
                     \begin{cases}
-                        -k & \text{if } \beta_i > \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
-                        0  & \text{if } \beta_i \leq \beta_{min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
-                        -(\beta_i - \beta_i^D) & \text{otherwise}
+                        -k & \text{if } \beta_i > \beta_{\min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
+                        0  & \text{if } \beta_i \leq \beta_{\min} \land \|\mathbf{c}_{A_i} - \mathbf{p}_i\| < d_1 \land \|\mathbf{c}_{A_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_2  \\
+                        -(\beta_i - \beta_i^D) & \text{otherwise}\text{,}
                     \end{cases}
                 \end{equation}
-                where the first case decreases $\beta_i$ over time, the second case ensures that $\beta_i$ does not decrease below its minimum threshold $\beta_{min}$ (saturation) and the third case provides a general update rule when the previous conditions are not met.
+                where the first case decreases $\beta_i$ over time, the second case ensures that $\beta_i$ does not decrease below its minimum threshold $\beta_{\min}$ (saturation) and the third case provides a general update rule when the previous conditions are not met.
             \item \textbf{Azimuth update rule}
                 \begin{equation}
                     \label{eqn:azimuth_2d}
@@ -125,20 +125,20 @@
                     \begin{cases}
                         k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3 \\
                         -k & \text{if } \theta > 0 \land \neg (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\| > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\| > d_3) \\
-                        0  & \text{otherwise}
+                        0  & \text{otherwise}\text{,}
                     \end{cases}
                 \end{equation}
                 where the first case increases $\theta_i$ over time, the second case ensures that $\theta_i$ converges back when the distance constraints are not satisfied, and the third case keeps $\theta_i$ unchanged.
             \item \textbf{Azimuth reset rule}
                 \begin{equation}
                     \label{eqn:azimuth_reset_2d}
-                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|    
+                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|\text{,}
                 \end{equation}
                 where $\mathbf{\overline{c}}_{\mathcal{A}_i}$ represents the centroid computed from the cell $\mathcal{A}_i$, which is weighted using the unrotated destination, meaning $\mathbf{d}_i = \mathbf{g}_i$.
         \end{itemize}
         Weighted centroid is computed as follows:        
         \begin{equation}
-            \mathbf{c}_{\mathcal{A}_i} = \frac{\int_{\mathcal{A}_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{\mathcal{A}_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}},
+            \mathbf{c}_{\mathcal{A}_i} = \frac{\int_{\mathcal{A}_i} \mathbf{q} \varphi_i(\mathbf{q}) \, d\mathbf{q}}{\int_{\mathcal{A}_i} \varphi_i(\mathbf{q}) \, d\mathbf{q}}\text{,}
         \end{equation}
         where \( \mathbf{q} \) represents the point in mission space, and \( \varphi_i(\mathbf{q}) \) is a weighting function. 
         The centroids for other relevant cells are computed using a similar approach, but over different sets.
@@ -148,7 +148,7 @@
         To enhance performance in a fully three-dimensional space, additional rules are required to account for elevation adjustments. 
 
 \section{Extension of the RBL algorithm to 3D}
-    \subsection{Motivation for \ac{3D} Extension}
+    \subsection{Motivation for 3D Extension}
         In many practical applications, agents must operate in three-dimensional spaces, considering not only horizontal movement but also vertical.
         A \ac{3D} extension is necessary to navigate complex environments that feature obstacles in all directions.
         In \ac{2D}, agents are restricted to a flat plane, which simplifies navigation but limits the ability to interact with objects and environments that exist in the third dimension.
@@ -191,39 +191,37 @@
                     \begin{cases}
                         k  & \text{if } \theta < \frac{\pi}{2} \land \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_{xy} > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} > d_3 \\
                         -k & \text{if } \theta > 0 \land \neg (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_{xy} > d_4 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} > d_3) \\
-                        0  & \text{otherwise}
+                        0  & \text{otherwise} \text{.}
                     \end{cases}
                 \end{equation}
             \item \textbf{Azimuth reset rule \ac{3D}}
                 \begin{equation}
                     \label{eqn:azimuth_reset_3d}
-                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|_{xy}    
+                    \theta = 0 \quad \text{if } \theta = \frac{\pi}{2} \land \| \mathbf{p}_i - \mathbf{\overline{c}}_{\mathcal{A}_i} \|_{xy}\text{.}
                 \end{equation}
         \end{itemize}
 
         The notation $\| \cdot \|_{xy}$ denotes the Euclidean norm computed in the $xy$-plane only, defined as:
         \begin{equation}
-            \| \mathbf{p}_i - \mathbf{p}_j \|_{xy} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}
+            \| \mathbf{p}_i - \mathbf{p}_j \|_{xy} = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}\text{.}
         \end{equation}
 
-
-
-        Additionally, $Z_{clipping}$ is applied to each sensing cell $\mathcal{S}_i$, constraining it within the vertical limits defined by $\text{min}_z$ and $\text{max}_z$:
+        Additionally, $Z_{clipping}$ is applied to each sensing cell $\mathcal{S}_i$, constraining it within the vertical limits defined by $\min_z$ and $\max_z$:
 
         \begin{equation}
-            \mathcal{S}_i = \left\{\mathbf{q} \in \mathcal{Q} \mid \|\mathbf{q} - \mathbf{p}_i\| \leq r_{s,i}, \quad \text{min}_z \leq q_z \leq \text{max}_z \right\}
+            \mathcal{S}_i = \left\{\mathbf{q} \in \mathcal{Q} \mid \|\mathbf{q} - \mathbf{p}_i\| \leq r_{s,i}, \quad \min_z \leq q_z \leq \max_z \right\}\text{,}
         \end{equation}
 
         where $\text{min}_z$ and $\text{max}_z$ define the vertical bounds within which the sensing region $\mathcal{S}_i$ is restricted. 
         This ensures that the agent cannot exceed these limits, as it follows the computed centroid \( \mathbf{c}_{V_i} \). 
-        By constraining the sensing radius, the agent remains confined within the specified region, preventing it from moving outside the vertical interval $\text{min}_z$ to $\text{max}_z$.
+        By constraining the sensing radius, the agent remains confined within the specified region, preventing it from moving outside the vertical interval $\min_z$ to $\max_z$.
 
         The destination rotation rule $Z_{rule}$ is introduced to enhance agents avoidance by rotating the computed destination $\mathbf{d}_i$ by an angle $\phi$.
         For vertical rotation angle $\phi$, the following condition is intorduced
         \begin{equation}
             \label{eqn:phi_condition}
             \Omega = \|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_z < d_6 \land \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_z \lor 
-            | \|\mathbf{p}_i - \mathbf{c}_{\mathcal{S}_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} | > d_7
+            | \|\mathbf{p}_i - \mathbf{c}_{\mathcal{S}_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} | > d_7 \text{.}
         \end{equation}
         This condition has two main parts, combined by a logical or. The first part evaluates the vertical displacement of the centroid of the partitioned cell $\mathbf{c}_{\mathcal{A}_i}$ from the centroid of the sensing cell $\mathbf{c}_{\mathcal{S}_i}$ and the
         displacement of the agents position $\mathbf{p}_i$ from  $\mathbf{c}_{\mathcal{A}_i}$.
@@ -234,39 +232,39 @@
 
         First, the global heading angle, $\theta_{goal}$, towards the goal is calculated: 
         \begin{equation}
-            \theta_{goal} = \text{atan2}(g_{i,y} - p_{i,y}, g_{i,x} - p_{i,x})
+            \theta_{goal} = \text{atan2}(g_{i,y} - p_{i,y}, g_{i,x} - p_{i,x})\text{,}
         \end{equation}
         where $\mathbf{g}_{i, x}$, $\mathbf{g}_{i, y}$ represent the x and y coordinates of the goal, and $\mathbf{p}_{i, x}$, $\mathbf{p}_{i, y}$ represent the x and y coordinates of the agent.
         The resulting angle is in the range $[-\pi, \pi]$.
-        Next, the heading angle is linearly mapped to a direction influence $D_{influence}$ value in the range [-1, 1]:
+        Next, the heading angle is linearly mapped to a direction influence $D_{\text{influence}}$ value in the range [-1, 1]:
         \begin{equation}
-            D_{influence} = \frac{\theta_{goal}}{\pi}
+            D_{\text{influence}} = \frac{\theta_{goal}}{\pi}\text{.}
         \end{equation}
         This mapping ensures that agents traveling directly northward (from South to North) have a directional influence close to one, that will promote upward vertical exploration. 
         Similarly, agents traveling southward have a direction influence close to -1, promoting downward exploration. 
         Agents moving primarily eastward or westward have a directional influence close to 0, resulting in minimal vertical exploration.
         This strategy encourages a more uniform distribution of agents throughout the \ac{3D} space. 
 
-        To determine the adjustment to the agent's vertical orientation, the directional influence $D_{influence}$ is combined with the relative vertical displacement of the agent and $\mathbf{c}_{\mathcal{S}_i}$
+        To determine the adjustment to the agent's vertical orientation, the directional influence $D_{\text{influence}}$ is combined with the relative vertical displacement of the agent and $\mathbf{c}_{\mathcal{S}_i}$
         Weighted average is used to combine them: 
         \begin{equation}
             \label{eqn:combined_influace}
-            C_{influence} = \frac{w_1 \cdot (\mathbf{c}_{\mathcal{S}_i,z} - \mathbf{p}_{i,z}) + w_2 \cdot D_{influence}}{w_1 + w_2}
+            C_{\text{influence}} = \frac{w_1 \cdot (\mathbf{c}_{\mathcal{S}_i,z} - \mathbf{p}_{i,z}) + w_2 \cdot D_{influence}}{w_1 + w_2}\text{,}
         \end{equation} 
-        where $w_1$ $w_2$ are weighting factors. The resulting combined influence $C_{influence}$ is then used to update the agent's rotation of it's destination $\mathbf{d}_i$ by $\phi_i$.
+        where $w_1$ $w_2$ are weighting factors. The resulting combined influence $C_{\text{influence}}$ is then used to update the agent's rotation of it's destination $\mathbf{d}_i$ by $\phi_i$.
 
         Based on condition \eqref{eqn:phi_condition} and \eqref{eqn:combined_influace} update rule for $\phi_i$ can be constructed as follows:
         \begin{equation}
             \label{eqn:phi_update}
             \dot{\phi}_i = 
             \begin{cases}
-                k  & \text{if } \phi_i < \frac{\pi}{4} > \land C_{influence} > 0 \land \Omega \\
-                0  & \text{if } \phi_i > \frac{\pi}{4} > \land C_{influence} > 0 \land \Omega \\
-                -k & \text{if } \phi_i > -\frac{\pi}{4} > \land C_{influence} \leq 0 \land \Omega \\
-                0  & \text{if } \phi_i < -\frac{\pi}{4} > \land C_{influence} \leq 0 \land \Omega \\
+                k  & \text{if } \phi_i < \frac{\pi}{4} > \land C_{\text{influence}} > 0 \land \Omega \\
+                0  & \text{if } \phi_i > \frac{\pi}{4} > \land C_{\text{influence}} > 0 \land \Omega \\
+                -k & \text{if } \phi_i > -\frac{\pi}{4} > \land C_{\text{influence}} \leq 0 \land \Omega \\
+                0  & \text{if } \phi_i < -\frac{\pi}{4} > \land C_{\text{influence}} \leq 0 \land \Omega \\
                 -k & \text{if } \phi_i > 0 \land \neg \Omega \\
                 k  & \text{if } \phi_i < 0 \land \neg \Omega \\
-                0  & \text{otherwise}
+                0  & \text{otherwise}\text{,}
             \end{cases}
         \end{equation}
         where the first four cases control the rotation of the agent's destination $\mathbf{d}_i$ and the final three cases handle the smooth convergence of $\phi_i$ back to 0, when the condition $\Omega$ is not met. 
@@ -279,7 +277,7 @@
                 p_{i,x} +  \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \sin(\phi_{\mathbf{g}_i} + \phi_i) \cdot \cos(\theta_{\mathbf{g}_i} - \theta_i) \\
                 p_{i,y} + \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \sin(\phi_{\mathbf{g}_i} + \phi_i) \cdot \sin(\theta_{\mathbf{g}_i} - \theta_i) \\
                 p_{i,z} + \|\mathbf{p}_i - \mathbf{g}_i\| \cdot \cos(\phi_{\mathbf{g}_i} + \phi_i)
-            \end{pmatrix}
+            \end{pmatrix}\text{,}
         \end{equation}
 
         where $\phi_{\mathbf{g}_i} = \arccos(\frac{\mathbf{g}_{i,z} - \mathbf{p}_{i,z}}{\|\mathbf{p}_i - \mathbf{g}_i\|})$ is the polar angle from z-axis to the goal, 
@@ -377,18 +375,18 @@
                 Parameter & Value \\
                 \hline
                 \hline
-                Sensing radius ($r_s$) & 3.5 m \\ \hline
-                Update rate & 10 Hz \\ \hline
-                Encumbrance & 0.5 m \\ \hline
-                $d_1 = d_3 = d_5$ & 0.5 m \\ \hline
-                $d_2 = d_4 = d_6$ & 1.0 m \\ \hline
-                $d_7$ & 0.2  \\ \hline
-                $\beta_i^D$ & 1.5  \\ \hline
-                $\eta$ & 0.9  \\ \hline
-                $min_z$ & 1.0 m \\ \hline
-                $max_z$ & 10.0 m \\ \hline
-                $w_1$ & 0.7 \\ \hline
-                $w_2$ & 0.3 \\ \hline
+                Sensing radius $r_s$ [m] & 3.5 \\ \hline
+                Update rate [Hz] & 10 \\ \hline
+                Encumbrance $\delta_i$ [m] & 0.5 \\ \hline
+                $d_1 = d_3 = d_5$ [m] & 0.5 \\ \hline
+                $d_2 = d_4 = d_6$ [m] & 1.0 \\ \hline
+                $d_7$ [m] & 0.2  \\ \hline
+                $\min_z$ [m] & 1.0 \\ \hline
+                $\max_z$ [m] & 10.0 \\ \hline
+                $\beta_i^D$ [ ] & 1.5  \\ \hline
+                $\eta$ [ ] & 0.9  \\ \hline
+                $w_1$ [ ] & 0.7 \\ \hline
+                $w_2$ [ ] & 0.3 \\ \hline
 
             \end{tabular}
             \label{tab:experiment_parameters}
@@ -514,7 +512,7 @@
         Key modification included adapting The Voronoi cell partitioning for \ac{3D}, utilizing projections for already existing azimuth update rules, and introducing a new elevation rotation angle.
         This new rule dynamically adjusts the agent's vertical destination based on relative centroid positions and directional influence towards the goal, aiming to imporve distribution.
         Note that for the directional influence to work the \ac{UAV}s need to have some sort of information about frame of reference between each other at the start of the algorithm, such as Earth's magnetic field.
-        Vertical movement has also been constrained within defined interval ($min_z$, $max_z$).
+        Vertical movement has also been constrained within defined interval ($\min_z$, $\max_z$).
 
         The proposed \ac{3D} RBL extensions were evaluated through simulations within the MRS framework, comparing performance \ac{UAV}s crossing circle and sphere. 
         The results indicate that the extension variants successfully enabled multi-agent coordination in three dimensions.

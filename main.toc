@@ -16,7 +16,7 @@
 \contentsline {subsection}{\numberline {2.2.2}Applications and Limitations in 2D}{3}{subsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.2.3}Key Principles in 2D}{3}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Extension of the RBL algorithm to 3D}{5}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Motivation for \ac {3D} Extension}{5}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.1}Motivation for 3D Extension}{5}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Differences between 2D and 3D}{5}{subsection.2.3.2}%
 \contentsline {subsection}{\numberline {2.3.3}Additional Constraints and Modifications}{6}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Algorithm Walkthrough}{8}{subsection.2.3.4}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  6 MAY 2025 11:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  7 MAY 2025 18:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1566,10 +1566,7 @@ l.97 \conditionalClearPage
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
 l.97 \conditionalClearPage
-                          ] (/home/michal/dev/bachelor_thesis/main.toc
-Package acronym Info: Label `acro:3D' newly defined as it shall be overridden
-although it is yet undefined on input line 19.
- [8
+                          ] (/home/michal/dev/bachelor_thesis/main.toc [8
 
 ])
 \tf@toc=\write8
@@ -1592,7 +1589,8 @@ Package acronym Info: Label `acro:SLAM' newly defined as it shall be overridden
 although it is yet undefined on input line 5.
 Package acronym Info: Label `acro:2D' newly defined as it shall be overridden
 although it is yet undefined on input line 6.
-Package acronym Info: Label `acro:3D' overridden on input line 7.
+Package acronym Info: Label `acro:3D' newly defined as it shall be overridden
+although it is yet undefined on input line 7.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 []\OT1/cmr/m/n/10.95 Motivation in us-ing [][][]Rule-based Lloyd Al-go-rithm ([])[] al-go-rithm of-fers
@@ -1609,67 +1607,62 @@ Package acronym Info: Label `acro:UAV' overridden on input line 10.
 ]
 Package acronym Info: Label `acro:UGV' newly defined as it shall be overridden
 although it is yet undefined on input line 39.
- [3] [4]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ac' on input line 151.
-
-[5]
-<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=487, 2195.20125pt x 2195.20125pt>
+ [3] [4] [5]
+<./fig/diagrams/Euclidean_Voronoi_diagram.jpg, id=484, 2195.20125pt x 2195.20125pt>
 File: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg Graphic file (type jpg)
 <use ./fig/diagrams/Euclidean_Voronoi_diagram.jpg>
 Package pdftex.def Info: ./fig/diagrams/Euclidean_Voronoi_diagram.jpg  used on input line 170.
 (pdftex.def)             Requested size: 213.03474pt x 213.03474pt.
-<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=490, 2350.7825pt x 2625.81pt>
+<./fig/diagrams/Euclidian Voronoi diagram 3d.png, id=487, 2350.7825pt x 2625.81pt>
 File: ./fig/diagrams/Euclidian Voronoi diagram 3d.png Graphic file (type png)
 <use ./fig/diagrams/Euclidian Voronoi diagram 3d.png>
 Package pdftex.def Info: ./fig/diagrams/Euclidian Voronoi diagram 3d.png  used on input line 174.
 (pdftex.def)             Requested size: 213.03197pt x 213.03401pt.
  [6 <./fig/diagrams/Euclidean_Voronoi_diagram.jpg> <./fig/diagrams/Euclidian Voronoi diagram 3d.png>]
-Underfull \vbox (badness 1253) has occurred while \output is active []
+Underfull \vbox (badness 1281) has occurred while \output is active []
 
  [7]
-<./fig/rviz/cs_equal_ca.png, id=541, 1084.05pt x 1084.05pt>
+<./fig/rviz/cs_equal_ca.png, id=538, 1084.05pt x 1084.05pt>
 File: ./fig/rviz/cs_equal_ca.png Graphic file (type png)
 <use ./fig/rviz/cs_equal_ca.png>
-Package pdftex.def Info: ./fig/rviz/cs_equal_ca.png  used on input line 324.
+Package pdftex.def Info: ./fig/rviz/cs_equal_ca.png  used on input line 322.
 (pdftex.def)             Requested size: 213.0513pt x 213.0513pt.
-<./fig/rviz/ca_partitioned.png, id=542, 1084.05pt x 1084.05pt>
+<./fig/rviz/ca_partitioned.png, id=539, 1084.05pt x 1084.05pt>
 File: ./fig/rviz/ca_partitioned.png Graphic file (type png)
 <use ./fig/rviz/ca_partitioned.png>
-Package pdftex.def Info: ./fig/rviz/ca_partitioned.png  used on input line 328.
+Package pdftex.def Info: ./fig/rviz/ca_partitioned.png  used on input line 326.
 (pdftex.def)             Requested size: 213.0513pt x 213.0513pt.
  [8]
 Package acronym Info: Label `acro:MRS' newly defined as it shall be overridden
-although it is yet undefined on input line 336.
+although it is yet undefined on input line 334.
  [9 <./fig/rviz/cs_equal_ca.png> <./fig/rviz/ca_partitioned.png>]
 Underfull \vbox (badness 1354) has occurred while \output is active []
 
  [10]
-<./fig/plots/n_10_circle_2d.png, id=612, 860.4948pt x 414.348pt>
+<./fig/plots/n_10_circle_2d.png, id=609, 860.4948pt x 414.348pt>
 File: ./fig/plots/n_10_circle_2d.png Graphic file (type png)
 <use ./fig/plots/n_10_circle_2d.png>
-Package pdftex.def Info: ./fig/plots/n_10_circle_2d.png  used on input line 457.
+Package pdftex.def Info: ./fig/plots/n_10_circle_2d.png  used on input line 455.
 (pdftex.def)             Requested size: 213.04861pt x 106.52667pt.
-<./fig/plots/n_10_circle_3d.png, id=617, 860.4948pt x 413.3844pt>
+<./fig/plots/n_10_circle_3d.png, id=614, 860.4948pt x 413.3844pt>
 File: ./fig/plots/n_10_circle_3d.png Graphic file (type png)
 <use ./fig/plots/n_10_circle_3d.png>
-Package pdftex.def Info: ./fig/plots/n_10_circle_3d.png  used on input line 461.
+Package pdftex.def Info: ./fig/plots/n_10_circle_3d.png  used on input line 459.
 (pdftex.def)             Requested size: 213.04861pt x 106.52493pt.
-<./fig/plots/n_10_circle_z_clipp.png, id=624, 860.4948pt x 413.3844pt>
+<./fig/plots/n_10_circle_z_clipp.png, id=621, 860.4948pt x 413.3844pt>
 File: ./fig/plots/n_10_circle_z_clipp.png Graphic file (type png)
 <use ./fig/plots/n_10_circle_z_clipp.png>
-Package pdftex.def Info: ./fig/plots/n_10_circle_z_clipp.png  used on input line 466.
+Package pdftex.def Info: ./fig/plots/n_10_circle_z_clipp.png  used on input line 464.
 (pdftex.def)             Requested size: 213.04861pt x 106.52493pt.
-<./fig/plots/n_10_circle_z_rule.png, id=631, 860.4948pt x 413.3844pt>
+<./fig/plots/n_10_circle_z_rule.png, id=628, 860.4948pt x 413.3844pt>
 File: ./fig/plots/n_10_circle_z_rule.png Graphic file (type png)
 <use ./fig/plots/n_10_circle_z_rule.png>
-Package pdftex.def Info: ./fig/plots/n_10_circle_z_rule.png  used on input line 470.
+Package pdftex.def Info: ./fig/plots/n_10_circle_z_rule.png  used on input line 468.
 (pdftex.def)             Requested size: 213.04861pt x 106.52493pt.
-<./fig/plots/n_10_sphere.png, id=638, 859.0494pt x 449.0376pt>
+<./fig/plots/n_10_sphere.png, id=635, 859.0494pt x 449.0376pt>
 File: ./fig/plots/n_10_sphere.png Graphic file (type png)
 <use ./fig/plots/n_10_sphere.png>
-Package pdftex.def Info: ./fig/plots/n_10_sphere.png  used on input line 475.
+Package pdftex.def Info: ./fig/plots/n_10_sphere.png  used on input line 473.
 (pdftex.def)             Requested size: 213.04466pt x 106.5242pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1698,58 +1691,61 @@ although it is yet undefined on input line 80.
 Package acronym Info: Label `acro:PCL' newly defined as it shall be overridden
 although it is yet undefined on input line 97.
  [17]
-<./fig/rviz/triangulation_surface_aprox.png, id=800, 1397.22pt x 1398.22375pt>
+<./fig/rviz/triangulation_surface_aprox.png, id=797, 1397.22pt x 1398.22375pt>
 File: ./fig/rviz/triangulation_surface_aprox.png Graphic file (type png)
 <use ./fig/rviz/triangulation_surface_aprox.png>
-Package pdftex.def Info: ./fig/rviz/triangulation_surface_aprox.png  used on input line 126.
+Package pdftex.def Info: ./fig/rviz/triangulation_surface_aprox.png  used on input line 123.
 (pdftex.def)             Requested size: 213.05243pt x 213.20213pt.
+
+Underfull \vbox (badness 4013) has occurred while \output is active []
+
  [18 <./fig/rviz/triangulation_surface_aprox.png>]
 Package acronym Info: Label `acro:FOV' newly defined as it shall be overridden
-although it is yet undefined on input line 159.
-<./fig/photos/uav_side_view.png, id=819, 699.61375pt x 699.61375pt>
+although it is yet undefined on input line 156.
+<./fig/photos/uav_side_view.png, id=815, 699.61375pt x 699.61375pt>
 File: ./fig/photos/uav_side_view.png Graphic file (type png)
 <use ./fig/photos/uav_side_view.png>
-Package pdftex.def Info: ./fig/photos/uav_side_view.png  used on input line 170.
+Package pdftex.def Info: ./fig/photos/uav_side_view.png  used on input line 167.
 (pdftex.def)             Requested size: 213.05243pt x 213.04561pt.
-<./fig/photos/uav_photo.jpg, id=822, 2523.4275pt x 2524.43124pt>
+<./fig/photos/uav_photo.jpg, id=818, 2523.4275pt x 2524.43124pt>
 File: ./fig/photos/uav_photo.jpg Graphic file (type jpg)
 <use ./fig/photos/uav_photo.jpg>
-Package pdftex.def Info: ./fig/photos/uav_photo.jpg  used on input line 174.
+Package pdftex.def Info: ./fig/photos/uav_photo.jpg  used on input line 171.
 (pdftex.def)             Requested size: 213.05243pt x 213.12933pt.
  [19]
-<./fig/rviz/cell_a_sliced_with_planes.png, id=874, 1005.7575pt x 1006.76125pt>
+<./fig/rviz/cell_a_sliced_with_planes.png, id=870, 1005.7575pt x 1006.76125pt>
 File: ./fig/rviz/cell_a_sliced_with_planes.png Graphic file (type png)
 <use ./fig/rviz/cell_a_sliced_with_planes.png>
-Package pdftex.def Info: ./fig/rviz/cell_a_sliced_with_planes.png  used on input line 226.
+Package pdftex.def Info: ./fig/rviz/cell_a_sliced_with_planes.png  used on input line 220.
 (pdftex.def)             Requested size: 213.05243pt x 213.25417pt.
  [20 <./fig/photos/uav_side_view.png> <./fig/photos/uav_photo.jpg>] [21 <./fig/rviz/cell_a_sliced_with_planes.png>]
-<./fig/rviz/simulation_forest.png, id=895, 1242.6425pt x 1243.64626pt>
+<./fig/rviz/simulation_forest.png, id=889, 1242.6425pt x 1243.64626pt>
 File: ./fig/rviz/simulation_forest.png Graphic file (type png)
 <use ./fig/rviz/simulation_forest.png>
-Package pdftex.def Info: ./fig/rviz/simulation_forest.png  used on input line 330.
+Package pdftex.def Info: ./fig/rviz/simulation_forest.png  used on input line 336.
 (pdftex.def)             Requested size: 213.05243pt x 213.21983pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22] [23 <./fig/rviz/simulation_forest.png>]
-<./fig/rviz/deadlock_moment_mapping.png, id=918, 2558.55875pt x 1440.38126pt>
+<./fig/rviz/deadlock_moment_mapping.png, id=911, 2558.55875pt x 1440.38126pt>
 File: ./fig/rviz/deadlock_moment_mapping.png Graphic file (type png)
 <use ./fig/rviz/deadlock_moment_mapping.png>
-Package pdftex.def Info: ./fig/rviz/deadlock_moment_mapping.png  used on input line 377.
+Package pdftex.def Info: ./fig/rviz/deadlock_moment_mapping.png  used on input line 380.
 (pdftex.def)             Requested size: 213.05243pt x 119.93623pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [24 <./fig/rviz/deadlock_moment_mapping.png>]
-<./fig/rviz/flight_484.png, id=927, 1269.74374pt x 1269.74374pt>
+<./fig/rviz/flight_484.png, id=919, 1269.74374pt x 1269.74374pt>
 File: ./fig/rviz/flight_484.png Graphic file (type png)
 <use ./fig/rviz/flight_484.png>
-Package pdftex.def Info: ./fig/rviz/flight_484.png  used on input line 421.
+Package pdftex.def Info: ./fig/rviz/flight_484.png  used on input line 424.
 (pdftex.def)             Requested size: 213.05243pt x 213.04425pt.
-<./fig/rviz/flight_486.png, id=928, 1258.7025pt x 1259.70625pt>
+<./fig/rviz/flight_486.png, id=920, 1258.7025pt x 1259.70625pt>
 File: ./fig/rviz/flight_486.png Graphic file (type png)
 <use ./fig/rviz/flight_486.png>
-Package pdftex.def Info: ./fig/rviz/flight_486.png  used on input line 424.
+Package pdftex.def Info: ./fig/rviz/flight_486.png  used on input line 427.
 (pdftex.def)             Requested size: 213.05243pt x 213.20537pt.
 ) (/home/michal/dev/bachelor_thesis/src/conclusion.tex [25 <./fig/rviz/flight_484.png> <./fig/rviz/flight_486.png>]
 Chapter 4.
@@ -1792,18 +1788,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51297 strings out of 482295
- 1159661 string characters out of 5940336
- 2024133 words of memory out of 5000000
- 65163 multiletter control sequences out of 15000+600000
+ 51283 strings out of 482295
+ 1159377 string characters out of 5940336
+ 2022782 words of memory out of 5000000
+ 65154 multiletter control sequences out of 15000+600000
  556388 words of font info for 117 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 67i,19n,113p,916b,3103s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} </home/michal/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/michal/dev/bachelor_thesis/main.pdf (38 pages, 12360566 bytes).
+ 67i,19n,113p,916b,3091s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} </home/michal/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on /home/michal/dev/bachelor_thesis/main.pdf (38 pages, 12351578 bytes).
 PDF statistics:
- 1131 PDF objects out of 1200 (max. 8388607)
- 962 compressed objects within 10 object streams
- 210 named destinations out of 1000 (max. 500000)
+ 1120 PDF objects out of 1200 (max. 8388607)
+ 952 compressed objects within 10 object streams
+ 205 named destinations out of 1000 (max. 500000)
  560 words of extra memory for PDF output out of 10000 (max. 10000000)
 
