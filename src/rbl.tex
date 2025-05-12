@@ -447,40 +447,135 @@
         \end{itemize}
 
         The figure below visualizes the  \ac{UAV}  trajectories, showing the effect of the applied simulation rules.
+        
         \begin{figure}[H]
             \centering
-            \subfloat[Trajectories of \ac{UAV}s using 2D \ac{RBL}, $N=10$] {
-                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_2d.png}
-                \label{fig:n_10_circle_2d}
+            \subfloat[Top-Down View (X-Y)] { % Figure A
+                % Replace example-image-a with your actual path: ./fig/plots/circle_2d_top_down.png
+                \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{example-image-a}
             }
-            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL}, $N=10$] {
-                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_3d.png}
-                \label{fig:n_10_circle_3d}
-            }
-            \par\medskip
-            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and $Z_{clipping}$, $N=10$] {
-                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_clipp.png}
-                \label{fig:n_10_circle_z_clipp}
-            }
-            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and using $Z_{rule}$, $N=10$] {
-                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_rule.png}
-                \label{fig:n_10_circle_z_rule}
-            }
-            \par\medskip
-            \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} on sphere, $N=10$] {
-                \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_sphere.png}
-                \label{fig:n_10_sphere}
+            % \hspace{0.02\textwidth} % Optional: adds a specific horizontal space between subfigures
+            % \hfill % Optional: pushes subfigures to the edges of the available space
+            \subfloat[Side View (X-Z)] { % Figure B
+                \raisebox{0.12\textwidth}{% <--- Adjust this value to control the amount of lift
+                    % Replace example-image-b with your actual path: ./fig/plots/circle_2d_side.png
+                    \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{example-image-b}%
+                }
             }
             \caption{
-                Visualization of UAV formations and algorithm behavior for $N=10$ (shown with top-down and side views). 
-                (a) Trajectories in a \ac{2D} circular crossing. 
-                (b) Trajectories in a \ac{3D} circular crossing. 
-                (c) Effect of Z-axis clipping on the circular crossing. 
-                (d) Effect of the Z-axis rule on the circular crossing. 
-                (e) Trajectories in a \ac{3D} spherical crossing.
+                Trajectories in a \ac{2D} circular crossing.
             }
-            \label{fig:trajectories}
+            \label{fig:circular_crossing_trajectories}
         \end{figure}
+        
+
+
+        \begin{figure}[H]
+            \centering
+            \subfloat[Top-Down View (X-Y)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_2d_top_down.png}
+            }
+            \subfloat[Side View (X-Z)] {
+            \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/circle_2d_side.png}
+            }
+            \caption{
+                Trajectories in a \ac{2D} circular crossing.
+            }
+            \label{}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \subfloat[Top-Down View (X-Y)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_top_down.png}
+            }
+            \subfloat[Side View (X-Z)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_side.png}
+            }
+            \caption{
+                Trajectories in a \ac{3D} circular crossing.
+            }
+            \label{}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \subfloat[Top-Down View (X-Y)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_clip_top_down.png}
+            }
+            \subfloat[Side View (X-Z)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_clip_side.png}
+            }
+            \caption{
+                Effect of Z-axis clipping on the circular crossing.   
+            }
+            \label{}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \subfloat[Top-Down View (X-Y)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_rule_top_down.png}
+            }
+            \subfloat[Side View (X-Z)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_rule_side.png}
+            }
+            \caption{
+                Effect of the Z-axis rule on the circular crossing. 
+            }
+            \label{}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \subfloat[Top-Down View (X-Y)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/sphere_3d_top_down.png}
+            }
+            \subfloat[Side View (X-Z)] {
+            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/sphere_3d_side.png}
+            }
+            \caption{
+                Trajectories in a \ac{3D} spherical crossing.
+            }
+            \label{}
+        \end{figure}
+
+        
+
+        % \begin{figure}[H]
+        %     \centering
+        %     \subfloat[Trajectories of \ac{UAV}s using 2D \ac{RBL}, $N=10$] {
+        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_2d.png}
+        %         \label{fig:n_10_circle_2d}
+        %     }
+        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL}, $N=10$] {
+        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_3d.png}
+        %         \label{fig:n_10_circle_3d}
+        %     }
+        %     \par\medskip
+        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and $Z_{clipping}$, $N=10$] {
+        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_clipp.png}
+        %         \label{fig:n_10_circle_z_clipp}
+        %     }
+        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and using $Z_{rule}$, $N=10$] {
+        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_rule.png}
+        %         \label{fig:n_10_circle_z_rule}
+        %     }
+        %     \par\medskip
+        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} on sphere, $N=10$] {
+        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_sphere.png}
+        %         \label{fig:n_10_sphere}
+        %     }
+        %     \caption{
+        %         Visualization of UAV formations and algorithm behavior for $N=10$ (shown with top-down and side views). 
+        %         (a) Trajectories in a \ac{2D} circular crossing. 
+        %         (b) Trajectories in a \ac{3D} circular crossing. 
+        %         (c) Effect of Z-axis clipping on the circular crossing. 
+        %         (d) Effect of the Z-axis rule on the circular crossing. 
+        %         (e) Trajectories in a \ac{3D} spherical crossing.
+        %     }
+        %     \label{fig:trajectories}
+        % \end{figure}
 
     \section{Comparison with State-of-the-Art Method}
         As an alternative approach developed within the MRS framework, the \ac{3D} \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav \cite{PACNav}.
