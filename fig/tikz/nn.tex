@@ -1,0 +1,127 @@
+
+\tikzset{
+  >=stealth',
+  punkt/.style={
+    rectangle,
+    rounded corners,
+    draw=black, very thick,
+    text width=5.7em,
+    minimum height=2em,
+    text centered,
+  },
+  small_punkt/.style={
+    rectangle,
+    rounded corners,
+    draw=black, very thick,
+    text width=4.0em,
+    text centered,
+  },
+  arrow/.style={
+    ->,
+    very thick,
+    shorten <=2pt,
+    shorten >=2pt,
+  },
+  arrow_red/.style={
+    ->,
+    draw=red, very thick,
+    shorten <=2pt,
+    shorten >=2pt,
+  },
+}
+
+\begin{tikzpicture}[node distance=0.5cm and 1.2cm] % Vertical and horizontal node distances
+
+  % --- Define Nodes ---
+  \node[block=blue] (visin) {Visual Input};
+  \node[nn, right=of visin] (nn1) {NN};
+  % Invisible node for positioning the voxel grid
+  \node[right=1.8cm of nn1] (voxelgrid_center) {};
+  \node[nn, right=1.8cm of voxelgrid_center] (nn2) {NN};
+  \node[block=purple] (action) {Action}; % Changed color to purple
+
+  % Position nn2 relative to voxelgrid_center, and action relative to nn2
+  \path (voxelgrid_center) -- (nn2); % Ensure positioning relationship
+  \path (nn2) -- (action);          % Ensure positioning relationship
+
+  % --- Draw Voxel Grid ---
+  % Positioned relative to voxelgrid_center
+  % Simplified 3x3x3 representation
+  \begin{scope}[
+      shift={(voxelgrid_center.center)},
+      scale=0.25, % Scale down the grid
+      xshift=-1.5cm, yshift=-1.5cm, % Center adjustment
+      x={(0.866cm,-0.5cm)}, % Isometric x-axis vector
+      y={(0.866cm,0.5cm)},  % Isometric y-axis vector
+      z={(0cm,1cm)}          % Isometric z-axis vector
+    ]
+    % Loop through coordinates to draw cubes
+    \foreach \x in {0,1,2} {
+        \foreach \y in {0,1,2} {
+            \foreach \z in {0,1,2} {
+                % Determine fill color based on position (approximating the image)
+                \def\fillcolor{gray!20} % Default fill
+                \ifnum\x=0 { % Front layer
+                    \ifnum\y<2 {
+                        \ifnum\z<2 {
+                             \def\fillcolor{red!50} % Red fill for bottom-front-left cubes
+                        }
+                    }
+                }
+
+                % Draw visible faces of the cube
+                % Front face (X-Y plane)
+                \draw[voxelgrid, fill=\fillcolor] (\x,\y,\z) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+                % Top face (X-Z plane) - draw only if z=2 for top surface
+                 \ifnum\z=2
+                    \draw[voxelgrid, fill=\fillcolor] (\x,\y,\z+1) -- ++(1,0,0) -- ++(0,1,0) -- ++(-1,0,0) -- cycle;
+                 \fi
+                % Side face (Y-Z plane) - draw only if y=2 for right surface
+                 \ifnum\y=2
+                    \draw[voxelgrid, fill=\fillcolor] (\x,\y+1,\z) -- ++(1,0,0) -- ++(0,0,1) -- ++(-1,0,0) -- cycle;
+                 \fi
+
+                 % Draw edges explicitly for better visibility
+                 \draw[voxelgrid] (\x,\y,\z) -- ++(1,0,0);
+                 \draw[voxelgrid] (\x,\y,\z) -- ++(0,1,0);
+                 \draw[voxelgrid] (\x,\y,\z) -- ++(0,0,1);
+                 \draw[voxelgrid] (\x+1,\y+1,\z) -- ++(-1,0,0);
+                 \draw[voxelgrid] (\x+1,\y+1,\z) -- ++(0,0,1);
+                 \draw[voxelgrid] (\x,\y+1,\z+1) -- ++(1,0,0);
+                 \draw[voxelgrid] (\x,\y+1,\z+1) -- ++(0,-1,0);
+                 \draw[voxelgrid] (\x+1,\y,\z+1) -- ++(0,1,0);
+                 \draw[voxelgrid] (\x+1,\y,\z+1) -- ++(-1,0,0);
+                 \draw[voxelgrid] (\x+1,\y+1,\z+1) -- ++(-1,0,0);
+                 \draw[voxelgrid] (\x+1,\y+1,\z+1) -- ++(0,-1,0);
+                 \draw[voxelgrid] (\x+1,\y+1,\z+1) -- ++(0,0,-1);
+
+
+            }
+        }
+    }
+    % Label for Voxel Grid (positioned relative to grid center)
+    \node[below=1.8cm of {(1,1,1.5)}, align=center, font=\small] (voxel_label) {Voxel Occupancy Grid \\ (Geometric)};
+  \end{scope}
+
+  % --- Draw Arrows ---
+  \draw [arrow] (visin) -- (nn1);
+  \draw [arrow] (nn1) -- (voxelgrid_center); % Arrow towards the grid center
+  \draw [arrow] (voxelgrid_center) -- (nn2); % Arrow from the grid center
+  \draw [arrow] (nn2) -- (action);
+
+  % --- Draw Module Boxes ---
+  % Fit nodes inside. Adjust inner sep for padding.
+  % Perception Module (Green)
+  \node [module={green!60!black}{Perception Module},
+         fit=(visin) (nn1) (voxelgrid_center) (voxel_label),
+         inner xsep=15pt, inner ysep=20pt] {};
+  % Policy Module (Orange)
+  \node [module={orange!90!black}{Policy Module},
+         fit=(nn2) (action),
+         inner xsep=15pt, inner ysep=20pt] {};
+
+  % --- Add Label (c) ---
+  % Position relative to the Visual Input node
+  \node [left=0.5cm of visin, yshift=1.2cm] {(c)};
+
+\end{tikzpicture}

@@ -393,20 +393,9 @@
         \end{table}
 
     \subsection{Experimental Results}
+        Full experimental results and trajectory visualizations are presented in Chapter \ref{chap:exp_sim_res}. 
+        The following tables highlight key results for the N=10 agent scenarios:
         \begin{itemize}
-            \item \textbf{$N = 5$ Circular Formation:}
-                \begin{table}[H]
-                    \centering
-                    \renewcommand{\arraystretch}{1.2}
-                    \begin{tabular}{|l|c|c|c|c|c|}
-                    \hline
-                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL \ac{2D}                      & 100.00          & 21.06 $\pm$ 0.10                  & 25.15 $\pm$ 0.21                  & 25.15 $\pm$ 0.19                               & 0.83 $\pm$ 0.01                         \\ \hline
-                    RBL \ac{3D}                      & 100.00          & 20.77 $\pm$ 0.29                  & 26.04 $\pm$ 0.51                  & 26.79 $\pm$ 0.27                               & 0.79 $\pm$ 0.02                         \\ \hline
-                    RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 20.60 $\pm$ 0.24                  & 26.73 $\pm$ 0.47                  & 27.39 $\pm$ 0.28                               & 0.77 $\pm$ 0.02                         \\ \hline
-                    RBL \ac{3D}\(_z\)                & 100.00          & 20.97 $\pm$ 0.52                  & 25.54 $\pm$ 0.97                  & 26.72 $\pm$ 0.60                               & 0.81 $\pm$ 0.03                         \\ \hline
-                    \end{tabular}
-                \end{table}
             \item \textbf{$N = 10$ Circular Formation:}
                 \begin{table}[H]
                     \centering
@@ -418,19 +407,6 @@
                     RBL \ac{3D}                      & 100.00          & 22.22 $\pm$ 0.89                  & 30.05 $\pm$ 2.61                  & 34.39 $\pm$ 4.19                               & 0.73 $\pm$ 0.05                         \\ \hline
                     RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 22.31 $\pm$ 0.69                  & 30.22 $\pm$ 1.83                  & 33.22 $\pm$ 0.93                               & 0.73 $\pm$ 0.04                         \\ \hline
                     RBL \ac{3D}\(_z\)                & 100.00          & 22.38 $\pm$ 0.88                  & 28.80 $\pm$ 2.30                  & 32.35 $\pm$ 1.25                               & 0.77 $\pm$ 0.05                         \\ \hline
-                    \end{tabular}
-                \end{table}
-            \item \textbf{$N = 15$ Circular Formation:}
-                \begin{table}[H]
-                    \centering
-                    \renewcommand{\arraystretch}{1.2}
-                    \begin{tabular}{|l|c|c|c|c|c|}
-                    \hline
-                                                & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \) & \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                    RBL \ac{2D}                      & 100.00          & 23.56 $\pm$ 1.75                  & 33.89 $\pm$ 2.48                  & 38.75 $\pm$ 1.45                               & 0.69 $\pm$ 0.06                         \\ \hline
-                    RBL \ac{3D}                      & 100.00          & 22.36 $\pm$ 0.97                  & 30.65 $\pm$ 3.07                  & 35.77 $\pm$ 3.72                               & 0.72 $\pm$ 0.07                         \\ \hline
-                    RBL \ac{3D}\(_{\text{clipped}}\) & 100.00          & 22.32 $\pm$ 0.81                  & 30.69 $\pm$ 2.61                  & 34.50 $\pm$ 0.47                               & 0.72 $\pm$ 0.06                         \\ \hline
-                    RBL \ac{3D}\(_z\)                & 100.00          & 22.64 $\pm$ 0.95                  & 29.67 $\pm$ 2.54                  & 34.27 $\pm$ 0.88                               & 0.76 $\pm$ 0.06                         \\ \hline
                     \end{tabular}
                 \end{table}
             \item \textbf{$N = 10$ Spherical Formation:}
@@ -446,79 +422,15 @@
                 \end{table}
         \end{itemize}
 
-        The figure below visualizes the  \ac{UAV}  trajectories, showing the effect of the applied simulation rules.
-        
-        \begin{figure}[H]
-            \centering
-            \subfloat[Top-Down View (X-Y)] { % Figure A
-                % Replace example-image-a with your actual path: ./fig/plots/circle_2d_top_down.png
-                \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{example-image-a}
-            }
-            % \hspace{0.02\textwidth} % Optional: adds a specific horizontal space between subfigures
-            % \hfill % Optional: pushes subfigures to the edges of the available space
-            \subfloat[Side View (X-Z)] { % Figure B
-                \raisebox{0.12\textwidth}{% <--- Adjust this value to control the amount of lift
-                    % Replace example-image-b with your actual path: ./fig/plots/circle_2d_side.png
-                    \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{example-image-b}%
-                }
-            }
-            \caption{
-                Trajectories in a \ac{2D} circular crossing.
-            }
-            \label{fig:circular_crossing_trajectories}
-        \end{figure}
-        
-
-
-        \begin{figure}[H]
-            \centering
-            \subfloat[Top-Down View (X-Y)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_2d_top_down.png}
-            }
-            \subfloat[Side View (X-Z)] {
-            \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/circle_2d_side.png}
-            }
-            \caption{
-                Trajectories in a \ac{2D} circular crossing.
-            }
-            \label{}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \subfloat[Top-Down View (X-Y)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_top_down.png}
-            }
-            \subfloat[Side View (X-Z)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_side.png}
-            }
-            \caption{
-                Trajectories in a \ac{3D} circular crossing.
-            }
-            \label{}
-        \end{figure}
-
-        \begin{figure}[H]
-            \centering
-            \subfloat[Top-Down View (X-Y)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_clip_top_down.png}
-            }
-            \subfloat[Side View (X-Z)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_clip_side.png}
-            }
-            \caption{
-                Effect of Z-axis clipping on the circular crossing.   
-            }
-            \label{}
-        \end{figure}
-
         \begin{figure}[H]
             \centering
             \subfloat[Top-Down View (X-Y)] {
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_rule_top_down.png}
             }
             \subfloat[Side View (X-Z)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/circle_3d_z_rule_side.png}
+                \raisebox{0.12\textwidth}{
+                    \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/circle_3d_z_rule_side.png}
+                }
             }
             \caption{
                 Effect of the Z-axis rule on the circular crossing. 
@@ -526,56 +438,23 @@
             \label{}
         \end{figure}
 
-        \begin{figure}[H]
-            \centering
-            \subfloat[Top-Down View (X-Y)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/sphere_3d_top_down.png}
-            }
-            \subfloat[Side View (X-Z)] {
-            \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/plots/sphere_3d_side.png}
-            }
-            \caption{
-                Trajectories in a \ac{3D} spherical crossing.
-            }
-            \label{}
-        \end{figure}
-
-        
 
         % \begin{figure}[H]
         %     \centering
-        %     \subfloat[Trajectories of \ac{UAV}s using 2D \ac{RBL}, $N=10$] {
-        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_2d.png}
-        %         \label{fig:n_10_circle_2d}
+        %     \subfloat[Top-Down View (X-Y)] { % Figure A
+        %         \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{example-image-a}
         %     }
-        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL}, $N=10$] {
-        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_3d.png}
-        %         \label{fig:n_10_circle_3d}
-        %     }
-        %     \par\medskip
-        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and $Z_{clipping}$, $N=10$] {
-        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_clipp.png}
-        %         \label{fig:n_10_circle_z_clipp}
-        %     }
-        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} and using $Z_{rule}$, $N=10$] {
-        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_circle_z_rule.png}
-        %         \label{fig:n_10_circle_z_rule}
-        %     }
-        %     \par\medskip
-        %     \subfloat[Trajectories of \ac{UAV}s using \ac{3D} \ac{RBL} on sphere, $N=10$] {
-        %         \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{./fig/plots/n_10_sphere.png}
-        %         \label{fig:n_10_sphere}
+        %     \subfloat[Side View (X-Z)] { % Figure B
+        %         \raisebox{0.12\textwidth}{% <--- Adjust this value to control the amount of lift
+        %             \includegraphics[width=0.48\textwidth, height=0.24\textwidth]{example-image-b}%
+        %         }
         %     }
         %     \caption{
-        %         Visualization of UAV formations and algorithm behavior for $N=10$ (shown with top-down and side views). 
-        %         (a) Trajectories in a \ac{2D} circular crossing. 
-        %         (b) Trajectories in a \ac{3D} circular crossing. 
-        %         (c) Effect of Z-axis clipping on the circular crossing. 
-        %         (d) Effect of the Z-axis rule on the circular crossing. 
-        %         (e) Trajectories in a \ac{3D} spherical crossing.
+        %         Trajectories in a \ac{2D} circular crossing.
         %     }
-        %     \label{fig:trajectories}
+        %     \label{fig:circular_crossing_trajectories}
         % \end{figure}
+        
 
     \section{Comparison with State-of-the-Art Method}
         As an alternative approach developed within the MRS framework, the \ac{3D} \ac{RBL} algorithm presented here can be compared to other state-of-the-art methods like PACNav \cite{PACNav}.
@@ -625,5 +504,33 @@
         In conclusion, the simulations presented in this chapter demonstrate the feasibility of extending the RBL algorithm to \ac{3D}. 
         The introduced elevation control rule appears particularly beneficial, enhancing the efficiency and convergence speed of the agents towards their goals in simulated \ac{3D} environments. 
         This provides a promising foundation for applying the \ac{3D} RBL algorithm to real-world UAV navigation tasks, explored further in subsequent chapter.
+    
+    \section{Future Work}
+        Several ideas for future research and development emerge from the work presented in this chapter:
+        \begin{itemize}
+            \item \textbf{Real-World Multi-Agent Testing: } \\
+            While the subsequent chapter explores single-agent navigation in a real forest, the multi-agent coordination aspects of the 3D RBL algorithm lack real-world validation. 
+            Initial plan to conduct such tests were set back by practical challenges, including the lack of full $360^{\circ} \times 180^{\circ}$ sensor coverage, which resulted in blind spots, particularly above and below the \ac{UAV}.
+            Specifically, hardware limitations on the \ac{MRS} \ac{UAV} for swarming \cite{robofly}, including emitter and camera placement that created blind spots (especially directly above and below), restricting the UVDAR system \cite{uvdar_package} from providing the complete spherical coverage needed for 3D coordination experiments.
+            Resolving these hardware and sensing limitations to facilitate robust multi-agent 3D experiments remains a key step for future research.
+            \item \textbf{Parameter Tuning using Reinforcement Learning: } \\
+            The performance of the \ac{RBL} algorithm is sensitive to several parameters. 
+            \ac{RL} could be used to automatically tune these parameters for optimal performance in specific environments or scenarios such as crossing circle scenario. 
+            Parameters suitable for \ac{RL}-based tuning include the vertical exploration weights ($w_1$, $w_2$), the scale parameter ($\eta$), aggressiveness parameter ($\beta_i^D$ for $\varphi_i(\mathbf{q})$), the sensing radius ($r_s$), and potentially the distance thresholds ($d_1$ through $d_7$) for centroid displacement.
+            \item \textbf{Neural Network-Based Navigation Policy: } \\
+                An alternative direction would be to replace the rule-based approach entirely with a learned policy using \ac{NN}.
+                \begin{itemize}
+                    \item Input Representation: The primary \ac{NN} input could be a fixed-size 3D tensor representing a discretized voxel grid centered on the \ac{UAV}'s current position (e.g., n$\times$n$\times$n, where n is an odd integer defining the sensing region). 
+                    Each element in this tensor would hold a binary value: '1' indicating free space and '0' indicating occupied or unknown space. 
+                    This provides the network with a structured representation of the current surroundings. 
+                    Additionally, the goal position ($x_g$, $y_g$, $z_g$) would serve as a separate input, directing the policy towards the desired destination. 
+                    \item Output: The \ac{NN}'s output could directly be the next desired local waypoint (a point within free-space part of the input array).
+                    \item Training: Training such an NN, likely using \ac{RL}, would require a suitable simulation environment. 
+                    This environment should feature dynamic obstacles (other agents) and static obstacles, along with randomized initial and goal positions to promote generalization. 
+                    The reward structure should be designed to guide the learning effectively by penalizing collisions (with obstacles or other agents), penalizing the selection of invalid next waypoints (those outside the determined free-space), and rewarding progress towards the goal.
+                \end{itemize}
+        \end{itemize}
+
+        
 
 

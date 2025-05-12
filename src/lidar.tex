@@ -43,11 +43,15 @@
             \end{itemize}
 
         \subsection{Chapter Overview}
-            TODO Summary of what this chapter covers
-
+            This chapter covers the \ac{LiDAR} perception process, covering data acquisition, preprocessing, mapping, and the method used to integrate mapped voxel data into the \ac{RBL} algorithm. 
+            Subsequently, the practical challenges of implementing the system on a \ac{UAV} with sensor limitations are discussed, along with the software solutions employed. 
+            The chapter proceeds to present the experimental validation, outlining the simulation setup and results, followed by the real-world forest experiment methodology, challenges, and performance analysis, illustrated with videos of successful flights \cite{aggressive_flight}, \cite{conservative_flight} and a mapping failure case \cite{flight_fail}. 
+            Finally, a comparative analysis, discussion of limitations, and summary of key findings are presented.
+    
     \section{LiDAR-Based Perception and Point Cloud Processing}
+    \label{sec:lidar_perception}
         \subsection{Overview of LiDAR for UAV Navigation}
-            \ac{LiDAR} is a crucial sensing technology widely used in applications such as SLAM \cite{pointlio_mrs}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, UAVs TODOcite, and precision agriculture \cite{Lidar_agriculture}. 
+            \ac{LiDAR} is a crucial sensing technology widely used in applications such as \ac{SLAM} \cite{point_lio_paper}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, UAVs TODOcite, and precision agriculture \cite{Lidar_agriculture}. 
             It provides high-resolution spatial data about the surrounding environment, making it a valuable tool for perception and navigation in dynamic and complex environments.  
             For UAV applications, \ac{LiDAR} serves several essential functions:  
             \begin{itemize}  
@@ -102,11 +106,12 @@
                 Points falling outside a specified distance range (closer than a minimum threshold or farther than a maximum threshold) are filtered out.
             \end{itemize}
             The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency for future processes.
-            The point cloud is than fed into Point lio state estimator and bonxai mapping. TODO get access to repo.
+            The point cloud is than fed into Point lio state estimator and bonxai mapping. 
 
         \subsection{Bonxai Mapping}
             As will be shown later in this chapter, prior terrain knowledge is beneficial for navigation. 
-            For this purpose, environmental mapping was accomplished using a simple package developed by the MRS group, implementing the Bonxai mapping approach.
+            For this purpose, environmental mapping was accomplished using a simple package developed by the \ac{MRS} group, implementing the Bonxai mapping approach.
+            Specific details and a citation for this package are omitted as it represents an internal \ac{MRS} solution currently under development, however, various publicly available packages offer similar voxel-based mapping capabilities.
             The resulting map is represented as a voxel grid, which is then used by the \ac{RBL} algorithm for navigation planning.
 
             Initially, an approach involving surface reconstruction from this voxel data was investigated. 
@@ -118,7 +123,7 @@
             This direct voxel usage approach is detailed in the subsequent section. 
             Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
 
-            \begin{figure}[H]
+            \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/triangulation_surface_aprox.png}
                 \caption{
@@ -151,6 +156,7 @@
             
 
     \section{Implementation and Integration on UAV}
+    \label{sec:implementation_integration}
         \subsection{Challanges in Integration}
             The algorithm's performance is influenced by the limitations of the \ac{LiDAR} sensor used for environmental sensing. 
             While the algorithm functions optimally with a full 360° horizontal and 180° vertical \ac{FOV}, which would require multiple sensors, the experiments used a single Livox Mid 360 \ac{LiDAR} \cite{livox_mid360}. 
@@ -176,7 +182,6 @@
                 }
                 \label{fig:uavs}
             \end{figure}
-
 
             In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account fo the \ac{LiDAR}'s limited \ac{FOV}.
             The algorithm uses map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
@@ -225,33 +230,9 @@
                 }
                 \label{fig:cell_a_sliced}
             \end{figure}
-
-            % Apart from the mounting \ac{LiDAR} at an angle also software modificaiton is implemented. 
-            % Right now a map is being used to partition cell S to cell A from that is computed centorid a there the uav progressees. 
-            % For safety the UAV needs to move only where it sees, but the information from the map, where the uav does not see now, but this information can still be used. 
-            % There fore this is introduced: UAV always sets it yaw rotation towards the current centroid $c_{\mathcal{A}}$ and moves towards it only if if the centroid is in front of the uav - there is an angle defined where the uav will move and where it will just keep rotating. 
-            % So to utilize the map to have sense of what is behind the uav the 
-
-
-            % For modification of cell S 2 planes are defined using real knowledge of how \ac{LiDAR} is mounted on the uav and livox vertical fov
-            % Let $\mathbf{e}_z = \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$ be the unit vector along the z-axis,  
-            % $R_{\text{off}} \in SO(3)$ the offset rotation, and  
-            % $R_{\text{rpy}} \in SO(3)$ the roll-pitch-yaw rotation. 
-            % $\alpha_1$, $\alpha_2$, $\alpha_3$
-
-            % Then the resulting vector is given by:  
-            % \[
-            % \mathbf{n} = R_{\text{rpy}} \cdot R_{\text{off}} \cdot \mathbf{e}_z
-            % \]
-
-            % Modified cell S by slicing the cell S with this funciton:
-            
-            % \begin{equation}
-            %     \mathcal{S}_i = {} 
-            % \end{equation}
-            % livox - 360 * 60 deg - account for centroid calculation
     
     \section{Experimental Results}
+    \label{sec:experimental_results}
         This section presents the findings from both simulated and real-world experiments conducted to evaluate the proposed approach.
         \subsection{Simulation Setup}
             In the simulations, a virtual forest environment was created. 
@@ -392,7 +373,7 @@
                 \caption{Parameters Used in Experiments}
                 \begin{tabular}{|l|c|c|}
                     \hline
-                    Parameter & Value conservative & Value aggressive \\
+                    Parameter & Values Conservative & Values Aggressive \\
                     \hline
                     \hline
                     Sensing radius ($r_s$) & 2.0 m & 2.0 m \\ \hline
@@ -412,8 +393,8 @@
                 \begin{tabular}{|l|c|c|c|c|}
                 \hline
                                     & \( L \ [\mathrm{m}] \) & \( t \ [\mathrm{s}] \) &  \( v \ [\mathrm{m/s}] \)     \\ \hline
-                Conservative flight & 53.84                   & 116.40                  &  0.46                          \\ \hline
-                Agressive flight    & 35.56                   &  51.64                  &  0.69                          \\ \hline
+                Conservative Flight & 53.84                   & 116.40                  &  0.46                          \\ \hline
+                Agressive Flight    & 35.56                   &  51.64                  &  0.69                          \\ \hline
                 \end{tabular}
             \end{table}
 
@@ -426,7 +407,7 @@
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_486.png}
                 }
                 \caption{
-                    Visualization of the path the uav took during the .
+                    Visualization of the path the uav took during the flights a is conservative, b is agressinve.
                 }
                 \label{fig:rbl_forest_conservative_flight_path}
             \end{figure}
@@ -434,46 +415,59 @@
 
 
         \subsection{Comparative Analysis}
-            % * Simulation vs. Real-World Performance: Compare the results obtained in simulation with those from the real-world experiments.  Discuss any discrepancies and their possible causes.
-            % * Algorithm Performance: Compare your algorithm's performance with any existing algorithms or baseline methods.
-            % * Discussion of Limitations: Acknowledge any limitations of your algorithm or the experimental setup.
-            % * Future Work: Suggest potential areas for future research or improvements to the algorithm.
+            The real-world flight experiments conducted in the forest environment successfully validated the navigation capabilities of the proposed setup, despite initial setbacks during setup related to odometry and mapping configuration. 
+            The \ac{UAV} generally performed as expected based on simulation results, demonstrating its ability to navigate autonomously between points A and B while avoiding static obstacles.
+
+            \subsection{Performance and Limitations}
+                A primary limitation observed during real-world testing originated from the environmental mapping component, specifically the Bonxai mapping package used.
+                While effective for static elements, the system occasionally struggled with dynamic obstacles, such as moving leaves.
+                These obstacles were sometimes included into the voxel grid map and, due to the map's update policy (configured conservatively for safety), were not always removed immediately even when no longer present. 
+                This could lead to situations where the \ac{UAV} perceived itself as blocked (as shown in the failure case video \cite{flight_fail}), requiring the safety pilot to land. 
+                Addressing this mapping behavior is crucial for future testing.
+
+            \subsection{Comparison with 2D Baseline}
+                Direct comparison with other state-of-the-art 3D navigation methods is challenging due to the specific nature of the RBL-based approach. 
+                However, a meaningful comparison can be done with the original 2D RBL implementation \cite{rbl_paper}. 
+                The key differences lie in the sensing and dimensionality:
+                \begin{itemize}
+                    \item The 2D version relied on a 2D \ac{LiDAR} for planar obstacle detection and a separate optical distance measurement sensor to maintain a constant flight altitude. 
+                    Remapping obstacles in 2D is often simpler.
+                    \item 3D implementation utilizes a 3D \ac{LiDAR} for perception in three dimensions and must actively manage altitude based on the perceived environment, treating the ground itself as an obstacle.
+                \end{itemize}
+                A notable behavior observed in the 3D tests was the \ac{UAV}'s tendency to initially increase altitude after takeoff, effectively moving away from the ground obstacle, before potentially descending again as it neared the goal. 
+                This behavior highlights the algorithm's capability to manage its vertical position based on the 3D environment.
+                Illustrative examples of successful flights showcasing different parameter settings (aggressive vs. conservative) are provided in \cite{aggressive_flight} and \cite{conservative_flight}.
+
+            \subsection{Future Work}
+                The mapping limitations highlight key areas for future work. Potential solutions include:
+                \begin{itemize}
+                    \item \textbf{Dynamic Obstacle Handling: }\\
+                    Implementing techniques to segment and filter out dynamic or transient objects from the map representation such as \cite{TRLO_good_mapping}.
+                    \item \textbf{Reactive Navigation: }\\
+                    Exploring strategies that rely more on direct sensor input for immediate obstacle avoidance, removing dependence on the map, though this introduces challenges in perceiving areas outside the current sensor view (e.g. behind the UAV).
+                    \item \textbf{Map Update Logic: }\\
+                    Investigating alternative mapping packages or implementing mechanisms like voxel decay instead of mapping (where unoccupied voxels gradually fade if not persistently observed) into the existing framework. 
+                    While probabilistic mapping should ideally handle this, the developmental stage of the Bonxai package currently limit this capability.
+                \end{itemize}
+                Resolving these mapping challenges, particularly the robust handling of dynamic elements, is a prerequisite for advancing to more complex multi-agent experiments utilizing only onboard lidar sensing.
     
     \section{Conclusion}
-        TODO
-        Summary of contributions and some directions for future research
-    
+    \label{sec:conclusion_lidar}
+        This chapter detailed the implementation and real-world validation of the (\ac{RBL}) algorithm, adapted for autonomous \ac{UAV} navigation within a cluttered, \ac{GNSS}-denied forest environment using onboard 3D \ac{LiDAR} sensing. 
+        The primary objective was to implement \ac{RBL} principles with real-time perception, state estimation (Point-LIO), and mapping (Bonxai) to achieve reliable point-to-point navigation.
+
+        Key technical contributions included adapting the \ac{RBL} algorithm's cell partitioning to directly utilize voxelized map data created from processed \ac{LiDAR} point clouds. 
+        Modifications were also introduced to effectively handle the practical limitations of a single \ac{LiDAR} sensor with a restricted vertical field of view, ensuring safe convergence by constraining movement based on actively sensed area while still leveraging map information. 
+        An alternative approach using surface reconstruction via mesh generation was investigated but considered unsuitable due to computational complexity on the \ac{UAV} onboard computer.
+
+        The proposed solution effectiveness was demonstrated through both simulation and real-world experiments conducted in a forest. 
+        The \ac{UAV} successfully navigated between designated start and goal points, avoiding static obstacles like trees and adapting its altitude based on the \ac{LiDAR}'s perception. 
+
+        Despite the overall success, the experiments identified a key limitation related to the Bonxai mapping package's handling of dynamic environmental elements, such as moving leaves, which occasionally led to navigation deadlocks. 
+        This emphasises the importance of robust mapping with dynamic obstacles.
+
+        In conclusion, this chapter successfully demonstrated the practical application and feasibility of using a 3D \ac{RBL} algorithm integrated with \ac{LiDAR} sensing for autonomous \ac{UAV} navigation in a challenging forest setting. 
+        This capability can be observed in these videos \cite{aggressive_flight}, \cite{conservative_flight}.
 
 
 
-
-
-
-
-
-        % \subsection{Surface Reconstruction and Triangulation}
-        %     The map has been used for surface reconstruction:
-        %     To obtain a continuous surface representation from the point cloud, normal estimation and triangulation are performed. 
-        %     This process involves estimating surface normals, combining them with point positions, and applying a triangulation algorithm to generate a polygonal mesh.
-        %     \begin{itemize}
-        %         \item \textbf{Normal Estimation: } \\ 
-        %         Surface normals are estimated using the Point Cloud Library (PCL) TODOcite. 
-        %         A k-d tree is employed to efficiently find neighboring points, and the normal at each point is computed based on its local neighborhood. 
-        %         This provides information about the surface curvature and orientation.
-        %         \item \textbf{Point Cloud and Normal Merging: } \\ 
-        %         Once the normals are estimated, they are combined with the original point cloud to create a representation that includes both spatial position and surface orientation.
-        %         \item \textbf{Triangulation Using Greedy Projection: } \\
-        %         The point cloud is converted into a polygonal mesh using the Greedy Projection Triangulation (GP3) method. 
-        %         This algorithm forms triangles between neighboring points while enforcing constraints on edge length, surface angles, and normal consistency. 
-        %         A k-d tree is used to accelerate the search for nearest neighbors, ensuring efficient mesh generation.
-        %         \item \textbf{Results: } \\ 
-        %         The output is a polygonal mesh that approximates the underlying surface of the point cloud. 
-        %         This mesh can be used for visualization and obstacle avoidance.
-        %     \end{itemize}
-        %     This has been tried, but turned out to be unnecessary computationally expensive and on the UAV onboard computer slow. 
-        %     It was able to approximate surface of its surrounding semi-well. 
-        %     But due for it being slow a simplier method have been used - (Directly using voxels to modify cell A) instead of aporximating surface.
-        %     So I just wanted to quiky say that this was tested, unsuccesflully so no future development of this methos is recomended or something like that. 
-
-
-        %     There will be picture from rviz how it approximated surface.

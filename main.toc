@@ -1,4 +1,5 @@
-\babel@toc {english}{}\relax 
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Works}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem Statement}{1}{section.1.2}%
@@ -24,29 +25,33 @@
 \contentsline {subsection}{\numberline {2.4.2}Simulation Enviroment}{9}{subsection.2.4.2}%
 \contentsline {subsection}{\numberline {2.4.3}Simulation Scenarios}{9}{subsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.4.4}Experimental Results}{10}{subsection.2.4.4}%
-\contentsline {section}{\numberline {2.5}Comparison with State-of-the-Art Method}{14}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Summary and Key Insights}{15}{section.2.6}%
-\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{16}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Introduction}{16}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Motivation}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{16}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Objectives}{17}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{17}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{17}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{17}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{18}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{18}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Bonxai Mapping}{19}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Voxel-Based Modification of Cell $\mathcal {A}$}{20}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{20}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{20}{subsection.3.3.1}%
-\contentsline {section}{\numberline {3.4}Experimental Results}{22}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{22}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{23}{subsection.3.4.2}%
-\contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{24}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{25}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{26}{subsection.3.4.5}%
+\contentsline {section}{\numberline {2.5}Comparison with State-of-the-Art Method}{11}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Summary and Key Insights}{12}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Future Work}{13}{section.2.7}%
+\contentsline {chapter}{\numberline {3}UAV Navigation Using the RBL Algorithm and LiDAR Sensing}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction}{14}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Motivation}{14}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Problem Statement}{14}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Objectives}{15}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Chapter Overview}{15}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{16}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{16}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Bonxai Mapping}{17}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Voxel-Based Modification of Cell $\mathcal {A}$}{17}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{18}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}Experimental Results}{20}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{20}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{21}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{22}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{23}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{24}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{25}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.7}Comparison with 2D Baseline}{25}{subsection.3.4.7}%
+\contentsline {subsection}{\numberline {3.4.8}Future Work}{25}{subsection.3.4.8}%
 \contentsline {section}{\numberline {3.5}Conclusion}{26}{section.3.5}%
 \contentsline {chapter}{\numberline {4}Conclusion}{27}{chapter.4}%
 \contentsline {chapter}{\numberline {5}References}{28}{chapter.5}%
-\contentsline {chapter}{\numberline {A}Appendix A}{30}{appendix.A}%
+\contentsline {chapter}{\numberline {A}Experimental Results}{30}{appendix.A}%

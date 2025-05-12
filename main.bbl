@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -17,6 +17,75 @@
 \endgroup
 
 \datalist[entry]{ydnt/global//global/global}
+  \entry{conservative_flight}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Drone Forest Navigation - Conservative Parameters (Slow and
+  Safe Flight)}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{aggressive_flight}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Drone Forest Navigation – Aggressive Parameters (Best
+  Performance)}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{flight_fail}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{title}{Drone Forest Navigation – Mapping Failure (Remapping
+  Error)}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=JVmW0qfwP3c&ab_channel=MichalKamler
+    \endverb
+    \field{year}{2025}
+  \endentry
+
   \entry{rbl_paper}{article}{}
     \name{author}{6}{}{%
       {{hash=BM}{%
@@ -68,6 +137,52 @@
     \verb https://arxiv.org/abs/2310.19511
     \endverb
     \field{journaltitle}{arxiv}
+    \field{year}{2024}
+  \endentry
+
+  \entry{TRLO_good_mapping}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=JY}{%
+         family={Jia},
+         familyi={J\bibinitperiod},
+         given={Yanpeng},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Ting},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Xieyuanli},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shao},
+         familyi={S\bibinitperiod},
+         given={Shiliang},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JYWTCX+1}
+    \strng{fullhash}{JYWTCXSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2410.13240
+    \endverb
+    \field{title}{TRLO: An Efficient LiDAR Odometry with 3D Dynamic Object
+  Tracking and Removal}
+    \verb{url}
+    \verb https://arxiv.org/abs/2410.13240
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
     \field{year}{2024}
   \endentry
 
@@ -268,6 +383,96 @@
     \verb{url}
     \verb https://commons.wikimedia.org/w/index.php?curid=38534275
     \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{point_lio_paper}{article}{}
+    \name{author}{6}{}{%
+      {{hash=HD}{%
+         family={He},
+         familyi={H\bibinitperiod},
+         given={Dongjiao},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=CN}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Nan},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KF}{%
+         family={Kong},
+         familyi={K\bibinitperiod},
+         given={Fanze},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=YC}{%
+         family={Yuan},
+         familyi={Y\bibinitperiod},
+         given={Chongjian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=ZF}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Fu},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{aggressive motions, high bandwidths, point-by-point updates, sensor
+  fusion, simultaneous localization and mapping}
+    \strng{namehash}{HDXWCN+1}
+    \strng{fullhash}{HDXWCNKFYCZF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{abstract}{%
+    Herein, point light detection and ranging inertial odometry (LIO) is
+  presented: a robust and high-bandwidth light detection and ranging (LiDAR)
+  inertial odometry with the capability to estimate extremely aggressive
+  robotic motions. Point-LIO has two key novelties. The first one is a
+  point-by-point LIO framework that updates the state at each LiDAR point
+  measurement. This framework allows an extremely high-frequency odometry
+  output, significantly increases the odometry bandwidth, and fundamentally
+  removes the artificial in-frame motion distortion. The second one is a
+  stochastic process-augmented kinematic model which models the IMU measurement
+  as an output. This new modeling method enables accurate localization and
+  reliable mapping for aggressive motions even with inertial measurement unit
+  (IMU) measurements saturated in the middle of the motion. Various real-world
+  experiments are conducted for performance evaluation. Overall, Point-LIO is
+  capable to provide accurate, high-frequency odometry (4–8 kHz) and
+  reliable mapping under severe vibrations and aggressive motions with high
+  angular velocity (75 rad s−1) beyond the IMU measuring ranges.
+  Furthermore, an exhaustive benchmark comparison is conducted. Point-LIO
+  achieves consistently comparable accuracy and time consumption. Finally, two
+  example applications of Point-LIO are demonstrated, one is a racing drone and
+  the other is a self-rotating unmanned aerial vehicle, both have aggressive
+  motions.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1002/aisy.202200459
+    \endverb
+    \verb{eprint}
+    \verb https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/aisy.2022004
+    \verb 59
+    \endverb
+    \field{number}{7}
+    \field{pages}{2200459}
+    \field{title}{Point-LIO: Robust High-Bandwidth Light Detection and Ranging
+  Inertial Odometry}
+    \verb{url}
+    \verb https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aisy.2022004
+    \verb 59
+    \endverb
+    \field{volume}{5}
+    \field{journaltitle}{Advanced Intelligent Systems}
     \field{year}{2023}
   \endentry
 
@@ -697,6 +902,19 @@
     \field{year}{2018}
   \endentry
 
+  \entry{robofly}{misc}{}
+    \list{organization}{1}{%
+      {Fly4Future}%
+    }
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{title}{F4F RoboFly Swarm}
+    \verb{url}
+    \verb https://shop.fly4future.com/product/f4f-robofly-swarm/
+    \endverb
+  \endentry
+
   \entry{f4f_powerline_inspection}{misc}{}
     \name{author}{1}{}{%
       {{hash=F}{%
@@ -737,27 +955,6 @@
     \field{title}{The VoxelGrid class, Point Cloud Library}
     \verb{url}
     \verb https://pointclouds.org/documentation/classpcl_1_1_voxel_grid.html
-    \endverb
-  \endentry
-
-  \entry{pointlio_mrs}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=TA}{%
-         family={TODO},
-         familyi={T\bibinitperiod},
-         given={AUTHOR},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TA1}
-    \strng{fullhash}{TA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
-    \field{title}{Point-LIO MRS}
-    \verb{url}
-    \verb https://github.com/ctu-mrs/Point-LIO
     \endverb
   \endentry
 \enddatalist
