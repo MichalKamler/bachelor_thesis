@@ -86,6 +86,58 @@
     \field{year}{2025}
   \endentry
 
+  \entry{photogrammetry}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=ZJ}{%
+         family={Zhong},
+         familyi={Z\bibinitperiod},
+         given={Jiageng},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZQ}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Qi},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Ming},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=GA}{%
+         family={Gruen},
+         familyi={G\bibinitperiod},
+         given={Armin},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LX}{%
+         family={Liao},
+         familyi={L\bibinitperiod},
+         given={Xuan},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZJZQLM+1}
+    \strng{fullhash}{ZJZQLMGALX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2503.04513
+    \endverb
+    \field{title}{A Novel Solution for Drone Photogrammetry with Low-overlap
+  Aerial Images using Monocular Depth Estimation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2503.04513
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CV}
+    \field{year}{2025}
+  \endentry
+
   \entry{rbl_paper}{article}{}
     \name{author}{6}{}{%
       {{hash=BM}{%
@@ -386,6 +438,58 @@
     \field{year}{2023}
   \endentry
 
+  \entry{agricultural_survey}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=FMR}{%
+         family={Fikri},
+         familyi={F\bibinitperiod},
+         given={Muhamad\bibnamedelima Rausyan},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Candra},
+         familyi={C\bibinitperiod},
+         given={Taufiq},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Saptaji},
+         familyi={S\bibinitperiod},
+         given={Kushendarsyah},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=NAN}{%
+         family={Noviarini},
+         familyi={N\bibinitperiod},
+         given={Ajeng\bibnamedelima Nindi},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=WDA}{%
+         family={Wardani},
+         familyi={W\bibinitperiod},
+         given={Dilla\bibnamedelima Ayu},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMRCTSK+1}
+    \strng{fullhash}{FMRCTSKNANWDA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2301.00379
+    \endverb
+    \field{title}{A review of Implementation and Challenges of Unmanned Aerial
+  Vehicles for Spraying Applications and Crop Monitoring in Indonesia}
+    \verb{url}
+    \verb https://arxiv.org/abs/2301.00379
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2023}
+  \endentry
+
   \entry{point_lio_paper}{article}{}
     \name{author}{6}{}{%
       {{hash=HD}{%
@@ -545,6 +649,52 @@
     \field{year}{2023}
   \endentry
 
+  \entry{powerline_inspection}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=XJ}{%
+         family={Xing},
+         familyi={X\bibinitperiod},
+         given={Jiaxu},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Cioffi},
+         familyi={C\bibinitperiod},
+         given={Giovanni},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HCJ}{%
+         family={Hidalgo-Carrió},
+         familyi={H\bibinithyphendelim C\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Scaramuzza},
+         familyi={S\bibinitperiod},
+         given={Davide},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XJCGHCJ+1}
+    \strng{fullhash}{XJCGHCJSD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2304.00959
+    \endverb
+    \field{title}{Autonomous Power Line Inspection with Drones via
+  Perception-Aware MPC}
+    \verb{url}
+    \verb https://arxiv.org/abs/2304.00959
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2023}
+  \endentry
+
   \entry{PACNav}{article}{}
     \name{author}{5}{}{%
       {{hash=AA}{%
@@ -655,6 +805,92 @@
     \endverb
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.RO}
+    \field{year}{2022}
+  \endentry
+
+  \entry{warehouse_intro}{misc}{}
+    \name{author}{11}{}{%
+      {{hash=KA}{%
+         family={Krnjaic},
+         familyi={K\bibinitperiod},
+         given={Aleksandar},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SRD}{%
+         family={Steleac},
+         familyi={S\bibinitperiod},
+         given={Raul\bibnamedelima D.},
+         giveni={R\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=TJD}{%
+         family={Thomas},
+         familyi={T\bibinitperiod},
+         given={Jonathan\bibnamedelima D.},
+         giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod},
+      }}%
+      {{hash=PG}{%
+         family={Papoudakis},
+         familyi={P\bibinitperiod},
+         given={Georgios},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=SL}{%
+         family={Schäfer},
+         familyi={S\bibinitperiod},
+         given={Lukas},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=TAWK}{%
+         family={To},
+         familyi={T\bibinitperiod},
+         given={Andrew Wing\bibnamedelima Keung},
+         giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim
+  K\bibinitperiod},
+      }}%
+      {{hash=LKH}{%
+         family={Lao},
+         familyi={L\bibinitperiod},
+         given={Kuan-Ho},
+         giveni={K\bibinithyphendelim H\bibinitperiod},
+      }}%
+      {{hash=CM}{%
+         family={Cubuktepe},
+         familyi={C\bibinitperiod},
+         given={Murat},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=HM}{%
+         family={Haley},
+         familyi={H\bibinitperiod},
+         given={Matthew},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BP}{%
+         family={Börsting},
+         familyi={B\bibinitperiod},
+         given={Peter},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=ASV}{%
+         family={Albrecht},
+         familyi={A\bibinitperiod},
+         given={Stefano\bibnamedelima V.},
+         giveni={S\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KASRDTJD+1}
+    \strng{fullhash}{KASRDTJDPGSLTAWKLKHCMHMBPASV1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2212.11498
+    \endverb
+    \field{title}{Scalable Multi-Agent Reinforcement Learning for Warehouse
+  Logistics with Robotic and Human Co-Workers}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
     \field{year}{2022}
   \endentry
 
@@ -932,6 +1168,49 @@
     \verb{url}
     \verb https://fly4future.com/custom-drones/drones-for-inspection-of-power-l
     \verb ines/
+    \endverb
+  \endentry
+
+  \entry{InsiderIntelligence_DroneDelivery}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={{Insider Intelligence}},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{howpublished}{[Online]}
+    \field{title}{Why {Amazon}, {UPS} and even {Domino's} is investing in drone
+  delivery services}
+    \verb{url}
+    \verb https://www.insiderintelligence.com/insights/drone-delivery-services/
+    \endverb
+  \endentry
+
+  \entry{NASA_Ingenuity}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={{National Aeronautics and Space Administration (NASA)}},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{9}
+    \field{sortinithash}{9}
+    \field{howpublished}{[Online]}
+    \field{note}{Accessed: 2025-05-13}
+    \field{title}{Ingenuity Mars Helicopter}
+    \verb{url}
+    \verb https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mar
+    \verb s-helicopter/
     \endverb
   \endentry
 

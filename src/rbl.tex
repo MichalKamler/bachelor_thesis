@@ -366,30 +366,71 @@
         The following metrics were measured across the 10 repetitions of each experiment, along with their standard deviations: success rate \( SR \ [\%] \), average trajectory length \( \overline{L} \ [\mathrm{m}] \), 
         average time to reach the goal \( \overline{t} \ [\mathrm{s}] \), average of the maximal time for \ac{UAV} to reach the goal \( \overline{t}_{\text{max}} \ [\mathrm{s}] \), and average velocity \( \overline{v} \ [\mathrm{m/s}] \).
 
-        The specific values of the parameters used in the experiments are summarized in following table \ref{tab:experiment_parameters}:
+        The specific values of the parameters used in the experiments are summarized in following table \ref{tab:experiment_parameters_combined}:
+        % \begin{table}[H]
+        %     \centering
+        %     \caption{Parameters Used in Experiments}
+        %     \begin{tabular}{|l|l|}
+        %         \hline
+        %         Parameter & Value \\
+        %         \hline
+        %         \hline
+        %         Sensing radius $r_s$ [m] & 3.5 \\ \hline
+        %         Update rate [Hz] & 10 \\ \hline
+        %         Encumbrance $\delta_i$ [m] & 0.5 \\ \hline
+        %         $d_1 = d_3 = d_5$ [m] & 0.5 \\ \hline
+        %         $d_2 = d_4 = d_6$ [m] & 1.0 \\ \hline
+        %         $d_7$ [m] & 0.2  \\ \hline
+        %         $\min_z$ [m] & 1.0 \\ \hline
+        %         $\max_z$ [m] & 10.0 \\ \hline
+        %         $\beta_i^D$ [ ] & 1.5  \\ \hline
+        %         $\eta$ [ ] & 0.9  \\ \hline
+        %         $w_1$ [ ] & 0.7 \\ \hline
+        %         $w_2$ [ ] & 0.3 \\ \hline
+
+        %     \end{tabular}
+        %     \label{tab:experiment_parameters}
+        % \end{table}
+
+        % \begin{table}[H]
+        %     \centering
+        %     \caption{Parameters Used in Experiments}
+        %     \begin{tabular}{|c|c|c|c|c|c|}
+        %         \hline
+        %         Parameter & $r_s$ [m] & $\delta_i$ [m] & $d_1 = d_3 = d_5$ [m] & $d_2 = d_4 = d_6$ [m] & $d_7$ [m]   \\ \hline
+        %         Value     & 3.5       & 0.5            & 0.5                   & 1.0                   & 0.2         \\ \hline        
+        %     \end{tabular}
+        %     \label{tab:experiment_parameters1}
+        % \end{table}
+
+        % \begin{table}[H]
+        %     \centering
+        %     \caption{Parameters Used in Experiments}
+        %     \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        %         \hline
+        %         Parameter & $\min_z$ [m] & $\max_z$ [m] & Update rate [Hz] & $\beta_i^D$ [ ] & $\eta$ [ ] & $w_1$ [ ] & $w_2$ [ ]  \\ \hline
+        %         Value     & 1.0          & 10.0         & 10.0             & 1.5             & 0.9        & 0.7       & 0.3        \\ \hline        
+        %     \end{tabular}
+        %     \label{tab:experiment_parameters2}
+        % \end{table}
+
         \begin{table}[H]
             \centering
             \caption{Parameters Used in Experiments}
-            \begin{tabular}{|l|l|}
+            \begin{tabular}{|c|c|c|c|c|c|}
                 \hline
-                Parameter & Value \\
-                \hline
-                \hline
-                Sensing radius $r_s$ [m] & 3.5 \\ \hline
-                Update rate [Hz] & 10 \\ \hline
-                Encumbrance $\delta_i$ [m] & 0.5 \\ \hline
-                $d_1 = d_3 = d_5$ [m] & 0.5 \\ \hline
-                $d_2 = d_4 = d_6$ [m] & 1.0 \\ \hline
-                $d_7$ [m] & 0.2  \\ \hline
-                $\min_z$ [m] & 1.0 \\ \hline
-                $\max_z$ [m] & 10.0 \\ \hline
-                $\beta_i^D$ [ ] & 1.5  \\ \hline
-                $\eta$ [ ] & 0.9  \\ \hline
-                $w_1$ [ ] & 0.7 \\ \hline
-                $w_2$ [ ] & 0.3 \\ \hline
-
+                Parameter & $r_s$ [m] & $\delta_i$ [m] & $d_1 = d_3 = d_5$ [m] & $d_2 = d_4 = d_6$ [m] & $d_7$ [m] \\ \hline
+                Value     & 3.5       & 0.5            & 0.5                   & 1.0                   & 0.2       \\ \hline
             \end{tabular}
-            \label{tab:experiment_parameters}
+        
+            \vspace{0.3cm}
+        
+            \begin{tabular}{|c|c|c|c|c|c|c|c|}
+                \hline
+                Parameter & $\min_z$ [m] & $\max_z$ [m] & Update rate [Hz] & $\beta_i^D$ [ ] & $\eta$ [ ] & $w_1$ [ ] & $w_2$ [ ] \\ \hline
+                Value     & 1.0          & 10.0         & 10.0             & 1.5             & 0.9        & 0.7       & 0.3       \\ \hline
+            \end{tabular}
+            \label{tab:experiment_parameters_combined}
         \end{table}
 
     \subsection{Experimental Results}
@@ -435,7 +476,7 @@
             \caption{
                 Effect of the Z-axis rule on the circular crossing. 
             }
-            \label{}
+            \label{fig:z_ax_rule_cross}
         \end{figure}
 
 
@@ -510,7 +551,7 @@
         \begin{itemize}
             \item \textbf{Real-World Multi-Agent Testing: } \\
             While the subsequent chapter explores single-agent navigation in a real forest, the multi-agent coordination aspects of the 3D RBL algorithm lack real-world validation. 
-            Initial plan to conduct such tests were set back by practical challenges, including the lack of full $360^{\circ} \times 180^{\circ}$ sensor coverage, which resulted in blind spots, particularly above and below the \ac{UAV}.
+            Initial plan to conduct such tests were set back by practical challenges, including the lack of full $360^{\circ} \cdot 180^{\circ}$ sensor coverage, which resulted in blind spots, particularly above and below the \ac{UAV}.
             Specifically, hardware limitations on the \ac{MRS} \ac{UAV} for swarming \cite{robofly}, including emitter and camera placement that created blind spots (especially directly above and below), restricting the UVDAR system \cite{uvdar_package} from providing the complete spherical coverage needed for 3D coordination experiments.
             Resolving these hardware and sensing limitations to facilitate robust multi-agent 3D experiments remains a key step for future research.
             \item \textbf{Parameter Tuning using Reinforcement Learning: } \\
@@ -520,7 +561,7 @@
             \item \textbf{Neural Network-Based Navigation Policy: } \\
                 An alternative direction would be to replace the rule-based approach entirely with a learned policy using \ac{NN}.
                 \begin{itemize}
-                    \item Input Representation: The primary \ac{NN} input could be a fixed-size 3D tensor representing a discretized voxel grid centered on the \ac{UAV}'s current position (e.g., n$\times$n$\times$n, where n is an odd integer defining the sensing region). 
+                    \item Input Representation: The primary \ac{NN} input could be a fixed-size 3D tensor representing a discretized voxel grid centered on the \ac{UAV}'s current position (e.g., n$\cdot$n$\cdot$n, where n is an odd integer defining the sensing region). 
                     Each element in this tensor would hold a binary value: '1' indicating free space and '0' indicating occupied or unknown space. 
                     This provides the network with a structured representation of the current surroundings. 
                     Additionally, the goal position ($x_g$, $y_g$, $z_g$) would serve as a separate input, directing the policy towards the desired destination. 

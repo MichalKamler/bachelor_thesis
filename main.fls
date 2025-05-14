@@ -695,9 +695,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1095.tfm
 INPUT /home/michal/dev/bachelor_thesis/./fig/photos/uav_side_view.png
 INPUT ./fig/photos/uav_side_view.png
 INPUT ./fig/photos/uav_side_view.png
-INPUT /home/michal/dev/bachelor_thesis/./fig/photos/uav_photo.jpg
-INPUT ./fig/photos/uav_photo.jpg
-INPUT ./fig/photos/uav_photo.jpg
+INPUT /home/michal/dev/bachelor_thesis/./fig/photos/uav_photo.png
+INPUT ./fig/photos/uav_photo.png
+INPUT ./fig/photos/uav_photo.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/cell_a_sliced_with_planes.png
 INPUT ./fig/rviz/cell_a_sliced_with_planes.png
 INPUT ./fig/rviz/cell_a_sliced_with_planes.png

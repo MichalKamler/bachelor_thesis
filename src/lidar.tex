@@ -5,16 +5,16 @@
         \ac{UAV}s are increasingly being deployed in challenging, unstructured environments like dense forests, moving beyond their traditional use in open areas.
         This shift is driven by a growing demand for autonomous solutions in sectors like environmental monitoring, forestry management (health assessment \cite{kurovec_fel_clanek}), and search and rescue, where ground-based access is difficult. 
         Furthermore, this work aligns with the broader trend of deploying \ac{UAV}s for increasingly complex tasks, such as detailed infrastructure inspection (e.g., power lines, where autonomous navigation in cluttered, potentially high \ac{EMI} environments is essential (Fly4Future \cite{f4f_powerline_inspection})). 
-        Enabling UAVs to reliably navigate point-to-point within these challenging settings is a foundational step towards realizing these advanced applications safely and efficiently.
+        Enabling \ac{UAV}s to reliably navigate point-to-point within these challenging settings is a foundational step towards realizing these advanced applications safely and efficiently.
 
         While the primary objective of this work is to enable successful point-to-point navigation within a forest using the \ac{RBL} algorithm, a significant secondary benefit emerges from this process. 
-        By successfully navigating from point A to point B while simultaneously building a map of the traversed environment, the UAV generates valuable spatial data about the forest structure. 
-        This autonomously generated map can then serve a vital purpose: enabling enhanced planning for future missions within the same area. 
-        Once a map exists, subsequent UAV operations could potentially transition from purely reactive navigation strategies to more efficient, globally informed path planning algorithms such as TODO find some. 
+        By successfully navigating from point A to point B while simultaneously building a map of the traversed environment, the \ac{UAV} generates valuable spatial data about the forest structure. 
+        This generated map can then serve a vital purpose: enabling enhanced planning for future missions within the same area. 
+        Once a map exists, subsequent \ac{UAV} operations could potentially transition from purely reactive navigation strategies to more efficient methods with globally informed path planning. 
         Leveraging prior knowledge of obstacle locations could significantly improve the safety and efficiency of future routine tasks.
         
         \subsection{Problem Statement}
-            Operating UAVs effectively within complex, three-dimensional environments like forests presents significant navigational challenges that hinder widespread autonomous deployment. 
+            Operating \ac{UAV}s effectively within complex, three-dimensional environments like forests presents significant navigational challenges that hinder widespread autonomous deployment. 
             The primary problems addressed in this work stem from:
             \begin{enumerate}
                 \item \textbf{\ac{GNSS}-Denied Conditions: } \\
@@ -24,7 +24,7 @@
                 Forests are inherently cluttered with numerous static obstacles (trees, trunks, branches) and potentially dynamic ones (animals, leafs, falling branches). 
                 The navigation system must be capable of perceiving these obstacles in real-time and planning safe paths around them without prior knowledge of their exact layout.
             \end{enumerate}
-            Therefore, the core problem is to develop and validate a robust autonomous navigation system that allows a UAV to reliably traverse between specified points in a cluttered, GNSS-denied forest environment using only onboard sensing and computation.
+            Therefore, the core problem is to develop and validate a robust autonomous navigation system that allows a \ac{UAV} to reliably traverse between specified points in a cluttered, GNSS-denied forest environment using only onboard sensing and computation.
 
         \subsection{Objectives}
             The primary objectives within this chapter are: 
@@ -51,9 +51,9 @@
     \section{LiDAR-Based Perception and Point Cloud Processing}
     \label{sec:lidar_perception}
         \subsection{Overview of LiDAR for UAV Navigation}
-            \ac{LiDAR} is a crucial sensing technology widely used in applications such as \ac{SLAM} \cite{point_lio_paper}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, UAVs TODOcite, and precision agriculture \cite{Lidar_agriculture}. 
+            \ac{LiDAR} is a crucial sensing technology widely used in applications such as \ac{SLAM} \cite{point_lio_paper}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, \ac{UAV}s TODOcite, and precision agriculture \cite{Lidar_agriculture}. 
             It provides high-resolution spatial data about the surrounding environment, making it a valuable tool for perception and navigation in dynamic and complex environments.  
-            For UAV applications, \ac{LiDAR} serves several essential functions:  
+            For \ac{UAV} applications, \ac{LiDAR} serves several essential functions:  
             \begin{itemize}  
                 \item \textbf{3D Mapping} -- Capturing a detailed representation of terrain, structures, and obstacles.  
                 \item \textbf{Obstacle Detection} -- Identifying objects and estimating their position relative to the \ac{UAV} for collision avoidance.  
@@ -140,11 +140,11 @@
             For each discrete point in  in the set composing cell $\mathcal{S}$, the nearest voxel is identified using k-d tree algorithm from the PCL library.
             Because the found point is the voxel's center, the closest pint within that voxel's boundaries is calculated to accurate partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
 
-            Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p_{closest}}$, is computed as: 
+            Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$, is computed as: 
             \begin{equation}
-                \mathbf{p}_{closest} =
+                \mathbf{p}_{\text{closest}} =
                 \begin{pmatrix}
-                    \text{clamp}(p{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
+                    \text{clamp}(p_{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
                     \text{clamp}(p_{\mathcal{S},y}, v_{c,y} - \frac{\mathbf{e}}{2}, v_{c,y} + \frac{\mathbf{e}}{2}) \\
                     \text{clamp}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
                 \end{pmatrix}\text{,}
@@ -172,13 +172,13 @@
                 \label{fig:model_uav}
                 }
                 \subfloat[UAV used in the experiment with mounted \ac{LiDAR}] {
-                \includegraphics[width=0.48\textwidth]{./fig/photos/uav_photo.jpg}
+                \includegraphics[width=0.48\textwidth]{./fig/photos/uav_photo.png}
                 \label{fig:uav_1}
                 }
                 \caption{
-                    UAV and \ac{LiDAR} mounting scheme.
-                    Subfigure (a) shows a modeled UAV with visualized \ac{LiDAR} mounting parameters, including the \ac{LiDAR} elevation field of view $\alpha$ and tilt angle $\gamma$. 
-                    Subfigure (b) displays the real UAV used in the experiment with the \ac{LiDAR} mounted according to the same configuration.                                                
+                    \ac{UAV} and \ac{LiDAR} mounting scheme.
+                    Subfigure (a) shows a modeled \ac{UAV} with visualized \ac{LiDAR} mounting parameters, including the \ac{LiDAR} elevation field of view $\alpha$ and tilt angle $\gamma$. 
+                    Subfigure (b) displays the real \ac{UAV} used in the experiment with the \ac{LiDAR} mounted according to the same configuration.                                                
                 }
                 \label{fig:uavs}
             \end{figure}
@@ -224,7 +224,7 @@
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/cell_a_sliced_with_planes.png}
                 \caption{
-                    RViz visualization of LiDAR field-of-view (FOV) planes. The UAV is represented by the XYZ coordinate axes. 
+                    RViz visualization of LiDAR field-of-view (FOV) planes. The \ac{UAV} is represented by the XYZ coordinate axes. 
                     The green squares represent the two planes, defined by normal vectors $\mathbf{n}_1$ and $\mathbf{n}_2$, used to slice cell $\mathcal{S}_i$ and determine the modified cell $\mathcal{S}_i'$.
                     The red sphere represents the centroid $\mathbf{c}_{\mathcal{A}_i}$.
                 }
@@ -236,7 +236,7 @@
         This section presents the findings from both simulated and real-world experiments conducted to evaluate the proposed approach.
         \subsection{Simulation Setup}
             In the simulations, a virtual forest environment was created. 
-            Initially, a raycasting approach from the UAV to the simulated trees was considered for obstacle detection. 
+            Initially, a raycasting approach from the \ac{UAV} to the simulated trees was considered for obstacle detection. 
             However, due to its computational cost, a static point cloud representation of the entire forest was generated and published instead. 
             The forest was modeled as a collection of trees, with trunks represented by cylinders and crowns by spheres.
 
@@ -254,7 +254,7 @@
                 \item Tree height: 7.5 $\pm$ 2.0 m
                 \item Crown radius: 2.5 $\pm$ 0.5 m
             \end{itemize}
-            The UAV's starting position was set at one corner of the rectangular area (-22.0, -33.0, 2.0), and the goal position was set at the opposite corner (22.0, 33.0, 5.0), resulting in an approximate distance of 80 meters between them.
+            The \ac{UAV}'s starting position was set at one corner of the rectangular area (-22.0, -33.0, 2.0), and the goal position was set at the opposite corner (22.0, 33.0, 5.0), resulting in an approximate distance of 80 meters between them.
 
             It is important to note that the right-hand rule and z rule, described in the previous chapter, are not required for effective coordination in this static forest environment.
             Also, the point-lio estimator and Bonxai mapping were not simulated.
@@ -275,37 +275,58 @@
             %     \label{tab:rbl_forest_simulation_parameters_transposed} % Adjusted label
             % \end{table}
 
+            % \begin{table}[H]
+            %     \centering
+            %     \caption{Parameters Used in Experiments}
+            %     \begin{tabular}{|l|c|}
+            %         \hline
+            %         Parameter & Value \\
+            %         \hline
+            %         \hline
+            %         Sensing radius $r_s$ [m] & 3.5 \\ \hline
+            %         Update rate [Hz] & 10  \\ \hline
+            %         Encumbrance $\delta_i$ [m] & 0.5  \\ \hline
+            %         $d_1 = d_3 = d_5$ [m] & 0.5  \\ \hline
+            %         $d_2 = d_4 = d_6$ [m] & 1.0  \\ \hline
+            %         $\beta_i^D$ [ ] & 0.5  \\ \hline
+            %         $\eta$ [ ] & 0.9  \\ \hline
+            %     \end{tabular}
+            %     \label{tab:rbl_forest_simulation_parameters}
+            % \end{table}
+
             \begin{table}[H]
                 \centering
                 \caption{Parameters Used in Experiments}
-                \begin{tabular}{|l|c|}
+                
+                \begin{tabular}{|c|c|c|c|c|}
                     \hline
-                    Parameter & Value \\
-                    \hline
-                    \hline
-                    Sensing radius $r_s$ [m] & 3.5 \\ \hline
-                    Update rate [Hz] & 10  \\ \hline
-                    Encumbrance $\delta_i$ [m] & 0.5  \\ \hline
-                    $d_1 = d_3 = d_5$ [m] & 0.5  \\ \hline
-                    $d_2 = d_4 = d_6$ [m] & 1.0  \\ \hline
-                    $\beta_i^D$ [ ] & 0.5  \\ \hline
-                    $\eta$ [ ] & 0.9  \\ \hline
+                    Parameter & $r_s$ [m]  & $\delta_i$ [m] & $d_1 = d_3 = d_5$ [m] & $d_2 = d_4 = d_6$ [m]   \\ \hline
+                    Value & 3.5 & 0.5 & 0.5 & 1.0 \\ \hline
                 \end{tabular}
+                
+                \vspace{0.3cm}
+                
+                \begin{tabular}{|c|c|c|c|c|}
+                    \hline
+                    Parameter & Update rate [Hz] & $\gamma$ [°] & $\beta_i^D$ [ ] & $\eta$ [ ] \\ \hline
+                    Value & 10.0 & 20.0 & 0.5 & 0.9 \\ \hline
+                \end{tabular}
+                
                 \label{tab:rbl_forest_simulation_parameters}
             \end{table}
             
-            The UAV dynamics are the same as described in the previous chapter and detailed in Table \ref{tab:uav_constraints}. 
+            The \ac{UAV} dynamics are the same as described in the previous chapter and detailed in Table \ref{tab:uav_constraints}. 
             Each simulation was run 10 times.            
 
         \subsection{Performance in Simulated Environments}
             The simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
-            The UAV demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining efficient trajectory without unnecessary detours.
+            The \ac{UAV} demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining efficient trajectory without unnecessary detours.
             Convergence towards the designated goal waypoint was consistently achieved in a stable manner.
 
             \begin{table}[H]
                 \centering
                 \renewcommand{\arraystretch}{1.2}
-                \begin{tabular}{|l|c|c|c|c|}
+                \begin{tabular}{|c|c|c|c|c|}
                 \hline
                                                   & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) &  \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
                 Results                           & 100.00          & 91.99 $\pm$ 0.96                  & 150.89 $\pm$ 0.88                  &  0.85 $\pm$ 0.00                         \\ \hline
@@ -316,7 +337,7 @@
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/simulation_forest.png}
                 \caption{
-                    Visualization of simulated forest and the corresponding path of the UAV, indicated by a red line.
+                    Visualization of simulated forest and the corresponding path of the \ac{UAV}, indicated by a red line.
                 }
                 \label{fig:simulated_forest_path}
             \end{figure}
@@ -325,24 +346,24 @@
             Following the successful simulation validation, the \ac{RBL} algorithm was tested through real-world experiments conducted in a forest environment.
             \begin{itemize}
                 \item \textbf{Location: } \\
-                    The chosen forest site presented a relatively clear environment, considered 'friendly' for initial UAV flight tests. 
+                    The chosen forest site presented a relatively clear environment, considered 'friendly' for initial \ac{UAV} flight tests. 
                     To increase the navigational challenge and better test the obstacle avoidance capabilities, additional branches were placed near trees within the flight area after a few successfull flights. 
                     The point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
                 \item \textbf{UAV Platform: } \\
-                    A custom-built multirotor UAV from the MRS group was used for this experiment (TODO ask for specifications). 
+                    A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment (TODO ask for specifications). 
                     It was equipped with a primaryly with LiDAR mounted on top for environmental perception and state estimation.
                     While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and a barometer were present on the platform, they were not directly used by the \ac{UAV}.
                 \item \textbf{Experimental Procedure: } \\
                     Each experimental run followed a defined procedure. 
                     First, the necessary software components were launched within a tmux session on the ground. 
-                    A safety pilot then armed the UAV and performed a manual takeoff to a safe altitude. 
-                    Once airborne and stable, the \ac{RBL} algorithm was initiated, commanding the UAV towards a predefined goal. 
+                    A safety pilot then armed the \ac{UAV} and performed a manual takeoff to a safe altitude. 
+                    Once airborne and stable, the \ac{RBL} algorithm was initiated, commanding the \ac{UAV} towards a predefined goal. 
                     The flight was continuously monitored via visualization in Rviz and observing the \ac{UAV}. 
-                    If the UAV approached an obstacle too closely or exhibited unsafe behavior, the safety pilot immediately terminated the autonomous mode, took manual control, and landed the UAV. 
+                    If the \ac{UAV} approached an obstacle too closely or exhibited unsafe behavior, the safety pilot immediately terminated the autonomous mode, took manual control, and landed the \ac{UAV}. 
                     Between runs, key algorithm parameters, such as those controlling navigation 'aggressivity' (e.g., the scale of cells in the RBL and the weighting function used for path planning), were adjusted based on observations from the previous flight, and the experiment was repeated.
                 \item \textbf{Safety Measures: } \\
                     Safety was paramount throughout the experiments. 
-                    A trained safety pilot maintained visual line-of-sight with the UAV at all times and was prepared to immediately take manual control via the remote controller should any unsafe condition arise.
+                    A trained safety pilot maintained visual line-of-sight with the \ac{UAV} at all times and was prepared to immediately take manual control via the remote controller should any unsafe condition arise.
                 \item \textbf{Data Collected: } \\
                     For safety reasons, data logging was initiated only after the manual takeoff was complete. 
                     During the autonomous flight part and subsequent landing, all relevant ROS topics (including sensor data, estimated state, \ac{RBL} cells, centroid) were recorded into rosbag files for detailed post-flight analysis.
@@ -353,14 +374,14 @@
                     Another challenge, which warrants further investigation (discussed in Future Work), related to the Bonxai mapping part. 
                     Occasionally, the mapper would map dynamic objects, such as leaves disturbed by propellers, into the static map. 
                     Due to the mapping algorithm's configuration, which was set to be conservative about removing potentially static obstacles to ensure safety, these incorrectly mapped 'ghost' obstacles were sometimes not removed even when subsequent scans showed they were no longer present. 
-                    In some instances, this led to the UAV perceiving itself as surrounded by obstacles (effectively 'locking' itself), requiring the safety pilot to intervene and land.
+                    In some instances, this led to the \ac{UAV} perceiving itself as surrounded by obstacles (effectively 'locking' itself), requiring the safety pilot to intervene and land.
             \end{itemize}
 
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/deadlock_moment_mapping.png}
                 \caption{
-                    Visualization of a moment where the UAV incorrectly mapped leaves as obstacles directly in its path.
+                    Visualization of a moment where the \ac{UAV} incorrectly mapped leaves as obstacles directly in its path.
                 }
                 \label{fig:map_fail}
             \end{figure}
@@ -371,18 +392,18 @@
             \begin{table}[H]
                 \centering
                 \caption{Parameters Used in Experiments}
-                \begin{tabular}{|l|c|c|}
+                \begin{tabular}{|c|c|c|}
                     \hline
                     Parameter & Values Conservative & Values Aggressive \\
                     \hline
-                    \hline
-                    Sensing radius ($r_s$) & 2.0 m & 2.0 m \\ \hline
-                    Update rate & 10 Hz & 10 Hz \\ \hline
-                    Encumbrance & 0.5 m & 0.5 m \\ \hline
-                    $d_1 = d_3 = d_5$ & 0.5 m & 0.5 m \\ \hline
-                    $d_2 = d_4 = d_6$ & 1.0 m & 1.0 m\\ \hline
-                    $\beta_i^D$ & 0.5 & 0.1 \\ \hline
-                    $\eta$ & 0.8 & 0.8 \\ \hline
+                    $r_s$ [m] & 2.0 & 2.0 \\ \hline
+                    Update rate [Hz] & 10 & 10 \\ \hline
+                    $\delta_i$ [m] & 0.5 & 0.5  \\ \hline
+                    $d_1 = d_3 = d_5$ [m] & 0.5 & 0.5  \\ \hline
+                    $d_2 = d_4 = d_6$ [m] & 1.0 & 1.0 \\ \hline
+                    $\gamma$ [°] & 20.0 & 20.0 \\ \hline
+                    $\beta_i^D$ [ ] & 0.5 & 0.1 \\ \hline
+                    $\eta$ [ ] & 0.8 & 0.8 \\ \hline
                 \end{tabular}
                 \label{tab:rbl_forest_conservative_flight}
             \end{table}
@@ -390,24 +411,24 @@
             \begin{table}[H]
                 \centering
                 \renewcommand{\arraystretch}{1.2}
-                \begin{tabular}{|l|c|c|c|c|}
+                \begin{tabular}{|c|c|c|c|c|}
                 \hline
                                     & \( L \ [\mathrm{m}] \) & \( t \ [\mathrm{s}] \) &  \( v \ [\mathrm{m/s}] \)     \\ \hline
                 Conservative Flight & 53.84                   & 116.40                  &  0.46                          \\ \hline
-                Agressive Flight    & 35.56                   &  51.64                  &  0.69                          \\ \hline
+                Aggressive Flight    & 35.56                   &  51.64                  &  0.69                          \\ \hline
                 \end{tabular}
             \end{table}
 
             \begin{figure}[H]
                 \centering
-                \subfloat[] {
+                \subfloat[Conservative flight trajectory] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_484.png}
                 }
-                \subfloat[] {
+                \subfloat[Aggressive flight trajectory] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_486.png}
                 }
                 \caption{
-                    Visualization of the path the uav took during the flights a is conservative, b is agressinve.
+                    \ac{UAV} flight trajectories through the forest test environment under different navigation settings: (a) conservative parameter settings, (b) aggressive parameter settings.
                 }
                 \label{fig:rbl_forest_conservative_flight_path}
             \end{figure}
