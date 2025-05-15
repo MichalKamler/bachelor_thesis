@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  14 MAY 2025 18:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  15 MAY 2025 14:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1770,7 +1770,7 @@ Package pdftex.def Info: ./fig/rviz/flight_486.png  used on input line 429.
 Chapter 4.
 ) [29
 
-]
+] [30]
 Chapter 5.
 LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 137.
 (/usr/share/texlive/texmf-dist/tex/latex/inconsolata/ot1zi4.fd
@@ -1782,16 +1782,16 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 7.0pt on input line 137.
 LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 (Font)              scaled to size 5.0pt on input line 137.
- [30
+ [31
 
-] (/home/michal/dev/bachelor_thesis/src/appendix_a.tex [31]
+] (/home/michal/dev/bachelor_thesis/src/appendix_a.tex [32]
 Appendix A.
-<./fig/plots/circle_2d_top_down.png, id=1070, 542.025pt x 498.9039pt>
+<./fig/plots/circle_2d_top_down.png, id=1099, 542.025pt x 498.9039pt>
 File: ./fig/plots/circle_2d_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_2d_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_2d_top_down.png  used on input line 60.
 (pdftex.def)             Requested size: 213.05128pt x 213.05525pt.
-<./fig/plots/circle_2d_side.png, id=1071, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_2d_side.png, id=1100, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_2d_side.png Graphic file (type png)
 <use ./fig/plots/circle_2d_side.png>
 Package pdftex.def Info: ./fig/plots/circle_2d_side.png  used on input line 65.
@@ -1804,15 +1804,15 @@ Overfull \hbox (4.13869pt too wide) in paragraph at lines 60--68
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [32
+ [33
 
 ]
-<./fig/plots/circle_3d_top_down.png, id=1083, 543.2295pt x 498.9039pt>
+<./fig/plots/circle_3d_top_down.png, id=1113, 543.2295pt x 498.9039pt>
 File: ./fig/plots/circle_3d_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_3d_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_top_down.png  used on input line 76.
 (pdftex.def)             Requested size: 213.05226pt x 213.05525pt.
-<./fig/plots/circle_3d_side.png, id=1084, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_3d_side.png, id=1114, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_3d_side.png Graphic file (type png)
 <use ./fig/plots/circle_3d_side.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_side.png  used on input line 81.
@@ -1822,12 +1822,12 @@ Overfull \hbox (4.13966pt too wide) in paragraph at lines 76--84
  [][][][] 
  []
 
-<./fig/plots/circle_3d_z_clip_top_down.png, id=1087, 543.2295pt x 498.9039pt>
+<./fig/plots/circle_3d_z_clip_top_down.png, id=1117, 543.2295pt x 498.9039pt>
 File: ./fig/plots/circle_3d_z_clip_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_3d_z_clip_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_z_clip_top_down.png  used on input line 92.
 (pdftex.def)             Requested size: 213.05226pt x 213.05525pt.
-<./fig/plots/circle_3d_z_clip_side.png, id=1088, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_3d_z_clip_side.png, id=1118, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_3d_z_clip_side.png Graphic file (type png)
 <use ./fig/plots/circle_3d_z_clip_side.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_z_clip_side.png  used on input line 97.
@@ -1840,7 +1840,7 @@ Overfull \hbox (4.13966pt too wide) in paragraph at lines 92--100
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [33 <./fig/plots/circle_2d_top_down.png> <./fig/plots/circle_2d_side.png> <./fig/plots/circle_3d_top_down.png> <./fig/plots/circle_3d_side.png>]
+ [34 <./fig/plots/circle_2d_top_down.png> <./fig/plots/circle_2d_side.png> <./fig/plots/circle_3d_top_down.png> <./fig/plots/circle_3d_side.png>]
 File: ./fig/plots/circle_3d_z_rule_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_3d_z_rule_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_z_rule_top_down.png  used on input line 108.
@@ -1854,12 +1854,12 @@ Overfull \hbox (4.13966pt too wide) in paragraph at lines 108--116
  [][][][] 
  []
 
-<./fig/plots/sphere_3d_top_down.png, id=1104, 539.3751pt x 498.9039pt>
+<./fig/plots/sphere_3d_top_down.png, id=1134, 539.3751pt x 498.9039pt>
 File: ./fig/plots/sphere_3d_top_down.png Graphic file (type png)
 <use ./fig/plots/sphere_3d_top_down.png>
 Package pdftex.def Info: ./fig/plots/sphere_3d_top_down.png  used on input line 124.
 (pdftex.def)             Requested size: 213.05495pt x 213.05525pt.
-<./fig/plots/sphere_3d_side.png, id=1105, 489.9906pt x 498.663pt>
+<./fig/plots/sphere_3d_side.png, id=1135, 489.9906pt x 498.663pt>
 File: ./fig/plots/sphere_3d_side.png Graphic file (type png)
 <use ./fig/plots/sphere_3d_side.png>
 Package pdftex.def Info: ./fig/plots/sphere_3d_side.png  used on input line 127.
@@ -1867,9 +1867,9 @@ Package pdftex.def Info: ./fig/plots/sphere_3d_side.png  used on input line 127.
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [34 <./fig/plots/circle_3d_z_clip_top_down.png> <./fig/plots/circle_3d_z_clip_side.png>] 
+ [35 <./fig/plots/circle_3d_z_clip_top_down.png> <./fig/plots/circle_3d_z_clip_side.png>] 
 AED: lastpage setting LastPage
-[35 <./fig/plots/sphere_3d_top_down.png> <./fig/plots/sphere_3d_side.png>]
+[36 <./fig/plots/sphere_3d_top_down.png> <./fig/plots/sphere_3d_side.png>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 151.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 151.
  (/home/michal/dev/bachelor_thesis/main.aux)
@@ -1889,18 +1889,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 51403 strings out of 482295
- 1163497 string characters out of 5940336
+ 51404 strings out of 482295
+ 1163504 string characters out of 5940336
  2026534 words of memory out of 5000000
  65225 multiletter control sequences out of 15000+600000
  556388 words of font info for 117 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
- 67i,19n,113p,916b,2079s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,19n,113p,916b,3100s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} </home/michal/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/michal/dev/bachelor_thesis/main.pdf (43 pages, 13779118 bytes).
+Output written on /home/michal/dev/bachelor_thesis/main.pdf (44 pages, 13783472 bytes).
 PDF statistics:
- 1263 PDF objects out of 1440 (max. 8388607)
- 1074 compressed objects within 11 object streams
- 247 named destinations out of 1000 (max. 500000)
+ 1293 PDF objects out of 1440 (max. 8388607)
+ 1102 compressed objects within 12 object streams
+ 248 named destinations out of 1000 (max. 500000)
  445 words of extra memory for PDF output out of 10000 (max. 10000000)
 
