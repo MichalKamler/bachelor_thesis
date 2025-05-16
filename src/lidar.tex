@@ -4,18 +4,18 @@
         \subsection{Motivation}
         \ac{UAV}s are increasingly being deployed in challenging, unstructured environments like dense forests, moving beyond their traditional use in open areas.
         This shift is driven by a growing demand for autonomous solutions in sectors like environmental monitoring, forestry management (health assessment \cite{kurovec_fel_clanek}), and search and rescue, where ground-based access is difficult. 
-        Furthermore, this work aligns with the broader trend of deploying \ac{UAV}s for increasingly complex tasks, such as detailed infrastructure inspection (e.g., power lines, where autonomous navigation in cluttered, potentially high \ac{EMI} environments is essential (Fly4Future \cite{f4f_powerline_inspection})). 
+        Furthermore, this work aligns with the broader trend of deploying \ac{UAV}s for increasingly complex tasks, such as detailed infrastructure inspection (e.g., power lines, where autonomous navigation in cluttered, potentially high \ac{EMI} environments is essential - Fly4Future \cite{f4f_powerline_inspection}). 
         Enabling \ac{UAV}s to reliably navigate point-to-point within these challenging settings is a foundational step towards realizing these advanced applications safely and efficiently.
 
         While the primary objective of this work is to enable successful point-to-point navigation within a forest using the \ac{RBL} algorithm, a significant secondary benefit emerges from this process. 
         By successfully navigating from point A to point B while simultaneously building a map of the traversed environment, the \ac{UAV} generates valuable spatial data about the forest structure. 
         This generated map can then serve a vital purpose: enabling enhanced planning for future missions within the same area. 
         Once a map exists, subsequent \ac{UAV} operations could potentially transition from purely reactive navigation strategies to more efficient methods with globally informed path planning. 
-        Leveraging prior knowledge of obstacle locations could significantly improve the safety and efficiency of future routine tasks.
+        Leveraging prior knowledge of obstacle locations could significantly improve efficiency of future routine tasks.
         
         \subsection{Problem Statement}
-            Operating \ac{UAV}s effectively within complex, three-dimensional environments like forests presents significant navigational challenges that hinder widespread autonomous deployment. 
-            The primary problems addressed in this work stem from:
+            Operating \ac{UAV}s effectively within complex, three-dimensional environments like forests presents significant navigational challenges that slows down autonomous deployment. 
+            The primary problems addressed in this work originate from:
             \begin{enumerate}
                 \item \textbf{\ac{GNSS}-Denied Conditions: } \\
                 Within forests, the dense canopy and other obstructions frequently block or scatter \ac{GNSS} signals, leading to unreliable or completely absent reception.
@@ -44,14 +44,14 @@
 
         \subsection{Chapter Overview}
             This chapter covers the \ac{LiDAR} perception process, covering data acquisition, preprocessing, mapping, and the method used to integrate mapped voxel data into the \ac{RBL} algorithm. 
-            Subsequently, the practical challenges of implementing the system on a \ac{UAV} with sensor limitations are discussed, along with the software solutions employed. 
-            The chapter proceeds to present the experimental validation, outlining the simulation setup and results, followed by the real-world forest experiment methodology, challenges, and performance analysis, illustrated with videos of successful flights \cite{aggressive_flight}, \cite{conservative_flight} and a mapping failure case \cite{flight_fail}. 
+            Subsequently, the practical challenges of implementing the system on a \ac{UAV} with sensor limitations are discussed, along with the used software solutions. 
+            The chapter proceeds to present the experimental validation, outlining the simulation setup and results, followed by the real-world forest experiment approaches, challenges, and performance analysis, illustrated with videos of successful flights \cite{aggressive_flight}, \cite{conservative_flight} and a mapping failure case \cite{flight_fail}. 
             Finally, a comparative analysis, discussion of limitations, and summary of key findings are presented.
     
     \section{LiDAR-Based Perception and Point Cloud Processing}
     \label{sec:lidar_perception}
         \subsection{Overview of LiDAR for UAV Navigation}
-            \ac{LiDAR} is a crucial sensing technology widely used in applications such as \ac{SLAM} \cite{point_lio_paper}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, \ac{UAV}s TODOcite, and precision agriculture \cite{Lidar_agriculture}. 
+            \ac{LiDAR} is a crucial sensing technology widely used in applications such as \ac{SLAM} \cite{point_lio_paper}, autonomous vehicles \cite{Lidar_autonomous_vehicles}, and precision agriculture \cite{Lidar_agriculture}. 
             It provides high-resolution spatial data about the surrounding environment, making it a valuable tool for perception and navigation in dynamic and complex environments.  
             For \ac{UAV} applications, \ac{LiDAR} serves several essential functions:  
             \begin{itemize}  
@@ -64,7 +64,7 @@
             \ac{LiDAR} offers several benefits that make it an attractive choice for \ac{UAV}-based navigation:  
             \begin{itemize}  
                 \item \textbf{High Accuracy} -- Provides precise distance measurements, crucial for obstacle avoidance and localization.  
-                \item \textbf{Environment Agnostic} -- Functions effectively in various conditions, including low-light environments and featureless terrain where cameras may fail.  
+                \item \textbf{Environment Reliability} -- Functions effectively in various conditions, including low-light environments and featureless terrain where cameras may fail.  
                 \item \textbf{Fast Data Acquisition} -- Captures thousands to millions of points per second, enabling real-time processing.  
                 \item \textbf{Rich Depth Information} -- Unlike cameras that provide only 2D images, \ac{LiDAR} generates accurate depth data, improving spatial awareness and 3D perception.  
             \end{itemize}  
@@ -72,7 +72,7 @@
             Despite its advantages, \ac{LiDAR} also presents certain challenges and limitations:  
             \begin{itemize}  
                 \item \textbf{Computational Complexity} -- Processing large point clouds in real-time requires significant computational power, which may be a limitation for \ac{UAV}s with low processing resources.
-                \item \textbf{Sensor Noise and Artifacts} -- External factors such as vibrations and motion of \ac{UAV} can introduce errors in point cloud data.  
+                \item \textbf{Sensor Noise} -- External factors such as vibrations and motion of \ac{UAV} can introduce errors in point cloud data.  
                 \item \textbf{Limited Field of View (FoV)} -- The placement of the \ac{LiDAR} sensor on the \ac{UAV} affects its coverage, requiring strategies to compensate for blind spots.  
                 \item \textbf{Environmental Interference} -- Performance may degrade in challenging conditions such as fog, rain, or dense vegetation due light deviation.  
                 \item \textbf{Power Consumption} -- \ac{LiDAR} sensors can consume a significant amount of power, which reduces the overall flight time of the \ac{UAV}.
@@ -80,17 +80,17 @@
             \end{itemize}
 
         \subsection{Point Cloud Data Acquisition}
-            \ac{LiDAR} systems determine object distances by emitting laser pulses and measuring the time it takes for the reflected light to return. 
+            \ac{LiDAR} sensors determine object distances by emitting laser pulses and measuring the time it takes for the reflected light to return. 
             This process, known as \ac{ToF}, involves scanning the environment with laser beams directed at varying horizontal and vertical angles. 
             The reflected light, modulated in intensity, phase, or frequency, is captured by a receiver, which uses a lens to focus the signal onto a photodetector. 
             This detector converts the light into an electrical signal via the photoelectric effect \cite{lidar_how_works}.
 
             The system calculates distance based on the light's travel time, considering its near-light-speed propagation. 
-            To distinguish transmitted from received signals, the laser's \setcounter{tocdepth}{1}
-            wavelength is often adjusted. 
+            % To distinguish transmitted from received signals, the laser's \setcounter{tocdepth}{1}
+            % wavelength is often adjusted. 
             Subsequent signal processing filters and analyzes the electrical signal, accounting for surface material and environmental variations. 
             The output is a 3D point cloud representing the scanned environment, along with reflected laser energy intensities. 
-            All these data points are stored in a ROS message of type \(sensor\_msgs::PointCloud2\)
+            % All these data points are stored in a ROS message of type \(sensor\_msgs::PointCloud2\)
 
         \subsection{Preprocessing Techniques}
             To efficiently process \ac{LiDAR} data and reduce computational complexity, the raw point cloud undergoes downsampling and filtering. 
@@ -107,6 +107,8 @@
             \end{itemize}
             The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency for future processes.
             The point cloud is than fed into Point lio state estimator and bonxai mapping. 
+
+        \subsection{Point Lio State Estimation}
 
         \subsection{Bonxai Mapping}
             As will be shown later in this chapter, prior terrain knowledge is beneficial for navigation. 
