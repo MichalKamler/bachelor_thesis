@@ -106,9 +106,27 @@
                 Points falling outside a specified distance range (closer than a minimum threshold or farther than a maximum threshold) are filtered out.
             \end{itemize}
             The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency for future processes.
-            The point cloud is than fed into Point lio state estimator and bonxai mapping. 
+            The point cloud is than fed into \ac{Point-LIO} state estimator and bonxai mapping. 
 
-        \subsection{Point Lio State Estimation}
+        \subsection{Point-LIO State Estimation}
+            \ac{Point-LIO} \cite{point_lio_paper} is a robust, high-bandwidth \ac{LiDAR}-inertial odometry system designed to accurately estimate rapid and aggressive robotic motions. 
+            Its core innovations address common limitations in traditional frame-based LIO approaches.
+
+            Key characteristics of \ac{Point-LIO} include:
+            \begin{itemize}
+                \item \textbf{Point-by-Point Processing: } \\
+                    Unlike methods that accumulate LiDAR points into frames (scans) before processing, \ac{Point-LIO} updates the system's state with each individual \ac{LiDAR} point measurement as it arrives. 
+                    This point-wise solution allows for extremely high-frequency odometry output that typically range from 4 to 8 kHz.
+                \item \textbf{Motion Distortion Removal: } \\ 
+                    By processing points at their true sampling times, \ac{Point-LIO} fundamentally eliminates the in-frame motion distortion that often affects frame-based systems, especially during fast movements.
+                \item \textbf{IMU Modeling:} \\
+                    To better handle aggressive motions, \ac{Point-LIO} features a kinematic model augmented with a stochastic process. 
+                    This design treats \ac{IMU} data as an output (a measurement of the true motion) rather than a direct input.
+                    This approach allows for accurate localization even when the robot undergoes aggressive motions that cause \ac{IMU} measurements to saturate.
+            \end{itemize}
+            In essence, \ac{Point-LIO} uses an Extended Kalman Filter to fuse each \ac{LiDAR} point and \ac{IMU} measurement at their respective sampling times. 
+            This filter is specifically an 'on-manifold' type, meaning it is designed to correctly handle the underlying geometry of the system's state, particularly for 3D orientation, ensuring more accurate and consistent estimation. 
+            This enables high-rate, accurate state estimation, even under severe vibrations or when angular velocities and accelerations exceed the \ac{IMU}'s measuring range.
 
         \subsection{Bonxai Mapping}
             As will be shown later in this chapter, prior terrain knowledge is beneficial for navigation. 
@@ -139,22 +157,26 @@
             First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
             This can be achieved by considering the scaling parameter $\eta$.
             A voxel is considered relevant if it lies within radius of $\frac{r_s}{\eta}$ of the agent.
-            For each discrete point in  in the set composing cell $\mathcal{S}$, the nearest voxel is identified using k-d tree algorithm from the PCL library.
-            Because the found point is the voxel's center, the closest pint within that voxel's boundaries is calculated to accurate partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
+            For each discrete point in  in the set composing cell $\mathcal{S}$, the nearest voxel is identified using k-d tree algorithm from the PCL library \cite{kd_tree}.
+            Because the found point is the voxel's center, the closest point within that voxel's boundaries is calculated to accurate partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
 
-            Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$, is computed as: 
+            Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$ is computed as: 
             \begin{equation}
                 \mathbf{p}_{\text{closest}} =
                 \begin{pmatrix}
-                    \text{clamp}(p_{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
-                    \text{clamp}(p_{\mathcal{S},y}, v_{c,y} - \frac{\mathbf{e}}{2}, v_{c,y} + \frac{\mathbf{e}}{2}) \\
-                    \text{clamp}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
+                    \text{f}(p_{\mathcal{S},x}, v_{c,x} - \frac{\mathbf{e}}{2}, v_{c,x} + \frac{\mathbf{e}}{2}) \\
+                    \text{f}(p_{\mathcal{S},y}, v_{c,y} - \frac{\mathbf{e}}{2}, v_{c,y} + \frac{\mathbf{e}}{2}) \\
+                    \text{f}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
                 \end{pmatrix}\text{,}
             \end{equation}
-            where function clamp(x, a, b) constrains the value x to the range [a, b].
+            where function f(x, a, b) constrains the value x to the range [a, b].
             This constrains $\mathbf{p_{\mathcal{S}}}$ to the voxel boundaries.
+            
+            Considering the point $\mathbf{p}_{\text{closest}}$ as an obstacle, the sensing cell $\mathcal{S}$ is partitioned to form cell $\mathcal{A}$.
+            This partition involves excluding any point $\mathbf{p_{\mathcal{S}}}$ from  $\mathcal{S}$ if its position relative to the agent $\mathbf{p}_i$ and the obstacle point $\mathbf{p}_{\text{closest}}$ meet condition $\mathcal{A}$ if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
 
-            A point is excluded from the set if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
+            % Using this point we can consider him as an obstacle and partition him out of sensing cell to form cell A. 
+            % A point $\mathbf{p_{\mathcal{S}}}$ is excluded from the cell $\mathcal{A}$ if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
             
 
     \section{Implementation and Integration on UAV}
@@ -185,15 +207,16 @@
                 \label{fig:uavs}
             \end{figure}
 
-            In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account fo the \ac{LiDAR}'s limited \ac{FOV}.
+            In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account for the \ac{LiDAR}'s limited \ac{FOV}.
             The algorithm uses map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
             To ensure safety, \ac{UAV} should only move only within their visible \ac{FOV}. 
             However, map information from areas outside the current \ac{FOV} can still be valuable. 
 
-            Therefore, a constraint is intorduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathbf{A}}$ and moves towards it only if the centroid lies within a defined angular range in fron of the \ac{UAV}.
+            Therefore, a constraint is intorduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathbf{A}}$ and moves towards the centroid only when this centroid is positioned within a $\pm$45° angular range from the direction the \ac{LiDAR} is tilted towards (the \ac{UAV}'s x-axis).
+            This 90° forward sector for movement is determined by the \ac{UAV}'s physical structure, specifically to prevent the \ac{UAV} from moving into areas where mounting rods for GPS obstruct active sensing.
 
-            To incorporate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
-            Let $\mathbf{e}_z$ be unit vector alog the z-axis, $R_{off} \in SO(3)$ the offset rotation, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
+            To integrate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
+            Let $\mathbf{e}_z$ be unit vector alog the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
             The normal vectors, $\mathbf{n}_1$ and $\mathbf{n}_2$ defining two planes are given by:
             \begin{equation}
                 \mathbf{n}_1 = R_{rpy} \cdot R_{y}(\gamma) \cdot \mathbf{e}_z    
@@ -206,27 +229,27 @@
             Cell $\mathcal{S}$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
 
             \begin{equation}
-                \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}1 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \geq 0 \land \mathbf{n}2 \cdot (\mathbf{q} - \mathbf{p}_{LiDAR}) \leq 0 \}\text{,}
+                \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}1 \cdot (\mathbf{q} - \mathbf{p}_{L}) \geq 0 \land \mathbf{n}2 \cdot (\mathbf{q} - \mathbf{p}_{L}) \leq 0 \}\text{,}
             \end{equation}
-            where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}$ and $\mathbf{p}_{LiDAR}$ is the exact position of the LiDAR sensor.
+            where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}$ and $\mathbf{p}_{L}$ is the exact position of the LiDAR sensor.
 
             This modification effectively restricts the points considered in the calculation of the centroid to only those within the \ac{LiDAR}'s \ac{FOV}.
 
-            To incorporate map information from the surrounding area outside of the \ac{LiDAR}'s current \ac{FOV}, the following procedure is used.
+            To integrate map information from the surrounding area outside of the \ac{LiDAR}'s current \ac{FOV}, the following procedure is used.
             Firstly, both cells $\mathcal{S}_i$ and $\mathcal{S}_i'$ are created. These cells are partitioned into cells $\mathcal{A}_i$ and $\mathcal{A}_i'$ using voxels. 
-            Cell $\mathcal{A}_i'$ is partitioned using voxels taht are actively sensed, while cell $\mathcal{A}_i$ is partitioned using the voxels from the whole surrounding.
+            Cell $\mathcal{A}_i'$ is partitioned using voxels that are actively sensed, while cell $\mathcal{A}_i$ is partitioned using the voxels from the whole surroundings.
 
-            If the centroid computed from cell $\mathcal{A}_i$, $\mathbf{c}_{\mathcal{A}_i}$, is within the cell $\mathcal{A}_i'$, the \ac{UAV} is commanded to move towards $\mathbf{c}_{\mathcal{A}_i}$ while simu rotating its yaw towards it.
+            If the centroid computed from cell $\mathcal{A}_i$, $\mathbf{c}_{\mathcal{A}_i}$, is within the cell $\mathcal{A}_i'$, the \ac{UAV} is commanded to move towards $\mathbf{c}_{\mathcal{A}_i}$ while simultaneously rotating its yaw towards it.
             However, if $\mathbf{c}_{\mathcal{A}_i}$ lies outside cell $\mathcal{A}_i'$, it is projected onto the closest point on the boundary of cell $\mathcal{A}_i'$.
             As the \ac{UAV} only moves if the centroid is within a certain angle in front of it, this projection onto the boundary of $\mathcal{A}_i'$ ensures that the \ac{UAV} primarily rotates towards the centroid until the centorid is within an angle in front of the \ac{UAV}.
 
-            This procedure effectively utilizes the information fro mthe map while ensuring that the \ac{UAV} moves only within its actively sensed \ac{FOV}.
+            This procedure effectively utilizes the information from the map while ensuring that the \ac{UAV} moves only within its actively sensed \ac{FOV}.
 
             \begin{figure}[H]
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/cell_a_sliced_with_planes.png}
                 \caption{
-                    RViz visualization of LiDAR field-of-view (FOV) planes. The \ac{UAV} is represented by the XYZ coordinate axes. 
+                    Rviz visualization of LiDAR field-of-view (FOV) planes. The \ac{UAV} is represented by the XYZ coordinate axes. 
                     The green squares represent the two planes, defined by normal vectors $\mathbf{n}_1$ and $\mathbf{n}_2$, used to slice cell $\mathcal{S}_i$ and determine the modified cell $\mathcal{S}_i'$.
                     The red sphere represents the centroid $\mathbf{c}_{\mathcal{A}_i}$.
                 }
@@ -241,14 +264,14 @@
             Initially, a raycasting approach from the \ac{UAV} to the simulated trees was considered for obstacle detection. 
             However, due to its computational cost, a static point cloud representation of the entire forest was generated and published instead. 
             The forest was modeled as a collection of trees, with trunks represented by cylinders and crowns by spheres.
-
-            The forest was contained within a rectangular area defined by the following boundaries:
-            \begin{itemize}
-                \item $x_{\min}$ = -20.0 m
-                \item $x_{\max}$ =  20.0 m
-                \item $y_{\min}$ = -32.0 m
-                \item $y_{\max}$ =  32.0 m
-            \end{itemize}
+            The forest was generated within a rectangular area defined by the opposing corner points (-20.0 m, -32.0 m) and (20.0 m, 32.0 m) in the x-y plane, with its sides aligned parallel to the x and y axes.
+            % The forest was contained within a rectangular area defined by the following boundaries:
+            % \begin{itemize}
+            %     \item $x_{\min}$ = -20.0 m
+            %     \item $x_{\max}$ =  20.0 m
+            %     \item $y_{\min}$ = -32.0 m
+            %     \item $y_{\max}$ =  32.0 m
+            % \end{itemize}
             A total of 100 trees were randomly generated within this area, with a minimum separation distance of 3 meters between them. 
             The trees were generated with the following parameter variances:
             \begin{itemize}
@@ -256,10 +279,10 @@
                 \item Tree height: 7.5 $\pm$ 2.0 m
                 \item Crown radius: 2.5 $\pm$ 0.5 m
             \end{itemize}
-            The \ac{UAV}'s starting position was set at one corner of the rectangular area (-22.0, -33.0, 2.0), and the goal position was set at the opposite corner (22.0, 33.0, 5.0), resulting in an approximate distance of 80 meters between them.
+            The \ac{UAV}'s starting position was set at one corner of the rectangular area (-22.0, -33.0, 2.0), and the goal position was set at the opposite corner (22.0, 33.0, 5.0), resulting in almost of 80 meters between them.
 
             It is important to note that the right-hand rule and z rule, described in the previous chapter, are not required for effective coordination in this static forest environment.
-            Also, the point-lio estimator and Bonxai mapping were not simulated.
+            Also, the \ac{Point-LIO} estimator and Bonxai mapping were not simulated.
 
             The specific values of the parameters used in the experiments are summarized in following table \ref{tab:rbl_forest_simulation_parameters}:
 
@@ -323,7 +346,7 @@
         \subsection{Performance in Simulated Environments}
             The simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
             The \ac{UAV} demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining efficient trajectory without unnecessary detours.
-            Convergence towards the designated goal waypoint was consistently achieved in a stable manner.
+            Convergence towards the designated goal was consistently achieved in a stable manner.
 
             \begin{table}[H]
                 \centering
@@ -348,11 +371,12 @@
             Following the successful simulation validation, the \ac{RBL} algorithm was tested through real-world experiments conducted in a forest environment.
             \begin{itemize}
                 \item \textbf{Location: } \\
-                    The chosen forest site presented a relatively clear environment, considered 'friendly' for initial \ac{UAV} flight tests. 
+                    The forest site for initial real-world experiments was chosen for its relatively open characteristics, allowing for straightforward system validation. 
+                    Subsequent flight tests were then conducted in more challenging and densely obstructed environments.
                     To increase the navigational challenge and better test the obstacle avoidance capabilities, additional branches were placed near trees within the flight area after a few successfull flights. 
-                    The point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
+                    % The point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
                 \item \textbf{UAV Platform: } \\
-                    A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment (TODO ask for specifications). 
+                    A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment X450. 
                     It was equipped with a primaryly with LiDAR mounted on top for environmental perception and state estimation.
                     While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and a barometer were present on the platform, they were not directly used by the \ac{UAV}.
                 \item \textbf{Experimental Procedure: } \\
@@ -372,7 +396,7 @@
                 \item \textbf{Challenges Encountered: } \\
                     Several challenges emerged during real-world deployment. 
                     A significant set-back involved correctly managing coordinate frame transformations, particularly due to the slight tilt of the top-mounted LiDAR sensor. 
-                    Ensuring accurate alignment between the LiDAR's point cloud data, the Point-LIO state estimator, and the navigation algorithm's reference frame required careful configuration. 
+                    Ensuring accurate alignment between the LiDAR's point cloud data, the \ac{Point-LIO} state estimator, and the navigation algorithm's reference frame required careful configuration. 
                     Another challenge, which warrants further investigation (discussed in Future Work), related to the Bonxai mapping part. 
                     Occasionally, the mapper would map dynamic objects, such as leaves disturbed by propellers, into the static map. 
                     Due to the mapping algorithm's configuration, which was set to be conservative about removing potentially static obstacles to ensure safety, these incorrectly mapped 'ghost' obstacles were sometimes not removed even when subsequent scans showed they were no longer present. 
@@ -390,7 +414,10 @@
 
         
         \subsection{Performance in Real-World Experiment}
-            For the real world experiment I have chosen 2 flights to describe and one fail flight. For each of the flight I uploaded a video One conservative:
+            For the real world experiment I have chosen 2 flights to describe and one fail flight. 
+            For these flights the point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
+            For both flights a video has been created to show the performance \href{https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler}{aggressive flight} \cite{aggressive_flight}, \href{https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler}{conservative flight}\cite{conservative_flight}.
+    
             \begin{table}[H]
                 \centering
                 \caption{Parameters Used in Experiments}
@@ -435,8 +462,6 @@
                 \label{fig:rbl_forest_conservative_flight_path}
             \end{figure}
 
-
-
         \subsection{Comparative Analysis}
             The real-world flight experiments conducted in the forest environment successfully validated the navigation capabilities of the proposed setup, despite initial setbacks during setup related to odometry and mapping configuration. 
             The \ac{UAV} generally performed as expected based on simulation results, demonstrating its ability to navigate autonomously between points A and B while avoiding static obstacles.
@@ -457,7 +482,7 @@
                     Remapping obstacles in 2D is often simpler.
                     \item 3D implementation utilizes a 3D \ac{LiDAR} for perception in three dimensions and must actively manage altitude based on the perceived environment, treating the ground itself as an obstacle.
                 \end{itemize}
-                A notable behavior observed in the 3D tests was the \ac{UAV}'s tendency to initially increase altitude after takeoff, effectively moving away from the ground obstacle, before potentially descending again as it neared the goal. 
+                A notable behavior observed in the 3D tests was the \ac{UAV}'s tendency to initially increase altitude after takeoff, effectively moving away from the ground obstacle, before potentially descending again as it were getting closer to the goal. 
                 This behavior highlights the algorithm's capability to manage its vertical position based on the 3D environment.
                 Illustrative examples of successful flights showcasing different parameter settings (aggressive vs. conservative) are provided in \cite{aggressive_flight} and \cite{conservative_flight}.
 
@@ -465,7 +490,7 @@
                 The mapping limitations highlight key areas for future work. Potential solutions include:
                 \begin{itemize}
                     \item \textbf{Dynamic Obstacle Handling: }\\
-                    Implementing techniques to segment and filter out dynamic or transient objects from the map representation such as \cite{TRLO_good_mapping}.
+                    Implementing techniques to segment and filter out dynamic objects from the map representation such as \cite{TRLO_good_mapping}.
                     \item \textbf{Reactive Navigation: }\\
                     Exploring strategies that rely more on direct sensor input for immediate obstacle avoidance, removing dependence on the map, though this introduces challenges in perceiving areas outside the current sensor view (e.g. behind the UAV).
                     \item \textbf{Map Update Logic: }\\
@@ -476,8 +501,8 @@
     
     \section{Conclusion}
     \label{sec:conclusion_lidar}
-        This chapter detailed the implementation and real-world validation of the (\ac{RBL}) algorithm, adapted for autonomous \ac{UAV} navigation within a cluttered, \ac{GNSS}-denied forest environment using onboard 3D \ac{LiDAR} sensing. 
-        The primary objective was to implement \ac{RBL} principles with real-time perception, state estimation (Point-LIO), and mapping (Bonxai) to achieve reliable point-to-point navigation.
+        This chapter detailed the implementation and real-world validation of the \ac{RBL} algorithm, adapted for autonomous \ac{UAV} navigation within a cluttered, \ac{GNSS}-denied forest environment using onboard 3D \ac{LiDAR} sensing. 
+        The primary objective was to implement \ac{RBL} principles with real-time perception, state estimation (\ac{Point-LIO}), and mapping (Bonxai) to achieve reliable point-to-point navigation.
 
         Key technical contributions included adapting the \ac{RBL} algorithm's cell partitioning to directly utilize voxelized map data created from processed \ac{LiDAR} point clouds. 
         Modifications were also introduced to effectively handle the practical limitations of a single \ac{LiDAR} sensor with a restricted vertical field of view, ensuring safe convergence by constraining movement based on actively sensed area while still leveraging map information. 
