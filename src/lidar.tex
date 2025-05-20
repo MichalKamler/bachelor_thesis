@@ -14,7 +14,7 @@
         Leveraging prior knowledge of obstacle locations could significantly improve efficiency of future routine tasks.
         
         \subsection{Problem Statement}
-            Operating \ac{UAV}s effectively within complex, three-dimensional environments like forests presents significant navigational challenges that slows down autonomous deployment. 
+            Operating \ac{UAV}s effectively within complex, three-dimensional environments like forests presents significant navigational challenges that slow down autonomous deployment. 
             The primary problems addressed in this work originate from:
             \begin{enumerate}
                 \item \textbf{\ac{GNSS}-Denied Conditions: } \\
@@ -35,7 +35,7 @@
                     % This includes modification of sensing cell $\mathcal{S}$, because used \ac{LiDAR} doesnt see in all directions. 
                     The sensing cell needs to remain convex so the centroid computed from partitioned cell $\mathcal{A}$ remains within the set, to guarantee a safe \ac{UAV} motion.
                 \item \textbf{Process Point Cloud Data: } \\
-                    Implement neccessary filtration to refine the raw point cloud data acquired from the \ac{LiDAR}.
+                    Implement necessary filtration to refine the raw point cloud data acquired from the \ac{LiDAR}.
                 \item \textbf{Integrate external packages on the \ac{UAV}: } \\
                     Integrate and configure external software packages for simultaneous environmental mapping and robust state estimation, suitable for operation within the \ac{GNSS}-denied forest environment.
                 \item \textbf{Experimental Validation: } \\
@@ -71,9 +71,9 @@
             Despite its advantages, \ac{LiDAR} also presents certain challenges and limitations:  
             \begin{itemize}  
                 \item \textbf{Computational Complexity} -- Processing large point clouds in real-time requires significant computational power, which may be a limitation for \ac{UAV}s with low processing resources.
-                \item \textbf{Sensor Noise} -- External factors such as vibrations and motion of \ac{UAV} can introduce errors in point cloud data.  
+                \item \textbf{Sensor Noise} -- External factors such as vibrations and the motion of \ac{UAV} can introduce errors in point cloud data.  
                 \item \textbf{Limited Field of View (FoV)} -- The placement of the \ac{LiDAR} sensor on the \ac{UAV} affects its coverage, requiring strategies to compensate for blind spots.  
-                \item \textbf{Environmental Interference} -- Performance may degrade in challenging conditions such as fog, rain, or dense vegetation due light deviation.  
+                \item \textbf{Environmental Interference} -- Performance may degrade in challenging conditions such as fog, rain, or dense vegetation due to light deviation.  
                 \item \textbf{Power Consumption} -- \ac{LiDAR} sensors can consume a significant amount of power, which reduces the overall flight time of the \ac{UAV}.
                 \item \textbf{Interference with Other LiDARs} -- \ac{LiDAR} sensors can experience interference when multiple units are used nearby, potentially leading to faulty measurements.
             \end{itemize}
@@ -101,11 +101,11 @@
                 This method partitions the 3D space into a grid of voxels with a given resolution (leafSize) and retains a single representative point per voxel. 
                 The filtering process reduces the number of points while preserving the overall structure of the environment.
                 \item \textbf{Filtering Points Corresponding to the UAV Structure} -- \ac{LiDAR} sensors mounted on \ac{UAV}s can capture unwanted points originating from the \ac{UAV} itself, such as reflections from its frame or rotor rods. 
-                To prevent these points from interfering with navigation, additional filtering step has been applied.
+                To prevent these points from interfering with navigation, additional filtering step was been applied.
                 Points falling outside a specified distance range (closer than a minimum threshold or farther than a maximum threshold) are filtered out.
             \end{itemize}
             The resulting filtered point cloud contains only relevant environmental features while eliminating unnecessary points, improving efficiency for future processes.
-            The point cloud is fed into \ac{Point-LIO} \cite{point_lio_paper} state estimator and bonxai mapping \cite{Bonxai2025}. 
+            The point cloud is fed into the \ac{Point-LIO} \cite{point_lio_paper} state estimator and the bonxai mapping \cite{Bonxai2025}. 
 
         \subsection{Point-LIO State Estimation}
             \ac{Point-LIO} \cite{point_lio_paper} is a robust, high-bandwidth \ac{LiDAR}-inertial odometry system designed to accurately estimate rapid and aggressive robotic motions. 
@@ -115,7 +115,7 @@
             \begin{itemize}
                 \item \textbf{Point-by-Point Processing: } \\
                     Unlike methods that accumulate LiDAR points into frames (scans) before processing, \ac{Point-LIO} updates the system's state with each individual \ac{LiDAR} point measurement as it arrives. 
-                    This point-wise solution allows for extremely high-frequency odometry output that typically range from 4 to 8 kHz.
+                    This point-wise solution allows for extremely high-frequency odometry output that typically ranges from 4 to 8 kHz.
                 \item \textbf{Motion Distortion Removal: } \\ 
                     By processing points at their true sampling times, \ac{Point-LIO} fundamentally eliminates the in-frame motion distortion that often affects frame-based systems, especially during fast movements.
                 \item \textbf{IMU Modeling:} \\
@@ -138,11 +138,11 @@
             % The resulting map is represented as a voxel grid, which is then used by the \ac{RBL} algorithm for navigation planning.
 
             Initially, an approach involving surface reconstruction from this voxel data was investigated. 
-            This involved estimating surface normals from the point cloud combined with Greedy Projection Triangulation (GP3) method from the PCL library to generate polygonal mesh approximating the environment's surface.
-            While this method could produce relatively accurate surface representation, it turned out to be computationally expensive and too slow for real-time execution on the \ac{UAV}'s onboard computer.
+            This involved estimating surface normals from the point cloud combined with the Greedy Projection Triangulation (GP3) method from the PCL library to generate a polygonal mesh approximating the environment's surface.
+            While this method could produce a relatively accurate surface representation, it turned out to be computationally expensive and too slow for real-time execution on the \ac{UAV}'s onboard computer.
 
             Due to these limitations, the surface reconstruction approach was abandoned. 
-            Instead a simpler and more efficient method was adopted, which involves directly using the information about the environment stored in voxel grid map.
+            Instead a simpler and more efficient method was adopted, which involves directly using the information about the environment stored in the voxel grid map.
             This direct voxel usage approach is detailed in the subsequent section. 
             Consequently, further development of the mesh-based surface reconstruction method is not recommended for this application.
 
@@ -156,12 +156,12 @@
             \end{figure}
 
         \subsection{Voxel-Based Modification of Cell $\mathcal{A}$}
-            Given that the size of the voxels is known, this infromation can be used to refine the partitioning of cell $\mathcal{A}$ by treating voxels as obstacles.
+            Given that the size of the voxels is known, this information can be used to refine the partitioning of cell $\mathcal{A}$ by treating voxels as obstacles.
             First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
             This can be achieved by considering the scaling parameter $\eta$.
-            A voxel is considered relevant if it lies within radius of $\frac{r_s}{\eta}$ of the agent.
-            For each discrete point in  in the set composing cell $\mathcal{S}$, the nearest voxel is identified using k-d tree algorithm from the PCL library \cite{kd_tree}.
-            Because the found point is the voxel's center, the closest point within that voxel's boundaries is calculated to accurate partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
+            A voxel is considered relevant if it lies within a radius of $\frac{r_s}{\eta}$ of the agent.
+            For each discrete point in the cell $\mathcal{S}$, the nearest voxel is identified using a k-d tree algorithm from the PCL library \cite{kd_tree}.
+            Because the found point is the voxel's center, the closest point within that voxel's boundaries is calculated to accurately partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
 
             Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$ is computed as: 
             \begin{equation}
@@ -172,10 +172,10 @@
                     \text{f}(p_{\mathcal{S},z}, v_{c,z} - \frac{\mathbf{e}}{2}, v_{c,z} + \frac{\mathbf{e}}{2})
                 \end{pmatrix}\text{,}
             \end{equation}
-            where function f(x, a, b) constrains the value x to the range [a, b].
+            where the function f(x, a, b) constrains the value x to the range [a, b].
             This constrains $\mathbf{p_{\mathcal{S}}}$ to the voxel boundaries.
             
-            Considering the point $\mathbf{p}_{\text{closest}}$ as an obstacle, the sensing cell $\mathcal{S}$ is partitioned to form cell $\mathcal{A}$ using the same procedure as \refeq{eqn:voronoi_cell_account_encum} - considering the closest point as another agent basically - encumbrance of the obstacle is not needed, becuase the closest point has been already found.
+            Considering the point $\mathbf{p}_{\text{closest}}$ as an obstacle, the sensing cell $\mathcal{S}$ is partitioned to form cell $\mathcal{A}$ using the same procedure as \refeq{eqn:voronoi_cell_account_encum} (considering the closest point as another agent) encumbrance of the obstacle is not needed, because the closest point has been already found.
             The sensing cell $\mathcal{S}$ is partitioned to form the operational cell $\mathcal{A}$ by treating $\mathbf{p}_{\text{closest}}$ (the nearest point on an obstacle) as an agent and applying the procedure from Equation \eqref{eqn:voronoi_cell_account_encum}, the obstacle's full encumbrance is not required for this step because $\mathbf{p}_{\text{closest}} = \tilde{\mathbf{p}}_{j}$ provides the relevant point for partitioning $\mathcal{A}$, therefore $\delta_j = 0$.
             % This partition involves excluding any point $\mathbf{p_{\mathcal{S}}}$ from  $\mathcal{S}$ if its position relative to the agent $\mathbf{p}_i$ and the obstacle point $\mathbf{p}_{\text{closest}}$ meet condition $\mathcal{A}$ if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
 
@@ -185,12 +185,12 @@
 
     \section{Implementation and Integration on UAV}
     \label{sec:implementation_integration}
-        \subsection{Challanges in Integration}
+        \subsection{Challenges in Integration}
             The algorithm's performance is influenced by the limitations of the \ac{LiDAR} sensor used for environmental sensing. 
             While the algorithm works optimally with a full 360° horizontal and 180° vertical \ac{FOV}, which would require multiple sensors, the experiments used a single Livox Mid 360 \ac{LiDAR} \cite{livox_mid360}. 
             This \ac{LiDAR} provides a 360° horizontal \ac{FOV} and only a 59° vertical \ac{FOV}, resulting in a sensing blind spot.
 
-            To solve this limitation, several modification were implemented. 
+            To solve this limitation, several modifications were implemented. 
             The \ac{LiDAR} was mounted at an angle $\gamma$, as shown in Figure \reffig{fig:uavs}, to enhance ground sensing and increase forward visibility.
 
             \begin{figure}[htbp]
@@ -207,15 +207,15 @@
             \end{figure}
 
             In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account for the \ac{LiDAR}'s limited \ac{FOV}.
-            The algorithm uses map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
-            To ensure safety, the \ac{UAV} should only move within their visible \ac{FOV}. 
+            The algorithm uses the map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
+            To ensure safety, the \ac{UAV} should only move within its visible \ac{FOV}. 
             However, the map information from areas outside the current \ac{FOV} can still be valuable. 
 
-            Therefore, the following constraint is intorduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathcal{A}}$ and moves towards the centroid only when the centroid is positioned within a $\pm \frac{\pi}{4}$ rad angular range from the direction the \ac{LiDAR} is tilted towards (the \ac{UAV}'s x-axis).
+            Therefore, the following constraint is introduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathcal{A}}$ and moves towards the centroid only when the centroid is positioned within a $\pm \frac{\pi}{4}$ rad angular range from the direction the \ac{LiDAR} is tilted towards (the \ac{UAV}'s x-axis).
             This $\frac{\pi}{2}$ rad forward sector for movement is determined by the \ac{UAV}'s physical structure, specifically to prevent the \ac{UAV} from moving into areas where mounting rods for GPS obstruct active sensing.
 
             To integrate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
-            Let $\mathbf{e}_z$ be unit vector alog the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
+            Let $\mathbf{e}_z$ be a unit vector along the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
             The normal vectors, $\mathbf{n}_1$ and $\mathbf{n}_2$ defining two planes are given by:
             \begin{equation}
                 \mathbf{n}_1 = R_{rpy} \cdot R_{y}(\gamma) \cdot \mathbf{e}_z    
@@ -223,14 +223,14 @@
             \begin{equation}
                 \mathbf{n}_2 = R_{rpy} \cdot R_{y}(\gamma - \alpha) \cdot \mathbf{e}_z  \text{,}
             \end{equation}
-            where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the the mounting angle of the \ac{LiDAR}.
+            where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the mounting angle of the \ac{LiDAR}.
 
             Cell $\mathcal{S}$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
 
             \begin{equation}
                 \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}_1 \cdot (\mathbf{q} - \mathbf{p}_{L}) \geq 0 \land \mathbf{n}_2 \cdot (\mathbf{q} - \mathbf{p}_{L}) \leq 0 \}\text{,}
             \end{equation}
-            where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}$ and $\mathbf{p}_{L}$ is the exact position of the LiDAR sensor.
+            where $\mathcal{S}_i'$ is the modified cell $\mathcal{S}_i$ and $\mathbf{p}_{L}$ is the exact position of the LiDAR sensor.
 
             This modification effectively restricts the points considered in the calculation of the centroid to only those within the \ac{LiDAR}'s \ac{FOV}.
 
@@ -240,7 +240,7 @@
 
             If the centroid computed from cell $\mathcal{A}_i$, $\mathbf{c}_{\mathcal{A}_i}$, is within the cell $\mathcal{A}_i'$, the \ac{UAV} is commanded to move towards $\mathbf{c}_{\mathcal{A}_i}$ while simultaneously rotating its yaw towards it.
             However, if $\mathbf{c}_{\mathcal{A}_i}$ lies outside cell $\mathcal{A}_i'$, it is projected onto the closest point on the boundary of cell $\mathcal{A}_i'$.
-            As the \ac{UAV} only moves if the centroid is within a certain angle in front of it, this projection onto the boundary of $\mathcal{A}_i'$ ensures that the \ac{UAV} primarily rotates towards the centroid until the centorid is within an angle in front of the \ac{UAV}.
+            As the \ac{UAV} only moves if the centroid is within a certain angle in front of it, this projection onto the boundary of $\mathcal{A}_i'$ ensures that the \ac{UAV} primarily rotates towards the centroid until the centroid is within an angle in front of the \ac{UAV}.
             This control logic is formally defined as follows:
             \begin{equation}
                 \begin{cases}
@@ -291,7 +291,7 @@
             Note that the right-hand rule and z rule, described in the previous chapter, are not required for effective coordination in this static forest environment.
             Also, the \ac{Point-LIO} estimator and Bonxai mapping were not simulated.
 
-            The specific values of the parameters used in the experiments are summarized in following table \ref{tab:rbl_forest_simulation_parameters}:
+            The specific values of the parameters used in the experiments are summarized in the following table \ref{tab:rbl_forest_simulation_parameters}:
 
             % \begin{table}[H]
             %     \centering
@@ -352,7 +352,7 @@
 
         \subsection{Performance in Simulated Environments}
             The simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
-            The \ac{UAV} demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining efficient trajectory without unnecessary detours.
+            The \ac{UAV} demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining an efficient trajectory without unnecessary detours.
             Convergence towards the designated goal was consistently achieved in a stable manner.
 
             \begin{table}[H]
@@ -380,12 +380,13 @@
                 \item \textbf{Location: } \\
                     The forest site for initial real-world experiments was chosen for its relatively open characteristics, allowing for straightforward system validation. 
                     Subsequent flight tests were then conducted in more challenging and densely obstructed environments.
-                    To increase the navigational challenge and better test the obstacle avoidance capabilities, additional branches were placed near trees within the flight area after a few successfull flights. 
+                    To increase the navigational challenge and better test the obstacle avoidance capabilities, additional branches were placed near trees within the flight area after a few successful flights. 
                     % The point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
                 \item \textbf{UAV Platform: } \\
-                    A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment X500. 
-                    It was equipped with a primarily with LiDAR mounted on top for environmental perception and state estimation.
-                    While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and barometer were present on the platform, but they were not used.
+                    % A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment X500. 
+                    A custom-built multirotor \ac{UAV} from the \ac{MRS} group, the X500, was used for these experiments.
+                    It was equipped with LiDAR mounted on top for environmental perception and state estimation.
+                    While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and barometer were present on the platform, they were not used.
                 % \item \textbf{Experimental Procedure: } \\
                 %     Each experimental run followed a defined procedure. 
                 %     First, the necessary software components were launched within a tmux session on the ground. 
@@ -421,7 +422,7 @@
 
         
         \subsection{Performance in Real-World Experiment}
-            For the real world experiment I picked 2 flights to describe and one fail flight. 
+            For the real-world experiment I picked 2 flights to describe and one fail flight. 
             For these flights the point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
             For both flights a video has been created to show the performance \href{https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler}{aggressive flight} \cite{aggressive_flight}, \href{https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler}{conservative flight}\cite{conservative_flight}.
             
@@ -430,7 +431,7 @@
                 \includegraphics[width=0.48\textwidth]{./fig/photos/pic1.png}
                 \includegraphics[width=0.48\textwidth]{./fig/photos/pic2.png}
                 \caption{
-                    The \ac{UAV} navigating in a forest during experiment. 
+                    The \ac{UAV} navigating in a forest during an experiment. 
                 }
                 \label{fig:real_wrld_pics}
             \end{figure}
@@ -486,22 +487,22 @@
             \subsection{Performance and Limitations}
                 A primary limitation observed during real-world testing originated from the environmental mapping component, specifically the Bonxai mapping package used.
                 While effective for static elements, the system occasionally struggled with dynamic obstacles, such as moving leaves.
-                These obstacles were sometimes included into the voxel grid map and, due to the map's update policy (configured conservatively for safety), were not always removed immediately even when no longer present. 
+                These obstacles were sometimes included in the voxel grid map and, due to the map's update policy (configured conservatively for safety), were not always removed immediately even when no longer present. 
                 This could lead to situations where the \ac{UAV} perceived itself as blocked (as shown in the failure case video \cite{flight_fail}), requiring the safety pilot to land. 
                 Addressing this mapping behavior is crucial for future testing.
 
             \subsection{Comparison with 2D Baseline}
                 % Direct comparison with other state-of-the-art 3D navigation methods is challenging due to the specific nature of the RBL-based approach. 
-                Meaningful comparison can be done with the original 2D RBL implementation \cite{rbl_paper}. 
+                A meaningful comparison can be made with the original 2D RBL implementation \cite{rbl_paper}. 
                 The key differences lie in the sensing and dimensionality:
                 \begin{itemize}
                     \item The 2D version relied on a 2D \ac{LiDAR} for planar obstacle detection and a separate optical distance measurement sensor to maintain a constant flight altitude. 
                     Remapping obstacles in 2D is often simpler.
-                    \item 3D implementation utilizes a 3D \ac{LiDAR} for perception in three dimensions and must actively manage altitude based on the perceived environment, treating the ground itself as an obstacle.
+                    \item The 3D implementation utilizes a 3D \ac{LiDAR} for perception in three dimensions and must actively manage altitude based on the perceived environment, treating the ground itself as an obstacle.
                 \end{itemize}
                 A notable behavior observed in the 3D tests was the \ac{UAV}'s tendency to initially increase altitude after takeoff, effectively moving away from the ground obstacle, before potentially descending again as it got closer to the goal. 
                 This behavior highlights the algorithm's capability to manage its vertical position based on the 3D environment.
-                Regarding computational efficiency, while the 3D \ac{RBL} algorithm inherently involves greater complexity than its 2D counterpart (needing more points for 3D cell representation and more computational power for their partitioning) it nonetheless demonstrated great performance with manageable efficiency throughout the simulations and real world flights.
+                Regarding computational efficiency, while the 3D \ac{RBL} algorithm inherently involves greater complexity than its 2D counterpart (needing more points for 3D cell representation and more computational power for their partitioning), it nonetheless demonstrated manageable efficiency throughout the simulations and real-world flights.
                 Illustrative examples of successful flights showcasing different parameter settings (\href{https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler}{aggressive} vs. \href{https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler}{conservative}) are provided in \cite{aggressive_flight} and \cite{conservative_flight}.
 
             \subsection{Future Work}
@@ -515,7 +516,7 @@
                     Future work could include developing a higher-level path replanner that leverages the collected map to navigate agents around crowded areas, thereby supplementing the \ac{RBL} algorithm's local collision avoidance and enhancing overall efficiency.
                     \item \textbf{Map Update Logic: }\\
                     Investigating alternative mapping packages or implementing mechanisms like voxel decay instead of mapping (where unoccupied voxels gradually fade if not persistently observed) into the existing framework. 
-                    While probabilistic mapping should ideally handle this, the developmental stage of the Bonxai package currently limit this capability.
+                    While probabilistic mapping should ideally handle this, the developmental stage of the Bonxai package currently limits this capability.
                 \end{itemize}
                 Resolving these mapping challenges, particularly the robust handling of dynamic elements, is a prerequisite for advancing to more complex multi-agent experiments utilizing only onboard lidar sensing.
     
@@ -525,14 +526,14 @@
         The primary objective was to implement \ac{RBL} principles with real-time perception, state estimation (\ac{Point-LIO}), and mapping (Bonxai) to achieve reliable point-to-point navigation.
 
         Key technical contributions included adapting the \ac{RBL} algorithm's cell partitioning to directly utilize voxelized map data created from processed \ac{LiDAR} point clouds. 
-        Modifications were also introduced to effectively handle the practical limitations of a single \ac{LiDAR} sensor with a restricted vertical field of view, ensuring safe convergence by constraining movement based on actively sensed area while still leveraging map information. 
+        Modifications were also introduced to effectively handle the practical limitations of a single \ac{LiDAR} sensor with a restricted vertical field of view, ensuring safe convergence by constraining movement based on the actively sensed area while still leveraging map information. 
         An alternative approach using surface reconstruction via mesh generation was investigated but considered unsuitable due to computational complexity on the \ac{UAV} onboard computer.
 
-        The proposed solution effectiveness was demonstrated through both simulation and real-world experiments conducted in a forest. 
+        The proposed solution's effectiveness was demonstrated through both simulation and real-world experiments conducted in a forest. 
         The \ac{UAV} successfully navigated between designated start and goal points, avoiding static obstacles like trees and adapting its altitude based on the \ac{LiDAR}'s perception. 
 
         Despite the overall success, the experiments identified a key limitation related to the Bonxai mapping package's handling of dynamic environmental elements, such as moving leaves, which occasionally led to navigation deadlocks. 
-        This emphasises the importance of robust mapping with dynamic obstacles.
+        This emphasizes the importance of robust mapping with dynamic obstacles.
 
         In conclusion, this chapter successfully demonstrated the practical application and feasibility of using a 3D \ac{RBL} algorithm integrated with \ac{LiDAR} sensing for autonomous \ac{UAV} navigation in a challenging forest setting. 
         This capability can be observed in these videos \cite{aggressive_flight}, \cite{conservative_flight}.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  20 MAY 2025 22:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2025.2.25)  21 MAY 2025 00:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1763,34 +1763,34 @@ File: ./fig/rviz/simulation_forest.png Graphic file (type png)
 Package pdftex.def Info: ./fig/rviz/simulation_forest.png  used on input line 370.
 (pdftex.def)             Requested size: 213.05243pt x 213.03923pt.
  [26 <./fig/rviz/simulation_forest.png>]
-<./fig/rviz/deadlock_moment_mapping_gray.png, id=911, 2558.55875pt x 1440.38126pt>
+<./fig/rviz/deadlock_moment_mapping_gray.png, id=912, 2558.55875pt x 1440.38126pt>
 File: ./fig/rviz/deadlock_moment_mapping_gray.png Graphic file (type png)
 <use ./fig/rviz/deadlock_moment_mapping_gray.png>
-Package pdftex.def Info: ./fig/rviz/deadlock_moment_mapping_gray.png  used on input line 415.
+Package pdftex.def Info: ./fig/rviz/deadlock_moment_mapping_gray.png  used on input line 416.
 (pdftex.def)             Requested size: 213.05243pt x 119.93623pt.
-<./fig/photos/pic1.png, id=919, 1223.57124pt x 1223.57124pt>
+<./fig/photos/pic1.png, id=920, 1223.57124pt x 1223.57124pt>
 File: ./fig/photos/pic1.png Graphic file (type png)
 <use ./fig/photos/pic1.png>
-Package pdftex.def Info: ./fig/photos/pic1.png  used on input line 430.
+Package pdftex.def Info: ./fig/photos/pic1.png  used on input line 431.
 (pdftex.def)             Requested size: 213.05243pt x 213.0453pt.
-<./fig/photos/pic2.png, id=920, 1118.1775pt x 1118.1775pt>
+<./fig/photos/pic2.png, id=921, 1118.1775pt x 1118.1775pt>
 File: ./fig/photos/pic2.png Graphic file (type png)
 <use ./fig/photos/pic2.png>
-Package pdftex.def Info: ./fig/photos/pic2.png  used on input line 431.
+Package pdftex.def Info: ./fig/photos/pic2.png  used on input line 432.
 (pdftex.def)             Requested size: 213.05243pt x 213.03604pt.
 
-Underfull \vbox (badness 1546) has occurred while \output is active []
+Underfull \vbox (badness 4518) has occurred while \output is active []
 
  [27 <./fig/rviz/deadlock_moment_mapping_gray.png> <./fig/photos/pic1.png> <./fig/photos/pic2.png>]
-<./fig/rviz/flight_484.png, id=934, 1269.74374pt x 1269.74374pt>
+<./fig/rviz/flight_484.png, id=935, 1269.74374pt x 1269.74374pt>
 File: ./fig/rviz/flight_484.png Graphic file (type png)
 <use ./fig/rviz/flight_484.png>
-Package pdftex.def Info: ./fig/rviz/flight_484.png  used on input line 472.
+Package pdftex.def Info: ./fig/rviz/flight_484.png  used on input line 473.
 (pdftex.def)             Requested size: 213.05243pt x 213.04425pt.
-<./fig/rviz/flight_486.png, id=935, 1258.7025pt x 1259.70625pt>
+<./fig/rviz/flight_486.png, id=936, 1258.7025pt x 1259.70625pt>
 File: ./fig/rviz/flight_486.png Graphic file (type png)
 <use ./fig/rviz/flight_486.png>
-Package pdftex.def Info: ./fig/rviz/flight_486.png  used on input line 475.
+Package pdftex.def Info: ./fig/rviz/flight_486.png  used on input line 476.
 (pdftex.def)             Requested size: 213.05243pt x 213.20537pt.
 
 Underfull \vbox (badness 2334) has occurred while \output is active []
@@ -1815,12 +1815,12 @@ LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
 
 ] [34] (/home/michal/dev/bachelor_thesis/src/appendix_a.tex [35]
 Appendix A.
-<./fig/plots/circle_2d_top_down.png, id=1131, 542.025pt x 498.9039pt>
+<./fig/plots/circle_2d_top_down.png, id=1132, 542.025pt x 498.9039pt>
 File: ./fig/plots/circle_2d_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_2d_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_2d_top_down.png  used on input line 68.
 (pdftex.def)             Requested size: 213.05128pt x 213.05525pt.
-<./fig/plots/circle_2d_side.png, id=1132, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_2d_side.png, id=1133, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_2d_side.png Graphic file (type png)
 <use ./fig/plots/circle_2d_side.png>
 Package pdftex.def Info: ./fig/plots/circle_2d_side.png  used on input line 73.
@@ -1836,12 +1836,12 @@ Underfull \vbox (badness 5667) has occurred while \output is active []
  [36
 
 ]
-<./fig/plots/circle_3d_top_down.png, id=1138, 543.2295pt x 498.9039pt>
+<./fig/plots/circle_3d_top_down.png, id=1139, 543.2295pt x 498.9039pt>
 File: ./fig/plots/circle_3d_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_3d_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_top_down.png  used on input line 84.
 (pdftex.def)             Requested size: 213.05226pt x 213.05525pt.
-<./fig/plots/circle_3d_side.png, id=1139, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_3d_side.png, id=1140, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_3d_side.png Graphic file (type png)
 <use ./fig/plots/circle_3d_side.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_side.png  used on input line 89.
@@ -1851,12 +1851,12 @@ Overfull \hbox (4.13966pt too wide) in paragraph at lines 84--92
  [][][][] 
  []
 
-<./fig/plots/circle_3d_z_clip_top_down.png, id=1140, 543.2295pt x 498.9039pt>
+<./fig/plots/circle_3d_z_clip_top_down.png, id=1141, 543.2295pt x 498.9039pt>
 File: ./fig/plots/circle_3d_z_clip_top_down.png Graphic file (type png)
 <use ./fig/plots/circle_3d_z_clip_top_down.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_z_clip_top_down.png  used on input line 100.
 (pdftex.def)             Requested size: 213.05226pt x 213.05525pt.
-<./fig/plots/circle_3d_z_clip_side.png, id=1141, 571.4148pt x 287.3937pt>
+<./fig/plots/circle_3d_z_clip_side.png, id=1142, 571.4148pt x 287.3937pt>
 File: ./fig/plots/circle_3d_z_clip_side.png Graphic file (type png)
 <use ./fig/plots/circle_3d_z_clip_side.png>
 Package pdftex.def Info: ./fig/plots/circle_3d_z_clip_side.png  used on input line 105.
@@ -1883,12 +1883,12 @@ Overfull \hbox (4.13966pt too wide) in paragraph at lines 116--124
  [][][][] 
  []
 
-<./fig/plots/sphere_3d_top_down.png, id=1157, 539.3751pt x 498.9039pt>
+<./fig/plots/sphere_3d_top_down.png, id=1158, 539.3751pt x 498.9039pt>
 File: ./fig/plots/sphere_3d_top_down.png Graphic file (type png)
 <use ./fig/plots/sphere_3d_top_down.png>
 Package pdftex.def Info: ./fig/plots/sphere_3d_top_down.png  used on input line 132.
 (pdftex.def)             Requested size: 213.05495pt x 213.05525pt.
-<./fig/plots/sphere_3d_side.png, id=1158, 489.9906pt x 498.663pt>
+<./fig/plots/sphere_3d_side.png, id=1159, 489.9906pt x 498.663pt>
 File: ./fig/plots/sphere_3d_side.png Graphic file (type png)
 <use ./fig/plots/sphere_3d_side.png>
 Package pdftex.def Info: ./fig/plots/sphere_3d_side.png  used on input line 135.
@@ -1920,16 +1920,16 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  51437 strings out of 482295
  1165134 string characters out of 5940336
- 2027361 words of memory out of 5000000
+ 2027362 words of memory out of 5000000
  65257 multiletter control sequences out of 15000+600000
  553642 words of font info for 106 fonts, out of 8000000 for 9000
  473 hyphenation exceptions out of 8191
  67i,19n,113p,916b,3093s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc} </home/michal/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on /home/michal/dev/bachelor_thesis/main.pdf (47 pages, 20695776 bytes).
+Output written on /home/michal/dev/bachelor_thesis/main.pdf (47 pages, 20695732 bytes).
 PDF statistics:
- 1315 PDF objects out of 1440 (max. 8388607)
- 1124 compressed objects within 12 object streams
+ 1316 PDF objects out of 1440 (max. 8388607)
+ 1125 compressed objects within 12 object streams
  255 named destinations out of 1000 (max. 500000)
  460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

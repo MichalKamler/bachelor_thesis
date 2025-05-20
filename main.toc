@@ -40,7 +40,7 @@
 \contentsline {subsection}{\numberline {3.2.5}Bonxai Mapping}{21}{subsection.3.2.5}%
 \contentsline {subsection}{\numberline {3.2.6}Voxel-Based Modification of Cell $\mathcal {A}$}{22}{subsection.3.2.6}%
 \contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{23}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Challanges in Integration}{23}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.1}Challenges in Integration}{23}{subsection.3.3.1}%
 \contentsline {section}{\numberline {3.4}Experimental Results}{25}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{25}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{26}{subsection.3.4.2}%
