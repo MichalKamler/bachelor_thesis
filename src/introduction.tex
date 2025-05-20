@@ -1,47 +1,50 @@
 %!TEX root = ../main.tex
 
 \chapter{Introduction\label{chap:introduction}}
-The field of robotics has witnessed transformative advancements in recent decades, with \ac{UAV}s emerging as particularly versatile platforms. 
+The field of robotics has witnessed transformative advancements in recent decades, with \ac{UAVs} emerging as particularly versatile platforms. 
 Their applications are rapidly expanding beyond traditional open-sky operations (agricultural surveying \cite{agricultural_survey}, powerline inspection \cite{powerline_inspection}, photogrammetry \cite{photogrammetry}) into increasingly complex scenarios, underscoring a significant trend towards autonomy. 
 This growing relevance is highlighted by initiatives ranging from commercial use cases, such as Amazon's exploration of \ac{UAV}s for package delivery and return services \cite{InsiderIntelligence_DroneDelivery}, to pioneering scientific missions like 
   the Ingenuity helicopter's collaboration with the Perseverance rover on Mars \cite{NASA_Ingenuity}, which demonstrated the potential of aerial robotic support in extraterrestrial exploration.
 
 However, the widespread and effective deployment of \ac{UAV}s, particularly in coordinated multi-agent systems and challenging environments, presents substantial research challenges. 
-One critical area is multi-robot coordination, which require robust methods for agents to perceive and react to each other efficiently. 
-Developing strategies that minimize dependance on explicit communication is important for ensuring scalability in decentralized swarms. 
+One critical area is multi-robot coordination, which requires robust methods for agents to perceive and react to each other efficiently. 
+While distributed swarms can achieve scalability even with explicit communication, for instance, through the implementation of ad-hoc networks, developing strategies that minimize dependence on such communication is important. 
+This is because communication channels are often prone to unreliability, including delays, failures, and packet losses, which can decrease performance.
 Simultaneously, autonomous navigation in complex, unstructured environments, often characterized by the absence or unreliability of \ac{GNSS} signals, remains a significant barrier.
 
 Addressing these navigational challenges often involves advanced perception systems. 
-\ac{LiDAR} technology, for instance, offers distinct advantages in providing accurate and fast spatial data compared to alternatives like depth cameras or computationally expensive neural network-based depth estimation from monocular images. 
-While the precise real-time state estimation of the \ac{UAV} within such \ac{GNSS}-denied environments is a complex problem in itself (often addressed by dedicated \ac{SLAM} algorithms, which are utilized as existing tools in this work rather than being a primary research focus), the ability to perceive and navigate through these cluttered spaces is main objective. 
-This thesis explores these overlapping challenges by first investigating rule-based approaches for \ac{UAV} coordination in defined multi-agent scenarios, and subsequently focusing on single \ac{UAV} navigation in complex environments leveraging perceived information from onboard sensors.
-
-
+\ac{LiDAR} technology offers distinct advantages in providing accurate and fast spatial data compared to alternatives like depth cameras or computationally expensive neural network-based depth estimation from monocular images. 
+While the precise real-time state estimation of the \ac{UAV} within such \ac{GNSS}-denied environments is a complex problem in itself (often addressed by dedicated \ac{SLAM} algorithms, which are utilized as existing tools in this work rather than being a primary research focus), the ability to perceive and navigate through these cluttered spaces is the main objective. 
+% This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in defined multi-agent scenarios, and subsequently focusing on single \ac{UAV} navigation in complex environments leveraging perceived information from onboard sensors.
+This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in simulated multi-agent scenarios with predefined configurations, such as formations involving multiple \ac{UAV}s crossing in a circular or spherical pattern. 
+Subsequently, it focuses on single \ac{UAV} navigation in complex environments, such as forests, using perceived information from onboard sensors.
 
 \section{Related Works}
 
-  This research primarily addresses multi-agent coordination and autonomous UAV navigation in complex environments. This section briefly reviews key literature to contextualize the thesis.
+  This research primarily addresses multi-agent coordination and autonomous UAV navigation in complex environments. 
+  This section briefly reviews key literature to contextualize the thesis.
   \subsection{Foundational Work}
     This thesis directly extends the \ac{RBL} algorithm presented in \cite{rbl_paper}. 
-    While the original work showed promise for decentralized multi-agent navigation, it was limited to two-dimensional (2D) scenarios. 
+    While the original work showed promise for distributed multi-agent navigation, it was limited to two-dimensional (2D) scenarios. 
     This thesis addresses the need to adapt \ac{RBL} for three-dimensional (3D) \ac{UAV} operations, which involve vertical movement and spatial complexity.
 
   \subsection{Multi-Agent Coordination and Navigation Approaches}
     Enabling multiple robots to navigate and coordinate effectively is a significant challenge that has led to a variety of research directions.
     A fundamental distinction lies in the system's architecture: centralized approaches rely on a global controller for optimal, system-wide decisions, often suitable for structured settings like warehouses \cite{warehouse_intro}, but face scalability and communication bottlenecks.
-    In contrast, distributed or decentralized methods allow individual agents to make decisions based on local information.
-    This approach generally improves scalability, but do not provide optimal solution for each agents. 
-    Distributed methods can be further categorized into tree main types: 
+    In contrast, distributed or distributed methods allow individual agents to make decisions based on local information.
+    This approach generally improves scalability, but do not provide an optimal solution for each agent. 
+    Distributed methods can be further categorized into three main types: 
     \begin{itemize}
       \item \textbf{Reactive Methods: } \\
-        These methods make robots react immediately to what their sensors see in their current local area. 
-        They are generally fast and simple, but because they don't look far ahead, robots using them can sometimes get stuck or into repetitive loops (deadlocks), unable to reach their goals.
+        These methods \cite{reactive1, reactive2} make robots react immediately to what their sensors see in their current local area. 
+        % They are generally fast and simple, but because they don't look far ahead, robots using them can sometimes get stuck or into repetitive loops (deadlocks), unable to reach their goals.
+        They are generally fast and simple, but because they don't look far ahead, robots using them can sometimes get stuck in deadlocks (e.g., becoming completely immobilized) or trapped in livelocks (e.g., engaging in repetitive, non-progressive loops), preventing them from reaching their goals.
       \item \textbf{Predictive Planning Methods: } \\
-        These techniques try to make robots smarter by using information about nearby robots or the environment to plan better routes. 
+        These techniques \cite{predictive1, predictive2} aim to make robots smarter by using information about nearby robots or the environment to plan better routes. 
         This can lead to improved performance and help avoid getting stuck. 
-        However, these methods often need more computer power and sometimes can rely heavily on communication between robots.
+        However, these methods often need more computational power and sometimes they need to heavily rely on communication between robots.
       \item \textbf{Learning-Based Methods: } \\
-        These newer approaches use techniques like Reinforcement Learning to teach robots how to navigate by learning from experience or data. 
+        These newer approaches \cite{rl1, rl2} use techniques like Reinforcement Learning to teach robots how to navigate by learning from experience or data. 
         They can be very good at handling complex situations. 
         However, it's often hard to guarantee they will always be safe or reach their goal, and they might not work well in situations very different from what they were trained on.
     \end{itemize}
@@ -50,16 +53,16 @@ This thesis explores these overlapping challenges by first investigating rule-ba
 
 \section{Problem Statement}
   The increasing deployment of \ac{UAV}s in diverse and complex scenarios requires robust autonomous navigation and coordination capabilities. 
-  While foundational algorithms like the \ac{RBL} algorithm, as presented in \cite{rbl_paper}, have shown promise for decentralized multi-agent navigation, their application has primarily been explored in 2D planar environments. 
+  While foundational algorithms like the \ac{RBL} algorithm, as presented in \cite{rbl_paper}, have shown promise for distributed multi-agent navigation, their application has primarily been explored in 2D planar environments. 
   This thesis identifies and addresses two key problem areas emerging from these limitations and the demands of real-world applications:
   \begin{enumerate}
     \item \textbf{Limitations of 2D Algorithms for 3D Multi-Agent Coordination: } \\
       The direct application of 2D coordination strategies to three-dimensional space can be incomplete. 
       Adding the vertical dimension makes the navigation problem harder, as it introduces more agent interactions and demands new rules for efficient goal convergence.
-      Existing 2D algorithm lack the methods to effectively control vertical exploration and coordination.
+      Existing 2D algorithm lacks the methods to effectively control vertical exploration and coordination.
       \begin{itemize}
         \item \textbf{Problem 1: } \\
-        Given N \ac{UAV}s operating in a shared 3D environment, there is a need to develop a decentralized coordination algorithm that extends planar navigation principles to efficiently steer each agent from its initial position to a goal region in three dimensions, while ensuring safety and operating without communication. 
+        Given $N$ \ac{UAV}s operating in a shared 3D environment, there is a need to develop a distributed coordination algorithm that extends planar navigation principles to efficiently steer each agent from its initial position to a goal region in three dimensions, while ensuring safety and operating without communication. 
         This involves the challenge of designing rules that effectively manage the vertical dimension without compromising the scalability and deadlock-avoidance properties of the foundational algorithm.
       \end{itemize}
     \item \textbf{Transitioning Navigation Algorithms to Complex, GNSS-Denied Real-World Environments: } \\
@@ -68,17 +71,21 @@ This thesis explores these overlapping challenges by first investigating rule-ba
       \begin{itemize}
         \item \textbf{Problem 2: } \\
         Given a single \ac{UAV} equipped with sensors like \ac{LiDAR}, operating in a cluttered, GNSS-denied environment (e.g., a forest), the problem is to enable reliable autonomous point-to-point navigation. 
-        This requires not only a suitable 3D navigation algorithm (such as an extension of \ac{RBL}) but also its effective integration with real-time sensor data processing for obstacle detection, and accurate state estimation, all while handling the practical limitations of onboard sensor fields of view.
+        This requires not only a suitable 3D navigation algorithm (such as an extension of \ac{RBL}) but also its effective integration with real-time sensor data processing for obstacle detection and accurate state estimation, all while addressing additional challenge of navigating with anisotropic onboard sensors and their inherent limitations (e.g., restricted fields of view).
       \end{itemize}
   \end{enumerate}
 
 \section{Contributions}
-  This thesis presents several key contributions to the fieal of autonomous \ac{UAV} navigation and multi-agent coordination.
+  This thesis presents four key contributions to the field of autonomous \ac{UAV} navigation and multi-agent coordination.
   \begin{itemize}
-    \item Extension of the \ac{RBL} Algorithm to Three Dimensions.
-    \item Development of New Rules for 3D \ac{RBL} Coordination and Efficiency.
-    \item Practical Integration for Real-World \ac{UAV} Navigation with Respect to Sensor Limitations.
-    \item Experimental Validation in Simulated and Real-World Forest Environment.
+    \item Extension of the \ac{RBL} algorithm to three dimensions, development of new rules to enhance multi-\ac{UAV} coordination and efficiency in 3D space.
+    % \item Extension of the \ac{RBL} algorithm to three dimensions.
+    % \item Development of new rules for 3D \ac{RBL} coordination and efficiency.
+    % \item Practical integration for real-world \ac{UAV} navigation with respect to sensor limitations.
+    \item Development and practical integration of navigation strategy that effectively address the challenges posed by anisotropic onboard sensors (e.g., limited \ac{FOV}). 
+    This work advances beyond common isotropic sensing assumptions, often assumed in foundational algorithms like \ac{RBL}, to enable navigation in realistic environments.
+    % \item Experimental validation in simulated and real-world forest environment.
+    \item Experimental validation of the developed algorithm through simulations and real-world trials in challenging forested environments.
   \end{itemize}
 
 \section{Mathematical Notation}
@@ -90,6 +97,8 @@ TODO
   \centering
   \noindent\rule{\textwidth}{0.5pt}
   \begin{tabular}{lll}
+    % 2d, 3d, 
+
     $\mathcal{N}_i$ & set of neighboring agents for the i-th agent\\
 
 

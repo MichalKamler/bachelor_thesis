@@ -7,7 +7,23 @@
 \section*{Abstract}
 \vskip 0.5em
 
-The study of autonomous \acp{UAV} has become a prominent sub-field of mobile robotics.
+Achieving effective multi-agent \ac{UAV} coordination without explicit communication, alongside robust single-agent navigation in complex, \ac{GNSS}-denied environments, presents significant research challenges.
+Therefore, developing robust algorithms capable of handling these demanding conditions is necessary.
+This thesis addresses these challenges through two primary objectives. 
+The first objective is to extend the \ac{RBL} algorithm for multi-agent coordination from two to three dimensions, introducing new rules for enhanced performance. 
+The second objective involves implementing and validating this 3D \ac{RBL} framework for single \ac{UAV} navigation in a real-world forest environment using \ac{LiDAR} sensing.
+
+The 2D \ac{RBL} algorithm was extended to 3D by building upon its foundational concepts and introducing new rules for vertical control. 
+For single-agent forest navigation, this 3D \ac{RBL} was integrated with \ac{LiDAR}-based perception, utilizing Point-LIO for state estimation and a voxel-based mapping approach. 
+The system was evaluated through multi-agent simulations and real-world flight experiments in a forest.
+
+Simulations demonstrated the successful extension of \ac{RBL} to 3D, showing improved multi-agent coordination efficiency, particularly with more agents. 
+Real-world experiments validated the effectiveness of the implemented system for autonomous point-to-point navigation in a forest, though challenges with mapping dynamic environmental elements like leaves were identified as a limitation.
+
+In summary, this thesis validates the modification and real-world use of the \ac{RBL} algorithm for 3D \ac{UAV} point-to-point navigation.
+While the need for enhanced mapping is needed, the results of this study significantly contribute to the development of more independent and adaptable \ac{UAV} systems.
+
+% The study of autonomous \acp{UAV} has become a prominent sub-field of mobile robotics.
 
 \vskip 1em
 

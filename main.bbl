@@ -17,6 +17,32 @@
 \endgroup
 
 \datalist[entry]{ydnt/global//global/global}
+  \entry{Bonxai2025}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FD}{%
+         family={Faconti},
+         familyi={F\bibinitperiod},
+         given={Davide},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {GitHub}%
+    }
+    \strng{namehash}{FD1}
+    \strng{fullhash}{FD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \field{note}{Accessed: 2025-05-20}
+    \field{title}{Bonxai: Fast, hierarchical, sparse Voxel Grid}
+    \verb{url}
+    \verb https://github.com/facontidavide/Bonxai
+    \endverb
+    \field{year}{2025}
+  \endentry
+
   \entry{conservative_flight}{misc}{}
     \name{author}{1}{}{%
       {{hash=KM}{%
@@ -192,6 +218,46 @@
     \field{year}{2024}
   \endentry
 
+  \entry{predictive1}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Yuda},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Guo},
+         familyi={G\bibinitperiod},
+         given={Meng},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Zhongkui},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYGMLZ1}
+    \strng{fullhash}{CYGMLZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2202.06071
+    \endverb
+    \field{title}{Deadlock Resolution and Recursive Feasibility in MPC-based
+  Multi-robot Trajectory Generation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2202.06071
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2024}
+  \endentry
+
   \entry{TRLO_good_mapping}{misc}{}
     \name{author}{4}{}{%
       {{hash=JY}{%
@@ -349,6 +415,39 @@
   \field{howpublished}{\url{https://github.com/ctu-mrs/uvdar_multirobot_simulator}}
     \field{note}{Accessed: 2025-04-24}
     \field{title}{uvdar\_multirobot\_simulator}
+    \field{year}{2024}
+  \endentry
+
+  \entry{reactive1}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZR}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Ruochen},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Siyu},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZRLS1}
+    \strng{fullhash}{ZRLS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{doi}
+    \verb 10.1109/LRA.2024.3358623
+    \endverb
+    \field{pages}{1\bibrangedash 8}
+    \field{title}{MCCA: A Decentralized Method for Collision and Deadlock
+  Avoidance With Nonholonomic Robots}
+    \field{volume}{PP}
+    \field{journaltitle}{IEEE Robotics and Automation Letters}
+    \field{month}{03}
     \field{year}{2024}
   \endentry
 
@@ -750,6 +849,70 @@
     \field{year}{2022}
   \endentry
 
+  \entry{rl1}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=HR}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Ruihua},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Shengduo},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WS}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Shuaijun},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Zeqing},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HQ}{%
+         family={Hao},
+         familyi={H\bibinitperiod},
+         given={Qi},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HRCSWS+1}
+    \strng{fullhash}{HRCSWSZZGRHQPJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2203.10229
+    \endverb
+    \field{title}{Reinforcement Learned Distributed Multi-Robot Navigation with
+  Reciprocal Velocity Obstacle Shaped Rewards}
+    \verb{url}
+    \verb https://arxiv.org/abs/2203.10229
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2022}
+  \endentry
+
   \entry{vision_navigation}{article}{}
     \name{author}{6}{}{%
       {{hash=JR}{%
@@ -1058,6 +1221,98 @@
     \field{year}{2021}
   \endentry
 
+  \entry{predictive2}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=TA}{%
+         family={Thomas},
+         familyi={T\bibinitperiod},
+         given={Antony},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MF}{%
+         family={Mastrogiovanni},
+         familyi={M\bibinitperiod},
+         given={Fulvio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Baglietto},
+         familyi={B\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TAMFBM1}
+    \strng{fullhash}{TAMFBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2104.01659
+    \endverb
+    \field{title}{Probabilistic Collision Constraint for Motion Planning in
+  Dynamic Environments}
+    \verb{url}
+    \verb https://arxiv.org/abs/2104.01659
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2021}
+  \endentry
+
+  \entry{reactive2}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=ZX}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Xin},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Jiangchao},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Hongyu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=XC}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Chao},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GF}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Fei},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZXZJZH+1}
+    \strng{fullhash}{ZXZJZHXCGF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 2011.04183
+    \endverb
+    \field{title}{EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor
+  Swarm System in Cluttered Environments}
+    \verb{url}
+    \verb https://arxiv.org/abs/2011.04183
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2021}
+  \endentry
+
   \entry{Lidar_autonomous_vehicles}{article}{}
     \name{author}{2}{}{%
       {{hash=LY}{%
@@ -1097,6 +1352,52 @@
     \field{volume}{37}
     \field{journaltitle}{IEEE Signal Processing Magazine}
     \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{rl2}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=TQ}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Qingyang},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=FT}{%
+         family={Fan},
+         familyi={F\bibinitperiod},
+         given={Tingxiang},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Manocha},
+         familyi={M\bibinitperiod},
+         given={Dinesh},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TQFTPJ+1}
+    \strng{fullhash}{TQFTPJMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{7}
+    \field{sortinithash}{7}
+    \verb{eprint}
+    \verb 1910.09441
+    \endverb
+    \field{title}{DeepMNavigate: Deep Reinforced Multi-Robot Navigation
+  Unifying Local \& Global Collision Avoidance}
+    \verb{url}
+    \verb https://arxiv.org/abs/1910.09441
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.MA}
     \field{year}{2020}
   \endentry
 

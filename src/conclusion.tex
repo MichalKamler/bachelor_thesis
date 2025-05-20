@@ -6,7 +6,8 @@ This thesis set out to address key challenges in autonomous \ac{UAV} operations.
 The work focused on two primary objectives: first, to extend the established two-dimensional \ac{RBL} algorithm for effective multi-agent coordination in three-dimensional space, introducing new rules to enhance its performance. 
 Secondly validating the practical application of this extended framework for single  \ac{UAV} navigation in a complex, GNSS-denied forest environment using onboard \ac{LiDAR} sensing.
 
-The core contributions of this work began with the successful extension of the \ac{RBL} algorithm to 3D. 
+% The core contributions of this work began with the successful extension of the \ac{RBL} algorithm to 3D. 
+A fundamental core contribution of this work is the successful extension of the \ac{RBL} algorithm to 3D.
 This involved key modifications such as adapting Voronoi cell partitioning for three dimensions, modifying existing rules, and introducing a new elevation rotation angle designed to adjust the agent's vertical destination and improve spatial distribution. 
 Simulations of multi-agent scenarios, including crossing circle and sphere formations, demonstrated that these extensions successfully enabled coordination in three dimensions. 
 Notably, analysis revealed a trend where the performance advantage of the 3D \ac{RBL} approach with these rules, compared to the basic 2D version, increased with the number of agents.
@@ -16,12 +17,13 @@ This involved integrating the algorithm with \ac{LiDAR}-based perception, Point-
 Key technical advancements included adapting the \ac{RBL} cell partitioning to directly utilize voxelized map data and implementing software modifications to effectively handle the practical limitations of a single \ac{LiDAR} sensor with a restricted vertical field of view, ensuring safe movement based on actively sensed areas while still leveraging map information. 
 Real-world experiments in a forest environment successfully demonstrated the  \ac{UAV}'s ability to navigate autonomously between designated start and goal points, avoiding static obstacles like trees and adapting its altitude based on \ac{LiDAR} perception, as shown in the provided flight videos \cite{aggressive_flight}, \cite{conservative_flight}.
 
-The significance of these findings lies in advancing decentralized, rule-based control strategies for \ac{UAV}s operating in three dimensions. 
+The significance of these findings lies in advancing distributed communication-less control strategies for \ac{UAV}s operating in three dimensions. 
 The successful 3D extension of \ac{RBL} offers a scalable approach for multi-agent systems, while the demonstration of \ac{LiDAR}-based navigation in a real forest highlights the potential for autonomous operations in GPS-denied settings. 
 
-However, the research also identified limitations. 
+% However, the research also identified limitations. 
 For the multi-agent 3D \ac{RBL}, while simulations indicated advantages, the degree of improvement was occasionally less noticeable, possibly a result of conservative motion constraints and parameter settings that could be refined through further tuning.
-The algorithm also requires an initial shared frame of reference for certain directional rules to function optimally. 
+% The algorithm also requires an initial shared frame of reference for certain directional rules to function optimally. 
+For optimal performance of certain directional rules, the algorithm needs an initial shared frame of reference, which can be established using common onboard sensors such as a magnetometer.
 In the single-agent forest navigation, the primary challenge encountered was Bonxai mapping package, particularly its handling of dynamic environmental elements like moving leaves, which occasionally led to navigation deadlocks \cite{flight_fail}. 
 This highlights the dependence of the current navigation approach on an accurate map representation.
 
@@ -29,4 +31,4 @@ Future work should therefore focus on improving the system's ability to handle d
 This could involve implementing another mapping algorithm or more sophisticated map update and filtering techniques, or by developing strategies that allow the UAV to react more directly to sensor perceptions of the environment, reducing dependence on map.
 
 In conclusion, this thesis has successfully demonstrated the extension of the \ac{RBL} algorithm to 3D for multi-agent coordination in simulation and its practical application for single \ac{UAV} navigation in a real-world environment using \ac{LiDAR}. 
-While challenges, particularly in perception and mapping in dynamic settings, remain, the presented work provides a valuable contribution and a solid foundation for future advancements in autonomous, rule-based \ac{UAV} navigation and coordination.
+While challenges, particularly in perception and mapping in dynamic settings, remain, the presented work provides a valuable contribution and a solid foundation for future advancements in autonomous \ac{UAV} navigation and coordination.

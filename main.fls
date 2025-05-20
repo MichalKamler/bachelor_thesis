@@ -656,33 +656,25 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmti8.tfm
 INPUT /home/michal/dev/bachelor_thesis/src/rbl.tex
 INPUT /home/michal/dev/bachelor_thesis/src/rbl.tex
+INPUT /home/michal/dev/bachelor_thesis/./fig/photos/cells_example.png
+INPUT ./fig/photos/cells_example.png
+INPUT ./fig/photos/cells_example.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/diagrams/Euclidean_Voronoi_diagram.jpg
 INPUT ./fig/diagrams/Euclidean_Voronoi_diagram.jpg
 INPUT ./fig/diagrams/Euclidean_Voronoi_diagram.jpg
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /home/michal/dev/bachelor_thesis/./fig/diagrams/Euclidian Voronoi diagram 3d.png
 INPUT ./fig/diagrams/Euclidian Voronoi diagram 3d.png
 INPUT ./fig/diagrams/Euclidian Voronoi diagram 3d.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/cs_equal_ca.png
 INPUT ./fig/rviz/cs_equal_ca.png
 INPUT ./fig/rviz/cs_equal_ca.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmss9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy9.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy9.tfm
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/ca_partitioned.png
 INPUT ./fig/rviz/ca_partitioned.png
 INPUT ./fig/rviz/ca_partitioned.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/plots/circle_3d_z_rule_top_down.png
 INPUT ./fig/plots/circle_3d_z_rule_top_down.png
 INPUT ./fig/plots/circle_3d_z_rule_top_down.png
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr9.tfm
 INPUT /home/michal/dev/bachelor_thesis/./fig/plots/circle_3d_z_rule_side.png
 INPUT ./fig/plots/circle_3d_z_rule_side.png
 INPUT ./fig/plots/circle_3d_z_rule_side.png
@@ -704,9 +696,15 @@ INPUT ./fig/rviz/cell_a_sliced_with_planes.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/simulation_forest.png
 INPUT ./fig/rviz/simulation_forest.png
 INPUT ./fig/rviz/simulation_forest.png
-INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/deadlock_moment_mapping.png
-INPUT ./fig/rviz/deadlock_moment_mapping.png
-INPUT ./fig/rviz/deadlock_moment_mapping.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/deadlock_moment_mapping_gray.png
+INPUT ./fig/rviz/deadlock_moment_mapping_gray.png
+INPUT ./fig/rviz/deadlock_moment_mapping_gray.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/photos/pic1.png
+INPUT ./fig/photos/pic1.png
+INPUT ./fig/photos/pic1.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/photos/pic2.png
+INPUT ./fig/photos/pic2.png
+INPUT ./fig/photos/pic2.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/flight_484.png
 INPUT ./fig/rviz/flight_484.png
 INPUT ./fig/rviz/flight_484.png
@@ -777,6 +775,7 @@ OUTPUT /home/michal/dev/bachelor_thesis/main.run.xml
 INPUT /usr/share/texlive/texmf-dist/fonts/enc/dvips/inconsolata/i4-ot1-0.enc
 INPUT /home/michal/.texlive2019/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
@@ -793,7 +792,6 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb
