@@ -635,6 +635,8 @@ INPUT /home/michal/dev/bachelor_thesis/src/prohlaseni.pdf
 INPUT /home/michal/dev/bachelor_thesis/src/prohlaseni.pdf
 INPUT /home/michal/dev/bachelor_thesis/src/abstract_en.tex
 INPUT /home/michal/dev/bachelor_thesis/src/abstract_en.tex
+INPUT /home/michal/dev/bachelor_thesis/src/abstrakt_cz.tex
+INPUT /home/michal/dev/bachelor_thesis/src/abstrakt_cz.tex
 INPUT /home/michal/dev/bachelor_thesis/src/abbreviations.tex
 INPUT /home/michal/dev/bachelor_thesis/src/abbreviations.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
@@ -696,6 +698,12 @@ INPUT ./fig/rviz/cell_a_sliced_with_planes.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/simulation_forest.png
 INPUT ./fig/rviz/simulation_forest.png
 INPUT ./fig/rviz/simulation_forest.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/circular_forest_fail.png
+INPUT ./fig/rviz/circular_forest_fail.png
+INPUT ./fig/rviz/circular_forest_fail.png
+INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/3d_crossing_circle_forest.png
+INPUT ./fig/rviz/3d_crossing_circle_forest.png
+INPUT ./fig/rviz/3d_crossing_circle_forest.png
 INPUT /home/michal/dev/bachelor_thesis/./fig/rviz/deadlock_moment_mapping_gray.png
 INPUT ./fig/rviz/deadlock_moment_mapping_gray.png
 INPUT ./fig/rviz/deadlock_moment_mapping_gray.png
@@ -734,9 +742,9 @@ INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/latex-fonts/lasy7.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/inconsolata/ot1-zi4r-0.tfm
 INPUT /home/michal/dev/bachelor_thesis/src/appendix_a.tex
 INPUT /home/michal/dev/bachelor_thesis/src/appendix_a.tex
 INPUT /home/michal/dev/bachelor_thesis/./fig/plots/circle_2d_top_down.png
@@ -791,8 +799,8 @@ INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb
-INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb
 INPUT /usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb

@@ -218,10 +218,10 @@
             Let $\mathbf{e}_z$ be a unit vector along the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
             The normal vectors, $\mathbf{n}_1$ and $\mathbf{n}_2$ defining two planes are given by:
             \begin{equation}
-                \mathbf{n}_1 = R_{rpy} \cdot R_{y}(\gamma) \cdot \mathbf{e}_z    
+                \mathbf{n}_1 = R_{rpy} R_{y}(\gamma)  \mathbf{e}_z    
             \end{equation}
             \begin{equation}
-                \mathbf{n}_2 = R_{rpy} \cdot R_{y}(\gamma - \alpha) \cdot \mathbf{e}_z  \text{,}
+                \mathbf{n}_2 = R_{rpy} R_{y}(\gamma - \alpha) \mathbf{e}_z  \text{,}
             \end{equation}
             where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the mounting angle of the \ac{LiDAR}.
 
@@ -291,6 +291,8 @@
             Note that the right-hand rule and z rule, described in the previous chapter, are not required for effective coordination in this static forest environment.
             Also, the \ac{Point-LIO} estimator and Bonxai mapping were not simulated.
 
+            A separate simulation was also run to compare the 2D \ac{RBL} algorithm with its 3D extension, using a circle crossing setup in the forest.
+
             The specific values of the parameters used in the experiments are summarized in the following table \ref{tab:rbl_forest_simulation_parameters}:
 
             % \begin{table}[H]
@@ -348,10 +350,10 @@
             \end{table}
             
             The \ac{UAV} dynamics are the same as described in the previous chapter and detailed in Table \ref{tab:uav_constraints}. 
-            Each simulation was run 10 times.            
+            Each simulation was run 10 times with the same forest. 
 
         \subsection{Performance in Simulated Environments}
-            The simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
+            The first simulation results highlight the proposed solution capability in navigating inside dense forest environments. 
             The \ac{UAV} demonstrated effective obstacle avoidance, reacting appropriately to simulated trees while maintaining an efficient trajectory without unnecessary detours.
             Convergence towards the designated goal was consistently achieved in a stable manner.
 
@@ -372,6 +374,33 @@
                     Visualization of simulated forest and the corresponding path of the \ac{UAV}, indicated by a red line.
                 }
                 \label{fig:simulated_forest_path}
+            \end{figure}
+
+
+            Additional simulations directly compared the 2D and extended 3D \ac{RBL} algorithms in the static forest. 
+            These results confirmed that \ac{UAV}s using the 3D \ac{RBL} were capable of consistently reaching the goal by exploring vertical dimensions, navigating above or below tree crowns. 
+            The 2D \ac{RBL}, however, sometimes failed by becoming stuck between these same obstacles.
+            \begin{table}[H]
+                \centering
+                \renewcommand{\arraystretch}{1.2}
+                \begin{tabular}{|c|c|c|c|c|c|}
+                \hline
+                                                    & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \)  &   \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                \ac{RBL} 2D                         & 20.00           & 30.27 $\pm$ 0.12                  & 63.46 $\pm$ 0.74                  &  63.46 $\pm$ 0.74                               &  0.48 $\pm$ 0.01                         \\ \hline
+                \ac{RBL} $\text{3D}_{\text{rule}}$  & 100.00          & 28.40 $\pm$ 10.68                 & 50.90 $\pm$ 33.51                 &  99.86 $\pm$ 16.01                              &  0.54 $\pm$ 0.27                         \\ \hline
+                \end{tabular}
+            \end{table}
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/circular_forest_fail.png}
+                \includegraphics[width=0.48\textwidth]{./fig/rviz/3d_crossing_circle_forest.png}
+                \caption{
+                    Illustrative comparison of 2D and 3D RBL navigation capabilities in a simulated forest environment. 
+                    Left: The 2D algorithm is shown in a deadlock. 
+                    Right: The 3D algorithm demonstrates its ability to utilize vertical space.
+                }
+                \label{fig:forest_crossing_circle}
             \end{figure}
 
         \subsection{Real-World Experiments in a Forest Environment}

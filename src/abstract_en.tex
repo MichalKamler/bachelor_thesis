@@ -7,23 +7,47 @@
 \section*{Abstract}
 \vskip 0.5em
 
-Achieving effective multi-agent \ac{UAV} coordination without explicit communication, alongside robust single-agent navigation in complex, \ac{GNSS}-denied environments, presents significant research challenges.
-Therefore, developing robust algorithms capable of handling these demanding conditions is necessary.
-This thesis addresses these challenges through two primary objectives. 
-The first objective is to extend the \ac{RBL} algorithm for multi-agent coordination from two to three dimensions, introducing new rules for enhanced performance. 
-The second objective involves implementing and validating this 3D \ac{RBL} framework for single \ac{UAV} navigation in a real-world forest environment using \ac{LiDAR} sensing.
+% Achieving effective multi-agent \ac{UAV} coordination without explicit communication, alongside robust single-agent navigation in complex, \ac{GNSS}-denied environments, presents significant research challenges.
+% Therefore, developing robust algorithms capable of handling these demanding conditions is necessary.
+% This thesis addresses these challenges through two primary objectives. 
+% The first objective is to extend the \ac{RBL} algorithm for multi-agent coordination from two to three dimensions, introducing new rules for enhanced performance. 
+% The second objective involves implementing and validating this 3D \ac{RBL} framework for single \ac{UAV} navigation in a real-world forest environment using \ac{LiDAR} sensing.
 
-The 2D \ac{RBL} algorithm was extended to 3D by building upon its foundational concepts and introducing new rules for vertical control. 
-For single-agent forest navigation, this 3D \ac{RBL} was integrated with \ac{LiDAR}-based perception, utilizing Point-LIO for state estimation and a voxel-based mapping approach. 
-The system was evaluated through multi-agent simulations and real-world flight experiments in a forest.
+% The 2D \ac{RBL} algorithm was extended to 3D by building upon its foundational concepts and introducing new rules for vertical control. 
+% For single-agent forest navigation, this 3D \ac{RBL} was integrated with \ac{LiDAR}-based perception, utilizing Point-LIO for state estimation and a voxel-based mapping approach. 
+% The system was evaluated through multi-agent simulations and real-world flight experiments in a forest.
 
-Simulations demonstrated the successful extension of \ac{RBL} to 3D, showing improved multi-agent coordination efficiency, particularly with more agents. 
-Real-world experiments validated the effectiveness of the implemented system for autonomous point-to-point navigation in a forest, though challenges with mapping dynamic environmental elements like leaves were identified as a limitation.
+% Simulations demonstrated the successful extension of \ac{RBL} to 3D, showing improved multi-agent coordination efficiency, particularly with more agents. 
+% Real-world experiments validated the effectiveness of the implemented system for autonomous point-to-point navigation in a forest, though challenges with mapping dynamic environmental elements like leaves were identified as a limitation.
 
-In summary, this thesis validates the modification and real-world use of the \ac{RBL} algorithm for 3D \ac{UAV} point-to-point navigation.
-While the need for enhanced mapping is needed, the results of this study significantly contribute to the development of more independent and adaptable \ac{UAV} systems.
+% In summary, this thesis validates the modification and real-world use of the \ac{RBL} algorithm for 3D \ac{UAV} point-to-point navigation.
+% While the need for enhanced mapping is needed, the results of this study significantly contribute to the development of more independent and adaptable \ac{UAV} systems.
 
 % The study of autonomous \acp{UAV} has become a prominent sub-field of mobile robotics.
+
+
+\ac{UAVs} are increasingly transitioning from open-sky operations to complex, \ac{GNSS}-denied environments, presenting significant challenges for multi-agent coordination and single-agent autonomous navigation. 
+This thesis addresses these issues by first extending the \ac{RBL} algorithm from two to three dimensions for multi-\ac{UAV} communication-free coordination.
+New rules were developed to manage vertical movement and enhance 3D coordination efficiency. 
+Secondly, the thesis investigates the practical application of this 3D \ac{RBL} for single \ac{UAV} navigation in a challenging forest environment, utilizing onboard \ac{LiDAR} sensing.
+
+The methodology involved adapting the core \ac{RBL} for 3D space and integrating it with real-time perception systems. 
+For the single-agent navigation task, this included \ac{LiDAR}-based point cloud processing, state estimation using Point-LIO, and voxel-based environmental mapping with Bonxai. 
+Strategies to minimize limitations from anisotropic sensors, such as restricted \ac{LiDAR} \ac{FOV}, were also developed. 
+The extended 3D \ac{RBL} was evaluated in simulated multi-agent coordination scenarios, while the integrated single-agent system was validated through real-world flight experiments in a forest.
+
+Simulations confirmed the successful 3D extension of the \ac{RBL} algorithm, demonstrating effective multi-agent coordination. 
+Real-world experiments validated the capability of the 3D \ac{RBL}-based system for autonomous point-to-point navigation in a forest. %, as illustrated in accompanying videos \cite{aggressive_flight}, \cite{conservative_flight}. 
+However, limitations were identified, particularly in the mapping system's handling of dynamic environmental elements, which occasionally led to navigation failures.% \cite{flight_fail}.
+
+In conclusion, this thesis demonstrates the successful adaptation and practical application of the \ac{RBL} algorithm for 3D \ac{UAV} operations. 
+It contributes a 3D extension for multi-agent coordination and a validated system for single-agent navigation in complex, real-world settings, addressing challenges posed by sensor limitations. 
+While further work on robust mapping in dynamic environments is indicated, the findings provide a valuable foundation for advancing autonomous UAV systems.
+
+
+
+
+
 
 \vskip 1em
 

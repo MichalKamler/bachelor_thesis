@@ -16,100 +16,99 @@
   {}
 \endgroup
 
-\datalist[entry]{ydnt/global//global/global}
-  \entry{Bonxai2025}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=FD}{%
-         family={Faconti},
+\datalist[entry]{none/global//global/global}
+  \entry{agricultural_survey}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=FMR}{%
+         family={Fikri},
          familyi={F\bibinitperiod},
+         given={Muhamad\bibnamedelima Rausyan},
+         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+      {{hash=CT}{%
+         family={Candra},
+         familyi={C\bibinitperiod},
+         given={Taufiq},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Saptaji},
+         familyi={S\bibinitperiod},
+         given={Kushendarsyah},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=NAN}{%
+         family={Noviarini},
+         familyi={N\bibinitperiod},
+         given={Ajeng\bibnamedelima Nindi},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=WDA}{%
+         family={Wardani},
+         familyi={W\bibinitperiod},
+         given={Dilla\bibnamedelima Ayu},
+         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FMRCTSK+1}
+    \strng{fullhash}{FMRCTSKNANWDA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2301.00379
+    \endverb
+    \field{title}{A review of Implementation and Challenges of Unmanned Aerial
+  Vehicles for Spraying Applications and Crop Monitoring in Indonesia}
+    \verb{url}
+    \verb https://arxiv.org/abs/2301.00379
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2023}
+  \endentry
+
+  \entry{powerline_inspection}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=XJ}{%
+         family={Xing},
+         familyi={X\bibinitperiod},
+         given={Jiaxu},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=CG}{%
+         family={Cioffi},
+         familyi={C\bibinitperiod},
+         given={Giovanni},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=HCJ}{%
+         family={Hidalgo-Carrió},
+         familyi={H\bibinithyphendelim C\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Scaramuzza},
+         familyi={S\bibinitperiod},
          given={Davide},
          giveni={D\bibinitperiod},
       }}%
     }
-    \list{publisher}{1}{%
-      {GitHub}%
-    }
-    \strng{namehash}{FD1}
-    \strng{fullhash}{FD1}
+    \strng{namehash}{XJCGHCJ+1}
+    \strng{fullhash}{XJCGHCJSD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{note}{Accessed: 2025-05-20}
-    \field{title}{Bonxai: Fast, hierarchical, sparse Voxel Grid}
-    \verb{url}
-    \verb https://github.com/facontidavide/Bonxai
+    \verb{eprint}
+    \verb 2304.00959
     \endverb
-    \field{year}{2025}
-  \endentry
-
-  \entry{conservative_flight}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=KM}{%
-         family={Kamler},
-         familyi={K\bibinitperiod},
-         given={Michal},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{KM1}
-    \strng{fullhash}{KM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{title}{Drone Forest Navigation - Conservative Parameters (Slow and
-  Safe Flight)}
+    \field{title}{Autonomous Power Line Inspection with Drones via
+  Perception-Aware MPC}
     \verb{url}
-    \verb https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler
+    \verb https://arxiv.org/abs/2304.00959
     \endverb
-    \field{year}{2025}
-  \endentry
-
-  \entry{aggressive_flight}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=KM}{%
-         family={Kamler},
-         familyi={K\bibinitperiod},
-         given={Michal},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{KM1}
-    \strng{fullhash}{KM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{title}{Drone Forest Navigation – Aggressive Parameters (Best
-  Performance)}
-    \verb{url}
-    \verb https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler
-    \endverb
-    \field{year}{2025}
-  \endentry
-
-  \entry{flight_fail}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=KM}{%
-         family={Kamler},
-         familyi={K\bibinitperiod},
-         given={Michal},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{KM1}
-    \strng{fullhash}{KM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{title}{Drone Forest Navigation – Mapping Failure (Remapping
-  Error)}
-    \verb{url}
-    \verb https://www.youtube.com/watch?v=JVmW0qfwP3c&ab_channel=MichalKamler
-    \endverb
-    \field{year}{2025}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2023}
   \endentry
 
   \entry{photogrammetry}{misc}{}
@@ -149,8 +148,6 @@
     \strng{fullhash}{ZJZQLMGALX1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
     \verb{eprint}
     \verb 2503.04513
     \endverb
@@ -162,6 +159,45 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CV}
     \field{year}{2025}
+  \endentry
+
+  \entry{InsiderIntelligence_DroneDelivery}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=I}{%
+         family={{Insider Intelligence}},
+         familyi={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{I1}
+    \strng{fullhash}{I1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{[Online]}
+    \field{title}{Why {Amazon}, {UPS} and even {Domino's} is investing in drone
+  delivery services}
+    \verb{url}
+    \verb https://www.insiderintelligence.com/insights/drone-delivery-services/
+    \endverb
+  \endentry
+
+  \entry{NASA_Ingenuity}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={{National Aeronautics and Space Administration (NASA)}},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{[Online]}
+    \field{note}{Accessed: 2025-05-13}
+    \field{title}{Ingenuity Mars Helicopter}
+    \verb{url}
+    \verb https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mar
+    \verb s-helicopter/
+    \endverb
   \endentry
 
   \entry{rbl_paper}{article}{}
@@ -207,8 +243,6 @@
     \strng{fullhash}{BMSGALLKVAMJFL1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
     \field{title}{Rule-Based Lloyd Algorithm for Multi-Robot Motion Planning
   and Control with Safety and Convergence Guarantees}
     \verb{url}
@@ -216,759 +250,6 @@
     \endverb
     \field{journaltitle}{arxiv}
     \field{year}{2024}
-  \endentry
-
-  \entry{predictive1}{misc}{}
-    \name{author}{3}{}{%
-      {{hash=CY}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Yuda},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=GM}{%
-         family={Guo},
-         familyi={G\bibinitperiod},
-         given={Meng},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=LZ}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Zhongkui},
-         giveni={Z\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{CYGMLZ1}
-    \strng{fullhash}{CYGMLZ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2202.06071
-    \endverb
-    \field{title}{Deadlock Resolution and Recursive Feasibility in MPC-based
-  Multi-robot Trajectory Generation}
-    \verb{url}
-    \verb https://arxiv.org/abs/2202.06071
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2024}
-  \endentry
-
-  \entry{TRLO_good_mapping}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=JY}{%
-         family={Jia},
-         familyi={J\bibinitperiod},
-         given={Yanpeng},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=WT}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Ting},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=CX}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Xieyuanli},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=SS}{%
-         family={Shao},
-         familyi={S\bibinitperiod},
-         given={Shiliang},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JYWTCX+1}
-    \strng{fullhash}{JYWTCXSS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2410.13240
-    \endverb
-    \field{title}{TRLO: An Efficient LiDAR Odometry with 3D Dynamic Object
-  Tracking and Removal}
-    \verb{url}
-    \verb https://arxiv.org/abs/2410.13240
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2024}
-  \endentry
-
-  \entry{mezey_pure_vision}{misc}{}
-    \name{author}{7}{}{%
-      {{hash=MD}{%
-         family={Mezey},
-         familyi={M\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=BR}{%
-         family={Bastien},
-         familyi={B\bibinitperiod},
-         given={Renaud},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=ZY}{%
-         family={Zheng},
-         familyi={Z\bibinitperiod},
-         given={Yating},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=MN}{%
-         family={McKee},
-         familyi={M\bibinitperiod},
-         given={Neal},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=SD}{%
-         family={Stoll},
-         familyi={S\bibinitperiod},
-         given={David},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=HH}{%
-         family={Hamann},
-         familyi={H\bibinitperiod},
-         given={Heiko},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=RP}{%
-         family={Romanczuk},
-         familyi={R\bibinitperiod},
-         given={Pawel},
-         giveni={P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MDBRZY+1}
-    \strng{fullhash}{MDBRZYMNSDHHRP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2406.17106
-    \endverb
-    \field{title}{Purely vision-based collective movement of robots}
-    \verb{url}
-    \verb https://arxiv.org/abs/2406.17106
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{year}{2024}
-  \endentry
-
-  \entry{mrs_uav_system}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=MRSGCiP}{%
-         family={Multi-Robot Systems\bibnamedelima Group},
-         familyi={M\bibinithyphendelim R\bibinitperiod\bibinitdelim
-  S\bibinitperiod\bibinitdelim G\bibinitperiod},
-         given={CTU in\bibnamedelima Prague},
-         giveni={C\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim
-  P\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{MRSGCiP1}
-    \strng{fullhash}{MRSGCiP1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{note}{Accessed: 2025-03-10}
-    \field{title}{MRS UAV System}
-    \verb{url}
-    \verb https://github.com/ctu-mrs/mrs_uav_system
-    \endverb
-    \field{year}{2024}
-  \endentry
-
-  \entry{uvdar_package}{misc}{}
-    \name{author}{2}{}{%
-      {{hash=WV}{%
-         family={Walter},
-         familyi={W\bibinitperiod},
-         given={Viktor},
-         giveni={V\bibinitperiod},
-      }}%
-      {{hash=GM}{%
-         family={Group},
-         familyi={G\bibinitperiod},
-         given={MRS},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{WVGM1}
-    \strng{fullhash}{WVGM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-  \field{howpublished}{\url{https://github.com/ctu-mrs/uvdar_multirobot_simulator}}
-    \field{note}{Accessed: 2025-04-24}
-    \field{title}{uvdar\_multirobot\_simulator}
-    \field{year}{2024}
-  \endentry
-
-  \entry{reactive1}{article}{}
-    \name{author}{2}{}{%
-      {{hash=ZR}{%
-         family={Zheng},
-         familyi={Z\bibinitperiod},
-         given={Ruochen},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=LS}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Siyu},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{ZRLS1}
-    \strng{fullhash}{ZRLS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{doi}
-    \verb 10.1109/LRA.2024.3358623
-    \endverb
-    \field{pages}{1\bibrangedash 8}
-    \field{title}{MCCA: A Decentralized Method for Collision and Deadlock
-  Avoidance With Nonholonomic Robots}
-    \field{volume}{PP}
-    \field{journaltitle}{IEEE Robotics and Automation Letters}
-    \field{month}{03}
-    \field{year}{2024}
-  \endentry
-
-  \entry{Lidar_agriculture}{article}{}
-    \name{author}{3}{}{%
-      {{hash=DS}{%
-         family={Debnath},
-         familyi={D\bibinitperiod},
-         given={Sourabhi},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=PM}{%
-         family={Paul},
-         familyi={P\bibinitperiod},
-         given={Manoranjan},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=DT}{%
-         family={Debnath},
-         familyi={D\bibinitperiod},
-         given={Tanmoy},
-         giveni={T\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{DSPMDT1}
-    \strng{fullhash}{DSPMDT1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{abstract}{%
-    Light detection and ranging (LiDAR) sensors have accrued an ever-increasing
-  presence in the agricultural sector due to their non-destructive mode of
-  capturing data. LiDAR sensors emit pulsed light waves that return to the
-  sensor upon bouncing off surrounding objects. The distances that the pulses
-  travel are calculated by measuring the time for all pulses to return to the
-  source. There are many reported applications of the data obtained from LiDAR
-  in agricultural sectors. LiDAR sensors are widely used to measure
-  agricultural landscaping and topography and the structural characteristics of
-  trees such as leaf area index and canopy volume; they are also used for crop
-  biomass estimation, phenotype characterisation, crop growth, etc. A
-  LiDAR-based system and LiDAR data can also be used to measure spray drift and
-  detect soil properties. It has also been proposed in the literature that crop
-  damage detection and yield prediction can also be obtained with LiDAR data.
-  This review focuses on different LiDAR-based system applications and data
-  obtained from LiDAR in agricultural sectors. Comparisons of aspects of LiDAR
-  data in different agricultural applications are also provided. Furthermore,
-  future research directions based on this emerging technology are also
-  presented in this review.%
-    }
-    \verb{doi}
-    \verb 10.3390/jimaging9030057
-    \endverb
-    \field{issn}{2313-433X}
-    \field{number}{3}
-    \field{title}{Applications of LiDAR in Agriculture and Future Research
-  Directions}
-    \verb{url}
-    \verb https://www.mdpi.com/2313-433X/9/3/57
-    \endverb
-    \field{volume}{9}
-    \field{journaltitle}{Journal of Imaging}
-    \field{year}{2023}
-  \endentry
-
-  \entry{Voronoi2d}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=EB}{%
-         family={Ertl},
-         familyi={E\bibinitperiod},
-         given={Balu},
-         giveni={B\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{EB1}
-    \strng{fullhash}{EB1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
-    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
-  points}
-    \verb{url}
-    \verb https://commons.wikimedia.org/w/index.php?curid=38534275
-    \endverb
-    \field{year}{2023}
-  \endentry
-
-  \entry{agricultural_survey}{misc}{}
-    \name{author}{5}{}{%
-      {{hash=FMR}{%
-         family={Fikri},
-         familyi={F\bibinitperiod},
-         given={Muhamad\bibnamedelima Rausyan},
-         giveni={M\bibinitperiod\bibinitdelim R\bibinitperiod},
-      }}%
-      {{hash=CT}{%
-         family={Candra},
-         familyi={C\bibinitperiod},
-         given={Taufiq},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=SK}{%
-         family={Saptaji},
-         familyi={S\bibinitperiod},
-         given={Kushendarsyah},
-         giveni={K\bibinitperiod},
-      }}%
-      {{hash=NAN}{%
-         family={Noviarini},
-         familyi={N\bibinitperiod},
-         given={Ajeng\bibnamedelima Nindi},
-         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
-      }}%
-      {{hash=WDA}{%
-         family={Wardani},
-         familyi={W\bibinitperiod},
-         given={Dilla\bibnamedelima Ayu},
-         giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{FMRCTSK+1}
-    \strng{fullhash}{FMRCTSKNANWDA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2301.00379
-    \endverb
-    \field{title}{A review of Implementation and Challenges of Unmanned Aerial
-  Vehicles for Spraying Applications and Crop Monitoring in Indonesia}
-    \verb{url}
-    \verb https://arxiv.org/abs/2301.00379
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2023}
-  \endentry
-
-  \entry{point_lio_paper}{article}{}
-    \name{author}{6}{}{%
-      {{hash=HD}{%
-         family={He},
-         familyi={H\bibinitperiod},
-         given={Dongjiao},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=XW}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Wei},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=CN}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Nan},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=KF}{%
-         family={Kong},
-         familyi={K\bibinitperiod},
-         given={Fanze},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=YC}{%
-         family={Yuan},
-         familyi={Y\bibinitperiod},
-         given={Chongjian},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=ZF}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Fu},
-         giveni={F\bibinitperiod},
-      }}%
-    }
-    \keyw{aggressive motions, high bandwidths, point-by-point updates, sensor
-  fusion, simultaneous localization and mapping}
-    \strng{namehash}{HDXWCN+1}
-    \strng{fullhash}{HDXWCNKFYCZF1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{abstract}{%
-    Herein, point light detection and ranging inertial odometry (LIO) is
-  presented: a robust and high-bandwidth light detection and ranging (LiDAR)
-  inertial odometry with the capability to estimate extremely aggressive
-  robotic motions. Point-LIO has two key novelties. The first one is a
-  point-by-point LIO framework that updates the state at each LiDAR point
-  measurement. This framework allows an extremely high-frequency odometry
-  output, significantly increases the odometry bandwidth, and fundamentally
-  removes the artificial in-frame motion distortion. The second one is a
-  stochastic process-augmented kinematic model which models the IMU measurement
-  as an output. This new modeling method enables accurate localization and
-  reliable mapping for aggressive motions even with inertial measurement unit
-  (IMU) measurements saturated in the middle of the motion. Various real-world
-  experiments are conducted for performance evaluation. Overall, Point-LIO is
-  capable to provide accurate, high-frequency odometry (4–8 kHz) and
-  reliable mapping under severe vibrations and aggressive motions with high
-  angular velocity (75 rad s−1) beyond the IMU measuring ranges.
-  Furthermore, an exhaustive benchmark comparison is conducted. Point-LIO
-  achieves consistently comparable accuracy and time consumption. Finally, two
-  example applications of Point-LIO are demonstrated, one is a racing drone and
-  the other is a self-rotating unmanned aerial vehicle, both have aggressive
-  motions.%
-    }
-    \verb{doi}
-    \verb https://doi.org/10.1002/aisy.202200459
-    \endverb
-    \verb{eprint}
-    \verb https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/aisy.2022004
-    \verb 59
-    \endverb
-    \field{number}{7}
-    \field{pages}{2200459}
-    \field{title}{Point-LIO: Robust High-Bandwidth Light Detection and Ranging
-  Inertial Odometry}
-    \verb{url}
-    \verb https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aisy.2022004
-    \verb 59
-    \endverb
-    \field{volume}{5}
-    \field{journaltitle}{Advanced Intelligent Systems}
-    \field{year}{2023}
-  \endentry
-
-  \entry{livox_mid360}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=L}{%
-         family={{Livox Technology Company Limited}},
-         familyi={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{L1}
-    \strng{fullhash}{L1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{note}{Accessed: 2025-05-02}
-    \field{title}{{Mid-360 LiDAR Sensor}}
-    \verb{url}
-    \verb https://www.livoxtech.com/mid-360
-    \endverb
-    \field{year}{2023}
-  \endentry
-
-  \entry{kurovec_fel_clanek}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=�vutvPFe}{%
-         prefix={České vysoké učení technické\bibnamedelima v},
-         prefixi={�\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim
-  u\bibinitperiod\bibinitdelim t\bibinitperiod\bibinitdelim v\bibinitperiod},
-         family={Praze},
-         familyi={P\bibinitperiod},
-         given={Fakulta\bibnamedelima elektrotechnická},
-         giveni={F\bibinitperiod\bibinitdelim e\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{PFe�vutv1}
-    \strng{fullhash}{PFe�vutv1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{title}{Detekce kůrovce, obrana proti nepřátelskému převzetí
-  dronů a roje úzce spolupracujících vzdušných robotů.}
-    \verb{url}
-    \verb https://fel.cvut.cz/import/tz/2023-0426-tz_fel_cvut_mrs_temesvar.pdf
-    \endverb
-    \field{year}{2023}
-  \endentry
-
-  \entry{Voronoi3d}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=W}{%
-         family={WalkingRadiance},
-         familyi={W\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{W1}
-    \strng{fullhash}{W1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
-    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
-  points}
-    \verb{url}
-    \verb https://commons.wikimedia.org/w/index.php?curid=127768757
-    \endverb
-    \field{year}{2023}
-  \endentry
-
-  \entry{powerline_inspection}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=XJ}{%
-         family={Xing},
-         familyi={X\bibinitperiod},
-         given={Jiaxu},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=CG}{%
-         family={Cioffi},
-         familyi={C\bibinitperiod},
-         given={Giovanni},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=HCJ}{%
-         family={Hidalgo-Carrió},
-         familyi={H\bibinithyphendelim C\bibinitperiod},
-         given={Javier},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=SD}{%
-         family={Scaramuzza},
-         familyi={S\bibinitperiod},
-         given={Davide},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{XJCGHCJ+1}
-    \strng{fullhash}{XJCGHCJSD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2304.00959
-    \endverb
-    \field{title}{Autonomous Power Line Inspection with Drones via
-  Perception-Aware MPC}
-    \verb{url}
-    \verb https://arxiv.org/abs/2304.00959
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2023}
-  \endentry
-
-  \entry{PACNav}{article}{}
-    \name{author}{5}{}{%
-      {{hash=AA}{%
-         family={Ahmad},
-         familyi={A\bibinitperiod},
-         given={Afzal},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=BLD}{%
-         family={Bonilla\bibnamedelima Licea},
-         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
-         given={Daniel},
-         giveni={D\bibinitperiod},
-      }}%
-      {{hash=SG}{%
-         family={Silano},
-         familyi={S\bibinitperiod},
-         given={Giuseppe},
-         giveni={G\bibinitperiod},
-      }}%
-      {{hash=BT}{%
-         family={Báča},
-         familyi={B\bibinitperiod},
-         given={Tomáš},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=SM}{%
-         family={Saska},
-         familyi={S\bibinitperiod},
-         given={Martin},
-         giveni={M\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {IOP Publishing}%
-    }
-    \strng{namehash}{AABLDSG+1}
-    \strng{fullhash}{AABLDSGBTSM1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{doi}
-    \verb 10.1088/1748-3190/ac98e6
-    \endverb
-    \field{number}{6}
-    \field{title}{PACNav: a collective navigation approach for UAV swarms
-  deprived of communication and external localization}
-    \verb{url}
-    \verb http://dx.doi.org/10.1088/1748-3190/ac98e6
-    \endverb
-    \field{journaltitle}{Bioinspiration \&amp; Biomimetics}
-    \field{year}{2022}
-  \endentry
-
-  \entry{rl1}{misc}{}
-    \name{author}{7}{}{%
-      {{hash=HR}{%
-         family={Han},
-         familyi={H\bibinitperiod},
-         given={Ruihua},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=CS}{%
-         family={Chen},
-         familyi={C\bibinitperiod},
-         given={Shengduo},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=WS}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Shuaijun},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=ZZ}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Zeqing},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=GR}{%
-         family={Gao},
-         familyi={G\bibinitperiod},
-         given={Rui},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=HQ}{%
-         family={Hao},
-         familyi={H\bibinitperiod},
-         given={Qi},
-         giveni={Q\bibinitperiod},
-      }}%
-      {{hash=PJ}{%
-         family={Pan},
-         familyi={P\bibinitperiod},
-         given={Jia},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{HRCSWS+1}
-    \strng{fullhash}{HRCSWSZZGRHQPJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2203.10229
-    \endverb
-    \field{title}{Reinforcement Learned Distributed Multi-Robot Navigation with
-  Reciprocal Velocity Obstacle Shaped Rewards}
-    \verb{url}
-    \verb https://arxiv.org/abs/2203.10229
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2022}
-  \endentry
-
-  \entry{vision_navigation}{article}{}
-    \name{author}{6}{}{%
-      {{hash=JR}{%
-         family={Jin},
-         familyi={J\bibinitperiod},
-         given={Ronghe},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=WY}{%
-         family={Wang},
-         familyi={W\bibinitperiod},
-         given={Yan},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=GZ}{%
-         family={Gao},
-         familyi={G\bibinitperiod},
-         given={Zhi},
-         giveni={Z\bibinitperiod},
-      }}%
-      {{hash=NX}{%
-         family={Niu},
-         familyi={N\bibinitperiod},
-         given={Xiaoji},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=HLT}{%
-         family={Hsu},
-         familyi={H\bibinitperiod},
-         given={Li-Ta},
-         giveni={L\bibinithyphendelim T\bibinitperiod},
-      }}%
-      {{hash=LJ}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Jingnan},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{JRWYGZ+1}
-    \strng{fullhash}{JRWYGZNXHLTLJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2211.14478
-    \endverb
-    \field{title}{DynaVIG: Monocular Vision/INS/GNSS Integrated Navigation and
-  Object Tracking for AGV in Dynamic Scenes}
-    \verb{url}
-    \verb https://arxiv.org/abs/2211.14478
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2022}
   \endentry
 
   \entry{warehouse_intro}{misc}{}
@@ -1045,8 +326,6 @@
     \strng{fullhash}{KASRDTJDPGSLTAWKLKHCMHMBPASV1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
     \verb{eprint}
     \verb 2212.11498
     \endverb
@@ -1057,73 +336,359 @@
     \field{year}{2022}
   \endentry
 
-  \entry{lidar_how_works}{article}{}
-    \name{author}{4}{}{%
-      {{hash=LN}{%
-         family={Lopac},
+  \entry{reactive1}{article}{}
+    \name{author}{2}{}{%
+      {{hash=ZR}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Ruochen},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=LS}{%
+         family={Li},
          familyi={L\bibinitperiod},
-         given={Nikola},
-         giveni={N\bibinitperiod},
-      }}%
-      {{hash=JI}{%
-         family={Jurdana},
-         familyi={J\bibinitperiod},
-         given={Irena},
-         giveni={I\bibinitperiod},
-      }}%
-      {{hash=BA}{%
-         family={Brnelić},
-         familyi={B\bibinitperiod},
-         given={Adrian},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=KT}{%
-         family={Krljan},
-         familyi={K\bibinitperiod},
-         given={Tomislav},
-         giveni={T\bibinitperiod},
+         given={Siyu},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{LNJIBA+1}
-    \strng{fullhash}{LNJIBAKT1}
+    \strng{namehash}{ZRLS1}
+    \strng{fullhash}{ZRLS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{abstract}{%
-    The development of light detection and ranging (lidar) technology began in
-  the 1960s, following the invention of the laser, which represents the central
-  component of this system, integrating laser scanning with an inertial
-  measurement unit (IMU) and Global Positioning System (GPS). Lidar technology
-  is spreading to many different areas of application, from those in autonomous
-  vehicles for road detection and object recognition, to those in the maritime
-  sector, including object detection for autonomous navigation, monitoring
-  ocean ecosystems, mapping coastal areas, and other diverse applications. This
-  paper presents lidar system technology and reviews its application in the
-  modern road transportation and maritime sector. Some of the better-known
-  lidar systems for practical applications, on which current commercial models
-  are based, are presented, and their advantages and disadvantages are
-  described and analyzed. Moreover, current challenges and future trends of
-  application are discussed. This paper also provides a systematic review of
-  recent scientific research on the application of lidar system technology and
-  the corresponding computational algorithms for data analysis, mainly focusing
-  on deep learning algorithms, in the modern road transportation and maritime
-  sector, based on an extensive analysis of the available scientific
-  literature.%
-    }
     \verb{doi}
-    \verb 10.3390/s22165946
+    \verb 10.1109/LRA.2024.3358623
     \endverb
-    \field{issn}{1424-8220}
-    \field{number}{16}
-    \field{title}{Application of Laser Systems for Detection and Ranging in the
-  Modern Road Transportation and Maritime Sector}
+    \field{pages}{1\bibrangedash 8}
+    \field{title}{MCCA: A Decentralized Method for Collision and Deadlock
+  Avoidance With Nonholonomic Robots}
+    \field{volume}{PP}
+    \field{journaltitle}{IEEE Robotics and Automation Letters}
+    \field{month}{03}
+    \field{year}{2024}
+  \endentry
+
+  \entry{reactive2}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=ZX}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Xin},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=ZJ}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Jiangchao},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=ZH}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Hongyu},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=XC}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Chao},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=GF}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Fei},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZXZJZH+1}
+    \strng{fullhash}{ZXZJZHXCGF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2011.04183
+    \endverb
+    \field{title}{EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor
+  Swarm System in Cluttered Environments}
     \verb{url}
-    \verb https://www.mdpi.com/1424-8220/22/16/5946
+    \verb https://arxiv.org/abs/2011.04183
     \endverb
-    \field{volume}{22}
-    \field{journaltitle}{Sensors}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2021}
+  \endentry
+
+  \entry{predictive1}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=CY}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Yuda},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Guo},
+         familyi={G\bibinitperiod},
+         given={Meng},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LZ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Zhongkui},
+         giveni={Z\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{CYGMLZ1}
+    \strng{fullhash}{CYGMLZ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2202.06071
+    \endverb
+    \field{title}{Deadlock Resolution and Recursive Feasibility in MPC-based
+  Multi-robot Trajectory Generation}
+    \verb{url}
+    \verb https://arxiv.org/abs/2202.06071
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2024}
+  \endentry
+
+  \entry{predictive2}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=TA}{%
+         family={Thomas},
+         familyi={T\bibinitperiod},
+         given={Antony},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MF}{%
+         family={Mastrogiovanni},
+         familyi={M\bibinitperiod},
+         given={Fulvio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Baglietto},
+         familyi={B\bibinitperiod},
+         given={Marco},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TAMFBM1}
+    \strng{fullhash}{TAMFBM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2104.01659
+    \endverb
+    \field{title}{Probabilistic Collision Constraint for Motion Planning in
+  Dynamic Environments}
+    \verb{url}
+    \verb https://arxiv.org/abs/2104.01659
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2021}
+  \endentry
+
+  \entry{rl1}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=HR}{%
+         family={Han},
+         familyi={H\bibinitperiod},
+         given={Ruihua},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=CS}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Shengduo},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WS}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Shuaijun},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Zeqing},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Rui},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HQ}{%
+         family={Hao},
+         familyi={H\bibinitperiod},
+         given={Qi},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HRCSWS+1}
+    \strng{fullhash}{HRCSWSZZGRHQPJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2203.10229
+    \endverb
+    \field{title}{Reinforcement Learned Distributed Multi-Robot Navigation with
+  Reciprocal Velocity Obstacle Shaped Rewards}
+    \verb{url}
+    \verb https://arxiv.org/abs/2203.10229
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
     \field{year}{2022}
+  \endentry
+
+  \entry{rl2}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=TQ}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Qingyang},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=FT}{%
+         family={Fan},
+         familyi={F\bibinitperiod},
+         given={Tingxiang},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=PJ}{%
+         family={Pan},
+         familyi={P\bibinitperiod},
+         given={Jia},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MD}{%
+         family={Manocha},
+         familyi={M\bibinitperiod},
+         given={Dinesh},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TQFTPJ+1}
+    \strng{fullhash}{TQFTPJMD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 1910.09441
+    \endverb
+    \field{title}{DeepMNavigate: Deep Reinforced Multi-Robot Navigation
+  Unifying Local \& Global Collision Avoidance}
+    \verb{url}
+    \verb https://arxiv.org/abs/1910.09441
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.MA}
+    \field{year}{2020}
+  \endentry
+
+  \entry{vision_navigation}{article}{}
+    \name{author}{6}{}{%
+      {{hash=JR}{%
+         family={Jin},
+         familyi={J\bibinitperiod},
+         given={Ronghe},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=WY}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Yan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GZ}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Zhi},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=NX}{%
+         family={Niu},
+         familyi={N\bibinitperiod},
+         given={Xiaoji},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=HLT}{%
+         family={Hsu},
+         familyi={H\bibinitperiod},
+         given={Li-Ta},
+         giveni={L\bibinithyphendelim T\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Jingnan},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JRWYGZ+1}
+    \strng{fullhash}{JRWYGZNXHLTLJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2211.14478
+    \endverb
+    \field{title}{DynaVIG: Monocular Vision/INS/GNSS Integrated Navigation and
+  Object Tracking for AGV in Dynamic Scenes}
+    \verb{url}
+    \verb https://arxiv.org/abs/2211.14478
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2022}
+  \endentry
+
+  \entry{magnetic_navigation}{article}{}
+    \name{author}{3}{}{%
+      {{hash=TT}{%
+         family={Takebayashi},
+         familyi={T\bibinitperiod},
+         given={Takumi},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MR}{%
+         family={Miyagusuku},
+         familyi={M\bibinitperiod},
+         given={Renato},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=OK}{%
+         family={Ozaki},
+         familyi={O\bibinitperiod},
+         given={Koichi},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{TTMROK1}
+    \strng{fullhash}{TTMROK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{12}
+    \field{title}{Development of Magnetic-Based Navigation by Constructing Maps
+  Using Machine Learning for Autonomous Mobile Robots in Real Environments}
+    \verb{url}
+    \verb https://www.mdpi.com/1424-8220/21/12/3972
+    \endverb
+    \field{volume}{21}
+    \field{journaltitle}{Sensors}
+    \field{year}{2021}
   \endentry
 
   \entry{lidar_navigation}{article}{}
@@ -1169,8 +734,6 @@
     \strng{fullhash}{LZAAZSKSHSRD1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
     \verb{eprint}
     \verb 2105.09932
     \endverb
@@ -1183,222 +746,69 @@
     \field{year}{2021}
   \endentry
 
-  \entry{magnetic_navigation}{article}{}
-    \name{author}{3}{}{%
-      {{hash=TT}{%
-         family={Takebayashi},
-         familyi={T\bibinitperiod},
-         given={Takumi},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=MR}{%
-         family={Miyagusuku},
-         familyi={M\bibinitperiod},
-         given={Renato},
-         giveni={R\bibinitperiod},
-      }}%
-      {{hash=OK}{%
-         family={Ozaki},
-         familyi={O\bibinitperiod},
-         given={Koichi},
-         giveni={K\bibinitperiod},
+  \entry{Voronoi2d}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=EB}{%
+         family={Ertl},
+         familyi={E\bibinitperiod},
+         given={Balu},
+         giveni={B\bibinitperiod},
       }}%
     }
-    \strng{namehash}{TTMROK1}
-    \strng{fullhash}{TTMROK1}
+    \strng{namehash}{EB1}
+    \strng{fullhash}{EB1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \field{number}{12}
-    \field{title}{Development of Magnetic-Based Navigation by Constructing Maps
-  Using Machine Learning for Autonomous Mobile Robots in Real Environments}
+    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
+    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
+  points}
     \verb{url}
-    \verb https://www.mdpi.com/1424-8220/21/12/3972
+    \verb https://commons.wikimedia.org/w/index.php?curid=38534275
     \endverb
-    \field{volume}{21}
-    \field{journaltitle}{Sensors}
-    \field{year}{2021}
+    \field{year}{2023}
   \endentry
 
-  \entry{predictive2}{misc}{}
-    \name{author}{3}{}{%
-      {{hash=TA}{%
-         family={Thomas},
-         familyi={T\bibinitperiod},
-         given={Antony},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=MF}{%
-         family={Mastrogiovanni},
-         familyi={M\bibinitperiod},
-         given={Fulvio},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=BM}{%
-         family={Baglietto},
-         familyi={B\bibinitperiod},
-         given={Marco},
-         giveni={M\bibinitperiod},
+  \entry{Voronoi3d}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=W}{%
+         family={WalkingRadiance},
+         familyi={W\bibinitperiod},
       }}%
     }
-    \strng{namehash}{TAMFBM1}
-    \strng{fullhash}{TAMFBM1}
+    \strng{namehash}{W1}
+    \strng{fullhash}{W1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2104.01659
-    \endverb
-    \field{title}{Probabilistic Collision Constraint for Motion Planning in
-  Dynamic Environments}
+    \field{note}{Own work, licensed under CC BY-SA 4.0, Accessed: 2025-02-27}
+    \field{title}{3D Voronoi mesh of 25 random points with 0.3 opacity and
+  points}
     \verb{url}
-    \verb https://arxiv.org/abs/2104.01659
+    \verb https://commons.wikimedia.org/w/index.php?curid=127768757
     \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2021}
+    \field{year}{2023}
   \endentry
 
-  \entry{reactive2}{misc}{}
-    \name{author}{5}{}{%
-      {{hash=ZX}{%
-         family={Zhou},
-         familyi={Z\bibinitperiod},
-         given={Xin},
-         giveni={X\bibinitperiod},
-      }}%
-      {{hash=ZJ}{%
-         family={Zhu},
-         familyi={Z\bibinitperiod},
-         given={Jiangchao},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=ZH}{%
-         family={Zhou},
-         familyi={Z\bibinitperiod},
-         given={Hongyu},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=XC}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Chao},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=GF}{%
-         family={Gao},
-         familyi={G\bibinitperiod},
-         given={Fei},
-         giveni={F\bibinitperiod},
+  \entry{mrs_uav_system}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=MRSGCiP}{%
+         family={Multi-Robot Systems\bibnamedelima Group},
+         familyi={M\bibinithyphendelim R\bibinitperiod\bibinitdelim
+  S\bibinitperiod\bibinitdelim G\bibinitperiod},
+         given={CTU in\bibnamedelima Prague},
+         giveni={C\bibinitperiod\bibinitdelim i\bibinitperiod\bibinitdelim
+  P\bibinitperiod},
       }}%
     }
-    \strng{namehash}{ZXZJZH+1}
-    \strng{fullhash}{ZXZJZHXCGF1}
+    \strng{namehash}{MRSGCiP1}
+    \strng{fullhash}{MRSGCiP1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 2011.04183
-    \endverb
-    \field{title}{EGO-Swarm: A Fully Autonomous and Decentralized Quadrotor
-  Swarm System in Cluttered Environments}
+    \field{note}{Accessed: 2025-03-10}
+    \field{title}{MRS UAV System}
     \verb{url}
-    \verb https://arxiv.org/abs/2011.04183
+    \verb https://github.com/ctu-mrs/mrs_uav_system
     \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.RO}
-    \field{year}{2021}
-  \endentry
-
-  \entry{Lidar_autonomous_vehicles}{article}{}
-    \name{author}{2}{}{%
-      {{hash=LY}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={You},
-         giveni={Y\bibinitperiod},
-      }}%
-      {{hash=IGJ}{%
-         family={Ibanez-Guzman},
-         familyi={I\bibinithyphendelim G\bibinitperiod},
-         given={Javier},
-         giveni={J\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{2}{%
-      {Institute of Electrical}%
-      {Electronics Engineers (IEEE)}%
-    }
-    \strng{namehash}{LYIGJ1}
-    \strng{fullhash}{LYIGJ1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{doi}
-    \verb 10.1109/msp.2020.2973615
-    \endverb
-    \field{issn}{1558-0792}
-    \field{number}{4}
-    \field{pages}{50–61}
-    \field{title}{Lidar for Autonomous Driving: The Principles, Challenges, and
-  Trends for Automotive Lidar and Perception Systems}
-    \verb{url}
-    \verb http://dx.doi.org/10.1109/MSP.2020.2973615
-    \endverb
-    \field{volume}{37}
-    \field{journaltitle}{IEEE Signal Processing Magazine}
-    \field{month}{07}
-    \field{year}{2020}
-  \endentry
-
-  \entry{rl2}{misc}{}
-    \name{author}{4}{}{%
-      {{hash=TQ}{%
-         family={Tan},
-         familyi={T\bibinitperiod},
-         given={Qingyang},
-         giveni={Q\bibinitperiod},
-      }}%
-      {{hash=FT}{%
-         family={Fan},
-         familyi={F\bibinitperiod},
-         given={Tingxiang},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=PJ}{%
-         family={Pan},
-         familyi={P\bibinitperiod},
-         given={Jia},
-         giveni={J\bibinitperiod},
-      }}%
-      {{hash=MD}{%
-         family={Manocha},
-         familyi={M\bibinitperiod},
-         given={Dinesh},
-         giveni={D\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{TQFTPJ+1}
-    \strng{fullhash}{TQFTPJMD1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
-    \verb{eprint}
-    \verb 1910.09441
-    \endverb
-    \field{title}{DeepMNavigate: Deep Reinforced Multi-Robot Navigation
-  Unifying Local \& Global Collision Avoidance}
-    \verb{url}
-    \verb https://arxiv.org/abs/1910.09441
-    \endverb
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.MA}
-    \field{year}{2020}
+    \field{year}{2024}
   \endentry
 
   \entry{uvdd1}{article}{}
@@ -1426,8 +836,6 @@
     \strng{fullhash}{WVSMFA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{7}
-    \field{sortinithash}{7}
     \field{title}{Fast mutual relative localization of uavs using ultraviolet
   led markers}
     \verb{url}
@@ -1439,17 +847,177 @@
     \field{year}{2018}
   \endentry
 
+  \entry{uvdar_package}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=WV}{%
+         family={Walter},
+         familyi={W\bibinitperiod},
+         given={Viktor},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Group},
+         familyi={G\bibinitperiod},
+         given={MRS},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WVGM1}
+    \strng{fullhash}{WVGM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{https://github.com/ctu-mrs/uvdar_multirobot_simulator}}
+    \field{note}{Accessed: 2025-04-24}
+    \field{title}{uvdar\_multirobot\_simulator}
+    \field{year}{2024}
+  \endentry
+
+  \entry{PACNav}{article}{}
+    \name{author}{5}{}{%
+      {{hash=AA}{%
+         family={Ahmad},
+         familyi={A\bibinitperiod},
+         given={Afzal},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=BLD}{%
+         family={Bonilla\bibnamedelima Licea},
+         familyi={B\bibinitperiod\bibinitdelim L\bibinitperiod},
+         given={Daniel},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SG}{%
+         family={Silano},
+         familyi={S\bibinitperiod},
+         given={Giuseppe},
+         giveni={G\bibinitperiod},
+      }}%
+      {{hash=BT}{%
+         family={Báča},
+         familyi={B\bibinitperiod},
+         given={Tomáš},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Saska},
+         familyi={S\bibinitperiod},
+         given={Martin},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {IOP Publishing}%
+    }
+    \strng{namehash}{AABLDSG+1}
+    \strng{fullhash}{AABLDSGBTSM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1088/1748-3190/ac98e6
+    \endverb
+    \field{number}{6}
+    \field{title}{PACNav: a collective navigation approach for UAV swarms
+  deprived of communication and external localization}
+    \verb{url}
+    \verb http://dx.doi.org/10.1088/1748-3190/ac98e6
+    \endverb
+    \field{journaltitle}{Bioinspiration \&amp; Biomimetics}
+    \field{year}{2022}
+  \endentry
+
+  \entry{mezey_pure_vision}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=MD}{%
+         family={Mezey},
+         familyi={M\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=BR}{%
+         family={Bastien},
+         familyi={B\bibinitperiod},
+         given={Renaud},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={Yating},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MN}{%
+         family={McKee},
+         familyi={M\bibinitperiod},
+         given={Neal},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Stoll},
+         familyi={S\bibinitperiod},
+         given={David},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=HH}{%
+         family={Hamann},
+         familyi={H\bibinitperiod},
+         given={Heiko},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=RP}{%
+         family={Romanczuk},
+         familyi={R\bibinitperiod},
+         given={Pawel},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MDBRZY+1}
+    \strng{fullhash}{MDBRZYMNSDHHRP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2406.17106
+    \endverb
+    \field{title}{Purely vision-based collective movement of robots}
+    \verb{url}
+    \verb https://arxiv.org/abs/2406.17106
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{year}{2024}
+  \endentry
+
   \entry{robofly}{misc}{}
     \list{organization}{1}{%
       {Fly4Future}%
     }
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
     \field{title}{F4F RoboFly Swarm}
     \verb{url}
     \verb https://shop.fly4future.com/product/f4f-robofly-swarm/
     \endverb
+  \endentry
+
+  \entry{kurovec_fel_clanek}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=�vutvPFe}{%
+         prefix={České vysoké učení technické\bibnamedelima v},
+         prefixi={�\bibinitperiod\bibinitdelim v\bibinitperiod\bibinitdelim
+  u\bibinitperiod\bibinitdelim t\bibinitperiod\bibinitdelim v\bibinitperiod},
+         family={Praze},
+         familyi={P\bibinitperiod},
+         given={Fakulta\bibnamedelima elektrotechnická},
+         giveni={F\bibinitperiod\bibinitdelim e\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PFe�vutv1}
+    \strng{fullhash}{PFe�vutv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Detekce kůrovce, obrana proti nepřátelskému převzetí
+  dronů a roje úzce spolupracujících vzdušných robotů.}
+    \verb{url}
+    \verb https://fel.cvut.cz/import/tz/2023-0426-tz_fel_cvut_mrs_temesvar.pdf
+    \endverb
+    \field{year}{2023}
   \endentry
 
   \entry{f4f_powerline_inspection}{misc}{}
@@ -1463,8 +1031,6 @@
     \strng{fullhash}{F1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
     \field{title}{Drones for Inspection of Power Lines}
     \verb{url}
     \verb https://fly4future.com/custom-drones/drones-for-inspection-of-power-l
@@ -1472,69 +1038,322 @@
     \endverb
   \endentry
 
-  \entry{InsiderIntelligence_DroneDelivery}{misc}{}
+  \entry{aggressive_flight}{misc}{}
     \name{author}{1}{}{%
-      {{hash=I}{%
-         family={{Insider Intelligence}},
-         familyi={I\bibinitperiod},
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{I1}
-    \strng{fullhash}{I1}
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
-    \field{howpublished}{[Online]}
-    \field{title}{Why {Amazon}, {UPS} and even {Domino's} is investing in drone
-  delivery services}
+    \field{title}{Drone Forest Navigation – Aggressive Parameters (Best
+  Performance)}
     \verb{url}
-    \verb https://www.insiderintelligence.com/insights/drone-delivery-services/
+    \verb https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler
     \endverb
+    \field{year}{2025}
   \endentry
 
-  \entry{NASA_Ingenuity}{misc}{}
+  \entry{conservative_flight}{misc}{}
     \name{author}{1}{}{%
-      {{hash=N}{%
-         family={{National Aeronautics and Space Administration (NASA)}},
-         familyi={N\bibinitperiod},
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{N1}
-    \strng{fullhash}{N1}
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
-    \field{howpublished}{[Online]}
-    \field{note}{Accessed: 2025-05-13}
-    \field{title}{Ingenuity Mars Helicopter}
+    \field{title}{Drone Forest Navigation - Conservative Parameters (Slow and
+  Safe Flight)}
     \verb{url}
-    \verb https://science.nasa.gov/mission/mars-2020-perseverance/ingenuity-mar
-    \verb s-helicopter/
+    \verb https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler
     \endverb
+    \field{year}{2025}
   \endentry
 
-  \entry{kd_tree}{misc}{}
+  \entry{flight_fail}{misc}{}
     \name{author}{1}{}{%
-      {{hash=PPCL}{%
-         family={(PCL)},
+      {{hash=KM}{%
+         family={Kamler},
+         familyi={K\bibinitperiod},
+         given={Michal},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KM1}
+    \strng{fullhash}{KM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Drone Forest Navigation – Mapping Failure (Remapping
+  Error)}
+    \verb{url}
+    \verb https://www.youtube.com/watch?v=JVmW0qfwP3c&ab_channel=MichalKamler
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{point_lio_paper}{article}{}
+    \name{author}{6}{}{%
+      {{hash=HD}{%
+         family={He},
+         familyi={H\bibinitperiod},
+         given={Dongjiao},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=XW}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=CN}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Nan},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KF}{%
+         family={Kong},
+         familyi={K\bibinitperiod},
+         given={Fanze},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=YC}{%
+         family={Yuan},
+         familyi={Y\bibinitperiod},
+         given={Chongjian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=ZF}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Fu},
+         giveni={F\bibinitperiod},
+      }}%
+    }
+    \keyw{aggressive motions, high bandwidths, point-by-point updates, sensor
+  fusion, simultaneous localization and mapping}
+    \strng{namehash}{HDXWCN+1}
+    \strng{fullhash}{HDXWCNKFYCZF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    Herein, point light detection and ranging inertial odometry (LIO) is
+  presented: a robust and high-bandwidth light detection and ranging (LiDAR)
+  inertial odometry with the capability to estimate extremely aggressive
+  robotic motions. Point-LIO has two key novelties. The first one is a
+  point-by-point LIO framework that updates the state at each LiDAR point
+  measurement. This framework allows an extremely high-frequency odometry
+  output, significantly increases the odometry bandwidth, and fundamentally
+  removes the artificial in-frame motion distortion. The second one is a
+  stochastic process-augmented kinematic model which models the IMU measurement
+  as an output. This new modeling method enables accurate localization and
+  reliable mapping for aggressive motions even with inertial measurement unit
+  (IMU) measurements saturated in the middle of the motion. Various real-world
+  experiments are conducted for performance evaluation. Overall, Point-LIO is
+  capable to provide accurate, high-frequency odometry (4–8 kHz) and
+  reliable mapping under severe vibrations and aggressive motions with high
+  angular velocity (75 rad s−1) beyond the IMU measuring ranges.
+  Furthermore, an exhaustive benchmark comparison is conducted. Point-LIO
+  achieves consistently comparable accuracy and time consumption. Finally, two
+  example applications of Point-LIO are demonstrated, one is a racing drone and
+  the other is a self-rotating unmanned aerial vehicle, both have aggressive
+  motions.%
+    }
+    \verb{doi}
+    \verb https://doi.org/10.1002/aisy.202200459
+    \endverb
+    \verb{eprint}
+    \verb https://advanced.onlinelibrary.wiley.com/doi/pdf/10.1002/aisy.2022004
+    \verb 59
+    \endverb
+    \field{number}{7}
+    \field{pages}{2200459}
+    \field{title}{Point-LIO: Robust High-Bandwidth Light Detection and Ranging
+  Inertial Odometry}
+    \verb{url}
+    \verb https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/aisy.2022004
+    \verb 59
+    \endverb
+    \field{volume}{5}
+    \field{journaltitle}{Advanced Intelligent Systems}
+    \field{year}{2023}
+  \endentry
+
+  \entry{Lidar_autonomous_vehicles}{article}{}
+    \name{author}{2}{}{%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={You},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=IGJ}{%
+         family={Ibanez-Guzman},
+         familyi={I\bibinithyphendelim G\bibinitperiod},
+         given={Javier},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronics Engineers (IEEE)}%
+    }
+    \strng{namehash}{LYIGJ1}
+    \strng{fullhash}{LYIGJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/msp.2020.2973615
+    \endverb
+    \field{issn}{1558-0792}
+    \field{number}{4}
+    \field{pages}{50–61}
+    \field{title}{Lidar for Autonomous Driving: The Principles, Challenges, and
+  Trends for Automotive Lidar and Perception Systems}
+    \verb{url}
+    \verb http://dx.doi.org/10.1109/MSP.2020.2973615
+    \endverb
+    \field{volume}{37}
+    \field{journaltitle}{IEEE Signal Processing Magazine}
+    \field{month}{07}
+    \field{year}{2020}
+  \endentry
+
+  \entry{Lidar_agriculture}{article}{}
+    \name{author}{3}{}{%
+      {{hash=DS}{%
+         family={Debnath},
+         familyi={D\bibinitperiod},
+         given={Sourabhi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=PM}{%
+         family={Paul},
          familyi={P\bibinitperiod},
-         given={Point Cloud\bibnamedelima Library},
-         giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
-  L\bibinitperiod},
+         given={Manoranjan},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=DT}{%
+         family={Debnath},
+         familyi={D\bibinitperiod},
+         given={Tanmoy},
+         giveni={T\bibinitperiod},
       }}%
     }
-    \strng{namehash}{PPCL1}
-    \strng{fullhash}{PPCL1}
+    \strng{namehash}{DSPMDT1}
+    \strng{fullhash}{DSPMDT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
-    \field{title}{pcl::KdTree Class Reference}
-    \verb{url}
-    \verb https://pointclouds.org/documentation/classpcl_1_1_kd_tree.html
+    \field{abstract}{%
+    Light detection and ranging (LiDAR) sensors have accrued an ever-increasing
+  presence in the agricultural sector due to their non-destructive mode of
+  capturing data. LiDAR sensors emit pulsed light waves that return to the
+  sensor upon bouncing off surrounding objects. The distances that the pulses
+  travel are calculated by measuring the time for all pulses to return to the
+  source. There are many reported applications of the data obtained from LiDAR
+  in agricultural sectors. LiDAR sensors are widely used to measure
+  agricultural landscaping and topography and the structural characteristics of
+  trees such as leaf area index and canopy volume; they are also used for crop
+  biomass estimation, phenotype characterisation, crop growth, etc. A
+  LiDAR-based system and LiDAR data can also be used to measure spray drift and
+  detect soil properties. It has also been proposed in the literature that crop
+  damage detection and yield prediction can also be obtained with LiDAR data.
+  This review focuses on different LiDAR-based system applications and data
+  obtained from LiDAR in agricultural sectors. Comparisons of aspects of LiDAR
+  data in different agricultural applications are also provided. Furthermore,
+  future research directions based on this emerging technology are also
+  presented in this review.%
+    }
+    \verb{doi}
+    \verb 10.3390/jimaging9030057
     \endverb
+    \field{issn}{2313-433X}
+    \field{number}{3}
+    \field{title}{Applications of LiDAR in Agriculture and Future Research
+  Directions}
+    \verb{url}
+    \verb https://www.mdpi.com/2313-433X/9/3/57
+    \endverb
+    \field{volume}{9}
+    \field{journaltitle}{Journal of Imaging}
+    \field{year}{2023}
+  \endentry
+
+  \entry{lidar_how_works}{article}{}
+    \name{author}{4}{}{%
+      {{hash=LN}{%
+         family={Lopac},
+         familyi={L\bibinitperiod},
+         given={Nikola},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=JI}{%
+         family={Jurdana},
+         familyi={J\bibinitperiod},
+         given={Irena},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BA}{%
+         family={Brnelić},
+         familyi={B\bibinitperiod},
+         given={Adrian},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KT}{%
+         family={Krljan},
+         familyi={K\bibinitperiod},
+         given={Tomislav},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LNJIBA+1}
+    \strng{fullhash}{LNJIBAKT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{abstract}{%
+    The development of light detection and ranging (lidar) technology began in
+  the 1960s, following the invention of the laser, which represents the central
+  component of this system, integrating laser scanning with an inertial
+  measurement unit (IMU) and Global Positioning System (GPS). Lidar technology
+  is spreading to many different areas of application, from those in autonomous
+  vehicles for road detection and object recognition, to those in the maritime
+  sector, including object detection for autonomous navigation, monitoring
+  ocean ecosystems, mapping coastal areas, and other diverse applications. This
+  paper presents lidar system technology and reviews its application in the
+  modern road transportation and maritime sector. Some of the better-known
+  lidar systems for practical applications, on which current commercial models
+  are based, are presented, and their advantages and disadvantages are
+  described and analyzed. Moreover, current challenges and future trends of
+  application are discussed. This paper also provides a systematic review of
+  recent scientific research on the application of lidar system technology and
+  the corresponding computational algorithms for data analysis, mainly focusing
+  on deep learning algorithms, in the modern road transportation and maritime
+  sector, based on an extensive analysis of the available scientific
+  literature.%
+    }
+    \verb{doi}
+    \verb 10.3390/s22165946
+    \endverb
+    \field{issn}{1424-8220}
+    \field{number}{16}
+    \field{title}{Application of Laser Systems for Detection and Ranging in the
+  Modern Road Transportation and Maritime Sector}
+    \verb{url}
+    \verb https://www.mdpi.com/1424-8220/22/16/5946
+    \endverb
+    \field{volume}{22}
+    \field{journaltitle}{Sensors}
+    \field{year}{2022}
   \endentry
 
   \entry{pcl_voxelgrid}{misc}{}
@@ -1551,13 +1370,118 @@
     \strng{fullhash}{RBRBS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{9}
-    \field{sortinithash}{9}
     \field{note}{Accessed: 2025-03-28}
     \field{title}{The VoxelGrid class, Point Cloud Library}
     \verb{url}
     \verb https://pointclouds.org/documentation/classpcl_1_1_voxel_grid.html
     \endverb
+  \endentry
+
+  \entry{Bonxai2025}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=FD}{%
+         family={Faconti},
+         familyi={F\bibinitperiod},
+         given={Davide},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {GitHub}%
+    }
+    \strng{namehash}{FD1}
+    \strng{fullhash}{FD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2025-05-20}
+    \field{title}{Bonxai: Fast, hierarchical, sparse Voxel Grid}
+    \verb{url}
+    \verb https://github.com/facontidavide/Bonxai
+    \endverb
+    \field{year}{2025}
+  \endentry
+
+  \entry{kd_tree}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=PPCL}{%
+         family={(PCL)},
+         familyi={P\bibinitperiod},
+         given={Point Cloud\bibnamedelima Library},
+         giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
+  L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{PPCL1}
+    \strng{fullhash}{PPCL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{pcl::KdTree Class Reference}
+    \verb{url}
+    \verb https://pointclouds.org/documentation/classpcl_1_1_kd_tree.html
+    \endverb
+  \endentry
+
+  \entry{livox_mid360}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=L}{%
+         family={{Livox Technology Company Limited}},
+         familyi={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{L1}
+    \strng{fullhash}{L1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2025-05-02}
+    \field{title}{{Mid-360 LiDAR Sensor}}
+    \verb{url}
+    \verb https://www.livoxtech.com/mid-360
+    \endverb
+    \field{year}{2023}
+  \endentry
+
+  \entry{TRLO_good_mapping}{misc}{}
+    \name{author}{4}{}{%
+      {{hash=JY}{%
+         family={Jia},
+         familyi={J\bibinitperiod},
+         given={Yanpeng},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Ting},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Xieyuanli},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shao},
+         familyi={S\bibinitperiod},
+         given={Shiliang},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{JYWTCX+1}
+    \strng{fullhash}{JYWTCXSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{eprint}
+    \verb 2410.13240
+    \endverb
+    \field{title}{TRLO: An Efficient LiDAR Odometry with 3D Dynamic Object
+  Tracking and Removal}
+    \verb{url}
+    \verb https://arxiv.org/abs/2410.13240
+    \endverb
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.RO}
+    \field{year}{2024}
   \endentry
 \enddatalist
 \endinput

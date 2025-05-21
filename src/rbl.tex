@@ -328,7 +328,7 @@
         \end{equation}
 
         where $\phi_{\mathbf{g}_i} = \arccos(\frac{\mathbf{g}_{i,z} - \mathbf{p}_{i,z}}{\|\mathbf{p}_i - \mathbf{g}_i\|})$ is the polar angle from the z-axis to the goal, 
-        $\theta_{\mathbf{g}_i} = \text{atan2}( \mathbf{g}_{i,y} - \mathbf{p}_{i,y}, \mathbf{g}_{i,x} - \mathbf{p}_{i,x})$ is the azimuthal angle in the xy-plane to the goal.
+        $\theta_{\mathbf{g}_i} = \text{atan2}( g_{i,y} - p_{i,y}, g_{i,x} - p_{i,x})$ is the azimuthal angle in the xy-plane to the goal.
     
     \subsection{Algorithm Walkthrough}
         At each iteration, the proposed algorithm performs a sequence of actions to control agent movement. 

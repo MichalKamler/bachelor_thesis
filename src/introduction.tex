@@ -90,8 +90,6 @@ Subsequently, it focuses on single \ac{UAV} navigation in complex environments, 
 
 \section{Mathematical Notation}
 
-TODO
-
 \begin{table*}[!h]
   \scriptsize
   \centering
@@ -99,26 +97,28 @@ TODO
   \begin{tabular}{lll}
     % 2d, 3d, 
 
-    $\mathcal{N}_i$ & set of neighboring agents for the i-th agent\\
+    % $\mathcal{N}_i$ & set of neighboring agents for the i-th agent\\
 
-
-
-    $\mathbf{x}$, $\bm{\alpha}$ & vector, pseudo-vector, or tuple\\
-    $\mathbf{\hat{x}}$, $\bm{\hat{\omega}}$& unit vector or unit pseudo-vector\\
-    $\mathbf{\hat{e}}_1, \mathbf{\hat{e}}_2, \mathbf{\hat{e}}_3$ & elements of the \emph{standard basis} \\
+    $\mathbf{x}$, $\bm{\alpha}$ & vector or tuple\\
+    % $\mathbf{\hat{x}}$, $\bm{\hat{\omega}}$& unit vector or unit pseudo-vector\\
+    $\mathbf{e}_x, \mathbf{e}_y, \mathbf{e}_z$ & elements of the standard basis \\
     $\mathbf{X}, \bm{\Omega}$ & matrix \\
-    $\mathbf{I}$ & identity matrix \\
-    $x = \mathbf{a}^\intercal\mathbf{b}$ & inner product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$\\
-    $\mathbf{x} = \mathbf{a}\times\mathbf{b}$ & cross product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$\\
-    $\mathbf{x} = \mathbf{a}\circ\mathbf{b}$ & element-wise product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$ \\
-    $\mathbf{x}_{(n)}$ = $\mathbf{x}^\intercal\mathbf{\hat{e}}_n$ & $\mathrm{n}^{\mathrm{th}}$ vector element (row), $\mathbf{x}, \mathbf{e} \in \mathbb{R}^3$\\
-    $\mathbf{X}_{(a,b)}$ & matrix element, (row, column)\\
-    $x_{d}$ & $x_d$ is \emph{desired}, a reference\\
-    $\dot{x}, \ddot{x}, \dot{\ddot{x}}$, $\ddot{\ddot{x}}$ & ${1^{\mathrm{st}}}$, ${2^{\mathrm{nd}}}$, ${3^{\mathrm{rd}}}$, and ${4^{\mathrm{th}}}$ time derivative of $x$\\
-    $x_{[n]}$ & $x$ at the sample $n$ \\
-    $\mathbf{A}, \mathbf{B}, \mathbf{x}$ & LTI system matrix, input matrix and input vector\\
+    $\mathbf{y} = \mathbf{A}\mathbf{x}$ & matrix-vector product of matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ and vector $\mathbf{x} \in \mathbb{R}^n$ \\
+    $\mathbf{C} = \mathbf{A}\mathbf{B}$ & matrix product of matrix $\mathbf{A} \in \mathbb{R}^{m \times n}$ and matrix $\mathbf{B} \in \mathbb{R}^{n \times p}$ \\
+    % $\mathbf{I}$ & identity matrix \\
+    % $x = \mathbf{a}^\intercal\mathbf{b}$ & inner product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$\\
+    % $\mathbf{x} = \mathbf{a}\times\mathbf{b}$ & cross product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$\\
+    % $\mathbf{x} = \mathbf{a}\circ\mathbf{b}$ & element-wise product of $\mathbf{a}$, $\mathbf{b}$ $\in \mathbb{R}^3$ \\
+    % $\mathbf{x}_{(n)}$ = $\mathbf{x}^\intercal\mathbf{\hat{e}}_n$ & $\mathrm{n}^{\mathrm{th}}$ vector element (row), $\mathbf{x}, \mathbf{e} \in \mathbb{R}^3$\\
+    % $\mathbf{X}_{(a,b)}$ & matrix element, (row, column)\\
+    % $x_{d}$ & $x_d$ is \emph{desired}, a reference\\
+    $s = \mathbf{a} \cdot \mathbf{b}$ & dot product (scalar product) of $\mathbf{a}, \mathbf{b} \in \mathbb{R}^n$ \\
+    $\dot{x}$ & ${1^{\mathrm{st}}}$ time derivative of $x$\\
+    % $x_{[n]}$ & $x$ at the sample $n$ \\
+    % $\mathbf{A}, \mathbf{B}, \mathbf{x}$ & LTI system matrix, input matrix and input vector\\
     \emph{SO(3)} & 3D special orthogonal group of rotations\\
-    \emph{SE(3)} & \emph{SO(3)}~$\times~\mathbb{R}^3$, special Euclidean group\\
+    $\mathbf{R}_x, \mathbf{R}_y, \mathbf{R}_z$ & rotation matrices about the x, y, and z axes, $\mathbf{R}_x, \mathbf{R}_y, \mathbf{R}_z \in \mathrm{SO}(3)$ \\
+    % \emph{SE(3)} & \emph{SO(3)}~$\times~\mathbb{R}^3$, special Euclidean group\\
   \end{tabular}
   \noindent\rule{\textwidth}{0.5pt}
   \caption{Mathematical notation, nomenclature and notable symbols.}
