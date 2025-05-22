@@ -24,7 +24,7 @@
                 Forests are inherently cluttered with numerous static obstacles (trees, trunks, branches) and potentially dynamic ones (animals, leafs, falling branches). 
                 The navigation system must be capable of perceiving these obstacles in real-time and planning safe paths around them without prior knowledge of their exact layout.
             \end{enumerate}
-            Therefore, the core problem is to develop and validate a robust autonomous navigation system that allows a \ac{UAV} to reliably traverse between specified points in a cluttered, GNSS-denied forest environment using only onboard sensing and computation.
+            Therefore, the core problem is to develop and validate a robust autonomous navigation system that allows a \ac{UAV} to reliably traverse between specified points in a cluttered, \ac{GNSS}-denied forest environment using only onboard sensing and computation.
 
         \subsection{Objectives}
             The primary objectives within this chapter are: 
@@ -78,6 +78,12 @@
                 \item \textbf{Interference with Other LiDARs} -- \ac{LiDAR} sensors can experience interference when multiple units are used nearby, potentially leading to faulty measurements.
             \end{itemize}
 
+            Despite these challenges, \ac{LiDAR} was selected as the primary perception sensor due to its ability to provide a high density of precise 3D points at a fast rate, which is highly beneficial for real-time navigation.
+            Limitations such as a restricted \ac{FOV} can often be addressed through software strategies or usage of multiple sensors. 
+            While power consumption is a factor, it was manageable for the experiments. 
+            Furthermore, sensor noise is effectively reduced by robust state estimation packages like \ac{Point-LIO} \cite{point_lio_paper}, and even potential interference between \ac{LiDAR}s is increasingly addressed by manufacturers \cite{livox_mid360}. 
+            Thus, for the objectives of this thesis requiring accurate spatial data, \ac{LiDAR}'s strengths were outweighted its manageable limitations.
+
         \subsection{Point Cloud Data Acquisition}
             \ac{LiDAR} sensors determine object distances by emitting laser pulses and measuring the time it takes for the reflected light to return. 
             This process, known as \ac{ToF}, involves scanning the environment with laser beams directed at varying horizontal and vertical angles. 
@@ -114,7 +120,7 @@
             Key characteristics of \ac{Point-LIO} include:
             \begin{itemize}
                 \item \textbf{Point-by-Point Processing: } \\
-                    Unlike methods that accumulate LiDAR points into frames (scans) before processing, \ac{Point-LIO} updates the system's state with each individual \ac{LiDAR} point measurement as it arrives. 
+                    Unlike methods that accumulate \ac{LiDAR} points into frames (scans) before processing, \ac{Point-LIO} updates the system's state with each individual \ac{LiDAR} point measurement as it arrives. 
                     This point-wise solution allows for extremely high-frequency odometry output that typically ranges from 4 to 8 kHz.
                 \item \textbf{Motion Distortion Removal: } \\ 
                     By processing points at their true sampling times, \ac{Point-LIO} fundamentally eliminates the in-frame motion distortion that often affects frame-based systems, especially during fast movements.
@@ -138,7 +144,7 @@
             % The resulting map is represented as a voxel grid, which is then used by the \ac{RBL} algorithm for navigation planning.
 
             Initially, an approach involving surface reconstruction from this voxel data was investigated. 
-            This involved estimating surface normals from the point cloud combined with the Greedy Projection Triangulation (GP3) method from the PCL library to generate a polygonal mesh approximating the environment's surface.
+            This involved estimating surface normals from the point cloud combined with the Greedy Projection Triangulation (GP3) method from the \ac{PCL} library to generate a polygonal mesh approximating the environment's surface.
             While this method could produce a relatively accurate surface representation, it turned out to be computationally expensive and too slow for real-time execution on the \ac{UAV}'s onboard computer.
 
             Due to these limitations, the surface reconstruction approach was abandoned. 
@@ -160,7 +166,7 @@
             First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
             This can be achieved by considering the scaling parameter $\eta$.
             A voxel is considered relevant if it lies within a radius of $\frac{r_s}{\eta}$ of the agent.
-            For each discrete point in the cell $\mathcal{S}$, the nearest voxel is identified using a k-d tree algorithm from the PCL library \cite{kd_tree}.
+            For each discrete point in the cell $\mathcal{S}$, the nearest voxel is identified using a k-d tree algorithm from the \ac{PCL} library \cite{kd_tree}.
             Because the found point is the voxel's center, the closest point within that voxel's boundaries is calculated to accurately partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
 
             Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$ is computed as: 
@@ -212,7 +218,7 @@
             However, the map information from areas outside the current \ac{FOV} can still be valuable. 
 
             Therefore, the following constraint is introduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathcal{A}}$ and moves towards the centroid only when the centroid is positioned within a $\pm \frac{\pi}{4}$ rad angular range from the direction the \ac{LiDAR} is tilted towards (the \ac{UAV}'s x-axis).
-            This $\frac{\pi}{2}$ rad forward sector for movement is determined by the \ac{UAV}'s physical structure, specifically to prevent the \ac{UAV} from moving into areas where mounting rods for GPS obstruct active sensing.
+            This $\frac{\pi}{2}$ rad forward sector for movement is determined by the \ac{UAV}'s physical structure, specifically to prevent the \ac{UAV} from moving into areas where mounting rods for \ac{GPS} obstruct active sensing.
 
             To integrate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
             Let $\mathbf{e}_z$ be a unit vector along the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
@@ -223,9 +229,8 @@
             \begin{equation}
                 \mathbf{n}_2 = R_{rpy} R_{y}(\gamma - \alpha) \mathbf{e}_z  \text{,}
             \end{equation}
-            where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the mounting angle of the \ac{LiDAR}.
-
-            Cell $\mathcal{S}$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
+            where $\alpha$ is the \ac{LiDAR}'s \ac{FOV} and $\gamma$ is the mounting angle of the \ac{LiDAR}, and $R_{rpy} = R_x(\text{roll})R_y(\text{pitch})R_z(\text{yaw})$.
+            Cell $\mathcal{S}_i$ is then modified by excluding points that lie outside the \ac{LiDAR}'s \ac{FOV}, defined by these two planes: 
 
             \begin{equation}
                 \mathcal{S}_i' = \{ \mathbf{q} \in \mathcal{S}_i \mid \mathbf{n}_1 \cdot (\mathbf{q} - \mathbf{p}_{L}) \geq 0 \land \mathbf{n}_2 \cdot (\mathbf{q} - \mathbf{p}_{L}) \leq 0 \}\text{,}
@@ -256,7 +261,7 @@
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/cell_a_sliced_with_planes.png}
                 \caption{
-                    Rviz visualization of LiDAR field-of-view (FOV) planes. The \ac{UAV} is represented by the XYZ coordinate axes. 
+                    Rviz visualization of \ac{LiDAR} \ac{FOV} planes. The \ac{UAV} is represented by the XYZ coordinate axes. 
                     The green squares represent the two planes, defined by normal vectors $\mathbf{n}_1$ and $\mathbf{n}_2$, used to slice cell $\mathcal{S}_i$ and determine the modified cell $\mathcal{S}_i'$.
                     The red sphere represents the centroid $\mathbf{c}_{\mathcal{A}_i}$.
                 }
@@ -378,7 +383,7 @@
 
             Additional simulations directly compared the 2D and extended 3D \ac{RBL} algorithms in the static forest. 
             These results confirmed that \ac{UAV}s using the 3D \ac{RBL} were capable of consistently reaching the goal by exploring vertical dimensions, navigating above or below tree crowns. 
-            The 2D \ac{RBL}, however, sometimes failed by becoming stuck between these obstacles.
+            The 2D \ac{RBL}, on the other hand, failed by getting stuck between the obstacles.
             \begin{table}[H]
                 \centering
                 \renewcommand{\arraystretch}{1.2}
@@ -413,8 +418,8 @@
                 \item \textbf{UAV Platform: } \\
                     % A custom-built multirotor \ac{UAV} from the MRS group was used for this experiment X500. 
                     A custom-built multirotor \ac{UAV} from the \ac{MRS} group, the X500, was used for these experiments.
-                    It was equipped with LiDAR mounted on top for environmental perception and state estimation.
-                    While other sensors like GPS (unreliable in the forest), a Garmin altimeter, and barometer were present on the platform, they were not used.
+                    It was equipped with \ac{LiDAR} mounted on top for environmental perception and state estimation.
+                    While other sensors like \ac{GPS} (unreliable in the forest), a Garmin altimeter, and barometer were present on the platform, they were not used.
                 % \item \textbf{Experimental Procedure: } \\
                 %     Each experimental run followed a defined procedure. 
                 %     First, the necessary software components were launched within a tmux session on the ground. 
@@ -441,7 +446,7 @@
 
             \begin{figure}[htbp]
                 \centering
-                \includegraphics[width=0.48\textwidth]{./fig/rviz/deadlock_moment_mapping_gray.png}
+                \includegraphics[width=0.96\textwidth]{./fig/rviz/deadlock_moment_mapping_gray.png}
                 \caption{
                     Visualization of a moment where the \ac{UAV} incorrectly mapped leaves as obstacles directly in its path. 
                 }

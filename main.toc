@@ -11,7 +11,7 @@
 \contentsline {section}{\numberline {2.2}Basic principles of Rule-Based Lloyd Algorithm}{4}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Overview}{4}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Applications and Limitations in 2D}{4}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Key Principles in 2D}{4}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.3}Key Principles in 2D}{5}{subsection.2.2.3}%
 \contentsline {section}{\numberline {2.3}Extension of the RBL algorithm to 3D}{7}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Motivation for 3D Extension}{7}{subsection.2.3.1}%
 \contentsline {subsection}{\numberline {2.3.2}Differences between 2D and 3D}{7}{subsection.2.3.2}%
@@ -34,9 +34,9 @@
 \contentsline {section}{\numberline {3.2}LiDAR-Based Perception and Point Cloud Processing}{18}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Overview of LiDAR for UAV Navigation}{18}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Point Cloud Data Acquisition}{19}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{19}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}Preprocessing Techniques}{20}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Point-LIO State Estimation}{20}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Bonxai Mapping}{20}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.5}Bonxai Mapping}{21}{subsection.3.2.5}%
 \contentsline {subsection}{\numberline {3.2.6}Voxel-Based Modification of Cell $\mathcal {A}$}{21}{subsection.3.2.6}%
 \contentsline {section}{\numberline {3.3}Implementation and Integration on UAV}{22}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Challenges in Integration}{22}{subsection.3.3.1}%
@@ -45,8 +45,8 @@
 \contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{25}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{26}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{26}{subsection.3.4.4}%
-\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{28}{subsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{28}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{27}{subsection.3.4.5}%
+\contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{29}{subsection.3.4.6}%
 \contentsline {subsection}{\numberline {3.4.7}Comparison with 2D Baseline}{29}{subsection.3.4.7}%
 \contentsline {subsection}{\numberline {3.4.8}Future Work}{29}{subsection.3.4.8}%
 \contentsline {section}{\numberline {3.5}Conclusion}{30}{section.3.5}%

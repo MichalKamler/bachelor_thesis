@@ -1289,6 +1289,25 @@
     \field{year}{2023}
   \endentry
 
+  \entry{livox_mid360}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=L}{%
+         family={{Livox Technology Company Limited}},
+         familyi={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{L1}
+    \strng{fullhash}{L1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{note}{Accessed: 2025-05-02}
+    \field{title}{{Mid-360 LiDAR Sensor}}
+    \verb{url}
+    \verb https://www.livoxtech.com/mid-360
+    \endverb
+    \field{year}{2023}
+  \endentry
+
   \entry{lidar_how_works}{article}{}
     \name{author}{4}{}{%
       {{hash=LN}{%
@@ -1419,25 +1438,6 @@
     \verb{url}
     \verb https://pointclouds.org/documentation/classpcl_1_1_kd_tree.html
     \endverb
-  \endentry
-
-  \entry{livox_mid360}{misc}{}
-    \name{author}{1}{}{%
-      {{hash=L}{%
-         family={{Livox Technology Company Limited}},
-         familyi={L\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{L1}
-    \strng{fullhash}{L1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{note}{Accessed: 2025-05-02}
-    \field{title}{{Mid-360 LiDAR Sensor}}
-    \verb{url}
-    \verb https://www.livoxtech.com/mid-360
-    \endverb
-    \field{year}{2023}
   \endentry
 
   \entry{TRLO_good_mapping}{misc}{}

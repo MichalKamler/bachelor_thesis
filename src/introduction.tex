@@ -22,7 +22,7 @@ Subsequently, it focuses on actual implementation on a single \ac{UAV} of the pr
 
 \section{Related Works}
 
-  This research primarily addresses multi-agent coordination and autonomous UAV navigation in complex environments. 
+  This research primarily addresses multi-agent coordination and autonomous \ac{UAV} navigation in complex environments. 
   This section briefly reviews key literature to contextualize the thesis.
   \subsection{Foundational Work}
     This thesis directly extends the \ac{RBL} algorithm presented in \cite{rbl_paper}. 
@@ -67,17 +67,17 @@ Subsequently, it focuses on actual implementation on a single \ac{UAV} of the pr
         This involves the challenge of designing rules that effectively manage the vertical dimension without compromising the scalability and deadlock-avoidance properties of the foundational algorithm.
       \end{itemize}
     \item \textbf{Transitioning Navigation Algorithms to Complex, GNSS-Denied Real-World Environments: } \\
-      Another challenge lies in applying navigation algorithms to \ac{UAV}s operating in complex, unstructured, and GNSS-denied environments, such as dense forests. 
+      Another challenge lies in applying navigation algorithms to \ac{UAV}s operating in complex, unstructured, and \ac{GNSS}-denied environments, such as dense forests. 
       For successful operation in these settings, \ac{UAV}s must effectively perceive their surroundings, accurately estimate their own state, and adequately represent the environment.
       \begin{itemize}
         \item \textbf{Problem 2: } \\
-        Given a single \ac{UAV} equipped with sensors like \ac{LiDAR}, operating in a cluttered, GNSS-denied environment (e.g., a forest), the problem is to enable reliable autonomous point-to-point navigation. 
+        Given a single \ac{UAV} equipped with sensors like \ac{LiDAR}, operating in a cluttered, \ac{GNSS}-denied environment (e.g., a forest), the problem is to enable reliable autonomous point-to-point navigation. 
         This requires not only a suitable 3D navigation algorithm (such as an extension of \ac{RBL}) but also its effective integration with real-time sensor data processing for obstacle detection and accurate state estimation, all while addressing additional challenge of navigating with anisotropic onboard sensors and their inherent limitations (e.g., restricted fields of view).
       \end{itemize}
   \end{enumerate}
 
 \section{Contributions}
-  This thesis presents four key contributions to the field of autonomous \ac{UAV} navigation and multi-agent coordination.
+  This thesis presents three key contributions to the field of autonomous \ac{UAV} navigation and multi-agent coordination.
   \begin{itemize}
     \item Extension of the \ac{RBL} algorithm to three dimensions, development of new rules to enhance multi-\ac{UAV} coordination and efficiency in 3D space.
     % \item Extension of the \ac{RBL} algorithm to three dimensions.
