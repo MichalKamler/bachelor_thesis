@@ -46,7 +46,7 @@
 \contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{26}{subsection.3.4.3}%
 \contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{26}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{28}{subsection.3.4.5}%
-\contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{29}{subsection.3.4.6}%
+\contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{28}{subsection.3.4.6}%
 \contentsline {subsection}{\numberline {3.4.7}Comparison with 2D Baseline}{29}{subsection.3.4.7}%
 \contentsline {subsection}{\numberline {3.4.8}Future Work}{29}{subsection.3.4.8}%
 \contentsline {section}{\numberline {3.5}Conclusion}{30}{section.3.5}%

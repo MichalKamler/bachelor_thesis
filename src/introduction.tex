@@ -3,21 +3,22 @@
 \chapter{Introduction\label{chap:introduction}}
 The field of robotics has witnessed transformative advancements in recent decades, with \ac{UAVs} emerging as particularly versatile platforms. 
 Their applications are rapidly expanding beyond traditional open-sky operations (agricultural surveying \cite{agricultural_survey}, powerline inspection \cite{powerline_inspection}, photogrammetry \cite{photogrammetry}) into increasingly complex scenarios, underscoring a significant trend towards autonomy. 
-This growing relevance is highlighted by initiatives ranging from commercial use cases, such as Amazon's exploration of \ac{UAV}s for package delivery and return services \cite{InsiderIntelligence_DroneDelivery}, to pioneering scientific missions like 
+This growing relevance is highlighted by initiatives ranging from commercial use cases, such as Amazon's development of \ac{UAV}s for package delivery and return services \cite{InsiderIntelligence_DroneDelivery}, to pioneering scientific missions like 
   the Ingenuity helicopter's collaboration with the Perseverance rover on Mars \cite{NASA_Ingenuity}, which demonstrated the potential of aerial robotic support in extraterrestrial exploration.
 
 However, the widespread and effective deployment of \ac{UAV}s, particularly in coordinated multi-agent systems and challenging environments, presents substantial research challenges. 
 One critical area is multi-robot coordination, which requires robust methods for agents to perceive and react to each other efficiently. 
 While distributed swarms can achieve scalability even with explicit communication, for instance, through the implementation of ad-hoc networks, developing strategies that minimize dependence on such communication is important. 
-This is because communication channels are often prone to unreliability, including delays, failures, and packet losses, which can decrease performance.
+This is because communication channels are often prone to unreliability, including delays, failures, and packet losses, which can decrease performance or even compromise safety
 Simultaneously, autonomous navigation in complex, unstructured environments, often characterized by the absence or unreliability of \ac{GNSS} signals, remains a significant barrier.
 
 Addressing these navigational challenges often involves advanced perception systems. 
 \ac{LiDAR} technology offers distinct advantages in providing accurate and fast spatial data compared to alternatives like depth cameras or computationally expensive neural network-based depth estimation from monocular images. 
-While the precise real-time state estimation of the \ac{UAV} within such \ac{GNSS}-denied environments is a complex problem in itself (often addressed by dedicated \ac{SLAM} algorithms, which are utilized as existing tools in this work rather than being a primary research focus), the ability to perceive and navigate through these cluttered spaces is the main objective. 
+While the precise real-time state estimation of the \ac{UAV} within such \ac{GNSS}-denied environments is a complex problem in itself (often addressed by dedicated \ac{SLAM} algorithms, which are utilized as existing tools in this work rather than being a primary research focus), perception and navigation through complex cluttered spaces is the main objective.
 % This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in defined multi-agent scenarios, and subsequently focusing on single \ac{UAV} navigation in complex environments leveraging perceived information from onboard sensors.
-This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in simulated multi-agent scenarios with predefined configurations, such as formations involving multiple \ac{UAV}s crossing in a circular or spherical pattern. 
-Subsequently, it focuses on single \ac{UAV} navigation in complex environments, such as forests, using perceived information from onboard sensors.
+This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in simulated multi-agent scenarios with predefined configurations - such as formations involving multiple \ac{UAV}s crossing in a circular or spherical pattern, first in convex environments (e.g. without obstacles) then in more complex cluttered scenarios. 
+% Subsequently, it focuses on single \ac{UAV} navigation in complex environments, such as forests, using perceived information from onboard sensors.
+Subsequently, it focuses on actual implementation on a single \ac{UAV} of the proposed algorithm in complex enviroments such as forests, using perceived information from onboard sensors.
 
 \section{Related Works}
 
@@ -66,7 +67,7 @@ Subsequently, it focuses on single \ac{UAV} navigation in complex environments, 
         This involves the challenge of designing rules that effectively manage the vertical dimension without compromising the scalability and deadlock-avoidance properties of the foundational algorithm.
       \end{itemize}
     \item \textbf{Transitioning Navigation Algorithms to Complex, GNSS-Denied Real-World Environments: } \\
-      Beyond theoretical coordination in open spaces, a critical challenge lies in applying navigation algorithms to single \ac{UAV}s operating in complex, unstructured, and GNSS-denied environments, such as dense forests. 
+      Another challenge lies in applying navigation algorithms to \ac{UAV}s operating in complex, unstructured, and GNSS-denied environments, such as dense forests. 
       For successful operation in these settings, \ac{UAV}s must effectively perceive their surroundings, accurately estimate their own state, and adequately represent the environment.
       \begin{itemize}
         \item \textbf{Problem 2: } \\
