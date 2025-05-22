@@ -376,22 +376,21 @@
                 \label{fig:simulated_forest_path}
             \end{figure}
 
-
             Additional simulations directly compared the 2D and extended 3D \ac{RBL} algorithms in the static forest. 
             These results confirmed that \ac{UAV}s using the 3D \ac{RBL} were capable of consistently reaching the goal by exploring vertical dimensions, navigating above or below tree crowns. 
-            The 2D \ac{RBL}, however, sometimes failed by becoming stuck between these same obstacles.
+            The 2D \ac{RBL}, however, sometimes failed by becoming stuck between these obstacles.
             \begin{table}[H]
                 \centering
                 \renewcommand{\arraystretch}{1.2}
                 \begin{tabular}{|c|c|c|c|c|c|}
                 \hline
-                                                    & \( SR \ [\%] \) & \( \overline{L} \ [\mathrm{m}] \) & \( \overline{t} \ [\mathrm{s}] \) & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \)  &   \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
-                \ac{RBL} 2D                         & 20.00           & 30.27 $\pm$ 0.12                  & 63.46 $\pm$ 0.74                  &  63.46 $\pm$ 0.74                               &  0.48 $\pm$ 0.01                         \\ \hline
-                \ac{RBL} $\text{3D}_{\text{rule}}$  & 100.00          & 28.40 $\pm$ 10.68                 & 50.90 $\pm$ 33.51                 &  99.86 $\pm$ 16.01                              &  0.54 $\pm$ 0.27                         \\ \hline
+                                                    & \( SR \ [\%] \)   & \( \overline{L} \ [\mathrm{m}] \)                & \( \overline{t} \ [\mathrm{s}] \)                & \( \overline{t}_{\text{max}} \ [\mathrm{s}] \)    &   \( \overline{v} \ [\mathrm{m/s}] \)     \\ \hline
+                \ac{RBL} 2D                         & 0.00              & 30.27 $\pm$ 0.12                                 & $\infty$                                         &  $\infty$                                         &  0.00 $\pm$ 0.00                         \\ \hline
+                \ac{RBL} $\text{3D}_{\text{rule}}$  & $\mathbf{100.00}$ & $\mathbf{28.40} \boldsymbol{\pm} \mathbf{10.68}$ & $\mathbf{50.90} \boldsymbol{\pm} \mathbf{33.51}$ &  $\mathbf{99.86} \boldsymbol{\pm} \mathbf{16.01}$ &  $\mathbf{0.54} \boldsymbol{\pm} \mathbf{0.27}$                         \\ \hline
                 \end{tabular}
             \end{table}
 
-            \begin{figure}[H]
+            \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/circular_forest_fail.png}
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/3d_crossing_circle_forest.png}
@@ -440,7 +439,7 @@
                 %     In some instances, this led to the \ac{UAV} perceiving itself as surrounded by obstacles (effectively 'locking' itself), requiring the safety pilot to intervene and land.
             \end{itemize}
 
-            \begin{figure}[H]
+            \begin{figure}[htbp]
                 \centering
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/deadlock_moment_mapping_gray.png}
                 \caption{
@@ -495,7 +494,7 @@
                 \end{tabular}
             \end{table}
 
-            \begin{figure}[H]
+            \begin{figure}[htbp]
                 \centering
                 \subfloat[Conservative flight trajectory] {
                 \includegraphics[width=0.48\textwidth]{./fig/rviz/flight_484.png}

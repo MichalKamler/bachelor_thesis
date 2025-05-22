@@ -79,12 +79,18 @@
         The modified Voronoi cell definition is as follows:
         \begin{equation}
             \label{eqn:voronoi_cell_account_encum}
-            \tilde{V}_i = \{ \mathbf{q} \in Q \mid \mathbf{n}_{\mathbf{p}_j} \cdot (\mathbf{q} - \mathbf{a}_{\mathbf{p}_j}) \leq 0 \} \forall j \in \mathcal{N}_i \text{, }
+            \tilde{V}_i = 
+            \begin{cases}
+                \{ \mathbf{q} \in Q \mid \mathbf{n}_{\mathbf{p}_j} \cdot (\mathbf{q} - \mathbf{a}_{\mathbf{p}_j}) \leq 0 \} & \text{if } \| \mathbf{p}_{i} - \tilde{\mathbf{p}}_{i} \| \leq \| \mathbf{p}_{i} - \tilde{\mathbf{p}}_{j} \| \\
+                \{ \mathbf{q} \in Q \mid \mathbf{n}_{\mathbf{p}_j} \cdot (\mathbf{q} - \mathbf{a}_{\mathbf{p}_j}) \geq 0 \} & \text{otherwise,}
+            \end{cases}
         \end{equation}
+        $\forall j \in \mathcal{N}_i \text{, }$
         where $\mathcal{N}_i$ is set of all neighbors, $\mathbf{n}_{\mathbf{p}_j} = \tilde{\mathbf{p}_{j}} - \tilde{\mathbf{p}_{i}}$ is norm that defines a line, 
         $\mathbf{a}_{\mathbf{p}_{j}} = \eta \ \mathbf{n}_{\mathbf{p}_j} + \tilde{\mathbf{p}_{i}}$ is a point defining line,
-        $\tilde{\mathbf{p}_{i}} = \delta_{i}\frac{\mathbf{p}_{j} - \mathbf{p}_{i}}{\| \mathbf{p}_{j} - \mathbf{p}_{i} \|} + \mathbf{p}_i$ is a point on the agent closest to the neighbor $j$,
-        $\tilde{\mathbf{p}_{j}} = \delta_{j}\frac{\mathbf{p}_{i} - \mathbf{p}_{j}}{\| \mathbf{p}_{i} - \mathbf{p}_{j} \|} + \mathbf{p}_{j}$ is is a point on neighbor closest to the agent $i$,
+        $\tilde{\mathbf{p}_{i}} = \Delta_{i,j}\frac{\mathbf{p}_{j} - \mathbf{p}_{i}}{\| \mathbf{p}_{j} - \mathbf{p}_{i} \|} + \mathbf{p}_i$ is a point on the agent closest to the neighbor $j$,
+        $\tilde{\mathbf{p}_{j}} = \Delta_{i,j}\frac{\mathbf{p}_{i} - \mathbf{p}_{j}}{\| \mathbf{p}_{i} - \mathbf{p}_{j} \|} + \mathbf{p}_{j}$ is a point on neighbor closest to the agent $i$,
+        and $\Delta_{i,j} = \delta_{i} + \delta_{j}$.
         The parameter $\eta$ controls the degree of overlap or empty space between cells.
         Specifically, for the classical Voronoi cell definition ($\eta$ = 0.5 for uniform agent encumbrances), each agent needs to detect its neighbors within a distance of $2r_{s}$.
         In general, each agent needs to know its neighbors within a distance of $\frac{r_s}{\eta}$.
@@ -218,7 +224,7 @@
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/diagrams/Euclidean_Voronoi_diagram.jpg}
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/diagrams/Euclidian Voronoi diagram 3d.png}
             \caption{
-                (a) an example of 20 Voronoi cells in 2D \cite{Voronoi2d} (b) 25 Voronoi cells in 3D \cite{Voronoi3d}
+                Left: An example of 20 Voronoi cells in 2D \cite{Voronoi2d}. Right: 25 Voronoi cells in 3D \cite{Voronoi3d}.
             }
             \label{fig:voronoi_diagrams}
         \end{figure}
@@ -411,8 +417,9 @@
         Additionally, to extend the analysis to 3D and assess the algorithm's performance, a set of spherical formation experiments was conducted with N = 10, also repeated 10 times.
         After each \ac{UAV} was flown from the ground to its starting position, the \ac{RBL} algorithm was activated.    
         
-        The following metrics were measured across the 10 repetitions of each experiment, along with their standard deviations: success rate \( SR \ [\%] \), average trajectory length \( \overline{L} \ [\mathrm{m}] \), 
-        average time to reach the goal \( \overline{t} \ [\mathrm{s}] \), average of the maximal time for \ac{UAV} to reach the goal \( \overline{t}_{\text{max}} \ [\mathrm{s}] \), and average velocity \( \overline{v} \ [\SI{}{\meter\per\second}] \).
+        The following metrics were measured across the 10 repetitions of each experiment, along with their standard deviations: success rate \( SR \ [\%] \), defined as the percentage of simulations where all \ac{UAV}s successfully converged to their goals, 
+        average trajectory length \( \overline{L} \ [\mathrm{m}] \) for those that successfully reached their goal, 
+        average time to reach the goal \( \overline{t} \ [\mathrm{s}] \), average time for last \ac{UAV} to reach the goal \( \overline{t}_{\text{max}} \ [\mathrm{s}] \), and average velocity \( \overline{v} \ [\SI{}{\meter\per\second}] \).
 
         The specific values of the parameters used in the experiments are summarized in the following table \ref{tab:experiment_parameters_combined}:
         % \begin{table}[H]

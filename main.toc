@@ -1,5 +1,4 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {english}{}
+\babel@toc {english}{}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Related Works}{1}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Foundational Work}{1}{subsection.1.1.1}%
@@ -45,7 +44,7 @@
 \contentsline {subsection}{\numberline {3.4.1}Simulation Setup}{24}{subsection.3.4.1}%
 \contentsline {subsection}{\numberline {3.4.2}Performance in Simulated Environments}{25}{subsection.3.4.2}%
 \contentsline {subsection}{\numberline {3.4.3}Real-World Experiments in a Forest Environment}{26}{subsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{27}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.4}Performance in Real-World Experiment}{26}{subsection.3.4.4}%
 \contentsline {subsection}{\numberline {3.4.5}Comparative Analysis}{28}{subsection.3.4.5}%
 \contentsline {subsection}{\numberline {3.4.6}Performance and Limitations}{29}{subsection.3.4.6}%
 \contentsline {subsection}{\numberline {3.4.7}Comparison with 2D Baseline}{29}{subsection.3.4.7}%
