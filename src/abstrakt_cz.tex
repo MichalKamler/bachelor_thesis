@@ -1,4 +1,4 @@
-%!TEX root = ../main.tex
+    %!TEX root = ../main.tex
 
 \begin{changemargin}{0.8cm}{0.8cm}
 
@@ -8,7 +8,23 @@
 \vskip 0.5em
 
 \sloppy
-Výzkum na poli autonomních bezpilotních prostředků (UAV) se stal významným oborem mobilní robotiky.
+% Výzkum na poli autonomních bezpilotních prostředků (UAV) se stal významným oborem mobilní robotiky.
+
+Autonomní bezpilotní prostředky (UAV) stále častěji přecházejí z operací ve volném prostředí do komplexních prostředí, často bez signálu globálního navigačního satelitního systému (GNSS), což představuje významné výzvy pro koordinaci více robotů a autonomní navigaci jednoho robota. 
+Tato práce se těmito problémy zabývá nejprve rozšířením algoritmu Rule-Based Lloyd (RBL) ze dvou do tří dimenzí pro koordinaci více UAV bez nutnosti komunikace. 
+Byla vyvinuta nová pravidla pro řízení vertikálního pohybu a zlepšení efektivity 3D koordinace. 
+Zadruhé, práce zkoumá praktické uplatnění tohoto 3D rozšíření pro navigaci jednoho UAV v náročném lesním prostředí s využitím palubního LiDAR sensoru.
+
+Metodika zahrnovala přizpůsobení RBL algorithmu pro 3D prostor a jeho integraci se systémy vnímání v reálném čase. 
+Pro úlohu navigace jednoho robota to zahrnovalo zpracování množiny bodů z LiDARu, odhad stavu pomocí Point-LIO estimace a voxelové mapování prostředí pomocí Bonxai. 
+Byly také vyvinuty strategie pro minimalizaci omezení anizotropních senzorů, jako je omezené zorné pole (FOV) LiDARu. 
+Navržený algoritmus byl hodnocen pomocí rozsáhlých simulací s více agenty a validován experimenty v reálném lesním prostředí s jedním robotem.
+
+Simulace potvrdily úspěšné 3D rozšíření algoritmu RBL a prokázaly efektivní koordinaci více robotů. 
+Experimenty v reálném světě ověřily schopnost systému založeného na 3D RBL pro autonomní navigaci z bodu do bodu v lese. 
+Byla však identifikována omezení, zejména ve způsobu, jakým mapovací systém zpracovával dynamické prvky prostředí, což občas vedlo k selhání navigace.
+
+
 
 \vskip 1em
 
