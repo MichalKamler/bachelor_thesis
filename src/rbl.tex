@@ -55,7 +55,7 @@
         Each agent knows its current position $\mathbf{p}_i$, encumbrance $\delta_i$, which determines the safe space around the agent.
         % Additionally, each agent knows the positions and encumbrances of its neighboring agents.
         % An agent $j$ is considered a neighbor of agent $i$ if
-        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, an agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq \frac{r_{s,i}}{\eta}$, where $r_{s,i}$ is radius cell $\mathcal{S}_i$ of the $i$-th agent and $\eta$ is a scaling parameter of cells, as demonstrated in Equation \eqref{eqn:voronoi_cell_account_encum}.
+        Additionally, each agent also knows the positions and encumbrances of its neighboring agents $\mathbf{\mathcal{N}_i}$, an agent $j \in \mathbf{\mathcal{N}_i}$ if $||\mathbf{p}_i - \mathbf{p}_j|| \leq \frac{r_{s,i}}{\eta}$, where $r_{s,i}$ is radius of cell $\mathcal{S}_i$ of the $i$-th agent and $\eta$ is a scaling parameter of cells, as demonstrated in Equation \eqref{eqn:voronoi_cell_account_encum}.
         For simplicity $r_{s,i}$ is considered to be the same for all agents, therefore $r_{s,i} = r_s$. 
 
         The core objective of the algorithm is to minimize the coverage cost function, which accounts for the distribution of agents and obstacles over the environment. 
@@ -89,11 +89,11 @@
         $\forall j \in \mathcal{N}_i \text{, }$
         where $\mathcal{N}_i$ is set of all neighbors, $\mathbf{n}_{\mathbf{p}_j} = \tilde{\mathbf{p}}_{j} - \tilde{\mathbf{p}}_{i}$ is norm that defines a line, 
         $\mathbf{a}_{\mathbf{p}_{j}} = \eta \ \mathbf{n}_{\mathbf{p}_j} + \tilde{\mathbf{p}}_{i}$ is a point defining line,
-        $\tilde{\mathbf{p}}_{i} = \Delta_{i,j}\frac{\mathbf{p}_{j} - \mathbf{p}_{i}}{\| \mathbf{p}_{j} - \mathbf{p}_{i} \|} + \mathbf{p}_i$ is a point on the agent closest to the neighbor $j$,
-        $\tilde{\mathbf{p}}_{j} = \Delta_{i,j}\frac{\mathbf{p}_{i} - \mathbf{p}_{j}}{\| \mathbf{p}_{i} - \mathbf{p}_{j} \|} + \mathbf{p}_{j}$ is a point on neighbor closest to the agent $i$,
+        $\tilde{\mathbf{p}}_{i} = \Delta_{i,j}\frac{\mathbf{p}_{j} - \mathbf{p}_{i}}{\| \mathbf{p}_{j} - \mathbf{p}_{i} \|} + \mathbf{p}_i$ is a point on the agent's safe space closest to the neighbor $j$,
+        $\tilde{\mathbf{p}}_{j} = \Delta_{i,j}\frac{\mathbf{p}_{i} - \mathbf{p}_{j}}{\| \mathbf{p}_{i} - \mathbf{p}_{j} \|} + \mathbf{p}_{j}$ is a point on neighbor's safe space closest to the agent $i$,
         and $\Delta_{i,j} = \delta_{i} + \delta_{j}$.
         The parameter $\eta$ controls the degree of overlap or empty space between cells.
-        Specifically, for the classical Voronoi cell definition ($\eta$ = 0.5 for uniform agent encumbrances), each agent needs to detect its neighbors within a distance of $2r_{s}$.
+        Specifically, for the classical Voronoi cell definition ($\eta$ = 0.5 for uniform agent encumbrances).%, each agent needs to detect its neighbors within a distance of $2r_{s}$.
         In general, each agent needs to know its neighbors within a distance of $\frac{r_s}{\eta}$.
 
         % where $\mathbf{n}_{\mathbf{p}_j} = \tilde{\mathbf{p}_{j}} - \tilde{\mathbf{p}_{i}}$ is norm defining a plane
@@ -218,7 +218,7 @@
         The primary distinction in the 3D extension is that each goal region is now represented as a sphere rather than a circle.  
         Similarly, the sensing cell $\mathcal{S}_i$ is also modeled as a sphere instead of a circle, allowing for a more accurate representation of the \ac{UAV}'s perception in three-dimensional space.  
         This change introduces a key modification when defining $\tilde{V}_i$.
-        While in the 2D case, a line was sufficient to slice the sensing region, whereas in 3D, a plane must be computed to properly segment the spherical sensing cell. 
+        While in the 2D case, a line was sufficient to slice the sensing region, whereas in 3D, a plane must be computed to properly segment the spherical sensing cell \eqref{eqn:voronoi_cell_account_encum}. 
         
         \begin{figure}[H]
             \centering
@@ -274,8 +274,8 @@
         For vertical rotation angle $\phi$, the following condition is introduced
         \begin{equation}
             \label{eqn:phi_condition}
-            \Omega = (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_z < d_6) \land (\|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_z) \lor 
-            (| \|\mathbf{p}_i - \mathbf{c}_{\mathcal{S}_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} | > d_7 ) \text{.}
+            \Omega = \big( (\|\mathbf{c}_{\mathcal{A}_i} - \mathbf{c}_{\mathcal{S}_i}\|_z > d_5) \land (\|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_z < d_6) \big) \lor 
+            \big( \big| \|\mathbf{p}_i - \mathbf{c}_{\mathcal{S}_i}\|_{xy} - \|\mathbf{p}_i - \mathbf{c}_{\mathcal{A}_i}\|_{xy} \big| > d_7 \big) \text{.}
         \end{equation}
         This condition has two main parts. The first part evaluates the vertical displacement of the centroid of the partitioned cell $\mathbf{c}_{\mathcal{A}_i}$ from the centroid of the sensing cell $\mathbf{c}_{\mathcal{S}_i}$ and the
         displacement of the agents position $\mathbf{p}_i$ from $\mathbf{c}_{\mathcal{A}_i}$.
@@ -379,7 +379,7 @@
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/rviz/cs_equal_ca.png}
             \includegraphics[width=0.48\textwidth, height=0.48\textwidth]{./fig/rviz/ca_partitioned.png}
             \caption{
-                Discrete approximation of Voronoi cells, with centroid $\mathbf{c}_{\mathcal{A}}$ shown as a red dot.(a) Example where the partitioned cell $\mathcal{A}$ and the sensing cell $\mathcal{S}$ are the same. (b) Example where the partitioned cell $\mathcal{A}$ is partitioned by other \ac{UAV}s.
+                Discrete approximation of Voronoi cells, with centroid $\mathbf{c}_{\mathcal{A}}$ shown as a red dot. Left: Example where the partitioned cell $\mathcal{A}$ and the sensing cell $\mathcal{S}$ are the same. Right: Example where the partitioned cell $\mathcal{A}$ is partitioned by other \ac{UAV}s.
             }
             \label{fig:rviz_cells}
         \end{figure}
@@ -635,7 +635,7 @@
             \item \textbf{Real-World Multi-Agent Testing: } \\
             While the subsequent chapter explores single-agent navigation in a real forest, the multi-agent coordination aspects of the 3D \ac{RBL} algorithm lack real-world validation. 
             Initial plan to conduct such tests was set back by practical challenges, including the lack of full $360^{\circ} \cdot 180^{\circ}$ sensor coverage, which resulted in blind spots, particularly above and below the \ac{UAV}.
-            Specifically, hardware limitations on the \ac{MRS} \ac{UAV} for swarming \cite{robofly}, including emitter and camera placement that created blind spots (especially directly above and below), restricting the UVDAR system \cite{uvdar_package} from providing the complete spherical coverage needed for 3D coordination experiments.
+            Specifically, hardware limitations on the \ac{MRS} \ac{UAV} for swarming \cite{robofly}, including emitter and camera placement that created these blind spots, restricting the UVDAR system \cite{uvdar_package} from providing the complete spherical coverage needed for 3D coordination experiments.
             Resolving these hardware and sensing limitations to facilitate robust multi-agent 3D experiments remains a key step for future research.
             Constraining \ac{UAV}s to a defined vertical region using $Z_{\text{clipping}}$ offers another potential approach to partially address this sensor coverage issue.
             \item \textbf{Parameter Tuning using Reinforcement Learning: } \\

@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 3.2 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -1051,7 +1051,7 @@
     \strng{fullhash}{KM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Drone Forest Navigation – Aggressive Parameters (Best
+    \field{title}{Drone Forest Navigation - Aggressive Parameters (Best
   Performance)}
     \verb{url}
     \verb https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler
@@ -1093,8 +1093,7 @@
     \strng{fullhash}{KM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{title}{Drone Forest Navigation – Mapping Failure (Remapping
-  Error)}
+    \field{title}{Drone Forest Navigation - Mapping Failure (Remapping Error)}
     \verb{url}
     \verb https://www.youtube.com/watch?v=JVmW0qfwP3c&ab_channel=MichalKamler
     \endverb

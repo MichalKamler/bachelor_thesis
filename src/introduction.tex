@@ -9,11 +9,11 @@ This growing relevance is highlighted by initiatives ranging from commercial use
 However, the widespread and effective deployment of \ac{UAV}s, particularly in coordinated multi-agent systems and challenging environments, presents substantial research challenges. 
 One critical area is multi-robot coordination, which requires robust methods for agents to perceive and react to each other efficiently. 
 While distributed swarms can achieve scalability even with explicit communication, for instance, through the implementation of ad-hoc networks, developing strategies that minimize dependence on such communication is important. 
-This is because communication channels are often prone to unreliability, including delays, failures, and packet losses, which can decrease performance or even compromise safety
+This is because communication channels are often prone to unreliability, including delays, failures, and packet losses, which can decrease performance or even compromise safety.
 Simultaneously, autonomous navigation in complex, unstructured environments, often characterized by the absence or unreliability of \ac{GNSS} signals, remains a significant barrier.
 
 Addressing these navigational challenges often involves advanced perception systems. 
-\ac{LiDAR} technology offers distinct advantages in providing accurate and fast spatial data compared to alternatives like depth cameras or computationally expensive neural network-based depth estimation from monocular images. 
+\ac{LiDAR} technology offers advantages in providing accurate and fast spatial data compared to alternatives like depth cameras or computationally expensive neural network-based depth estimation from monocular images. 
 While the precise real-time state estimation of the \ac{UAV} within such \ac{GNSS}-denied environments is a complex problem in itself (often addressed by dedicated \ac{SLAM} algorithms, which are utilized as existing tools in this work rather than being a primary research focus), perception and navigation through complex cluttered spaces is the main objective.
 % This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in defined multi-agent scenarios, and subsequently focusing on single \ac{UAV} navigation in complex environments leveraging perceived information from onboard sensors.
 This thesis explores several challenges by first investigating approaches for \ac{UAV} coordination in simulated multi-agent scenarios with predefined configurations - such as formations involving multiple \ac{UAV}s crossing in a circular or spherical pattern, first in convex environments (e.g. without obstacles) then in more complex cluttered scenarios. 
@@ -32,7 +32,7 @@ Subsequently, it focuses on actual implementation on a single \ac{UAV} of the pr
   \subsection{Multi-Agent Coordination and Navigation Approaches}
     Enabling multiple robots to navigate and coordinate effectively is a significant challenge that has led to a variety of research directions.
     A fundamental distinction lies in the system's architecture: centralized approaches rely on a global controller for optimal, system-wide decisions, often suitable for structured settings like warehouses \cite{warehouse_intro}, but face scalability and communication bottlenecks.
-    In contrast, distributed or distributed methods allow individual agents to make decisions based on local information.
+    In contrast, distributed methods allow individual agents to make decisions based on local information.
     This approach generally improves scalability, but do not provide an optimal solution for each agent. 
     Distributed methods can be further categorized into three main types: 
     \begin{itemize}

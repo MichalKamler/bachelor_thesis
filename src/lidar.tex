@@ -31,9 +31,9 @@
             \begin{itemize}
                 \item \textbf{Integrate the \ac{RBL} with Onboard Sensing: } \\
                     Adapt the core of the \ac{RBL} to utilize real-time sensor data. 
-                    This includes modifications to sensing cell $\mathcal{S}$ due to the introduction of an anisotropic sensor. 
+                    This includes modifications to sensing cell $\mathcal{S}_i$ due to the introduction of an anisotropic sensor. 
                     % This includes modification of sensing cell $\mathcal{S}$, because used \ac{LiDAR} doesnt see in all directions. 
-                    The sensing cell needs to remain convex so the centroid computed from partitioned cell $\mathcal{A}$ remains within the set, to guarantee a safe \ac{UAV} motion.
+                    The sensing cell needs to remain convex so the centroid computed from partitioned cell $\mathcal{A}_i$ remains within the set, to guarantee a safe \ac{UAV} motion.
                 \item \textbf{Process Point Cloud Data: } \\
                     Implement necessary filtration to refine the raw point cloud data acquired from the \ac{LiDAR}.
                 \item \textbf{Integrate external packages on the \ac{UAV}: } \\
@@ -161,12 +161,12 @@
                 \label{fig:triangulation}
             \end{figure}
 
-        \subsection{Voxel-Based Modification of Cell $\mathcal{A}$}
-            Given that the size of the voxels is known, this information can be used to refine the partitioning of cell $\mathcal{A}$ by treating voxels as obstacles.
+        \subsection{Voxel-Based Modification of Cell $\mathcal{A}_i$}
+            Given that the size of the voxels is known, this information can be used to refine the partitioning of cell $\mathcal{A}_i$ by treating voxels as obstacles.
             First, it is necessary to determine which voxels are relevant to the \ac{RBL} algorithm.
             This can be achieved by considering the scaling parameter $\eta$.
             A voxel is considered relevant if it lies within a radius of $\frac{r_s}{\eta}$ of the agent.
-            For each discrete point in the cell $\mathcal{S}$, the nearest voxel is identified using a k-d tree algorithm from the \ac{PCL} library \cite{kd_tree}.
+            For each discrete point in the cell $\mathcal{S}_i$, the nearest voxel is identified using a k-d tree algorithm from the \ac{PCL} library \cite{kd_tree}.
             Because the found point is the voxel's center, the closest point within that voxel's boundaries is calculated to accurately partition the cell $\mathcal{A}$ from cell $\mathcal{S}$.
 
             Given a point $\mathbf{p_{\mathcal{S}}}$, the voxel center $\mathbf{v_c}$ and the voxel edge length $\mathbf{e}$, $\mathbf{p}_{\text{closest}}$ is computed as: 
@@ -179,10 +179,10 @@
                 \end{pmatrix}\text{,}
             \end{equation}
             where the function f(x, a, b) constrains the value x to the range [a, b].
-            This constrains $\mathbf{p_{\mathcal{S}}}$ to the voxel boundaries.
+            This constrains $\mathbf{p_{\mathcal{S}_i}}$ to the voxel boundaries.
             
-            Considering the point $\mathbf{p}_{\text{closest}}$ as an obstacle, the sensing cell $\mathcal{S}$ is partitioned to form cell $\mathcal{A}$ using the same procedure as \refeq{eqn:voronoi_cell_account_encum} (considering the closest point as another agent) encumbrance of the obstacle is not needed, because the closest point has been already found.
-            The sensing cell $\mathcal{S}$ is partitioned to form the operational cell $\mathcal{A}$ by treating $\mathbf{p}_{\text{closest}}$ (the nearest point on an obstacle) as an agent and applying the procedure from Equation \eqref{eqn:voronoi_cell_account_encum}, the obstacle's full encumbrance is not required for this step because $\mathbf{p}_{\text{closest}} = \tilde{\mathbf{p}}_{j}$ provides the relevant point for partitioning $\mathcal{A}$, therefore $\delta_j = 0$.
+            Considering the point $\mathbf{p}_{\text{closest}}$ as an obstacle, the sensing cell $\mathcal{S}_i$ is partitioned to form cell $\mathcal{A}_i$ using the same procedure as \refeq{eqn:voronoi_cell_account_encum} (considering the closest point as another agent) encumbrance of the obstacle is not needed, because the closest point has been already found.
+            The sensing cell $\mathcal{S}$ is partitioned to form the operational cell $\mathcal{A}$ by treating $\mathbf{p}_{\text{closest}}$ (the nearest point on an obstacle) as an agent and applying the procedure from Equation \eqref{eqn:voronoi_cell_account_encum}, the obstacle's full encumbrance is not required for this step because $\mathbf{p}_{\text{closest}} = \tilde{\mathbf{p}}_{j}$ provides the relevant point for partitioning $\mathcal{A}_i$, therefore $\delta_j = 0$.
             % This partition involves excluding any point $\mathbf{p_{\mathcal{S}}}$ from  $\mathcal{S}$ if its position relative to the agent $\mathbf{p}_i$ and the obstacle point $\mathbf{p}_{\text{closest}}$ meet condition $\mathcal{A}$ if $ \| \mathbf{p_i} - \mathbf{p_{\mathcal{S}}} \| \leq \eta \cdot \| \mathbf{p_i} - \mathbf{p}_{closest}\|$.
 
             % Using this point we can consider him as an obstacle and partition him out of sensing cell to form cell A. 
@@ -213,14 +213,14 @@
             \end{figure}
 
             In addition to the \ac{LiDAR} mounting angle, a software modification is implemented to account for the \ac{LiDAR}'s limited \ac{FOV}.
-            The algorithm uses the map to partition cell $\mathcal{S}$ into cell $\mathcal{A}$, from which the centroid is computed to guide \ac{UAV} movement.
+            The algorithm uses the map to partition cell $\mathcal{S}_i$ into cell $\mathcal{A}_i$, from which the centroid is computed to guide \ac{UAV} movement.
             To ensure safety, the \ac{UAV} should only move within its visible \ac{FOV}. 
             However, the map information from areas outside the current \ac{FOV} can still be valuable. 
 
             Therefore, the following constraint is introduced - the \ac{UAV} maintains its yaw rotation towards the current centroid $\mathbf{c}_{\mathcal{A}}$ and moves towards the centroid only when the centroid is positioned within a $\pm \frac{\pi}{4}$ rad angular range from the direction the \ac{LiDAR} is tilted towards (the \ac{UAV}'s x-axis).
             This $\frac{\pi}{2}$ rad forward sector for movement is determined by the \ac{UAV}'s physical structure, specifically to prevent the \ac{UAV} from moving into areas where mounting rods for \ac{GPS} obstruct active sensing.
 
-            To integrate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
+            To integrate the \ac{LiDAR}'s \ac{FOV} into cell $\mathcal{S}_i$, two planes are defined based on the \ac{LiDAR}'s mounting configuration and vertical \ac{FOV}.
             Let $\mathbf{e}_z$ be a unit vector along the z-axis, $R_{\gamma} \in SO(3)$ the tilt of the \ac{LiDAR}, and $R_{rpy} \in SO(3)$ the roll-pitch-yaw rotation.
             The normal vectors, $\mathbf{n}_1$ and $\mathbf{n}_2$ defining two planes are given by:
             \begin{equation}
@@ -455,9 +455,9 @@
 
         
         \subsection{Performance in Real-World Experiment}
-            For the real-world experiment I picked 2 flights to describe and one fail flight. 
+            For the real-world experiment I picked 2 flights \cite{aggressive_flight, conservative_flight} to describe and one \href{https://www.youtube.com/watch?v=JVmW0qfwP3c}{fail flight}  \cite{flight_fail}. 
             For these flights the point cloud filtration parameters were set to discard points closer than 1.0 meter (to avoid detecting the \ac{UAV}'s own propellers) and farther than 40 meters.
-            For both flights a video has been created to show the performance \href{https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler}{aggressive flight} \cite{aggressive_flight}, \href{https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler}{conservative flight}\cite{conservative_flight}.
+            For both flights a video has been created to show the performance \href{https://www.youtube.com/watch?v=DFt222gnA_w&ab_channel=MichalKamler}{aggressive flight} \cite{aggressive_flight}, \href{https://www.youtube.com/watch?v=AJPk0yVCPUo&ab_channel=MichalKamler}{conservative flight} \cite{conservative_flight}.
             
             \begin{figure}[htbp]
                 \centering
